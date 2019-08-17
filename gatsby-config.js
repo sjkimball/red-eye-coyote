@@ -20,9 +20,14 @@ module.exports = {
         path: `${__dirname}/data`,
       },
     },
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: `6y7rlog8`,
+        dataset: `production`
+      }
+    },
     `gatsby-transformer-json`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
