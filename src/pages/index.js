@@ -10,16 +10,18 @@ import SEO from "../components/seo"
 export default () => {
   const data = useStaticQuery(graphql`
     {
-      allProjectsJson {
+      allSanityProject {
         edges {
           node {
             title
-            slug
-            description
-            image {
-              childImageSharp {
+            slug {
+              current
+            }
+            project_desc
+            mainImage {
+              asset {
                 fluid {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbySanityImageFluid
                 }
               }
             }
@@ -29,19 +31,20 @@ export default () => {
     }
   `);
 
-    const projects = data.allProjectsJson.edges;
+    const projects = data.allSanityProject.edges;
 
   return(
     <Layout>
       <SEO title="Home" />
       {projects.map(({ node: project }) => {
         const title = project.title;
-        const description = project.description;
-        const slug = project.slug;
-        const imageData = project.image.childImageSharp.fluid;
-
+        const description = project.project_desc;
+        const slug = project.slug.current;
+        const imageData = project.mainImage.asset.fluid;
+        
         return (
           <ProjectPreview
+            key={slug}
             title={title}
             description={description}
             slug={slug}
