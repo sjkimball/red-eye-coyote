@@ -18,30 +18,31 @@ export default {
 			}
 		},
 		{
+			name: 'disciplines',
+			title: 'Disciplines',
+			type: 'array',
+			of: [{type: 'reference', to: {type: 'discipline'}}]
+		},
+		{
+			name: 'project_summary',
+			title: 'Project Summary',
+			type: 'text'
+		},
+		{
 			name: 'mainImage',
 			title: 'Main Image',
-			type: 'image',
-			options: {
-				hotspot: true
-			}
+			type: 'reference',
+			to: [
+				{
+					type: 'customImage'
+				}
+			]
 		},
-		{
-			name: 'categories',
-			title: 'Categories',
-			type: 'array',
-			of: [{type: 'reference', to: {type: 'category'}}]
-		},
-		{
-			name: 'project_desc',
-			title: 'Project Description',
-			type: 'text'
-		}
 	],
 
 	preview: {
 		select: {
 			title: 'title',
-			media: 'mainImage'
 		}
 	}
 }
