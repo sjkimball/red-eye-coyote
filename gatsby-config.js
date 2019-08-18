@@ -27,7 +27,6 @@ module.exports = {
         dataset: `production`
       }
     },
-    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
