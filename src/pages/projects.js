@@ -35,7 +35,7 @@ export default () => {
 
   return(
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Projects" />
       {projects.map(({ node: project }) => {
         const title = project.title;
         const description = project.project_desc;
