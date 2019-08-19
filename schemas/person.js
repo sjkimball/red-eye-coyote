@@ -1,6 +1,6 @@
 export default {
-  name: 'author',
-  title: 'Author',
+  name: 'person',
+  title: 'Person',
   type: 'document',
   fields: [
     {
@@ -24,6 +24,19 @@ export default {
       options: {
         hotspot: true
       }
+    },
+    {
+      name: 'role',
+      title: 'Role',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'role'}
+          ]
+        }
+      ]
     },
     {
       name: 'bio',
