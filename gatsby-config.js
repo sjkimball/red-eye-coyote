@@ -24,7 +24,10 @@ module.exports = {
       resolve: `gatsby-source-sanity`,
       options: {
         projectId: `6y7rlog8`,
-        dataset: `production`
+        dataset: `production`,
+        watchMode: true,
+        overlayDrafts: true,
+        token: `sk21w6Cl9k1qHJ49YUR7YoWP3usFQJGCwXlJqvHw2pObyivrJjYokubm2qHxjE7ABl0DIV2Lts9VWEMJafPIXfIQJI7T566P1sNrIlaUIDIEVORGuo8sPa4P4mRKZEMX1MU6fmqfTGHHiyt16RKfC0czbzp9Xx8dHN3QapHkWP5RtGv7gmUG`
       }
     },
     {
