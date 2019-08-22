@@ -1,42 +1,43 @@
 import React from "react"
-// import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from "../components/layout"
-// import Profile from "../components/profile"
 import SEO from "../components/seo"
+import Profile from "../components/profile"
 
-export default () => {
 
-	//Will need to be updated to accept ID as a prop
-	// const data = useStaticQuery(graphql`
-	// 	{
-	// 		sanityAuthor(_id: {eq: "152444f2-1fdf-4dfd-9e31-9fe3cad1ef05"}) {
-	// 			_id
-	// 			name
-	// 			_rawBio
-	// 			image {
-	// 				asset {
-	// 					fluid {
-	// 						...GatsbySanityImageFluid
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// `);
+const AboutPage = ({data})  => {
 
-	// const name = data.sanityAuthor.name;
-	// const bio = data.sanityAuthor._rawBio;
-	// const imageData = data.sanityAuthor.image.asset.fluid;
+	const bio = data.sanityPerson._rawBio;
+	const name = data.sanityPerson.name;
+	const imageData = data.sanityPerson.image.asset.fluid;
 
 	return(
 		<Layout>
 			<SEO title="About" />
-			{/*<Profile 
+			<Profile 
 				name={name}
 				bio={bio}
 				imageData={imageData}
-				/>*/}
+				/>
 		</Layout>
 	)
-};
+}
+
+export const query = graphql`
+query Person($name: String = "Sam Kimball"){
+	sanityPerson(name: {eq: $name}) {
+		_rawBio
+		image {
+			asset {
+				fluid {
+					...GatsbySanityImageFluid
+				}
+			}
+		}
+		name
+	}
+}
+`
+
+export default AboutPage;
