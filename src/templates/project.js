@@ -3,39 +3,42 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Project from '../components/project';
 
-export const query = graphql`
-	query ($slug: String) {
-		sanityProject(slug: { current: {eq: $slug}}) {
-	    title
-	    project_desc
-	    mainImage {
-	      asset {
-	        fluid {
-	          ...GatsbySanityImageFluid
-	        }
-	      }
-	    }
-	  }
-	}
-`;
-
-const ProjectTemplate =({ data }) => {
+const ProjectTemplate = ({ data }) => {
 	const project = data.sanityProject;
 	const title = project.title;
-	const project_desc = project.project_desc;
-	const imageData = project.mainImage.asset.fluid;
+	const project_summary = project.project_summary;
+	const imageData = project.primaryImg.asset;
 	// const url = project.url;
 
 	return (
 		<Layout>
-			<Project 
+			<Project
 				title={title}
-				description={project_desc}
+				description={project_summary}
 				imageData={imageData}
-				/*url={url}*/
-			/>				
+			/>
 		</Layout>
 	);
 };
+
+export const query = graphql`
+	query ($slug: String) {
+		sanityProject(slug: {current: {eq: $slug}}) {
+			title
+			sectors {
+				title
+			}
+			project_summary
+			primaryImg {
+				asset {
+					fluid {
+						src
+					}
+				}
+			}
+			primaryImg_alt
+		}
+	}
+`;
 
 export default ProjectTemplate;
