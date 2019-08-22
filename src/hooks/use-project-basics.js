@@ -16,6 +16,9 @@ const useProjectBasics = () => {
 		        }
 		        client {
 		          client_name
+		          slug {
+		          	current
+		          }
 		        }
 		        primaryImg_alt
 		        slug {
