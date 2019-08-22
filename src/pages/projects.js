@@ -1,60 +1,35 @@
 import React from "react"
 // import { Link } from "gatsby"
-// import { graphql, useStaticQuery } from 'gatsby';
+import useProjectBasics from "../hooks/use-project-basics"
 
 import Layout from "../components/layout"
-// import ProjectPreview from "../components/project-preview"
-// import Image from "../components/image"
+import ProjectPreview from "../components/project-preview"
 import SEO from "../components/seo"
 
 export default () => {
-  // const data = useStaticQuery(graphql`
-  //   {
-  //     allSanityProject {
-  //       edges {
-  //         node {
-  //           _id
-  //           title
-  //           slug {
-  //             current
-  //           }
-  //           project_summary
-  //           primaryImg {
-  //             media {
-  //               asset {
-  //                 fluid {
-  //                   ...GatsbySanityImageFluid
-  //                 }
-  //               }                
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }      
-  //   }
-  // `);
-
-    // const projects = data.allSanityProject.edges;
+  const projects = useProjectBasics();
 
   return(
     <Layout>
       <SEO title="Projects" />
-      {/*{projects.map(({ node: project }) => {
+      {projects.map(({ node: project }) => {
         const title = project.title;
-        const description = project.project_summary;
+        const clientName = project.client.client_name;
         const slug = project.slug.current;
-        const imageData = project.primaryImg.media.asset.fluid;
+        const primaryImgData = project.primaryImg.asset.fluid;
+        const primaryImgAlt = project.primaryImg_alt
         
         return (
           <ProjectPreview
             key={slug}
             title={title}
-            description={description}
-            slug={slug}
-            imageData={imageData}
+            clientName={clientName}
+            slug={slug.current}
+            primaryImgData={primaryImgData}
+            primaryImgAlt={primaryImgAlt}
           />
         );
-      })}*/}
+      })}
     </Layout>
   )
 };
