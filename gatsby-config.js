@@ -2,24 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `Sam Kimball`,
     description: `Portfolio highlighting design and development work of Sam Kimball`,
-    author: `@gatsbyjs`,
+    author: `@sjkimball`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `project`,
-        path: `${__dirname}/data`,
-      },
-    },
     {
       resolve: `gatsby-source-sanity`,
       options: {
