@@ -15,16 +15,18 @@ export default () => {
       {projects.map(({ node: project }) => {
         const title = project.title;
         const clientName = project.client.client_name;
-        const slug = project.slug.current;
+        const clientSlug = project.client.slug.current;
+        const projectSlug = project.slug.current;
         const primaryImgData = project.primaryImg.asset.fluid;
         const primaryImgAlt = project.primaryImg_alt
         
         return (
           <ProjectPreview
-            key={slug}
+            key={projectSlug}
             title={title}
             clientName={clientName}
-            slug={slug.current}
+            slug={projectSlug}
+            clientSlug={clientSlug}
             primaryImgData={primaryImgData}
             primaryImgAlt={primaryImgAlt}
           />
