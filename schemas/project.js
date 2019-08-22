@@ -9,12 +9,14 @@ export default {
 		{
 			name: 'title',
 			title: 'Title',
-			type: 'string'
+			type: 'string',
+			validation: Rule => Rule.required().min(10).max(30).error('Say more with less.')
 		},
 		{
 			name: 'client',
 			title: 'Client',
 			type: 'reference',
+			validation: Rule => Rule.required().error('Every project needs a client.'),
 			to: [
 				{type: 'client'}
 			]
@@ -23,6 +25,7 @@ export default {
 			name: 'office',
 			title: 'Office',
 			type: 'reference',
+			validation: Rule => Rule.required().error('Office is required'),
 			to: [
 				{type: 'office'}
 			]
@@ -31,6 +34,7 @@ export default {
 			name: 'creators',
 			title: 'Creators',
 			type: 'array',
+			validation: Rule => Rule.required().error('Add at least one contributer.'),
 			of: [
 				{
 					type: 'reference',
