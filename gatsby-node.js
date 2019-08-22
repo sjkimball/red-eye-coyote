@@ -15,6 +15,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 						slug {
 							current
 						}
+						client {
+							slug{
+								current
+							}
+						}
 					}
 				}
 			}
@@ -31,10 +36,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	projects.forEach(({ node: project }) => {
 
 		actions.createPage({
-			path: `/${project.slug.current}`,
+			path: `${project.client.slug.current}/${project.slug.current}`,
 			component: require.resolve('./src/templates/project.js'),
 			context: { 
-					slug: project.slug.current
+					slug: project.slug.current,
+					clientSlug: project.client.slug.current
 				}
 		});
 	});
