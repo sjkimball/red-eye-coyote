@@ -68,7 +68,18 @@ export default {
 		{
 			name: 'project_summary',
 			title: 'Project Summary',
-			type: 'text'
+			type: 'text',
+			validation: Rule => Rule.required().max(140).error('Try to keep it simple.')
+		},
+		{
+			name: 'project_desc',
+			title: 'Project Description',
+			type: 'array',
+			of: [
+				{
+					type: 'block'
+				}
+			]
 		},
 		{
 			name: 'primaryImg',
