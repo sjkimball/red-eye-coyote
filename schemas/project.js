@@ -69,7 +69,7 @@ export default {
 			name: 'project_summary',
 			title: 'Project Summary',
 			type: 'text',
-			validation: Rule => Rule.required().max(140).error('Try to keep it simple.')
+			validation: Rule => Rule.required().min(50).max(140).error('Try to keep it simple.')
 		},
 		{
 			name: 'project_desc',
