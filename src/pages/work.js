@@ -1,5 +1,4 @@
 import React from "react"
-// import { Link } from "gatsby"
 import useProjectBasics from "../hooks/use-project-basics"
 
 import Layout from "../components/layout"
@@ -11,8 +10,9 @@ export default () => {
 
   return(
     <Layout>
-      <SEO title="Projects" />
+      <SEO title="Work" />
       {projects.map(({ node: project }) => {
+        const projID = project._id;
         const title = project.title;
         const clientName = project.client.client_name;
         const clientSlug = project.client.slug.current;
@@ -22,7 +22,7 @@ export default () => {
         
         return (
           <ProjectPreview
-            key={projectSlug}
+            key={projID}
             title={title}
             clientName={clientName}
             slug={projectSlug}
