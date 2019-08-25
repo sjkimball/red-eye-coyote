@@ -68,7 +68,7 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 					</div>
 				</aside>
 				<p>
-					<Link to="/projects">&larr; back to all projects</Link>
+					<Link to="/work">&larr; back to all projects</Link>
 				</p>		
 			</article>
 		</div>
