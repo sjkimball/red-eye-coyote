@@ -6,6 +6,7 @@ const useProjectBasics = () => {
 		  allSanityProject {
 		    edges {
 		      node {
+		      	_id
 		        title
 		        primaryImg {
 		          asset {
