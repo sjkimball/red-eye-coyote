@@ -5,12 +5,14 @@
 /*gray2: #3F3F3F*/
 /*gray3: #727272*/
 /*gray4: #BFBFBF*/
-/*gray5: #F2F2F2*/
+/*gray5: #F2F2F2, hsl(0, 0%, 5%*/
 /*accent1: #EBF222*/
 
 :root {
   --primary-color: red;
   --gray3: #727272;
+  --gray5: hsl(0, 0%, 5%);
+  --gray5transparent: hsla(0, 0%, 5%, .7);
   --text-font: 'Red Hat Text';
   --display-font: 'Red Hat Display';
   --header-font: 'Merriweather';
