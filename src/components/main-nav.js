@@ -12,7 +12,12 @@ const navStyles = {
 	top: `0`,
 	left: `0`,
 	zIndex: `99`,
-	transition: `all .5s`
+}
+
+const socialStyles = {
+	color: `var(--accent1)`,
+	fontWeight: `500`,
+	textDecoration: `none`,
 }
 
 const MainNav = () => {
@@ -22,8 +27,11 @@ const MainNav = () => {
 			<NavLink to="/about">About</NavLink>
 			<NavLink to="/blog">Blog</NavLink>
 			<NavLink to="/contact">Contact</NavLink>
-			<footer>
-				<a href="https://www.behance.net/sjkimball">Behance</a>
+			<footer style={{ paddingLeft: `8.5px`}}>
+				<a href="https://www.behance.net/sjkimball" style={socialStyles} >Behance</a>
+				<a href="https://github.com/sjkimball" style={socialStyles} >GitHub</a>
+				<a href="https://gitlab.com/sjkimball" style={socialStyles} >GitLab</a>
+				<a href="https://twitter.com/sjkimball" style={socialStyles} >Twitter</a>
 			</footer>
 		</nav>
 	);
