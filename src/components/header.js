@@ -22,7 +22,7 @@ class Header extends React.Component {
 
   render() {
     const { siteTitle } = this.props;
-    const headerColor = this.state.menuVisible ? `white` : `black`;
+    const headerColor = this.state.menuVisible ? `white` : `var(--gray5)`;
     return (
       <header
         style={{
@@ -38,24 +38,22 @@ class Header extends React.Component {
           zIndex: `100`
         }}
       >
-        <h1 style={{ margin: 0 }}>
-          <Link
-            to="/"
-            style={{
-              color: `${headerColor}`,
-              fontFamily: `var(--header-font)`,
-              fontWeight: `400`,
-              textDecoration: `none`,
-              position: `relative`,
-              zIndex: `100`
-            }}
-          >
-            {siteTitle}
-          </Link>
-        </h1>
-        <button onClick={this.menuToggle} style={{ position: `relative`, zIndex: `100`}}>
-          <MenuIcon headerColor={headerColor} />
-        </button>
+          <h1 style={{ margin: 0 }}>
+            <Link
+              to="/"
+              style={{
+                color: `${headerColor}`,
+                fontFamily: `var(--header-font)`,
+                fontWeight: `400`,
+                textDecoration: `none`
+              }}
+            >
+              {siteTitle}
+            </Link>
+          </h1>
+          <button onClick={this.menuToggle}>
+            <MenuIcon headerColor={headerColor} />
+          </button>
         {this.state.menuVisible ? <MainNav/> : ``}
       </header>
       );
