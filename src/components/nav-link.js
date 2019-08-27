@@ -2,10 +2,14 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 const linkStyles = {
-	color: `red`,
+	display: `block`,
+	color: `white`,
+	textDecoration: `none`,
 	letterSpacing: `0.5px`,
 	textTransform: `uppercase`,
-	fontWeight: `500`
+	fontWeight: `500`,
+	fontSize: `17px`,
+	marginBottom: `17px`
 }
 
 const activeStyle = {

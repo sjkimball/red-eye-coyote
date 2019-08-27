@@ -12,7 +12,7 @@
   --primary-color: red;
   --gray3: #727272;
   --gray5: hsl(0, 0%, 5%);
-  --gray5transparent: hsla(0, 0%, 5%, .7);
+  --gray5transparent: hsla(0, 0%, 5%, .9);
   --text-font: 'Red Hat Text';
   --display-font: 'Red Hat Display';
   --header-font: 'Merriweather';
