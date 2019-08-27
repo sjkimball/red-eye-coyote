@@ -1,9 +1,9 @@
 import React from "react"
-// import { graphql, useStaticQuery } from 'gatsby';
 
 import Layout from "../components/layout"
 // import Profile from "../components/profile"
 import SEO from "../components/seo"
+import ContactForm from '../components/contact-form'
 
 export default () => {
 
@@ -11,6 +11,7 @@ export default () => {
 		<Layout>
 			<SEO title="Contact" />
 			<h1>Hello Contact</h1>
+			<ContactForm />
 		</Layout>
 	)
 };
