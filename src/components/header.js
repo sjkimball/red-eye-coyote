@@ -26,38 +26,36 @@ class Header extends React.Component {
     return (
       <header
         style={{
-          // background: `white`,
+          background: `white`,
+          display: `flex`,
+          justifyContent: `space-between`,
           marginBottom: `1.45rem`,
+          maxWidth: `960`,
+          padding: `1.45rem 1.0875rem`,
+          position: `fixed`,
+          top: `0`,
+          width: `100%`,
+          zIndex: `100`
         }}
       >
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `1.45rem 1.0875rem`,
-            display: `flex`,
-            justifyContent: `space-between`
-          }}
-        >
-          <h1 style={{ margin: 0 }}>
-            <Link
-              to="/"
-              style={{
-                color: `${headerColor}`,
-                fontFamily: `var(--header-font)`,
-                fontWeight: `400`,
-                textDecoration: `none`,
-                position: `relative`,
-                zIndex: `100`
-              }}
-            >
-              {siteTitle}
-            </Link>
-          </h1>
-          <button onClick={this.menuToggle} style={{ position: `relative`, zIndex: `100`}}>
-            <MenuIcon headerColor={headerColor} />
-          </button>
-        </div>
+        <h1 style={{ margin: 0 }}>
+          <Link
+            to="/"
+            style={{
+              color: `${headerColor}`,
+              fontFamily: `var(--header-font)`,
+              fontWeight: `400`,
+              textDecoration: `none`,
+              position: `relative`,
+              zIndex: `100`
+            }}
+          >
+            {siteTitle}
+          </Link>
+        </h1>
+        <button onClick={this.menuToggle} style={{ position: `relative`, zIndex: `100`}}>
+          <MenuIcon headerColor={headerColor} />
+        </button>
         {this.state.menuVisible ? <MainNav/> : ``}
       </header>
       );
