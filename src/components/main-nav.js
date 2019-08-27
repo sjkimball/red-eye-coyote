@@ -11,7 +11,7 @@ const navStyles = {
 	position: `fixed`,
 	top: `0`,
 	left: `0`,
-	zIndex: `-1`,
+	zIndex: `99`,
 	transition: `all .5s`
 }
 
