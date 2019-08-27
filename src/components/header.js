@@ -45,13 +45,15 @@ class Header extends React.Component {
                 color: `${headerColor}`,
                 fontFamily: `var(--header-font)`,
                 fontWeight: `400`,
-                textDecoration: `none`
+                textDecoration: `none`,
+                position: `relative`,
+                zIndex: `101`
               }}
             >
               {siteTitle}
             </Link>
           </h1>
-          <button onClick={this.menuToggle}>
+          <button onClick={this.menuToggle} style={{position: `relative`, zIndex: `101`}}>
             <MenuIcon headerColor={headerColor} />
           </button>
         {this.state.menuVisible ? <MainNav/> : ``}
