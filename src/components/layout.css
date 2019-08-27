@@ -9,10 +9,16 @@
 /*accent1: #EBF222*/
 
 :root {
+  /*Colors*/
   --primary-color: red;
+  --gray1: #0C0C0C;
+  --gray2: #3F3F3F;
   --gray3: #727272;
   --gray5: hsl(0, 0%, 5%);
   --gray5transparent: hsla(0, 0%, 5%, .9);
+  --accent1: #EBF222;
+
+  /*Typography*/
   --text-font: 'Red Hat Text';
   --display-font: 'Red Hat Display';
   --header-font: 'Merriweather';
