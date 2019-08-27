@@ -36,7 +36,7 @@ const ProjectTemplate = ({ data }) => {
 };
 
 export const query = graphql`
-	query ($slug: String) {
+	query ($slug: String!) {
 		sanityProject(slug: {current: {eq: $slug}}) {
 		  title
 		  sectors {
