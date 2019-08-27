@@ -2,8 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-import ButtonMenu from './buttons/button-menu'
 import MainNav from './main-nav'
+import MenuIcon from './icons/menu-icon'
 
 class Header extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class Header extends React.Component {
 
   render() {
     const { siteTitle } = this.props;
-    const headerColor = this.state.menuVisible ? `red` : `black`;
+    const headerColor = this.state.menuVisible ? `white` : `black`;
     return (
       <header
         style={{
@@ -52,7 +52,9 @@ class Header extends React.Component {
               {siteTitle}
             </Link>
           </h1>
-          <ButtonMenu onPress={this.menuToggle} menuVisible={this.state.menuVisible}/>
+          <button onClick={this.menuToggle}>
+            <MenuIcon headerColor={headerColor} />
+          </button>
         </div>
         {this.state.menuVisible ? <MainNav/> : ``}
       </header>
