@@ -10,7 +10,6 @@ export default () => {
 	return(
 		<Layout>
 			<SEO title="Contact" />
-			<h1>Hello Contact</h1>
 			<ContactForm />
 		</Layout>
 	)
