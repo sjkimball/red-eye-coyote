@@ -1,38 +1,42 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:300|Playfair+Display|Red+Hat+Display:400,700|Red+Hat+Text:400,400i,500,500i&display=swap');
 
 /*Colors*/
-/*gray1: #0C0C0C*/
-/*gray2: #3F3F3F*/
+/*gray1: #F2F2F2*/
+/*gray2: #BFBFBF*/
 /*gray3: #727272*/
-/*gray4: #BFBFBF*/
-/*gray5: #F2F2F2, hsl(0, 0%, 5%*/
+/*gray4: #3F3F3F*/
+/*gray5: #0C0C0C*/
 /*accent1: #EBF222*/
 
 :root {
   /*Colors*/
-  --primary-color: red;
-  --gray1: #0C0C0C;
-  --gray2: #3F3F3F;
-  --gray3: #727272;
+  --gray1: hsl(0, 0%, 95%);
+  --gray2: hsl(0, 0%, 75%);
+  --gray3: hsl(0, 0%, 45%);
+  --gray4: hsl(0, 0%, 25%);
   --gray5: hsl(0, 0%, 5%);
   --gray5transparent: hsla(0, 0%, 5%, .9);
-  --accent1: #EBF222;
+  --accent1: hsl(355, 65%, 33%);
 
   /*Typography*/
   --text-font: 'Red Hat Text';
-  --display-font: 'Red Hat Display';
+  --heading-font: 'Red Hat Display';
   --header-font: 'Merriweather';
+
+  --text-weight1: 400;
+  --text-weight2: 500;
+  --heading-weight1: 400;
+  --heading-weight2: 700;
+
+  --body-size: 16px;
+  --heading-size1: calc(var(--body-size) * 2);
+  --heading-size2: calc(var(--body-size) * 1.125);
 };
 
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-}
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 article,
 aside,
@@ -85,10 +89,6 @@ strong {
 }
 dfn {
   font-style: italic;
-}
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
 }
 mark {
   background-color: #ff0;
@@ -225,15 +225,19 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
+  margin: 0;
+  color: var(--gray5);
+  font-size: var(--body-size);
   font-family: var(--text-font), sans-serif;
-  font-weight: 400;
+  font-weight: var(--text-weight1);
   word-wrap: break-word;
   font-kerning: normal;
   -moz-font-feature-settings: "kern", "liga", "clig", "calt";
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 img {
   max-width: 100%;
@@ -246,6 +250,17 @@ img {
   padding-top: 0;
   margin-bottom: 1.45rem;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2 {
+  font-weight: var(--heading-weight2);  
+}
+
 h1 {
   margin-left: 0;
   margin-right: 0;
@@ -256,11 +271,7 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: var(--display-font), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: 700;
-  text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
+  font-size: var(--heading-size1);
   line-height: 1.1;
 }
 h2 {
@@ -273,11 +284,7 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 1.62671rem;
+  font-size: var(--heading-size2);
   line-height: 1.1;
 }
 h3 {
@@ -290,10 +297,7 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: var(--text-font), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 400;
-  text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
   line-height: 1.1;
 }
@@ -307,10 +311,7 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
-  text-rendering: optimizeLegibility;
   font-size: 1rem;
   line-height: 1.1;
 }
@@ -324,10 +325,7 @@ h5 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
-  text-rendering: optimizeLegibility;
   font-size: 0.85028rem;
   line-height: 1.1;
 }
@@ -340,12 +338,9 @@ h6 {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-  color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 0.78405rem;
+  color: var(--gray3);
+  font-weight: var(--heading-weight1);
+  font-size: var(--body-size);
   line-height: 1.1;
 }
 hgroup {
@@ -535,6 +530,7 @@ th {
   font-weight: bold;
 }
 li {
+  font-weight: var(--text-weight2);
   margin-bottom: calc(1.45rem / 2);
 }
 ol li {
