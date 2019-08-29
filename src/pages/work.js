@@ -11,6 +11,7 @@ export default () => {
   return(
     <Layout>
       <SEO title="Work" />
+      <h1>Work</h1>
       {projects.map(({ node: project }) => {
         const projID = project._id;
         const title = project.title;
