@@ -1,9 +1,20 @@
 import React from 'react';
+
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
+
 import BlockContent from '@sanity/block-content-to-react';
 
+
 const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offices, proj_summary, proj_desc, title, sectors}) => {
+
+	const disciplineStyles = {
+		color: `var(--gray3)`,
+		listStyleType: `none`,
+		marginLeft: `0`,
+		marginBottom: `8px`,
+		padding: `0`
+	}
 
 	const serializers = {
 		container: 'section',
@@ -21,13 +32,13 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 						{title}
 					</h1>
 					<h6 hidden>Disciplines</h6>
-					<ul className="disciplines" style={{ color: `var(--gray3)`}}>
-						{disciplines.map((object) => 
-							<li key={object._id} value={object.title}>{object.title}</li>
+					<ul className="disciplines" style={disciplineStyles}>
+						{disciplines.map((discipline) => 
+							<li key={discipline._id} value={discipline.title} style={{display: `inline`, marginRight: `8px`}}>{discipline.title}</li>
 						)}
 					</ul>
-					<h2 style={{ fontSize: `19px` }}>{proj_summary}</h2>
-					<Img fluid={imageData} alt={imageAlt} />
+					<h2 style={{ lineHeight: `24px` }}>{proj_summary}</h2>
+					<Img fluid={imageData} alt={imageAlt} sizes={{...imageData, aspectRatio: 4 / 3 }}/>
 				</header>
 				<BlockContent blocks={proj_desc} serializers={serializers} className={"project-description"}/>
 				<aside className="project-assets">
@@ -46,7 +57,7 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 								<li key={object._id} value={object.title}>{object.title}</li>
 							)}
 						</ul>
-						<h6>Discipline</h6>
+						<h6>Disciplines</h6>
 						<ul>
 							{disciplines.map((object) => 
 								<li key={object._id} value={object.title}>{object.title}</li>
