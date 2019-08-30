@@ -28,7 +28,7 @@
   --heading-weight1: 400;
   --heading-weight2: 700;
 
-  --body-size: 16px;
+  --body-size: 1rem;
   --heading-size1: calc(var(--body-size) * 2);
   --heading-size2: calc(var(--body-size) * 1.125);
 };
