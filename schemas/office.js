@@ -1,7 +1,7 @@
 export default {
   name: 'office',
   title: 'Office',
-  type: 'document',
+  type: 'object',
   fields: [
   	{
   		name: 'city',
@@ -19,7 +19,6 @@ export default {
   		type: 'string',
   	}
   ],
-  hidden: true,
   preview: {
     select: {
       title: 'city',
