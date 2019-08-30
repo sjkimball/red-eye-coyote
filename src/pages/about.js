@@ -11,6 +11,10 @@ const AboutPage = ({data})  => {
 	const bio = data.sanityPerson._rawBio;
 	const name = data.sanityPerson.name;
 	const imageData = data.sanityPerson.image.asset.fluid;
+	const email = data.sanityPerson.email;
+	const phone = data.sanityPerson.phone;
+	const github = data.sanityPerson.github;
+	const twitter = data.sanityPerson.twitter;
 
 	return(
 		<Layout>
@@ -19,6 +23,10 @@ const AboutPage = ({data})  => {
 				name={name}
 				bio={bio}
 				imageData={imageData}
+				email={email}
+				phone={phone}
+				github={github}
+				twitter={twitter}
 				/>
 		</Layout>
 	)
@@ -36,6 +44,10 @@ query Person($name: String = "Sam Kimball"){
 			}
 		}
 		name
+		email
+		phone
+		github
+		twitter
 	}
 }
 `
