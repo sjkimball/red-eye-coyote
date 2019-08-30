@@ -5,16 +5,9 @@ import { Link } from 'gatsby';
 
 import BlockContent from '@sanity/block-content-to-react';
 
+import './post.css'
 
 const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offices, proj_summary, proj_desc, title, sectors}) => {
-
-	const disciplineStyles = {
-		color: `var(--gray3)`,
-		listStyleType: `none`,
-		marginLeft: `0`,
-		marginBottom: `8px`,
-		padding: `0`
-	}
 
 	const serializers = {
 		container: 'section',
@@ -25,28 +18,28 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 	}
 
 	return (
-		<div className="project">
-			<article>
-				<header className="project-overview">
+		<div>
+			<article className={`rec-project`}>
+				<header className={`project-header`}>
 					<h1>
 						{title}
 					</h1>
 					<h6 hidden>Disciplines</h6>
-					<ul className="disciplines" style={disciplineStyles}>
+					<ul className={`header-list`}>
 						{disciplines.map((discipline) => 
-							<li key={discipline._id} value={discipline.title} style={{display: `inline`, marginRight: `8px`}}>{discipline.title}</li>
+							<li key={discipline._id} value={discipline.title}>{discipline.title}</li>
 						)}
 					</ul>
-					<h2 style={{ lineHeight: `24px` }}>{proj_summary}</h2>
+					<h2 className={`header-summary`}>{proj_summary}</h2>
 					<Img fluid={imageData} alt={imageAlt} sizes={{...imageData, aspectRatio: 4 / 3 }}/>
 				</header>
-				<BlockContent blocks={proj_desc} serializers={serializers} className={"project-description"}/>
-				<aside className="project-assets">
+				<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
+				<aside className={`project-aside`}>
 					Project Gallery
 					<p>Image 1</p>
 					<p>Image 2</p>
 					<p>Image 3</p>
-					<div className="project-metadata">
+					<div className={`aside-metadata`}>
 						<h6>Client</h6>
 						<ul>
 							<li>{client_name}</li>
@@ -64,7 +57,7 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 							)}
 						</ul>
 					</div>
-					<div className="firm-metadata">
+					<div className={`aside-company-info`}>
 						<h6>Office</h6>
 					{/*Will need to be updated to support multiple offices*/}
 						<ul>
@@ -78,9 +71,9 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 						</ul>
 					</div>
 				</aside>
-				<p>
-					<Link to="/work">&larr; back to all projects</Link>
-				</p>		
+				<footer className={`project-footer`}>
+					<Link to="/work">&larr; Work</Link>
+				</footer>		
 			</article>
 		</div>
 	);
