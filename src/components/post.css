@@ -1,0 +1,61 @@
+.rec-project, .rec-post {
+	line-height: 1.5rem;
+}
+
+.project-header, .blog-header {
+	margin-bottom: 1.5rem;
+}
+
+.project-header h1, .blog-header h1 {
+	margin-bottom: 0.5rem;
+}
+
+.header-list {
+	color: var(--gray3);
+	list-style-type: none;
+	margin-left: 0;
+	margin-bottom: 1.5rem;
+	padding: 0;
+}
+
+.header-list li {
+	display: inline;
+	margin-right: 8px;
+}
+
+.header-summary {
+	line-height: inherit;
+}
+
+.project-description {
+}
+
+.project-body p, .post-body p {
+	margin-bottom: 1rem;
+}
+
+.project-aside {
+
+}
+
+.project-aside h6 {
+	margin-bottom: .5rem;
+}
+
+.project-aside ul{
+	list-style-type: none;
+	margin-left: 0;
+}
+
+.project-aside li {
+	margin-bottom: 0;
+}
+
+.project-footer, .post-footer {
+	margin-bottom: 1rem;
+}
+
+.project-footer a, .post-footer a {
+	text-decoration: none;
+	color: var(--accent1);
+}
