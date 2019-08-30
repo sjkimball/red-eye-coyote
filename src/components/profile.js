@@ -5,28 +5,25 @@ import BlockContent from '@sanity/block-content-to-react';
 
 const Profile = ({name, bio, imageData }) => {
 
-	// const serializers = {
-	// 	types: {
-	// 		children: props => (
-	// 			<pre>
-	// 				{props.node.children}
-	// 			</pre>	
-	// 		)
-	// 	}
-	// }
+	const serializers = {
+		container: 'section',
+		types: {
+			block: props => 
+				<p>{props.node.children[0].text}</p>
+		}
+	}
+
 
 	return (
 		<article>
 			<header>
+				<h1>{name}</h1>
 				<figure>
-					<Img fluid={imageData} alt={name} />
-					<figcaption>{name}</figcaption>				
+					<Img fluid={imageData} alt={name} sizes={{...imageData, aspectRatio: 1 / 1}}/>
+					<figcaption>Photo caption</figcaption>				
 				</figure>			
 			</header>
-			<section>
-				<h1>Hey. I'm Sam.</h1>
-				<BlockContent blocks={bio} />			
-			</section>
+			<BlockContent blocks={bio} serializers={serializers}/>			
 		</article>
 	);
 };
