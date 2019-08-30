@@ -58,7 +58,6 @@ export const query = graphql`
 		  }
 		  office {
 		    city
-		    _id
 		  }
 		  disciplines {
 		    title
