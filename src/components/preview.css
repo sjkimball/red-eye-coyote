@@ -1,0 +1,15 @@
+.rec-container {
+	margin-bottom: 34px;
+}
+
+.project-preview, .post-preview {
+	text-decoration: none;
+}
+
+.project-thumb, .post-thumb {
+	margin-bottom: 8.5px;
+}
+
+.project-title, .post-title {
+	color: var(--gray5);
+}
