@@ -13,15 +13,11 @@ const Profile = ({name, bio, imageData, email, phone, github, twitter }) => {
 		}
 	}
 
-
 	return (
 		<article>
 			<header>
-				<h1>{name}</h1>
-				<figure>
-					<Img fluid={imageData} alt={name} sizes={{...imageData, aspectRatio: 1 / 1}}/>
-					<figcaption>Photo caption</figcaption>				
-				</figure>			
+				<Img fluid={imageData} alt={name} sizes={{...imageData, aspectRatio: 1 / 1}}/>			
+				<h4>{name}</h4>
 			</header>
 			<BlockContent blocks={bio} serializers={serializers}/>
 			<h6>Contact Info</h6>
