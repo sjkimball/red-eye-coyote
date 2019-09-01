@@ -5,20 +5,21 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Profile from "../components/profile"
 
+const AboutPage = ({data}) => {
 
-const AboutPage = ({data})  => {
+	const person = data.sanityPerson;
+	const bio = person._rawBio;
+	const name = person.name;
+	const imageData = person.image.asset.fluid;
+	const email = person.email;
+	const phone = person.phone;
+	const github = person.github;
+	const twitter = person.twitter;
 
-	const bio = data.sanityPerson._rawBio;
-	const name = data.sanityPerson.name;
-	const imageData = data.sanityPerson.image.asset.fluid;
-	const email = data.sanityPerson.email;
-	const phone = data.sanityPerson.phone;
-	const github = data.sanityPerson.github;
-	const twitter = data.sanityPerson.twitter;
-
-	return(
-		<Layout>
+	return (
+		<Layout theme={`dark`}>
 			<SEO title="About" />
+			<h1>About</h1>
 			<Profile 
 				name={name}
 				bio={bio}
@@ -33,23 +34,23 @@ const AboutPage = ({data})  => {
 }
 
 export const query = graphql`
-query Person($name: String = "Sam Kimball"){
-	sanityPerson(name: {eq: $name}) {
-		_rawBio
-		image {
-			asset {
-				fluid {
-					...GatsbySanityImageFluid
+	query Person($name: String = "Sam Kimball"){
+		sanityPerson(name: {eq: $name}) {
+			_rawBio
+			image {
+				asset {
+					fluid {
+						...GatsbySanityImageFluid
+					}
 				}
 			}
+			name
+			email
+			phone
+			github
+			twitter
 		}
-		name
-		email
-		phone
-		github
-		twitter
 	}
-}
 `
 
 export default AboutPage;
