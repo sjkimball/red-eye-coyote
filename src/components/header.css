@@ -1,0 +1,44 @@
+.mainHeader {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1.45rem;
+	max-width: 960px;
+	padding: 1.45rem 1.0875rem;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;	
+}
+
+.mainHeader--light {
+	background-color: white;
+}
+
+.mainHeader--light a {
+	color: var(--gray5);
+}
+
+.mainHeader--dark {
+	background-color: var(--gray5);
+}
+
+.mainHeader--dark a {
+	color: white;
+}
+
+.mainHeader h1 {
+	margin: 0;
+}
+
+.mainHeader a {
+	font-family: var(--header-font);
+	font-weight: 400;
+	text-decoration: none;
+	position: relative;
+	z-index: 101;
+}
+
+.header-hamButton {
+	position: relative;
+	z-index: 101;
+}
