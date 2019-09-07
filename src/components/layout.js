@@ -13,7 +13,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Header from "./header"
 import "./layout.css"
 
-const Layout = ({ children, theme }) => {
+const Layout = ({ children, page }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -25,7 +25,7 @@ const Layout = ({ children, theme }) => {
   `)
   return (
     <React.Fragment>
-      <Header siteTitle={data.site.siteMetadata.title} theme={theme}/>
+      <Header siteTitle={data.site.siteMetadata.title} page={page}/>
       <div
         style={{
           margin: `0 auto`,

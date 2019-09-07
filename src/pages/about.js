@@ -17,7 +17,7 @@ const AboutPage = ({data}) => {
 	const twitter = person.twitter;
 
 	return (
-		<Layout theme={`dark`}>
+		<Layout page={`about`}>
 			<SEO title="About" />
 			<h1>About</h1>
 			<Profile 
