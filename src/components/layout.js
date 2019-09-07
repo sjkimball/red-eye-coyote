@@ -24,7 +24,7 @@ const Layout = ({ children, theme }) => {
     }
   `)
   return (
-    <>
+    <React.Fragment>
       <Header siteTitle={data.site.siteMetadata.title} theme={theme}/>
       <div
         style={{
@@ -40,7 +40,7 @@ const Layout = ({ children, theme }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </React.Fragment>
   )
 }
 
