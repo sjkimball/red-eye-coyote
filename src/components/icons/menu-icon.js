@@ -1,11 +1,11 @@
 import React from 'react'
 
 const MenuIcon = (props) => {
-	const { headerClass } = props;
+	const { headerClass, menuVisible } = props;
 	let color = '';
-	if (headerClass === `dark`) {
+	if ((headerClass === `mainHeader--dark`) || menuVisible) {
 		color = `white`;
-	} else if (headerClass === `light`) {
+	} else if (headerClass === `mainHeader--light`) {
 		color = `hsl(0, 0%, 5%)`
 	}
 		return (

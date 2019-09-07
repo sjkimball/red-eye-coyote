@@ -7,15 +7,6 @@ import MenuIcon from './icons/menu-icon'
 
 import './header.css'
 
-const headingWhite = {
-  color: 'white'
-}
-
-const headingRed = {
-  color: 'black'
-}
-
-
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -33,24 +24,23 @@ class Header extends React.Component {
 
   render() {
     const { siteTitle } = this.props;
-    let heading;
-    console.log(this.props.theme);
-    if (this.props.theme == 'dark') {
-      heading = <Link to="/" style={headingRed}>
-            {siteTitle}
-          </Link>;
+    let headerClass;
+
+    if (this.props.page == 'about') {
+      headerClass = 'mainHeader--dark';
     } else {
-      heading = <Link to="/" style={this.state.menuVisible ? headingWhite : headingRed}>
-            {siteTitle}
-          </Link>
+      headerClass = 'mainHeader--light'
     }
+
     return (
-      <header className={`mainHeader mainHeader--light`}>
-        <h1>
-          {heading}
-        </h1>
+      <header className={`mainHeader ${headerClass}`}>
+        <Link to="/">
+          <h3 className={this.state.menuVisible ? 'navHeading' : ''}>
+            {siteTitle}
+          </h3>
+        </Link>
         <button onClick={this.menuToggle} className={`header-hamButton`}>
-          <MenuIcon />
+          <MenuIcon headerClass={headerClass} menuVisible={this.state.menuVisible}/>
         </button>
         {this.state.menuVisible ? <MainNav/> : ``}
       </header>
