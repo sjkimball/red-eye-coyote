@@ -17,6 +17,8 @@ import project from './project'
 import role from './role'
 import sector from './sector'
 import siteSettings from './siteSettings'
+import socialAccount from './socialAccount'
+import socialMediaService from './socialMediaService'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -38,6 +40,8 @@ export default createSchema({
     role,
     sector,
     siteSettings,
+    socialAccount,
+    socialMediaService,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent

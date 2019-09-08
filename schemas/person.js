@@ -4,10 +4,6 @@ export default {
   type: 'document',
   fieldsets: [
     {
-      name: 'social',
-      title: 'Social Media Handles'
-    },
-    {
       name: 'contact',
       title: 'Contact Info'
     }
@@ -74,16 +70,12 @@ export default {
       fieldset: 'contact'
     },
     {
-      title: 'GitHub',
-      name: 'github',
-      type: 'string',
-      fieldset: 'social'
-    },
-    {
-      title: 'Twitter',
-      name: 'twitter',
-      type: 'string',
-      fieldset: 'social'
+      title: 'Social Accounts',
+      name: 'socialAccounts',
+      type: 'array',
+      of: [
+        {type: 'socialAccount'}
+      ]
     },
   ],
   preview: {
