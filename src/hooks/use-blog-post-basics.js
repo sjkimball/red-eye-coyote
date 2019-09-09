@@ -12,12 +12,15 @@ const useBlogPostBasics = () => {
 			      slug {
 			      	current
 			      }
-			      mainImage {
-			      	asset {
-			      		fluid {
-			      			...GatsbySanityImageFluid
+			      bannerImage {
+			      	img_file {
+			      		asset {
+			      			fluid {
+			      				...GatsbySanityImageFluid
+			      			}
 			      		}
 			      	}
+			      	alt_text
 			      }
 			    }
 			  }
