@@ -19,7 +19,7 @@ export default () => {
         const postID = post._id;
         const title = post.title;
         const postSlug = post.slug.current;
-        const primaryImgData = post.mainImage.asset.fluid;
+        const primaryImgData = post.bannerImage;
         
         return (
           <PostPreview

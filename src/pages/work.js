@@ -19,8 +19,7 @@ export default () => {
         const clientName = project.client.client_name;
         const clientSlug = project.client.slug.current;
         const projectSlug = project.slug.current;
-        const primaryImgData = project.primaryImg.asset.fluid;
-        const primaryImgAlt = project.primaryImg_alt
+        const primaryImgData = project.coverImg;
         
         return (
           <ProjectPreview
@@ -30,7 +29,6 @@ export default () => {
             slug={projectSlug}
             clientSlug={clientSlug}
             primaryImgData={primaryImgData}
-            primaryImgAlt={primaryImgAlt}
           />
         );
       })}

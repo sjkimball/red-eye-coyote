@@ -10,24 +10,20 @@ const AboutPage = ({data}) => {
 	const person = data.sanityPerson;
 	const bio = person._rawBio;
 	const name = person.name;
-	const imageData = person.image.asset.fluid;
+	const imageData = person.image;
 	const email = person.email;
 	const phone = person.phone;
-	const github = person.github;
-	const twitter = person.twitter;
 
 	return (
 		<Layout page={`about`}>
 			<SEO title="About" />
-			<h1>About</h1>
+			<h1 style={{color: `var(--gray1)`}}>About</h1>
 			<Profile 
 				name={name}
 				bio={bio}
 				imageData={imageData}
 				email={email}
 				phone={phone}
-				github={github}
-				twitter={twitter}
 				/>
 		</Layout>
 	)
@@ -38,17 +34,21 @@ export const query = graphql`
 		sanityPerson(name: {eq: $name}) {
 			_rawBio
 			image {
-				asset {
-					fluid {
-						...GatsbySanityImageFluid
-					}
+				img_file {
+					asset {
+						fluid {
+							...GatsbySanityImageFluid
+						}
+					}						
 				}
+				alt_text
+				caption
 			}
 			name
-			email
-			phone
-			github
-			twitter
+			contact {
+				email
+				phone				
+			}
 		}
 	}
 `
