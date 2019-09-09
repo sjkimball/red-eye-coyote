@@ -12,6 +12,7 @@
 
 .profile h6 {
 	border-bottom: 1px solid var(--gray3);
+	color: var(--gray2);
 	font-weight: var(--heading-weight2);
 	padding-bottom: .725rem;
 	margin-bottom: .725rem;

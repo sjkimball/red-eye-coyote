@@ -16,7 +16,7 @@
   --gray4: hsl(0, 0%, 25%);
   --gray5: hsl(0, 0%, 5%);
   --gray5transparent: hsla(0, 0%, 5%, .9);
-  --accent1: hsl(358, 100%, 42%);
+  --accent1: hsl(350, 75%, 53%);
 
   /*Typography*/
   --text-font: 'Red Hat Text';
