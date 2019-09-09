@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 const linkStyles = {
-	color: `white`,
+	color: `var(--gray1)`,
 	display: `block`,
 	fontSize: `17px`,
 	fontWeight: `500`,
@@ -15,7 +15,7 @@ const linkStyles = {
 
 const activeStyle = {
 	border: `1px solid var(--accent1)`,
-	color: `white`
+	color: `var(--gray1)`
 }
 
 const NavLink = ({children, to}) => (
