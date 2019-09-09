@@ -16,7 +16,7 @@ const Footer = (props) => {
 		    links {
 		    	_key
 		      service {
-		        service
+		        name
 		      }
 		      username
 		      url
@@ -34,7 +34,7 @@ const Footer = (props) => {
 				{socialList.map((link) => {
 					return (
 						<a key={link._key} href={link.url} target="_blank" rel="noopener noreferrer">
-							<li>{link.service.service}</li>
+							<li>{link.service.name}</li>
 						</a>
 					);
 				})}
