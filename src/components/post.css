@@ -35,7 +35,6 @@
 }
 
 .project-aside {
-
 }
 
 .project-aside h6 {
@@ -48,6 +47,19 @@
 }
 
 .project-aside li {
+	margin-bottom: 0;
+}
+
+.project-gallery {
+	margin-bottom: 1rem;
+}
+
+.gallery-image {
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+}
+
+.gallery-image:last-of-type {
 	margin-bottom: 0;
 }
 

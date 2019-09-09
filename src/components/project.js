@@ -7,7 +7,7 @@ import BlockContent from '@sanity/block-content-to-react';
 
 import './post.css'
 
-const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offices, proj_summary, proj_desc, title, sectors}) => {
+const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offices, proj_summary, proj_desc, title, sectors, supportingImgs}) => {
 
 	const serializers = {
 		container: 'section',
@@ -39,10 +39,17 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 				</header>
 				<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
 				<aside className={`project-aside`}>
-					Project Gallery
-					<p>Image 1</p>
-					<p>Image 2</p>
-					<p>Image 3</p>
+					<div className={`project-gallery`}>
+						<h6>Project Gallery</h6>
+						{supportingImgs.map((image) => 
+							<Img
+								fluid={image.img_file.asset.fluid}
+								alt={image.alt_text}
+								sizes={{...image.img_file.asset.fluid, aspectRatio: 4 / 3 }}
+								className={`gallery-image`}
+							/>
+						)}		
+					</div>
 					<div className={`aside-metadata`}>
 						<h6>Client</h6>
 						<ul>

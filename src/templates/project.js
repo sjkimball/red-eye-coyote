@@ -15,6 +15,7 @@ const ProjectTemplate = ({ data }) => {
 	const project_desc = project._rawProjectDesc;
 	const title = project.title;
 	const sectors = project.sectors;
+	const supportingImgs = project.supportingImgs;
 
 	return (
 		<Layout>
@@ -28,6 +29,7 @@ const ProjectTemplate = ({ data }) => {
 				proj_desc={project_desc}
 				title={title}
 				sectors={sectors}
+				supportingImgs={supportingImgs}
 			/>
 		</Layout>
 	);
@@ -54,6 +56,18 @@ export const query = graphql`
 		  	alt_text
 		  	caption
 		  }
+		  supportingImgs {
+		  	_key
+		  	img_file {
+			    asset {
+			      fluid {
+			        ...GatsbySanityImageFluid
+			      }
+			    }		  		
+		  	}
+		  	alt_text
+		  	caption
+		  }		  
 		  client {
 		    client_name
 		  }
