@@ -31,7 +31,11 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 						)}
 					</ul>
 					<h2 className={`header-summary`}>{proj_summary}</h2>
-					<Img fluid={imageData} alt={imageAlt} sizes={{...imageData, aspectRatio: 4 / 3 }}/>
+					<Img 
+						fluid={imageData.img_file.asset.fluid}
+						alt={imageData.alt_text}
+						sizes={{...imageData.img_file.asset.fluid, aspectRatio: 4 / 3 }}
+					/>
 				</header>
 				<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
 				<aside className={`project-aside`}>

@@ -7,7 +7,7 @@ import BlockContent from '@sanity/block-content-to-react';
 
 import './post.css'
 
-const Post = ({ author, body, imageData, publishedAt, title}) => {
+const Post = ({ author, body, imageData, keywords, publishedAt, title}) => {
 
 	const serializers = {
 		container: 'section',
@@ -17,6 +17,8 @@ const Post = ({ author, body, imageData, publishedAt, title}) => {
 		}
 	}
 
+	const img_file = imageData.img_file.asset.fluid;
+
 	return (
 		<div>
 			<article className={`rec-post`}>
@@ -24,7 +26,7 @@ const Post = ({ author, body, imageData, publishedAt, title}) => {
 					<h1>
 						{title}
 					</h1>
-					<Img fluid={imageData} alt='something' sizes={{...imageData, aspectRatio: 4 / 3 }}/>
+					<Img fluid={img_file} alt={imageData.alt_text} sizes={{...img_file, aspectRatio: 4 / 3 }}/>
 				</header>
 				<BlockContent blocks={body} serializers={serializers} className={`post-body`}/>
 				<aside className={`project-aside`}>

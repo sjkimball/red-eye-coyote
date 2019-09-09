@@ -1,0 +1,18 @@
+.profile {
+	color: var(--gray1);
+}
+
+.profile-img {
+	margin-bottom: 1.45rem;
+}
+
+.profile-bio {
+	font-weight: var(--text-weight2);
+}
+
+.profile h6 {
+	border-bottom: 1px solid var(--gray3);
+	font-weight: var(--heading-weight2);
+	padding-bottom: .725rem;
+	margin-bottom: .725rem;
+}
