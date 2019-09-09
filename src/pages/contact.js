@@ -23,7 +23,7 @@ const ContactPage = ({data}) => {
 
 	const spanStyles = {
 		borderBottom: '1px solid var(--gray5)',
-		fontWeight: 'var(--text-weight2'
+		fontWeight: 'var(--text-weight2)'
 	}
 
 	return(
