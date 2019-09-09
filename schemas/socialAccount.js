@@ -26,7 +26,7 @@ export default {
 	],
 	preview: {
 		select: {
-			title: 'service.service',
+			title: 'service.name',
 			subtitle: 'username',
 			media: 'service.logo'
 		}

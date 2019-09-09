@@ -1,17 +1,17 @@
 export default {
 	name: 'socialMediaService',
 	title: 'Social Media Service',
-	type: 'object',
+	type: 'document',
 	hidden: true,
 	fields: [
 		{
-			name: 'service',
-			title: 'Service',
+			name: 'name',
+			title: 'Name',
 			type: 'string'
 		},
 		{
 			name: 'logo',
-			title: 'Service Logo',
+			title: 'Logo',
 			type: 'image',
 			options: {
 				hotspot: true
@@ -25,7 +25,7 @@ export default {
 	],
 	preview: {
 		select: {
-			title: 'service',
+			title: 'name',
 			media: 'logo'
 		}
 	}
