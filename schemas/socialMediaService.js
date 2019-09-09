@@ -1,7 +1,7 @@
 export default {
 	name: 'socialMediaService',
 	title: 'Social Media Service',
-	type: 'document',
+	type: 'object',
 	hidden: true,
 	fields: [
 		{
@@ -12,7 +12,10 @@ export default {
 		{
 			name: 'logo',
 			title: 'Service Logo',
-			type: 'image'
+			type: 'image',
+			options: {
+				hotspot: true
+			}
 		},
 		{
 		  title: 'Link',
