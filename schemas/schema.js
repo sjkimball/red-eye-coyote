@@ -5,14 +5,16 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object and document schemas
+import address from './address'
 import blockContent from './blockContent'
 import category from './category'
 import client from './client'
-import customImage from './customImage'
+import contact from './contact'
 import discipline from './discipline'
 import office from './office'
 import person from './person'
 import post from './post'
+import primaryImage from './primaryImage'
 import project from './project'
 import role from './role'
 import sector from './sector'
@@ -29,13 +31,15 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
+    address,
     category,
     client,
-    customImage,
+    contact,
     discipline,
     office,
     person,
     post,
+    primaryImage,
     project,
     role,
     sector,
