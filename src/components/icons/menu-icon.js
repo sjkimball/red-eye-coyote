@@ -4,7 +4,7 @@ const MenuIcon = (props) => {
 	const { headerClass, menuVisible } = props;
 	let color = '';
 	if ((headerClass === `mainHeader--dark`) || menuVisible) {
-		color = `white`;
+		color = `var(--gray1)`;
 	} else if (headerClass === `mainHeader--light`) {
 		color = `hsl(0, 0%, 5%)`
 	}
