@@ -10,7 +10,9 @@ import PropTypes from 'prop-types'
 // import { Link } from 'gatsby';
 import { useStaticQuery, graphql } from 'gatsby'
 
-import Header from "./header"
+import Header from './header'
+import Footer from './footer'
+
 import "./layout.css"
 
 const Layout = ({ children, page }) => {
@@ -23,6 +25,12 @@ const Layout = ({ children, page }) => {
       }
     }
   `)
+
+  let layoutClass = '';
+  if (page === 'about') {
+    layoutClass = 'layout--dark'
+  }
+
   return (
     <React.Fragment>
       <Header siteTitle={data.site.siteMetadata.title} page={page}/>
@@ -32,13 +40,10 @@ const Layout = ({ children, page }) => {
           maxWidth: 960,
           padding: `106px 1.0875rem 1.45rem`
         }}
+        className={layoutClass}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
       </div>
     </React.Fragment>
   )

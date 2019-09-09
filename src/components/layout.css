@@ -16,7 +16,7 @@
   --gray4: hsl(0, 0%, 25%);
   --gray5: hsl(0, 0%, 5%);
   --gray5transparent: hsla(0, 0%, 5%, .9);
-  --accent1: hsl(355, 65%, 33%);
+  --accent1: hsl(358, 100%, 42%);
 
   /*Typography*/
   --text-font: 'Red Hat Text';
@@ -641,4 +641,8 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+.layout--dark {
+  background-color: var(--gray5);
 }
