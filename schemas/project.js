@@ -2,9 +2,6 @@ export default {
 	name: 'project',
 	title: 'Project',
 	type: 'document',
-	fieldsets: [
-		{name: 'coverImage', title: 'Cover Image'}
-	],
 	fields: [
 		{
 			name: 'title',
@@ -57,7 +54,14 @@ export default {
 			name: 'disciplines',
 			title: 'Disciplines',
 			type: 'array',
-			of: [{type: 'reference', to: {type: 'discipline'}}]
+			of: [
+				{
+					type: 'reference',
+					to: {
+						type: 'discipline'
+					}
+				}
+			]
 		},
 		{
 			name: 'sectors',
@@ -82,22 +86,9 @@ export default {
 			]
 		},
 		{
-			name: 'primaryImg',
-			title: 'Image',
-			type: 'image',
-			fieldset: 'coverImage'
-		},
-		{
-			name: 'primaryImg_alt',
-			title: 'Alternative Text',
-			type: 'string',
-			fieldset: 'coverImage'
-		},
-		{
-			name: 'primaryImg_cap',
-			title: 'Caption',
-			type: 'text',
-			fieldset: 'coverImage'
+			name: 'coverImg',
+			title: 'Cover Image',
+			type: 'primaryImage'
 		},
 		{
 			name: 'supportingImgs',
@@ -105,7 +96,7 @@ export default {
 			type: 'array',
 			of: [
 				{
-					type: 'customImage'
+					type: 'primaryImage'
 				}
 			],
 			options: {
@@ -117,7 +108,8 @@ export default {
 	preview: {
 		select: {
 			title: 'title',
-			subtitle: 'client.client_name'
+			subtitle: 'client.client_name',
+			media: 'coverImg.img_file'
 		}
 	}
 }
