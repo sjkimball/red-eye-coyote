@@ -26,10 +26,7 @@ export default {
     {
       name: 'image',
       title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true
-      }
+      type: 'primaryImage',
     },
     {
       name: 'role',
@@ -58,16 +55,9 @@ export default {
       ]
     },
     {
-      title: 'Email',
-      name: 'email',
-      type: 'string',
-      fieldset: 'contact'
-    },
-    {
-      title: 'Phone',
-      name: 'phone',
-      type: 'string',
-      fieldset: 'contact'
+      title: 'Contact Info',
+      name: 'contact',
+      type: 'contact',
     },
     {
       title: 'Social Accounts',
@@ -81,7 +71,7 @@ export default {
   preview: {
     select: {
       title: 'name',
-      media: 'image'
+      media: 'image.img_file'
     }
   }
 }
