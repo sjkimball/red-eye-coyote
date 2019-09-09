@@ -67,6 +67,11 @@ export default {
         {type: 'socialAccount'}
       ]
     },
+    {
+      name: 'personDoc',
+      title: 'Related Doc',
+      type: 'personDoc'
+    }
   ],
   preview: {
     select: {
