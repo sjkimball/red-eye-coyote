@@ -3,7 +3,6 @@ export default {
 	title: 'Client',
 	type: 'document',
 	fieldsets: [
-		{name: 'address', title: 'Address'},
 		{name: 'contact', title: 'Contact Info'}
 	],
 	fields: [
@@ -22,40 +21,9 @@ export default {
 			}
 		},
 		{
-			name: 'street_number',
-			title: 'Street Number',
-			type: 'string',
-			fieldset: 'address'
-		},
-		{
-			name: 'street_name',
-			title: 'Street Name',
-			type: 'string',
-			fieldset: 'address'
-		},
-		{
-			name: 'street_secondary',
-			title: 'Secondary Street Address',
-			type: 'string',
-			fieldset: 'address'
-		},
-		{
-			name: 'city',
-			title: 'City',
-			type: 'string',
-			fieldset: 'address'
-		},
-		{
-			name: 'state',
-			title: 'State',
-			type: 'string',
-			fieldset: 'address'
-		},
-		{
-			name: 'postal_code',
-			title: 'Postal Code',
-			type: 'string',
-			fieldset: 'address'
+			name: 'address',
+			title: 'Address',
+			type: 'address'
 		},
 		{
 			name: 'website',
