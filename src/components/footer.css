@@ -1,0 +1,24 @@
+.footer {
+	padding: 2rem 0;
+}
+
+.social-list {
+	height: 100%;
+	list-style-type: none;
+	margin-left: 0;
+}
+
+.social-list a {
+	display: inline-block;
+	padding: 0 .25rem;
+	text-decoration: none;
+}
+
+.social-list li {
+	color: var(--accent1);
+}
+
+.copyright {
+	display: block;
+	color: var(--gray3);
+}
