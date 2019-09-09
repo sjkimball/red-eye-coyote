@@ -24,18 +24,22 @@ export default {
       to: {type: 'person'}
     },
     {
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true
-      }
+      name: 'bannerImage',
+      title: 'Banner image',
+      type: 'primaryImage',
     },
     {
-      name: 'categories',
-      title: 'Categories',
+      name: 'keywords',
+      title: 'Keywords',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
+      of: [
+        {
+          type: 'string'
+        }
+      ],
+      options: {
+        layout: 'tags'
+      }
     },
     {
       name: 'publishedAt',
@@ -53,7 +57,7 @@ export default {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage'
+      media: 'bannerImage.img_file'
     },
     prepare(selection) {
       const {author} = selection
