@@ -13,6 +13,7 @@ import contact from './contact'
 import discipline from './discipline'
 import office from './office'
 import person from './person'
+import personDoc from './personDoc'
 import post from './post'
 import primaryImage from './primaryImage'
 import project from './project'
@@ -38,6 +39,7 @@ export default createSchema({
     discipline,
     office,
     person,
+    personDoc,
     post,
     primaryImage,
     project,
