@@ -1,0 +1,27 @@
+.rec-office h6 {
+	margin-bottom: .5rem;
+}
+
+.rec-office a {
+	display: block;
+	marginBottom: 1rem;
+	color: var(--gray5);
+	textDecoration: none;
+}
+
+.rec-office span {
+	borderBottom: 1px solid var(--gray5);
+	fontWeight: var(--text-weight2);
+}
+
+@media screen and (min-width: 601px) {
+	.rec-office {
+		grid-column: 1 / 3;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.rec-office {
+		grid-column: 1 / 4;
+	}
+}
