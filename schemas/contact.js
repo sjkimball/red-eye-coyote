@@ -12,6 +12,11 @@ export default {
 			name: 'phone',
 			title: 'Phone Number',
 			type: 'string'
+		},
+		{
+			name: 'address',
+			title: 'Address',
+			type: 'address'
 		}
 	]
 }
