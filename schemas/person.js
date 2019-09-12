@@ -42,6 +42,16 @@ export default {
       ]
     },
     {
+      name: 'office',
+      title: 'Office',
+      type: 'reference',
+      to: [
+        {
+          type: 'office'
+        }
+      ]
+    },
+    {
       name: 'bio',
       title: 'Bio',
       type: 'array',
