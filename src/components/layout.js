@@ -1,50 +1,27 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react'
 import PropTypes from 'prop-types'
-// import { Link } from 'gatsby';
-import { useStaticQuery, graphql } from 'gatsby'
+
+import useSiteMetaData from '../hooks/use-site-metadata'
 
 import Header from './header'
 import Footer from './footer'
 
 import "./layout.css"
 
-const Layout = ({ children, page }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const Layout = ({children, page}) => {
+  const site = useSiteMetaData();
 
-  let layoutClass = '';
+  let layoutClass = 'layout';
   if (page === 'about') {
-    layoutClass = 'layout--dark'
+    layoutClass = 'layout layout--dark'
   }
-
   return (
     <React.Fragment>
-      <Header siteTitle={data.site.siteMetadata.title} page={page}/>
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `106px 1.0875rem 1.45rem`
-        }}
-        className={layoutClass}
-      >
-        <main>{children}</main>
-        <Footer />
+      <Header siteTitle={site.title} page={page} />
+      <div className={layoutClass}>
+        <main className={`mainContainer`}>{children}</main>
       </div>
+      <Footer />
     </React.Fragment>
   )
 }
