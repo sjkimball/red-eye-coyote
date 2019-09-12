@@ -1,51 +1,92 @@
 .mainHeader {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 1.45rem;
-	max-width: 960px;
+	margin: 0 auto;
+	width: 100vw;
 	padding: 1.45rem 1.0875rem;
 	position: fixed;
 	top: 0;
-	width: 100%;
-	z-index: 99;	
-}
-
-.mainHeader a {
-	text-decoration: none;
-	position: relative;
-	z-index: 101;
+	z-index: 99;
 }
 
 .mainHeader h3 {
 	margin: 0;
-	font-family: var(--header-font);
-	font-weight: 400;
-	font-size: 1.75rem;
-}
-
-.header-hamButton {
-	position: relative;
-	z-index: 101;
 }
 
 .mainHeader--light {
 	background-color: white;
 }
 
-.mainHeader--light h3 {
+.header-logo {
+	font-family: var(--header-font);
+	font-weight: 400;
+	font-size: var(--heading-size2);
 	color: var(--gray5);
+}
+
+.mainNav {
+}
+
+.header-logo, .nav-item {
+	text-decoration: none;
+	position: relative;
+	z-index: 101;
+}
+
+.header-logo--light {
+	color: var(--gray1);
+}
+
+.header-logo--dark {
+	color: var(--gray5);
+}
+
+.nav-item {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+	color: var(--gray3);
+}
+
+.mainHeader .active {
+	font-weight: var(--text-weight2);
+	color: var(--gray5);
+}
+
+.menuButton {
+	position: relative;
+	z-index: 101;
+}
+
+.mainHeader--dark .nav-item {
+	color: var(--gray1);
+}
+
+.mainHeader--dark .active {
+	color: var(--gray1);
 }
 
 .mainHeader--dark {
 	background-color: var(--gray5);
 }
 
-.mainHeader--dark h3 {
+.mainHeader--dark .header-logo--dark {
 	color: var(--gray1);
 }
 
-.mainHeader .navHeading {
+.mainHeader .navHeading--light {
 	color: var(--gray1);
 }
 
+@media screen and (max-width: 600px) {
+	.mainHeader .nav-item {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 601px) {
+	.menuButton {
+		display: none;
+	}
+}
 

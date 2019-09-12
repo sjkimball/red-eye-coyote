@@ -34,14 +34,20 @@ class Header extends React.Component {
 
     return (
       <header className={`mainHeader ${headerClass}`}>
-        <Link to="/">
-          <h3 className={this.state.menuVisible ? 'navHeading' : ''}>
+        <h3>
+          <Link to="/" className={this.state.menuVisible ? 'header-logo header-logo--light' : 'header-logo header-logo--dark'}>
             {siteTitle}
-          </h3>
-        </Link>
-        <button onClick={this.menuToggle} className={`header-hamButton`}>
-          <MenuIcon headerClass={headerClass} menuVisible={this.state.menuVisible}/>
-        </button>
+          </Link>
+        </h3>
+        <nav className={`mainNav`}>
+          <Link to="/work" className={`nav-item`} activeClassName="active">Work</Link>
+          <Link to="/about" className={`nav-item`} activeClassName="active">About</Link>
+          <Link to="/blog" className={`nav-item`} activeClassName="active">Blog</Link>
+          <Link to="/contact" className={`nav-item`} activeClassName="active">Contact</Link>
+          <button onClick={this.menuToggle} className={`menuButton`} aria-label="Menu">
+            <MenuIcon headerClass={headerClass} menuVisible={this.state.menuVisible}/>
+          </button>          
+        </nav>
         {this.state.menuVisible ? <MainNav/> : ``}
       </header>
     );
