@@ -20,26 +20,25 @@ const Post = ({ author, body, imageData, keywords, publishedAt, title}) => {
 	const img_file = imageData.img_file.asset.fluid;
 
 	return (
-		<div>
-			<article className={`rec-post`}>
-				<header className={`blog-header`}>
-					<h1>
-						{title}
-					</h1>
-					<Img fluid={img_file} alt={imageData.alt_text} sizes={{...img_file, aspectRatio: 4 / 3 }}/>
-				</header>
-				<BlockContent blocks={body} serializers={serializers} className={`post-body`}/>
-				<aside className={`project-aside`}>
-					Project Gallery
+		<article className={`rec-blog-post`}>
+			<header className={`post-header`}>
+				<h1>
+					{title}
+				</h1>
+				<Img fluid={img_file} alt={imageData.alt_text} sizes={{...img_file, aspectRatio: 4 / 3 }}/>
+			</header>
+			<BlockContent blocks={body} serializers={serializers} className={`post-body`}/>
+			<aside className={`post-aside`}>
+				<div className="post-gallery">
 					<p>Image 1</p>
 					<p>Image 2</p>
 					<p>Image 3</p>
-				</aside>
-				<footer className={`post-footer`}>
-					<Link to="/blog">&larr; back to all posts</Link>
-				</footer>		
-			</article>
-		</div>
+				</div>
+			</aside>
+			<footer className={`post-footer`}>
+				<Link to="/blog">&larr; back to all posts</Link>
+			</footer>		
+		</article>
 	);
 }
 
