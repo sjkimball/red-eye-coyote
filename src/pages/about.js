@@ -9,21 +9,22 @@ const AboutPage = ({data}) => {
 
 	const person = data.sanityPerson;
 	const bio = person._rawBio;
-	const name = person.name;
 	const imageData = person.image;
-	const email = person.email;
-	const phone = person.phone;
+	const name = person.name;
+	const office = person.office.address.city;
+	const personDoc = person.personDoc;
+	const socialAccounts = person.socialAccounts;
 
 	return (
 		<Layout page={`about`}>
 			<SEO title="About" />
-			<h1 style={{color: `var(--gray1)`}}>About</h1>
-			<Profile 
-				name={name}
+			<Profile
 				bio={bio}
 				imageData={imageData}
-				email={email}
-				phone={phone}
+				name={name}
+				office={office} 
+				personDoc={personDoc}
+				socialAccounts={socialAccounts}
 				/>
 		</Layout>
 	)
@@ -45,9 +46,24 @@ export const query = graphql`
 				caption
 			}
 			name
-			contact {
-				email
-				phone				
+			office {
+				address {
+					city
+				}
+			}
+			personDoc {
+				description
+				asset {
+					url
+				}
+			}
+			socialAccounts {
+				_key
+				service {
+					name
+				}
+				username
+				url
 			}
 		}
 	}
