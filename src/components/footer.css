@@ -8,17 +8,17 @@
 	margin-left: 0;
 }
 
-.social-list a {
+.social-list li {
 	display: inline-block;
-	padding: 0 .25rem;
-	text-decoration: none;
 }
 
-.social-list li {
-	color: var(--accent1);
+.social-list a {
+	padding: 0 .25rem;
+	text-decoration: none;
+	color: var(--gray2);
 }
 
 .copyright {
 	display: block;
-	color: var(--gray3);
+	color: var(--gray2);
 }

@@ -33,9 +33,9 @@ const Footer = (props) => {
 			<ul className={`social-list`}>
 				{socialList.map((link) => {
 					return (
-						<a key={link._key} href={link.url} target="_blank" rel="noopener noreferrer">
-							<li>{link.service.name}</li>
-						</a>
+						<li key={link._key}>
+							<a href={link.url} target="_blank" rel="noopener noreferrer">{link.service.name}</a>
+						</li>
 					);
 				})}
 			</ul>
