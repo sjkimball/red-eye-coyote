@@ -1,27 +1,29 @@
 .mainHeader {
 	display: flex;
+	height: 90px;
 	justify-content: space-between;
+	align-items: center;
 	margin: 0 auto;
-	width: 100vw;
-	padding: 1.45rem 1.0875rem;
+	padding: 1rem 1rem;
 	position: fixed;
 	top: 0;
+	width: 100vw;
 	z-index: 99;
-}
-
-.mainHeader h3 {
-	margin: 0;
 }
 
 .mainHeader--light {
 	background-color: white;
 }
 
+.mainHeader h3 {
+	margin: 0;
+}
+
 .header-logo {
+	color: var(--gray5);
 	font-family: var(--header-font);
 	font-weight: 400;
-	font-size: var(--heading-size2);
-	color: var(--gray5);
+	font-size: 2rem;
 }
 
 .mainNav {
@@ -46,6 +48,7 @@
 	letter-spacing: 1px;
 	text-align: center;
 	color: var(--gray3);
+	padding: calc(var(--body-size) / 4);
 }
 
 .mainHeader .active {
@@ -85,8 +88,20 @@
 }
 
 @media screen and (min-width: 601px) {
+	.mainHeader {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
 	.menuButton {
 		display: none;
 	}
 }
+
+@media screen and (min-width: 1399px) {
+  .mainHeader {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
 

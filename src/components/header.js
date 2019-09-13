@@ -40,10 +40,10 @@ class Header extends React.Component {
           </Link>
         </h3>
         <nav className={`mainNav`}>
-          <Link to="/work" className={`nav-item`} activeClassName="active">Work</Link>
-          <Link to="/about" className={`nav-item`} activeClassName="active">About</Link>
-          <Link to="/blog" className={`nav-item`} activeClassName="active">Blog</Link>
-          <Link to="/contact" className={`nav-item`} activeClassName="active">Contact</Link>
+          <Link to="/work" className={`nav-item`} activeClassName="active" partiallyActive={true}>Work</Link>
+          <Link to="/about" className={`nav-item`} activeClassName="active" partiallyActive={true}>About</Link>
+          <Link to="/blog" className={`nav-item`} activeClassName="active" partiallyActive={true}>Blog</Link>
+          <Link to="/contact" className={`nav-item`} activeClassName="active" partiallyActive={true}>Contact</Link>
           <button onClick={this.menuToggle} className={`menuButton`} aria-label="Menu">
             <MenuIcon headerClass={headerClass} menuVisible={this.state.menuVisible}/>
           </button>          
