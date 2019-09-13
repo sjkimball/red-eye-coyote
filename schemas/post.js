@@ -9,6 +9,11 @@ export default {
       type: 'string'
     },
     {
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string'
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -24,9 +29,14 @@ export default {
       to: {type: 'person'}
     },
     {
-      name: 'bannerImage',
-      title: 'Banner image',
-      type: 'primaryImage',
+      name: 'mainImage',
+      title: 'Main Image',
+      type: 'primaryImage'
+    },
+    {
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent'
     },
     {
       name: 'keywords',
@@ -45,11 +55,6 @@ export default {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime'
-    },
-    {
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent'
     }
   ],
 
@@ -57,7 +62,7 @@ export default {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'bannerImage.img_file'
+      media: 'mainImage.file'
     },
     prepare(selection) {
       const {author} = selection
