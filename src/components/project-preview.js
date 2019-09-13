@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
@@ -8,9 +9,9 @@ const ProjectPreview = ({ clientName, clientSlug, primaryImgAlt, primaryImgData,
 	return (
 		<Link to={`/work/${clientSlug}/${slug}`} className={`project-preview`}>
 			<Img
-				fluid={primaryImgData.img_file.asset.fluid}
+				fluid={primaryImgData.file.asset.fluid}
 				alt={primaryImgData.alt_text}
-				sizes={{ ...primaryImgData.img_file.asset.fluid, aspectRatio: 4 / 3 }}
+				sizes={{ ...primaryImgData.file.asset.fluid, aspectRatio: 16 / 9 }}
 				className={`project-thumb`}
 			/>
 			<h2 className={`project-title`}>{title}</h2>
