@@ -1,37 +1,25 @@
 import React from 'react'
 
-import { useStaticQuery, graphql } from 'gatsby'
+import usePrimaryOfficeInfo from '../hooks/use-primary-office-info'
 
 import './footer.css'
 
-const Footer = (props) => {
-	const data = useStaticQuery(graphql`
-		query primaryOfficeInfo {
-		  sanityOffice(address: {city: {eq: "Chicago"}}){
-		    address {
-		      city
-		      state_province
-		      country
-		    }
-		    links {
-		    	_key
-		      service {
-		        name
-		      }
-		      username
-		      url
-		    }
-		  }
-		}
-	`)
+const Footer = ({ page }) => {
 
-	const office = data.sanityOffice;
-	const socialList = office.links;
+	const { links } = usePrimaryOfficeInfo();
+
+	let footerClass;
+
+	if (page === 'about') {
+	  footerClass = 'footer--dark';
+	} else {
+	  footerClass = 'footer--light'
+	}
 
 	return (
-		<footer className={`footer`}>
+		<footer className={`footer ${footerClass}`}>
 			<ul className={`social-list`}>
-				{socialList.map((link) => {
+				{links.map((link) => {
 					return (
 						<li key={link._key}>
 							<a href={link.url} target="_blank" rel="noopener noreferrer">{link.service.name}</a>

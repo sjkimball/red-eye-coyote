@@ -1,19 +1,25 @@
 .footer {
-	padding: 2rem 0;
+	padding: 2rem 1rem;
+}
+
+.footer--dark {
+	background-color: var(--gray5);
+	color: var(--gray1);
 }
 
 .social-list {
+	display: flex;
+	justify-content: space-between;
 	height: 100%;
 	list-style-type: none;
 	margin-left: 0;
 }
 
 .social-list li {
-	display: inline-block;
+	/*display: inline-block;*/
 }
 
 .social-list a {
-	padding: 0 .25rem;
 	text-decoration: none;
 	color: var(--gray2);
 }
@@ -21,4 +27,10 @@
 .copyright {
 	display: block;
 	color: var(--gray2);
+}
+
+@media screen and (min-width: 601px) {
+	.social-list {
+		justify-content: space-around;
+	}
 }
