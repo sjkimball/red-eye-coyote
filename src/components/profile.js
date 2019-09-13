@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Img from 'gatsby-image';
+
 import BlockContent from '@sanity/block-content-to-react';
 
 import './profile.css';
@@ -19,12 +21,12 @@ const Profile = ({bio, imageData, name, office, personDoc, socialAccounts }) => 
 			<header>
 				<h1>{name}
 					<br/>
-					<span style={{color: `var(--gray2)`, fontWeight: `var(--heading-weight1)`}}>{office}</span>
+					<span>{office}</span>
 				</h1>
 					<Img 
-						fluid={imageData.img_file.asset.fluid}
+						fluid={imageData.file.asset.fluid}
 						alt={name}
-						sizes={{...imageData.img_file.asset.fluid, aspectRatio: 1 / 1}}
+						sizes={{...imageData.file.asset.fluid, aspectRatio: 1 / 1}}
 						className={`profile-img`}
 						// style={{position: `fixed`}}
 						/>
