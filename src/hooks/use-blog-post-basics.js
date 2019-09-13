@@ -4,27 +4,26 @@ const useBlogPostBasics = () => {
 	const data = useStaticQuery(graphql`
 		{
 			allSanityPost {
-			  edges {
-			    node {
-			      title
-			      _rawBody
-			      _id
-			      slug {
-			      	current
-			      }
-			      bannerImage {
-			      	img_file {
-			      		asset {
-			      			fluid {
-			      				...GatsbySanityImageFluid
-			      			}
-			      		}
-			      	}
-			      	alt_text
-			      }
-			    }
-			  }
-			}
+		    edges {
+		      node {
+		      	_id
+		        title
+		        subtitle
+		        mainImage {
+		          file {
+		            asset {
+		              fluid {
+		                ...GatsbySanityImageFluid
+		              }
+		            }
+		          }
+		        }
+		        slug {
+		          current
+		        }
+		      }
+		    }
+		  }
 		}
 	`);
 	return data.allSanityPost.edges;

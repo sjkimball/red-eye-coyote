@@ -1,4 +1,5 @@
 import React from "react"
+
 import { graphql } from 'gatsby';
 
 import Layout from "../components/layout"
@@ -18,6 +19,7 @@ const AboutPage = ({data}) => {
 	return (
 		<Layout page={`about`}>
 			<SEO title="About" />
+		{/*Add heading for about page containing staff previews once it is necessary*/}
 			<Profile
 				bio={bio}
 				imageData={imageData}
@@ -35,7 +37,7 @@ export const query = graphql`
 		sanityPerson(name: {eq: $name}) {
 			_rawBio
 			image {
-				img_file {
+				file {
 					asset {
 						fluid {
 							...GatsbySanityImageFluid

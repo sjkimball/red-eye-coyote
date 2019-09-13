@@ -1,10 +1,11 @@
 import React from "react"
-import useBlogSettings from '../hooks/use-blog-settings'
-import useBlogPostBasics from "../hooks/use-blog-post-basics"
 
+import SEO from "../components/seo"
 import Layout from "../components/layout"
 import PostPreview from "../components/post-preview"
-import SEO from "../components/seo"
+
+import useBlogSettings from '../hooks/use-blog-settings'
+import useBlogPostBasics from "../hooks/use-blog-post-basics"
 
 export default () => {
   const settings = useBlogSettings();
@@ -18,15 +19,17 @@ export default () => {
       {posts.map(({ node: post }) => {
         const postID = post._id;
         const title = post.title;
+        const subtitle = post.subtitle;
         const postSlug = post.slug.current;
-        const primaryImgData = post.bannerImage;
+        const mainImage = post.mainImage;
         
         return (
           <PostPreview
             key={postID}
             title={title}
+            subtitle={subtitle}
             slug={postSlug}
-            primaryImgData={primaryImgData}
+            mainImage={mainImage}
           />
         );
       })}

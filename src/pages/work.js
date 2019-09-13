@@ -1,9 +1,10 @@
 import React from "react"
-import useProjectBasics from "../hooks/use-project-basics"
 
 import Layout from "../components/layout"
 import ProjectPreview from "../components/project-preview"
 import SEO from "../components/seo"
+
+import useProjectBasics from "../hooks/use-project-basics"
 
 export default () => {
   const projects = useProjectBasics();

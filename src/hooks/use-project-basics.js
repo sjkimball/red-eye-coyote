@@ -14,7 +14,7 @@ const useProjectBasics = () => {
 		        coverImg {
 		          alt_text
 		          caption
-		          img_file {
+		          file {
 		            asset {
 		              fluid {
 		                ...GatsbySanityImageFluid
