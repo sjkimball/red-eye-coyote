@@ -1,17 +1,22 @@
-.rec-office h6 {
+.rec-office h2 {
 	margin-bottom: .5rem;
+}
+
+.header-image {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .rec-office a {
 	display: block;
-	marginBottom: 1rem;
+	margin-bottom: 1rem;
 	color: var(--gray5);
-	textDecoration: none;
+	text-decoration: none;
 }
 
 .rec-office span {
-	borderBottom: 1px solid var(--gray5);
-	fontWeight: var(--text-weight2);
+	border-bottom: 1px solid var(--gray5);
+	font-weight: var(--text-weight1);
 }
 
 @media screen and (min-width: 601px) {
@@ -23,5 +28,17 @@
 @media screen and (min-width: 800px) {
 	.rec-office {
 		grid-column: 1 / 4;
+	}
+}
+@media screen and (min-width: 1399px) {
+	.rec-office {
+		grid-column: 1 / 5;
+	}
+	.rec-office h2 {
+		font-size: calc(var(--heading-size1) * 1.5);
+	}
+	.header-image {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
 	}
 }
