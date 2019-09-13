@@ -1,0 +1,141 @@
+.rec-project {
+	line-height: var(--body-leading);
+}
+
+.project-header {
+	margin-bottom: 1.5rem;
+}
+
+.project-header h1 {
+	line-height: calc(var(--heading-leading)* 1.5 );
+}
+
+.header-list {
+	color: var(--gray3);
+	list-style-type: none;
+	margin-left: 0;
+	margin-bottom: 1.5rem;
+	padding: 0;
+}
+
+.header-list li {
+	display: inline;
+	margin-right: 8px;
+}
+
+.header-image {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.project-description {
+}
+
+.project-body p {
+	margin-bottom: 1rem;
+}
+
+.project-aside {
+	display: grid;
+}
+
+.project-aside h6 {
+	margin-bottom: .5rem;
+}
+
+.project-aside ul{
+	list-style-type: none;
+	margin-left: 0;
+}
+
+.project-aside li {
+	margin-bottom: 0;
+}
+
+.project-gallery {
+	margin-bottom: 1rem;
+}
+
+.gallery-image {
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+}
+
+.gallery-image:last-of-type {
+	margin-bottom: 0;
+}
+
+.project-footer, .post-footer {
+	margin-bottom: 1rem;
+}
+
+.project-footer a {
+	text-decoration: none;
+	color: var(--accent1);
+}
+
+@media screen and (min-width: 601px) {
+	.rec-project {
+		grid-column: 1 / 4;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.project-header,
+	.project-body,
+	.project-footer,
+	.project-aside,
+	.project-gallery {
+		grid-column: 1 / 3;
+	}
+	.project-aside {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.header-summary {
+		font-size: var(--heading-size1);
+	}
+}
+@media screen and (min-width: 800px) {
+	.rec-project {
+		grid-column-gap: 2rem;
+	}
+	.project-header {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: auto;
+		grid-column-gap: 2rem;
+	}
+	.project-header h1, .project-header h6, .header-list {
+		grid-column: 1 / 2;
+	}
+	.project-header h1 {
+		grid-row: 1
+	}
+	.project-header h6, .header-list {
+		grid-row: 2;
+	}
+	.header-summary {
+		grid-row: 1 / span 2;
+	}
+	.header-image {
+		grid-column: 1 / 3;
+	}
+	.project-body {
+		grid-column: 1 / 2;
+	}
+	.project-aside {
+		grid-column: 2 / 3;
+	}
+	.gallery-image:first-of-type {
+		margin-top: 0;
+	}
+}
+
+@media screen and (min-width: 1399px) {
+	.rec-project {
+		grid-column: 1/5;
+	}
+
+	.project-header {
+		grid-template-rows: auto;
+	}
+}

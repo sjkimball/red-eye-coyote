@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 import BlockContent from '@sanity/block-content-to-react';
 
-import './post.css'
+import './project.css'
 
 const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offices, proj_summary, proj_desc, title, sectors, supportingImgs}) => {
 
@@ -37,20 +37,9 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 					className={`header-image`}
 				/>
 			</header>
-			<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
-			<aside className={`project-aside`}>
-				<div className={`project-gallery`}>
-					{/*Project Gallery*/}
-					{supportingImgs.map((image) => 
-						<Img
-							key={image._key}
-							fluid={image.file.asset.fluid}
-							alt={image.alt_text}
-							sizes={{...image.file.asset.fluid, aspectRatio: 4 / 3 }}
-							className={`gallery-image`}
-						/>
-					)}		
-				</div>
+			<section className="project-details">
+				<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
+
 				<div className={`aside-metadata`}>
 					<h6>Client</h6>
 					<ul>
@@ -81,6 +70,20 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 							<li key={object._id} value={object.name}>{object.name}</li>
 						)}
 					</ul>
+				</div>
+			</section>
+			<aside className={`project-aside`}>
+				<div className={`project-gallery`}>
+					{/*Project Gallery*/}
+					{supportingImgs.map((image) => 
+						<Img
+							key={image._key}
+							fluid={image.file.asset.fluid}
+							alt={image.alt_text}
+							sizes={{...image.file.asset.fluid, aspectRatio: 4 / 3 }}
+							className={`gallery-image`}
+						/>
+					)}		
 				</div>
 			</aside>
 			<footer className={`project-footer`}>
