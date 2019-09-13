@@ -7,6 +7,7 @@
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "@sanity/block-content-to-react": "^2.0.6",
+    "@sanity/image-url": "^0.140.14",
     "core-js": "^3.2.1",
     "gatsby": "^2.14.0",
     "gatsby-cli": "^2.7.40",
