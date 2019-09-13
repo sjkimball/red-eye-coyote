@@ -24,23 +24,36 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 					{title}
 				</h1>
 				<h6 hidden>Disciplines</h6>
-				<ul className={`header-list`}>
+				<ul className={`project-disciplines`}>
 					{disciplines.map((discipline) => 
 						<li key={discipline._id} value={discipline.title}>{discipline.title}</li>
 					)}
 				</ul>
-				<h2 className={`header-summary`}>{proj_summary}</h2>
+				<h2 className={`project-summary`}>{proj_summary}</h2>
 				<Img 
 					fluid={imageData.file.asset.fluid}
 					alt={imageData.alt_text}
 					sizes={{...imageData.file.asset.fluid, aspectRatio: 16 / 9 }}
-					className={`header-image`}
+					className={`project-hero`}
 				/>
 			</header>
+			<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
+			<aside className={`project-aside`}>
+				<div className={`project-gallery`}>
+					{/*Project Gallery*/}
+					{supportingImgs.map((image) => 
+						<Img
+							key={image._key}
+							fluid={image.file.asset.fluid}
+							alt={image.alt_text}
+							sizes={{...image.file.asset.fluid, aspectRatio: 4 / 3 }}
+							className={`gallery-image`}
+						/>
+					)}		
+				</div>
+			</aside>
 			<section className="project-details">
-				<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
-
-				<div className={`aside-metadata`}>
+				<div className={`project-metadata`}>
 					<h6>Client</h6>
 					<ul>
 						<li>{client_name}</li>
@@ -58,7 +71,7 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 						)}
 					</ul>
 				</div>
-				<div className={`aside-company-info`}>
+				<div className={`project-company-info`}>
 					<h6>Office</h6>
 				{/*Will need to be updated to support multiple offices*/}
 					<ul>
@@ -72,20 +85,6 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 					</ul>
 				</div>
 			</section>
-			<aside className={`project-aside`}>
-				<div className={`project-gallery`}>
-					{/*Project Gallery*/}
-					{supportingImgs.map((image) => 
-						<Img
-							key={image._key}
-							fluid={image.file.asset.fluid}
-							alt={image.alt_text}
-							sizes={{...image.file.asset.fluid, aspectRatio: 4 / 3 }}
-							className={`gallery-image`}
-						/>
-					)}		
-				</div>
-			</aside>
 			<footer className={`project-footer`}>
 				<Link to="/work">&larr; Work</Link>
 			</footer>		
