@@ -21,7 +21,7 @@ const Layout = ({children, page}) => {
       <div className={layoutClass}>
         <main className={`mainContainer`}>{children}</main>
       </div>
-      <Footer />
+      <Footer page={page}/>
     </React.Fragment>
   )
 }

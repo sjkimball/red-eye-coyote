@@ -29,8 +29,12 @@
   --heading-weight2: 700;
 
   --body-size: 1rem;
-  --heading-size1: calc(var(--body-size) * 2);
-  --heading-size2: calc(var(--body-size) * 1.75);
+  --heading-size1: calc(var(--body-size) * 1.25);
+  --heading-size2: calc(var(--body-size) * 2.5);
+  --heading-size3: calc(var(--body-size) * 3.25);
+
+  --body-leading: calc(var(--body-size) * 1.25);
+  --heading-leading: calc(var(--body-size) * 1.5);
 };
 
 html {
@@ -258,7 +262,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2 {
-  font-weight: var(--heading-weight2);  
+  font-weight: var(--heading-weight2);
+  line-height: var(--heading-leading);
 }
 
 h1 {
@@ -271,8 +276,7 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-size: var(--heading-size1);
-  line-height: 1.1;
+  font-size: var(--heading-size2);
 }
 h2 {
   margin-left: 0;
@@ -284,8 +288,7 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-size: var(--heading-size2);
-  line-height: 1.1;
+  font-size: var(--heading-size1);
 }
 h3 {
   margin-left: 0;
@@ -640,8 +643,7 @@ pre tt:after {
 
 .layout {
   margin: 0 auto;
-/*  max-width: 960px;*/
-  padding: 106px 1.0875rem 1.45rem;
+  padding: 120px 1rem 1.45rem;
 }
 
 .layout--dark {
@@ -655,6 +657,11 @@ pre tt:after {
 }
 
 @media screen and (min-width: 601px) {
+  .layout {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .mainContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -669,6 +676,9 @@ pre tt:after {
 }
 
 @media screen and (min-width: 801px) {
+  h1 {
+    font-size: var(--heading-size2);
+  }
   .mainContainer {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -680,9 +690,28 @@ pre tt:after {
   }
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (min-width: 1399px) {
+  .layout {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 150px;
+  }
+  .mainContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .mainContainer h1 {
+    grid-column: 1 / 5;
+    font-size: var(--heading-size3);    
+  }
+  .mainContainer p:first-of-type {
+    grid-column: 1 / 5;
+  }
+}
+
+@media screen and (min-width: 1600px) {
   .layout {
     width: 100%;
-    padding: 106px 50px 0;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
