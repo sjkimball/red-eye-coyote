@@ -31,9 +31,9 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 				</ul>
 				<h2 className={`header-summary`}>{proj_summary}</h2>
 				<Img 
-					fluid={imageData.img_file.asset.fluid}
+					fluid={imageData.file.asset.fluid}
 					alt={imageData.alt_text}
-					sizes={{...imageData.img_file.asset.fluid, aspectRatio: 4 / 3 }}
+					sizes={{...imageData.file.asset.fluid, aspectRatio: 16 / 9 }}
 					className={`header-image`}
 				/>
 			</header>
@@ -44,9 +44,9 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 					{supportingImgs.map((image) => 
 						<Img
 							key={image._key}
-							fluid={image.img_file.asset.fluid}
+							fluid={image.file.asset.fluid}
 							alt={image.alt_text}
-							sizes={{...image.img_file.asset.fluid, aspectRatio: 4 / 3 }}
+							sizes={{...image.file.asset.fluid, aspectRatio: 4 / 3 }}
 							className={`gallery-image`}
 						/>
 					)}		

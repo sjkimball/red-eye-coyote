@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { graphql } from 'gatsby';
+
 import Layout from '../components/layout';
 import Project from '../components/project';
 
@@ -46,7 +48,7 @@ export const query = graphql`
 		  project_summary
 		  _rawProjectDesc
 		  coverImg {
-		  	img_file {
+		  	file {
 			    asset {
 			      fluid {
 			        ...GatsbySanityImageFluid
@@ -58,7 +60,7 @@ export const query = graphql`
 		  }
 		  supportingImgs {
 		  	_key
-		  	img_file {
+		  	file {
 			    asset {
 			      fluid {
 			        ...GatsbySanityImageFluid
