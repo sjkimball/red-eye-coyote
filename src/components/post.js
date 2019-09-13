@@ -1,23 +1,33 @@
 import React from 'react';
 
-import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
 import BlockContent from '@sanity/block-content-to-react';
+import urlBuilder from '@sanity/image-url'
 
 import './post.css'
 
-const Post = ({ author, body, imageData, keywords, publishedAt, title}) => {
+const client = {
+	projectId: '6y7rlog8',
+	dataset: 'production'
+}
 
-	const serializers = {
-		container: 'section',
-		types: {
-			block: props => 
-				<p>{props.node.children[0].text}</p>
-		}
+const urlFor = source =>
+	urlBuilder({projectId: client.projectId, dataset: client.dataset}).image(source)
+
+const serializers = {
+	container: 'section',
+	types: {
+		primaryImage: props => (
+			<figure>
+				<img src={urlFor(props.node.file.asset)} alt={props.node.alt_text} />
+				<figcaption>{props.node.caption}</figcaption>
+			</figure>
+		)
 	}
+}
 
-	const img_file = imageData.img_file.asset.fluid;
+const Post = ({ author, body, keywords, publishedAt, title}) => {
 
 	return (
 		<article className={`rec-blog-post`}>
@@ -25,16 +35,17 @@ const Post = ({ author, body, imageData, keywords, publishedAt, title}) => {
 				<h1>
 					{title}
 				</h1>
-				<Img fluid={img_file} alt={imageData.alt_text} sizes={{...img_file, aspectRatio: 4 / 3 }}/>
+				<h6>Date Published {publishedAt}</h6>
+				<h2>Description Goes Here.</h2>
 			</header>
-			<BlockContent blocks={body} serializers={serializers} className={`post-body`}/>
-			<aside className={`post-aside`}>
-				<div className="post-gallery">
-					<p>Image 1</p>
-					<p>Image 2</p>
-					<p>Image 3</p>
-				</div>
-			</aside>
+			<BlockContent
+				blocks={body}
+				serializers={serializers}
+				className={`post-body`}
+				projectId={client.projectId}
+				dataset={client.dataset}
+			/>
+
 			<footer className={`post-footer`}>
 				<Link to="/blog">&larr; back to all posts</Link>
 			</footer>		
