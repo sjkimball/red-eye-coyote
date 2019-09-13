@@ -109,7 +109,7 @@ export default {
 		select: {
 			title: 'title',
 			subtitle: 'client.client_name',
-			media: 'coverImg.img_file'
+			media: 'coverImg.file'
 		}
 	}
 }

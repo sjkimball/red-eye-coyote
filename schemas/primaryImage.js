@@ -4,7 +4,7 @@ export default {
 	type: 'object',
 	fields: [
 		{
-			name: 'img_file',
+			name: 'file',
 			title: 'File',
 			type: 'image',
 			options: {

@@ -86,7 +86,7 @@ export default {
   preview: {
     select: {
       title: 'name',
-      media: 'image.img_file'
+      media: 'image.file'
     }
   }
 }
