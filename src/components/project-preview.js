@@ -3,7 +3,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
-import './preview.css';
+import './project-preview.css';
 
 const ProjectPreview = ({ clientName, clientSlug, primaryImgAlt, primaryImgData, title, slug}) => {
 	return (

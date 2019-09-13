@@ -1,14 +1,14 @@
-.project-preview, .post-preview {
+.project-preview {
 	display: block;
 	text-decoration: none;
 	margin-bottom: calc(var(--body-leading)*2);
 }
 
-.project-thumb, .post-thumb {
+.project-thumb {
 	margin-bottom: calc(var(--body-leading)/2);
 }
 
-.project-title, .post-title {
+.project-title {
 	color: var(--gray5);
 }
 
@@ -21,7 +21,7 @@
 	.project-thumb {
 		width: 100%;
 	}
-	.project-title, .post-title {
+	.project-title {
 		font-size: var(--body-size);
 		font-weight: var(--heading-weight2);
 	}

@@ -1,0 +1,20 @@
+.post-preview {
+	display: block;
+	text-decoration: none;
+	margin-bottom: calc(var(--body-leading)*2);
+}
+
+.post-thumb {
+	margin-bottom: calc(var(--body-leading)/2);
+}
+
+.post-title {
+	color: var(--gray5);
+}
+
+@media screen and (min-width: 601px) {
+	.post-title {
+		font-size: var(--body-size);
+		font-weight: var(--heading-weight2);
+	}
+}
