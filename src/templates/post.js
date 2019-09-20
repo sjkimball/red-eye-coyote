@@ -13,6 +13,7 @@ const PostTemplate = ({ data }) => {
 	const keywords = post.keywords;
 	const publishedAt = post.publishedAt;
 	const title = post.title;
+	const subtitle = post.subtitle;
 
 	return (
 		<Layout>
@@ -22,6 +23,7 @@ const PostTemplate = ({ data }) => {
 				keywords={keywords}
 				publishedAt={publishedAt}
 				title={title}
+				subtitle={subtitle}
 			/>
 		</Layout>
 	);
@@ -34,6 +36,7 @@ export const query = graphql`
 	      current
 	    }
 	    title
+	    subtitle
 	    _id
 	    author {
 	      name

@@ -15,7 +15,20 @@ const useProjectBasics = () => {
 		          alt_text
 		          caption
 		          file {
+		          	crop {
+		          		top
+		          		bottom
+		          		left
+		          		right
+		          	}
+		          	hotspot {
+		          		x
+		          		y
+		          		height
+		          		width
+		          	}
 		            asset {
+		            	_id
 		              fluid {
 		                ...GatsbySanityImageFluid
 		              }

@@ -16,23 +16,27 @@ export default () => {
       <SEO title={settings.title} />
       <h1>{settings.title}</h1>
       <p>{settings.subtitle}</p>
-      {posts.map(({ node: post }) => {
-        const postID = post._id;
-        const title = post.title;
-        const subtitle = post.subtitle;
-        const postSlug = post.slug.current;
-        const mainImage = post.mainImage;
-        
-        return (
-          <PostPreview
-            key={postID}
-            title={title}
-            subtitle={subtitle}
-            slug={postSlug}
-            mainImage={mainImage}
-          />
-        );
-      })}
+      <div className={`preview-container`}>
+        {posts.map(({ node: post }) => {
+          const mainImage = post.mainImage;
+          const postID = post._id;
+          const postSlug = post.slug.current;
+          const publishedAt = post.publishedAt;
+          const subtitle = post.subtitle;
+          const title = post.title;
+          
+          return (
+            <PostPreview
+              key={postID}
+              mainImage={mainImage}
+              publishedAt={publishedAt}
+              subtitle={subtitle}
+              slug={postSlug}
+              title={title}
+            />
+          );
+        })}
+      </div>
     </Layout>
   )
 };

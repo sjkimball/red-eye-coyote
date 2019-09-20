@@ -1,5 +1,8 @@
 .footer {
-	padding: 2rem 1rem;
+	height: 90px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	width: 100vw;
 }
 
 .footer--dark {
@@ -10,13 +13,13 @@
 .social-list {
 	display: flex;
 	justify-content: space-between;
-	height: 100%;
 	list-style-type: none;
 	margin-left: 0;
+	margin-bottom: 0;
 }
 
 .social-list li {
-	/*display: inline-block;*/
+	text-transform: uppercase;
 }
 
 .social-list a {
@@ -30,7 +33,11 @@
 }
 
 @media screen and (min-width: 601px) {
+
+}
+
+@media screen and (min-width: 1240px) {
 	.social-list {
-		justify-content: space-around;
+		/*justify-content: flex-start;*/
 	}
 }

@@ -13,7 +13,7 @@ export default () => {
     <Layout>
       <SEO title="Work" />
       <h1>Work</h1>
-      <p>Something here?</p>
+      <p>Take a look.</p>
       {projects.map(({ node: project }) => {
         const projID = project._id;
         const title = project.title;

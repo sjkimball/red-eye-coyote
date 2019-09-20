@@ -1,17 +1,16 @@
 .project-preview {
-	display: block;
 	text-decoration: none;
 	margin-bottom: calc(var(--body-leading)*2);
+	cursor: pointer;
 }
-
 .project-thumb {
 	margin-bottom: calc(var(--body-leading)/2);
+	height: 0;
+	padding-top: 56.25%;
 }
-
 .project-title {
 	color: var(--gray5);
 }
-
 
 @media screen and (min-width: 601px) {
 	.project-preview {

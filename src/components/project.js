@@ -40,7 +40,6 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 			<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
 			<aside className={`project-aside`}>
 				<div className={`project-gallery`}>
-					{/*Project Gallery*/}
 					{supportingImgs.map((image) => 
 						<Img
 							key={image._key}

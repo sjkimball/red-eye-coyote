@@ -9,6 +9,7 @@ const useBlogPostBasics = () => {
 		      	_id
 		        title
 		        subtitle
+		        publishedAt
 		        mainImage {
 		          file {
 		            asset {
