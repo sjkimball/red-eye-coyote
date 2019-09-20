@@ -12,6 +12,7 @@ import client from './client'
 import contact from './contact'
 import discipline from './discipline'
 import office from './office'
+import pageLanding from './pageLanding'
 import person from './person'
 import personDoc from './personDoc'
 import post from './post'
@@ -38,6 +39,7 @@ export default createSchema({
     contact,
     discipline,
     office,
+    pageLanding,
     person,
     personDoc,
     post,
