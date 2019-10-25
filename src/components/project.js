@@ -4,10 +4,13 @@ import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
 import BlockContent from '@sanity/block-content-to-react';
+import imageUrlBuilder from '@sanity/image-url'
+
+import useSanityOptions from "../hooks/use-sanity-options";
 
 import './project.css'
 
-const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offices, proj_summary, proj_desc, title, sectors, supportingImgs}) => {
+const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_summary, proj_desc, title, sectors, supportingImgs}) => {
 
 	const serializers = {
 		container: 'section',
@@ -15,6 +18,14 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 			block: props => 
 				<p>{props.node.children[0].text}</p>
 		}
+	}
+
+	const mySanityConfig = useSanityOptions();
+
+	const builder = imageUrlBuilder(mySanityConfig);
+
+	function urlFor(source) {
+		return builder.image(source)
 	}
 
 	return (
@@ -29,13 +40,7 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 						<li key={discipline._id} value={discipline.title}>{discipline.title}</li>
 					)}
 				</ul>
-				<h2 className={`project-summary`}>{proj_summary}</h2>
-				<Img 
-					fluid={imageData.file.asset.fluid}
-					alt={imageData.alt_text}
-					sizes={{...imageData.file.asset.fluid, aspectRatio: 16 / 9 }}
-					className={`project-hero`}
-				/>
+				<img src={urlFor(coverImg.file).url()} alt={coverImg.alt_text} className={`project-hero`}/>
 			</header>
 			<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
 			<aside className={`project-aside`}>

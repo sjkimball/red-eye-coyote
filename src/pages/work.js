@@ -20,7 +20,7 @@ export default () => {
         const clientName = project.client.client_name;
         const clientSlug = project.client.slug.current;
         const projectSlug = project.slug.current;
-        const primaryImgData = project.coverImg;
+        const coverImg = project.coverImg;
         
         return (
           <ProjectPreview
@@ -29,7 +29,7 @@ export default () => {
             clientName={clientName}
             slug={projectSlug}
             clientSlug={clientSlug}
-            primaryImgData={primaryImgData}
+            coverImg={coverImg}
           />
         );
       })}

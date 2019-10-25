@@ -11,7 +11,7 @@ const ProjectTemplate = ({ data }) => {
 	const client_name = project.client.client_name;
 	const creators = project.creators;
 	const disciplines = project.disciplines;
-	const imageData = project.coverImg;
+	const coverImg = project.coverImg;
 	const offices = project.office;
 	const project_summary = project.project_summary;
 	const project_desc = project._rawProjectDesc;
@@ -25,7 +25,7 @@ const ProjectTemplate = ({ data }) => {
 				client_name = {client_name}
 				creators = {creators}
 				disciplines = {disciplines}
-				imageData={imageData}
+				coverImg={coverImg}
 				offices={offices}
 				proj_summary={project_summary}
 				proj_desc={project_desc}
@@ -49,11 +49,21 @@ export const query = graphql`
 		  _rawProjectDesc
 		  coverImg {
 		  	file {
-			    asset {
-			      fluid {
-			        ...GatsbySanityImageFluid
-			      }
-			    }		  		
+		  		crop {
+		  			top
+		  			bottom
+		  			left
+		  			right
+		  		}
+		  		hotspot {
+		  			x
+		  			y
+		  			height
+		  			width
+		  		}
+		  	  asset {
+		  	  	_id
+		  	  }
 		  	}
 		  	alt_text
 		  	caption

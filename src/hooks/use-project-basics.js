@@ -15,6 +15,7 @@ const useProjectBasics = () => {
 		          alt_text
 		          caption
 		          file {
+		          	_type
 		          	crop {
 		          		top
 		          		bottom
@@ -29,9 +30,6 @@ const useProjectBasics = () => {
 		          	}
 		            asset {
 		            	_id
-		              fluid {
-		                ...GatsbySanityImageFluid
-		              }
 		            }
 		          }
 		        }
