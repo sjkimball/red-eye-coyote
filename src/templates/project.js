@@ -48,35 +48,16 @@ export const query = graphql`
 		  project_summary
 		  _rawProjectDesc
 		  coverImg {
-		  	file {
-		  		crop {
-		  			top
-		  			bottom
-		  			left
-		  			right
-		  		}
-		  		hotspot {
-		  			x
-		  			y
-		  			height
-		  			width
-		  		}
-		  	  asset {
-		  	  	_id
-		  	  }
+		  	image {
+		  		...projectImageData
 		  	}
 		  	alt_text
 		  	caption
 		  }
 		  supportingImgs {
-		  	_key
-		  	file {
-			    asset {
-			      fluid {
-			        ...GatsbySanityImageFluid
-			      }
-			    }		  		
-		  	}
+	  		image {
+					...projectImageData
+		  	    }
 		  	alt_text
 		  	caption
 		  }		  
@@ -96,6 +77,23 @@ export const query = graphql`
 		    name
 		    _id
 		  }
+		}
+	}
+	fragment projectImageData on SanityImage {
+		asset {
+		  _id
+		}
+		hotspot {
+		  x
+		  y
+		  height
+		  width
+		}
+		crop {
+		  top
+		  bottom
+		  left
+		  right
 		}
 	}
 `;

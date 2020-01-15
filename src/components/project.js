@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
 import BlockContent from '@sanity/block-content-to-react';
@@ -40,17 +39,16 @@ const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_s
 						<li key={discipline._id} value={discipline.title}>{discipline.title}</li>
 					)}
 				</ul>
-				<img src={urlFor(coverImg.file).url()} alt={coverImg.alt_text} className={`project-hero`}/>
+				<img src={urlFor(coverImg.image).url()} alt={coverImg.alt_text} className={`project-hero`}/>
 			</header>
 			<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
 			<aside className={`project-aside`}>
 				<div className={`project-gallery`}>
-					{supportingImgs.map((image) => 
-						<Img
-							key={image._key}
-							fluid={image.file.asset.fluid}
+					{supportingImgs.map((image) =>
+						<img
+							key={image.image.asset._id}
+							src={urlFor(image.image).url()}
 							alt={image.alt_text}
-							sizes={{...image.file.asset.fluid, aspectRatio: 4 / 3 }}
 							className={`gallery-image`}
 						/>
 					)}		
