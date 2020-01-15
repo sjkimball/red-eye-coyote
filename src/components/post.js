@@ -18,9 +18,9 @@ const urlFor = source =>
 const serializers = {
 	container: 'section',
 	types: {
-		primaryImage: props => (
+		customImage: props => (
 			<figure>
-				<img src={urlFor(props.node.file.asset)} alt={props.node.alt_text} />
+				<img src={urlFor(props.node.image.asset)} alt={props.node.alt_text} />
 				<figcaption>{props.node.caption}</figcaption>
 			</figure>
 		)
