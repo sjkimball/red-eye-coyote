@@ -9,7 +9,6 @@ import useSanityOptions from "../hooks/use-sanity-options";
 import './project-preview.css';
 
 const ProjectPreview = ({ clientName, clientSlug, coverImg, title, slug}) => {
-	console.log(coverImg.file);
 
 	const mySanityConfig = useSanityOptions();
 
@@ -21,7 +20,7 @@ const ProjectPreview = ({ clientName, clientSlug, coverImg, title, slug}) => {
 
 	return (
 		<Link to={`/work/${clientSlug}/${slug}`} className={`project-preview`}>
-			<img src={urlFor(coverImg.file).maxHeight(200).url()} alt={coverImg.alt_text} className={`project-thumb`}/>
+			<img src={urlFor(coverImg.image).width(500).height(281).url()} alt={coverImg.alt_text} className={`project-thumb`}/>
 			<h2 className={`project-title`}>{title}</h2>
 		</Link>
 	);

@@ -14,8 +14,10 @@ const useProjectBasics = () => {
 		        coverImg {
 		          alt_text
 		          caption
-		          file {
-		          	_type
+		          image {
+		          	asset {
+		          		_id
+		          	}
 		          	crop {
 		          		top
 		          		bottom
@@ -28,9 +30,6 @@ const useProjectBasics = () => {
 		          		height
 		          		width
 		          	}
-		            asset {
-		            	_id
-		            }
 		          }
 		        }
 		        client {
