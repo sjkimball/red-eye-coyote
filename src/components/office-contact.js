@@ -8,7 +8,6 @@ import BlockContent from '@sanity/block-content-to-react';
 import './office-contact.css'
 
 const OfficeContact = ({office}) => {
-	console.log(office);
 	const mySanityConfig = useSanityOptions();
 
 	const builder = imageUrlBuilder(mySanityConfig);
@@ -21,7 +20,7 @@ const OfficeContact = ({office}) => {
 		<article className={`rec-office`}>
 			<header>
 			<img
-				src={urlFor(office.office_image.image).width(300).url()}
+				src={urlFor(office.office_image.image).width(500).url()}
 				alt={office.alt_text}
 				className={`header-image`}
 			/>			
