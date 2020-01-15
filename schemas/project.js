@@ -2,12 +2,20 @@ export default {
 	name: 'project',
 	title: 'Project',
 	type: 'document',
+	initialValue: {
+		featured: false
+	},
 	fields: [
 		{
 			name: 'title',
 			title: 'Title',
 			type: 'string',
 			validation: Rule => Rule.required().min(10).max(30).error('Say more with less.')
+		},
+		{
+			name: 'featured',
+			type: 'boolean',
+			title: 'Featured'
 		},
 		{
 			name: 'client',
@@ -88,7 +96,8 @@ export default {
 		{
 			name: 'coverImg',
 			title: 'Cover Image',
-			type: 'customImage'
+			type: 'customImage',
+			validation: Rule => Rule.required()
 		},
 		{
 			name: 'supportingImgs',
