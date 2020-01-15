@@ -11,11 +11,21 @@ const useBlogPostBasics = () => {
 		        subtitle
 		        publishedAt
 		        mainImage {
-		          file {
+		          image {
 		            asset {
-		              fluid {
-		                ...GatsbySanityImageFluid
-		              }
+		              _id
+		            }
+		            crop {
+		            	top
+		            	bottom
+		            	left
+		            	right
+		            }
+		            hotspot {
+		            	x
+		            	y
+		            	height
+		            	width
 		            }
 		          }
 		        }
