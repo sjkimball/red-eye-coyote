@@ -26,7 +26,7 @@ const FrontPage = ({pageContent}) => {
 			<h2>{subheading}</h2>
 			<figure>
 				<img
-					src={urlFor(heroImage.image).width(500).height(500).url()}
+					src={urlFor(heroImage.image).width(500).height(281).url()}
 					alt={heroImage.alt_text}
 					className={`hero-image`}
 				/>
@@ -42,7 +42,7 @@ const FrontPage = ({pageContent}) => {
 					return (
 						<div key={key} className={`sample-thumb`}>
 							<img
-								src={urlFor(coverImg.image).url()}
+								src={urlFor(coverImg.image).width(500).height(200).url()}
 								alt={coverImg.alt_text}
 								className={`thumb-image`}/>							
 							<h5>

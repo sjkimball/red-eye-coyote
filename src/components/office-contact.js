@@ -21,7 +21,7 @@ const OfficeContact = ({office}) => {
 		<article className={`rec-office`}>
 			<header>
 			<img
-				src={urlFor(office.office_image.image).url()}
+				src={urlFor(office.office_image.image).width(300).url()}
 				alt={office.alt_text}
 				className={`header-image`}
 			/>			

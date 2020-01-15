@@ -34,7 +34,7 @@ const Profile = ({bio, imageData, name, office, personDoc, socialAccounts }) => 
 				</h1>
 			</header>
 			<img
-				src={urlFor(imageData.image).width(500).height(500).url()}
+				src={urlFor(imageData.image).width(300).height(300).url()}
 				alt={imageData.alt_text}
 				className={`profile-img`}
 			/>

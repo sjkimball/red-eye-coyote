@@ -19,8 +19,11 @@ const serializers = {
 	container: 'section',
 	types: {
 		customImage: props => (
-			<figure>
-				<img src={urlFor(props.node.image.asset)} alt={props.node.alt_text} />
+			<figure className={`post-image`}>
+				<img
+					src={urlFor(props.node.image.asset).width(300).url()}
+					alt={props.node.alt_text}
+				/>
 				<figcaption>{props.node.caption}</figcaption>
 			</figure>
 		)
