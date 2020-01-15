@@ -2,15 +2,13 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 
-import useSanityOptions from "../hooks/use-sanity-options";
-
 import imageUrlBuilder from '@sanity/image-url'
+
+import useSanityOptions from "../hooks/use-sanity-options";
 
 import './post-preview.css';
 
 const PostPreview = ({ mainImage, publishedAt, title, slug, subtitle }) => {
-	console.log(mainImage);
-
 	const mySanityConfig = useSanityOptions();
 
 	const builder = imageUrlBuilder(mySanityConfig);
