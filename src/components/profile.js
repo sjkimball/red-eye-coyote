@@ -34,14 +34,14 @@ const Profile = ({bio, imageData, name, office, personDoc, socialAccounts }) => 
 				</h1>
 			</header>
 			<img
-				src={urlFor(imageData.image).width(300).height(300).url()}
+				src={urlFor(imageData.image).width(500).url()}
 				alt={imageData.alt_text}
 				className={`profile-img`}
 			/>
 			<BlockContent blocks={bio} serializers={serializers} className={`profile-bio`}/>				
 			<section className={`profile-info`}>
 				<h6>Additional Information</h6>
-				<a href={personDoc.asset.url} target="_blank" rel="noopener noreferrer"><span>Resume</span></a>
+				<a href={`https://indd.adobe.com/view/3cf8b7d4-92ea-4eb6-af0d-a0677a8e392d`} target="_blank" rel="noopener noreferrer"><span>Resume</span></a>
 				<a href={`https://www.linkedin.com/in/sjkimball/`} target="_blank" rel="noopener noreferrer"><span>LinkedIn</span></a>
 			</section>			
 		</article>
