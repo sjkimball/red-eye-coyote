@@ -1,13 +1,23 @@
 import React from 'react'
 
-import Img from 'gatsby-image';
+import useSanityOptions from "../hooks/use-sanity-options";
+
+import imageUrlBuilder from '@sanity/image-url'
 
 import './front-page.css'
 
 const FrontPage = ({pageContent}) => {
+	const mySanityConfig = useSanityOptions();
+
+	const builder = imageUrlBuilder(mySanityConfig);
+
+	function urlFor(source) {
+		return builder.image(source)
+	}
+
 	const heading = pageContent.heading;
 	const subheading = pageContent.subheading;
-	const heroImage = pageContent.heroImage.file.asset.fluid;
+	const heroImage = pageContent.heroImage;
 	const workSamples = pageContent.workSamples;
 
 	return (
@@ -15,10 +25,9 @@ const FrontPage = ({pageContent}) => {
 			<h1>{heading}</h1>
 			<h2>{subheading}</h2>
 			<figure>
-				<Img
-					fluid={heroImage}
-					alt={pageContent.heroImage.alt_text}
-					sizes={{...heroImage, aspectRatio: 16 / 9}}
+				<img
+					src={urlFor(heroImage.image).width(500).height(500).url()}
+					alt={heroImage.alt_text}
 					className={`hero-image`}
 				/>
 				<figcaption>{pageContent.heroImage.caption}</figcaption>
@@ -28,11 +37,14 @@ const FrontPage = ({pageContent}) => {
 				{workSamples.map((sample) => {
 					const key = sample._id;
 					const title = sample.title;
-					const coverImg = sample.coverImg.file.asset.fluid;
+					const coverImg = sample.coverImg;
 
 					return (
 						<div key={key} className={`sample-thumb`}>
-							<img src={coverImg.src} alt={coverImg.alt_text} className={`thumb-image`}/>							
+							<img
+								src={urlFor(coverImg.image).url()}
+								alt={coverImg.alt_text}
+								className={`thumb-image`}/>							
 							<h5>
 								{title}
 							</h5>

@@ -24,12 +24,8 @@ export const query = graphql`
 	      heading
 	      subheading
 	      heroImage {
-	        file {
-	          asset {
-	            fluid {
-	              ...GatsbySanityImageFluid
-	            }
-	          }
+	        image {
+	          ...imageData
 	        }
 	        alt_text
 	        caption
@@ -38,17 +34,30 @@ export const query = graphql`
 	      	_id
 	        title
 	        coverImg {
-	          file {
-	            asset {
-	              fluid {
-	                src
-	              }
-	            }
+	          image {
+	            ...imageData
 	          }
 	          alt_text
 	        }
 	      }
 	    }
+	}
+	fragment imageData on SanityImage {
+		asset {
+	    _id
+	  }
+	  crop {
+	    top
+	    bottom
+	    left
+	    right
+	  }
+	  hotspot {
+	    x
+	    y
+	    height
+	    width
+	  }
 	}
 `
 
