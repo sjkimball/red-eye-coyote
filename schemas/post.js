@@ -2,11 +2,25 @@ export default {
   name: 'post',
   title: 'Post',
   type: 'document',
+  initialValue: {
+    mainImage: {
+      _type: 'customImage',
+      image: {
+        _type: 'image',
+        asset: {
+          _type: 'reference',
+          _ref: 'image-6dca2dd407dfdd12e9843ee248fb4a7f8e766774-3705x2084-jpg'
+        }
+      },
+      alt_text: 'Some alt text'
+    }
+  },
   fields: [
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'subtitle',
@@ -20,7 +34,8 @@ export default {
       options: {
         source: 'title',
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'author',
