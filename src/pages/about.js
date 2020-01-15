@@ -37,11 +37,21 @@ export const query = graphql`
 		sanityPerson(name: {eq: $name}) {
 			_rawBio
 			image {
-				file {
+				image {
 					asset {
-						fluid {
-							...GatsbySanityImageFluid
-						}
+						_id
+					}
+					crop {
+						top
+						bottom
+						left
+						right
+					}
+					hotspot {
+						x
+						y
+						height
+						width
 					}						
 				}
 				alt_text

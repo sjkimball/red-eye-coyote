@@ -1,12 +1,22 @@
 import React from 'react';
 
-import Img from 'gatsby-image';
+import useSanityOptions from "../hooks/use-sanity-options";
+
+import imageUrlBuilder from '@sanity/image-url'
 
 import BlockContent from '@sanity/block-content-to-react';
 
 import './profile.css';
 
 const Profile = ({bio, imageData, name, office, personDoc, socialAccounts }) => {
+
+	const mySanityConfig = useSanityOptions();
+
+	const builder = imageUrlBuilder(mySanityConfig);
+
+	function urlFor(source) {
+		return builder.image(source)
+	}
 
 	const serializers = {
 		types: {
@@ -23,12 +33,10 @@ const Profile = ({bio, imageData, name, office, personDoc, socialAccounts }) => 
 					<span>{office}</span>
 				</h1>
 			</header>
-			<Img 
-				fluid={imageData.file.asset.fluid}
-				alt={name}
-				sizes={{...imageData.file.asset.fluid, aspectRatio: 1 / 1}}
+			<img
+				src={urlFor(imageData.image).width(500).height(500).url()}
+				alt={imageData.alt_text}
 				className={`profile-img`}
-				// style={{position: `fixed`}}
 			/>
 			<BlockContent blocks={bio} serializers={serializers} className={`profile-bio`}/>				
 			<section className={`profile-info`}>
