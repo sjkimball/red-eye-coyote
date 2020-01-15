@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'gatsby';
+
 import useSanityOptions from "../hooks/use-sanity-options";
 
 import imageUrlBuilder from '@sanity/image-url'
@@ -24,11 +26,10 @@ const FrontPage = ({pageContent}) => {
 		<article className="rec-page">
 			<h1>{heading}</h1>
 			<h2>{subheading}</h2>
-			<figure>
+			<figure className={`hero-image`}>
 				<img
 					src={urlFor(heroImage.image).width(500).height(281).url()}
 					alt={heroImage.alt_text}
-					className={`hero-image`}
 				/>
 				<figcaption>{pageContent.heroImage.caption}</figcaption>
 			</figure>
@@ -38,17 +39,19 @@ const FrontPage = ({pageContent}) => {
 					const key = sample._id;
 					const title = sample.title;
 					const coverImg = sample.coverImg;
+					const clientSlug = sample.client.slug.current;
+					const slug = sample.slug.current;
 
 					return (
-						<div key={key} className={`sample-thumb`}>
+						<Link key={key}to={`/work/${clientSlug}/${slug}`}>
 							<img
-								src={urlFor(coverImg.image).width(500).height(200).url()}
+								src={urlFor(coverImg.image).width(200).height(200).url()}
 								alt={coverImg.alt_text}
 								className={`thumb-image`}/>							
 							<h5>
 								{title}
 							</h5>
-						</div>
+						</Link>
 					)
 				})}
 			</section>
