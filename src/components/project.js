@@ -39,6 +39,9 @@ const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_s
 						<li key={discipline._id} value={discipline.title}>{discipline.title}</li>
 					)}
 				</ul>
+				<h2>
+					{proj_summary}
+				</h2>
 				<img src={urlFor(coverImg.image).width(500).height(281).url()} alt={coverImg.alt_text} className={`project-hero`}/>
 			</header>
 			<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
@@ -47,7 +50,7 @@ const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_s
 					{supportingImgs.map((image) =>
 						<img
 							key={image.image.asset._id}
-							src={urlFor(image.image).width(300).height(300).url()}
+							src={urlFor(image.image).width(500).url()}
 							alt={image.alt_text}
 							className={`gallery-image`}
 						/>
