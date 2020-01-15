@@ -21,7 +21,7 @@ const serializers = {
 		customImage: props => (
 			<figure className={`post-image`}>
 				<img
-					src={urlFor(props.node.image.asset).width(300).url()}
+					src={urlFor(props.node.image.asset).width(500).height(281).url()}
 					alt={props.node.alt_text}
 				/>
 				<figcaption>{props.node.caption}</figcaption>
