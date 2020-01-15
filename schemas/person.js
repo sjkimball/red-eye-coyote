@@ -26,7 +26,7 @@ export default {
     {
       name: 'image',
       title: 'Image',
-      type: 'primaryImage',
+      type: 'customImage',
     },
     {
       name: 'role',
@@ -86,7 +86,7 @@ export default {
   preview: {
     select: {
       title: 'name',
-      media: 'image.file'
+      media: 'image.image'
     }
   }
 }

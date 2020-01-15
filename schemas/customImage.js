@@ -1,11 +1,11 @@
 export default {
-	name: 'primaryImage',
-	title: 'Image',
+	name: 'customImage',
+	title: 'Custom Image',
 	type: 'object',
 	fields: [
 		{
-			name: 'file',
-			title: 'File',
+			name: 'image',
+			title: 'Image',
 			type: 'image',
 			options: {
 				hotspot: true

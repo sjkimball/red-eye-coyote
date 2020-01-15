@@ -16,7 +16,7 @@ import pageLanding from './pageLanding'
 import person from './person'
 import personDoc from './personDoc'
 import post from './post'
-import primaryImage from './primaryImage'
+import customImage from './customImage'
 import project from './project'
 import role from './role'
 import sector from './sector'
@@ -43,7 +43,7 @@ export default createSchema({
     person,
     personDoc,
     post,
-    primaryImage,
+    customImage,
     project,
     role,
     sector,

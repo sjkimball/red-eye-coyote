@@ -17,7 +17,7 @@ export default {
 		{
 			name: 'heroImage',
 			title: 'Hero Image',
-			type: 'primaryImage',
+			type: 'customImage',
 			// validation: Rule => Rule.required()
 		},
 		{

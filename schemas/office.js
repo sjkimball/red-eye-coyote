@@ -4,9 +4,9 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'image',
+      name: 'office_image',
       title: 'Office Image',
-      type: 'primaryImage'
+      type: 'customImage'
     },
     {
       name: 'address',

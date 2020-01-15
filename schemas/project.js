@@ -88,7 +88,7 @@ export default {
 		{
 			name: 'coverImg',
 			title: 'Cover Image',
-			type: 'primaryImage'
+			type: 'customImage'
 		},
 		{
 			name: 'supportingImgs',
@@ -96,7 +96,7 @@ export default {
 			type: 'array',
 			of: [
 				{
-					type: 'primaryImage'
+					type: 'customImage'
 				}
 			],
 			options: {
@@ -109,7 +109,7 @@ export default {
 		select: {
 			title: 'title',
 			subtitle: 'client.client_name',
-			media: 'coverImg.file'
+			media: 'coverImg.image'
 		}
 	}
 }

@@ -31,7 +31,7 @@ export default {
     {
       name: 'mainImage',
       title: 'Main Image',
-      type: 'primaryImage'
+      type: 'customImage'
     },
     {
       name: 'body',
@@ -62,7 +62,7 @@ export default {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage.file'
+      media: 'mainImage.image'
     },
     prepare(selection) {
       const {author} = selection
