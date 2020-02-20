@@ -1,7 +1,5 @@
 .footer {
-	height: 90px;
-	padding-left: 1rem;
-	padding-right: 1rem;
+	padding: var(--body-leading);
 	width: 100vw;
 }
 
@@ -11,20 +9,22 @@
 }
 
 .social-list {
-	display: flex;
-	justify-content: space-between;
+	column-count: 2;
 	list-style-type: none;
 	margin-left: 0;
 	margin-bottom: 0;
 }
 
 .social-list li {
-	text-transform: uppercase;
+	margin-bottom: 0;
 }
 
 .social-list a {
-	text-decoration: none;
 	color: var(--gray2);
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
 }
 
 .copyright {
