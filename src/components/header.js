@@ -34,11 +34,9 @@ class Header extends React.Component {
 
     return (
       <header className={`mainHeader ${headerClass}`}>
-        <h3>
-          <Link to="/" className={this.state.menuVisible ? 'header-logo header-logo--light' : 'header-logo header-logo--dark'}>
-            {siteTitle}
-          </Link>
-        </h3>
+        <Link to="/" className={this.state.menuVisible ? 'header-logo header-logo--light' : 'header-logo header-logo--dark'}>
+          <h3>{siteTitle}</h3>
+        </Link>
         <nav className={`mainNav`}>
           <Link to="/work" className={`nav-item`} activeClassName="active" partiallyActive={true}>Work</Link>
           <Link to="/about" className={`nav-item`} activeClassName="active" partiallyActive={true}>About</Link>
