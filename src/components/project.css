@@ -3,18 +3,19 @@
 }
 
 .project-header {
-	margin-bottom: var(--heading-leading);
+	margin-bottom: var(--body-leading);
 }
 
 .project-header h1 {
 	line-height: calc(var(--heading-leading)* 1.5 );
+	margin-bottom: var(--body-leading);
 }
 
 .project-disciplines {
 	color: var(--gray3);
 	list-style-type: none;
 	margin-left: 0;
-	margin-bottom: 1.5rem;
+	margin-bottom: var(--body-leading);
 	padding: 0;
 }
 
@@ -24,8 +25,7 @@
 }
 
 .project-hero {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	margin-bottom: 0;
 }
 
 .project-body p {
