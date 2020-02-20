@@ -35,6 +35,9 @@
 
   --body-leading: calc(var(--body-size) * 1.25);
   --heading-leading: calc(var(--body-size) * 1.5);
+  --heading-leading1: calc(var(--heading-size1) * 1.25);
+  --heading-leading2: calc(var(--heading-size2) * 1.25);
+  --heading-leading3: calc(var(--heading-size3) * 1.25);
 };
 
 html {
@@ -652,12 +655,16 @@ pre tt:after {
 
 .layout {
   margin: 0 auto;
-  padding: 120px 1rem 1.45rem;
+  padding-top: 44px;
   width: 100vw;
 }
 
 .layout--dark {
   background-color: var(--gray5);
+}
+
+.mainContainer {
+  padding: var(--body-leading);
 }
 
 .mainContainer > p {
