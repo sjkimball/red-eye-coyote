@@ -9,12 +9,23 @@ const useBlogPostBasics = () => {
 		      	_id
 		        title
 		        subtitle
+		        publishedAt
 		        mainImage {
-		          file {
+		          image {
 		            asset {
-		              fluid {
-		                ...GatsbySanityImageFluid
-		              }
+		              _id
+		            }
+		            crop {
+		            	top
+		            	bottom
+		            	left
+		            	right
+		            }
+		            hotspot {
+		            	x
+		            	y
+		            	height
+		            	width
 		            }
 		          }
 		        }

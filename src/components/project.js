@@ -1,13 +1,15 @@
 import React from 'react';
 
-import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
 import BlockContent from '@sanity/block-content-to-react';
+import imageUrlBuilder from '@sanity/image-url'
 
-import './post.css'
+import useSanityOptions from "../hooks/use-sanity-options";
 
-const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offices, proj_summary, proj_desc, title, sectors, supportingImgs}) => {
+import './project.css'
+
+const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_summary, proj_desc, title, sectors, supportingImgs}) => {
 
 	const serializers = {
 		container: 'section',
@@ -17,6 +19,14 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 		}
 	}
 
+	const mySanityConfig = useSanityOptions();
+
+	const builder = imageUrlBuilder(mySanityConfig);
+
+	function urlFor(source) {
+		return builder.image(source)
+	}
+
 	return (
 		<article className={`rec-project`}>
 			<header className={`project-header`}>
@@ -24,34 +34,31 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 					{title}
 				</h1>
 				<h6 hidden>Disciplines</h6>
-				<ul className={`header-list`}>
+				<ul className={`project-disciplines`}>
 					{disciplines.map((discipline) => 
 						<li key={discipline._id} value={discipline.title}>{discipline.title}</li>
 					)}
 				</ul>
-				<h2 className={`header-summary`}>{proj_summary}</h2>
-				<Img 
-					fluid={imageData.file.asset.fluid}
-					alt={imageData.alt_text}
-					sizes={{...imageData.file.asset.fluid, aspectRatio: 16 / 9 }}
-					className={`header-image`}
-				/>
+				<h2>
+					{proj_summary}
+				</h2>
+				<img src={urlFor(coverImg.image).width(500).height(281).url()} alt={coverImg.alt_text} className={`project-hero`}/>
 			</header>
 			<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
 			<aside className={`project-aside`}>
 				<div className={`project-gallery`}>
-					{/*Project Gallery*/}
-					{supportingImgs.map((image) => 
-						<Img
-							key={image._key}
-							fluid={image.file.asset.fluid}
+					{supportingImgs.map((image) =>
+						<img
+							key={image.image.asset._id}
+							src={urlFor(image.image).width(500).url()}
 							alt={image.alt_text}
-							sizes={{...image.file.asset.fluid, aspectRatio: 4 / 3 }}
 							className={`gallery-image`}
 						/>
 					)}		
 				</div>
-				<div className={`aside-metadata`}>
+			</aside>
+			<section className="project-details">
+				<div className={`project-metadata`}>
 					<h6>Client</h6>
 					<ul>
 						<li>{client_name}</li>
@@ -69,7 +76,7 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 						)}
 					</ul>
 				</div>
-				<div className={`aside-company-info`}>
+				<div className={`project-company-info`}>
 					<h6>Office</h6>
 				{/*Will need to be updated to support multiple offices*/}
 					<ul>
@@ -82,7 +89,7 @@ const Project = ({ client_name, creators, disciplines, imageAlt, imageData, offi
 						)}
 					</ul>
 				</div>
-			</aside>
+			</section>
 			<footer className={`project-footer`}>
 				<Link to="/work">&larr; Work</Link>
 			</footer>		

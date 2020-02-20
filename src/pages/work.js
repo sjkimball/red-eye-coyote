@@ -13,14 +13,14 @@ export default () => {
     <Layout>
       <SEO title="Work" />
       <h1>Work</h1>
-      <p>Something here?</p>
+      <p>Take a look.</p>
       {projects.map(({ node: project }) => {
         const projID = project._id;
         const title = project.title;
         const clientName = project.client.client_name;
         const clientSlug = project.client.slug.current;
         const projectSlug = project.slug.current;
-        const primaryImgData = project.coverImg;
+        const coverImg = project.coverImg;
         
         return (
           <ProjectPreview
@@ -29,7 +29,7 @@ export default () => {
             clientName={clientName}
             slug={projectSlug}
             clientSlug={clientSlug}
-            primaryImgData={primaryImgData}
+            coverImg={coverImg}
           />
         );
       })}

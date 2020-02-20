@@ -1,23 +1,29 @@
 import React from 'react';
 
-import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
-import './preview.css';
+import imageUrlBuilder from '@sanity/image-url'
 
-const ProjectPreview = ({ clientName, clientSlug, primaryImgAlt, primaryImgData, title, slug}) => {
+import useSanityOptions from "../hooks/use-sanity-options";
+
+import './project-preview.css';
+
+const ProjectPreview = ({ clientName, clientSlug, coverImg, title, slug}) => {
+
+	const mySanityConfig = useSanityOptions();
+
+	const builder = imageUrlBuilder(mySanityConfig);
+
+	function urlFor(source) {
+		return builder.image(source)
+	}
+
 	return (
 		<Link to={`/work/${clientSlug}/${slug}`} className={`project-preview`}>
-			<Img
-				fluid={primaryImgData.file.asset.fluid}
-				alt={primaryImgData.alt_text}
-				sizes={{ ...primaryImgData.file.asset.fluid, aspectRatio: 16 / 9 }}
-				className={`project-thumb`}
-			/>
+			<img src={urlFor(coverImg.image).width(500).height(281).url()} alt={coverImg.alt_text} className={`project-thumb`}/>
 			<h2 className={`project-title`}>{title}</h2>
 		</Link>
 	);
-}
-	
+}	
 
 export default ProjectPreview;

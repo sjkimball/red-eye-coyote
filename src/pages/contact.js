@@ -22,12 +22,22 @@ const ContactPage = ({data}) => {
 export const query = graphql`
 	query primaryContact {
 	  sanityOffice(address: {city: {eq: "Chicago"}}) {
-	    image {
-	      file {
+	    office_image {
+	      image {
 	        asset {
-	          fluid {
-	            ...GatsbySanityImageFluid
-	          }
+	          _id
+	        }
+	        crop {
+	        	top
+	        	bottom
+	        	left
+	        	right
+	        }
+	        hotspot {
+	        	x
+	        	y
+	        	height
+	        	width
 	        }
 	      }
 	    }

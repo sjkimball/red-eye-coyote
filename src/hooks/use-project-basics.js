@@ -14,12 +14,22 @@ const useProjectBasics = () => {
 		        coverImg {
 		          alt_text
 		          caption
-		          file {
-		            asset {
-		              fluid {
-		                ...GatsbySanityImageFluid
-		              }
-		            }
+		          image {
+		          	asset {
+		          		_id
+		          	}
+		          	crop {
+		          		top
+		          		bottom
+		          		left
+		          		right
+		          	}
+		          	hotspot {
+		          		x
+		          		y
+		          		height
+		          		width
+		          	}
 		          }
 		        }
 		        client {

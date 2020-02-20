@@ -5,28 +5,29 @@
   "version": "0.1.0",
   "author": "Sam Kimball <samuel.j.kimball@gmail.com>",
   "dependencies": {
-    "@babel/runtime": "^7.5.5",
-    "@sanity/block-content-to-react": "^2.0.6",
+    "@babel/runtime": "^7.8.3",
+    "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/image-url": "^0.140.14",
-    "core-js": "^3.2.1",
-    "gatsby": "^2.14.0",
-    "gatsby-cli": "^2.7.40",
+    "core-js": "^3.6.4",
+    "gatsby": "^2.18.25",
+    "gatsby-cli": "^2.8.27",
     "gatsby-image": "^2.2.14",
-    "gatsby-link": "^2.2.9",
+    "gatsby-link": "^2.2.28",
     "gatsby-plugin-manifest": "^2.2.9",
-    "gatsby-plugin-offline": "^2.2.10",
-    "gatsby-plugin-react-helmet": "^3.1.5",
+    "gatsby-plugin-offline": "^3.0.32",
+    "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-source-filesystem": "^2.1.9",
-    "gatsby-source-sanity": "^5.0.2",
-    "npm": "^6.11.2",
+    "gatsby-source-sanity": "^5.0.5",
+    "ink": "^2.6.0",
+    "npm": "^6.13.6",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-error-overlay": "^6.0.1",
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.19.1"
   },
   "keywords": [
     "gatsby"

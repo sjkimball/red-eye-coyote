@@ -1,34 +1,48 @@
 import React from 'react';
 
-import Img from 'gatsby-image';
+import useSanityOptions from "../hooks/use-sanity-options";
+
+import imageUrlBuilder from '@sanity/image-url'
+import BlockContent from '@sanity/block-content-to-react';
 
 import './office-contact.css'
 
 const OfficeContact = ({office}) => {
+	const mySanityConfig = useSanityOptions();
+
+	const builder = imageUrlBuilder(mySanityConfig);
+
+	function urlFor(source) {
+		return builder.image(source)
+	}
+
 	return (
 		<article className={`rec-office`}>
 			<header>
-				<Img
-					fluid={office.image.file.asset.fluid}
-					alt={office.image.alt_text}
-					sizes={{...office.image.file.asset.fluid, aspectRatio: 4 / 3 }}
-					className={`header-image`}
-				/>				
+			<img
+				src={urlFor(office.office_image.image).width(500).url()}
+				alt={office.alt_text}
+				className={`header-image`}
+			/>			
 			</header>
-			<section>
-				<h2>Email</h2>
-				<a href={`mailto:${office.contact.email}`}>
-					<span>
-						{office.contact.email}								
-					</span>
-				</a>
+			<section className={`office-contact`}>
+				<h2>
+					Email
+					<a href={`mailto:${office.contact.email}`}>
+						<span>
+							{office.contact.email}								
+						</span>
+					</a>
+				</h2>
 
-				<h2>Phone</h2>
-				<a href={`tel:1-312-879-9813`}>
-					<span>
-						{office.contact.phone}
-					</span>
-				</a>					
+				<h2>
+					Phone
+					<a href={`tel:1-312-879-9813`}>
+						<span>
+							{office.contact.phone}
+						</span>
+					</a>
+				</h2>					
 			</section>
 		</article>
 

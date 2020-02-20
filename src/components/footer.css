@@ -1,5 +1,6 @@
 .footer {
-	padding: 2rem 1rem;
+	padding: var(--body-leading);
+	width: 100vw;
 }
 
 .footer--dark {
@@ -8,20 +9,22 @@
 }
 
 .social-list {
-	display: flex;
-	justify-content: space-between;
-	height: 100%;
+	column-count: 2;
 	list-style-type: none;
 	margin-left: 0;
+	margin-bottom: 0;
 }
 
 .social-list li {
-	/*display: inline-block;*/
+	margin-bottom: 0;
 }
 
 .social-list a {
-	text-decoration: none;
 	color: var(--gray2);
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
 }
 
 .copyright {
@@ -30,7 +33,11 @@
 }
 
 @media screen and (min-width: 601px) {
+
+}
+
+@media screen and (min-width: 1240px) {
 	.social-list {
-		justify-content: space-around;
+		/*justify-content: flex-start;*/
 	}
 }
