@@ -5,7 +5,7 @@ const navStyles = {
 	backgroundColor: `var(--gray5transparent)`,
 	height: `100vh`,
 	width: `100vw`,
-	paddingTop: `100px`,
+	paddingTop: `60px`,
 	paddingRight: `1.0875rem`,
 	paddingLeft: `1.0875rem`,
 	position: `fixed`,
