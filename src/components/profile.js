@@ -32,12 +32,12 @@ const Profile = ({bio, imageData, name, office, personDoc, socialAccounts }) => 
 					<br/>
 					<span>{office}</span>
 				</h1>
+				<img
+					src={urlFor(imageData.image).width(500).url()}
+					alt={imageData.alt_text}
+					className={`profile-img`}
+				/>
 			</header>
-			<img
-				src={urlFor(imageData.image).width(500).url()}
-				alt={imageData.alt_text}
-				className={`profile-img`}
-			/>
 			<BlockContent blocks={bio} serializers={serializers} className={`profile-bio`}/>				
 			<section className={`profile-info`}>
 				<h6>Additional Information</h6>
