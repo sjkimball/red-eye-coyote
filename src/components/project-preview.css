@@ -4,8 +4,9 @@
 	margin-bottom: calc(var(--body-leading)*2);
 	cursor: pointer;
 }
-.project-thumb {
-	margin-bottom: calc(var(--body-leading)/2);
+
+.project-preview .preview-image {
+	margin-bottom: var(--body-size);
 }
 .project-title {
 	color: var(--gray5);

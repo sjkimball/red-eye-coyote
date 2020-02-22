@@ -6,7 +6,9 @@
 	display: block;
 	text-decoration: none;
 }
-.post-time {
+
+.post-preview .preview-image {
+	margin-bottom: var(--body-size);
 	color: var(--gray3);
 	display: block;
 	font-weight: var(--text-weight2);

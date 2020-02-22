@@ -5,6 +5,8 @@ import { Link } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 import urlBuilder from '@sanity/image-url'
 
+import PreviewImage from '../components/preview-image';
+
 import './post.css'
 
 const client = {
@@ -20,7 +22,7 @@ const serializers = {
 	types: {
 		customImage: props => (
 			<figure className={`post-image`}>
-				<img
+				<PreviewImage imageAsset={props.node} />
 					src={urlFor(props.node.image.asset).width(500).height(281).url()}
 					alt={props.node.alt_text}
 				/>

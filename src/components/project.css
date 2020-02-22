@@ -9,6 +9,9 @@
 .project-header h1 {
 	line-height: calc(var(--heading-leading)* 1.5 );
 	margin-bottom: var(--body-leading);
+
+.project-header .preview-image {
+	margin-bottom: 0;
 }
 
 .project-disciplines {

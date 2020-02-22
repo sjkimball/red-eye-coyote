@@ -2,38 +2,21 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 
-import imageUrlBuilder from '@sanity/image-url'
-
-import useSanityOptions from "../hooks/use-sanity-options";
+import PreviewImage from '../components/preview-image';
 
 import './post-preview.css';
 
 const PostPreview = ({ mainImage, publishedAt, title, slug, subtitle }) => {
-	const mySanityConfig = useSanityOptions();
-
-	const builder = imageUrlBuilder(mySanityConfig);
-
-	function urlFor(source) {
-		return builder.image(source)
-	}
 
 	return(
-		<div className={`preview-wrapper`}>
-			<Link to={`/blog/${slug}`} className={`post-preview`}>
-					<img
-						src={urlFor(mainImage.image).width(500).height(281).url()}
-						alt={mainImage.alt_text}
-						className={`post-thumb`}
-					/>
-					<div className="post-info">
-						<h2 className={`post-title`}>{title}</h2>
-						<h4 className={`post-subtitle`}>
-							<time className={`post-time`} dateTime={publishedAt}>{publishedAt}</time>
-							{subtitle}
-						</h4>
-					</div>
-			</Link>
-		</div>
+		<Link to={`/blog/${slug}`} className={`post-preview`}>
+				<PreviewImage imageAsset={mainImage} />
+				<div className="post-preview__info">
+					<h2 className={`post-preview__title`}>{title}</h2>
+					<time className={`post-preview__time`} dateTime={publishedAt}>{publishedAt}</time>
+					<h4 className={`post-preview__subtitle`}>{subtitle}</h4>
+				</div>
+		</Link>
 	);
 }
 

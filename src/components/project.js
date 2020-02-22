@@ -3,9 +3,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import BlockContent from '@sanity/block-content-to-react';
-import imageUrlBuilder from '@sanity/image-url'
 
-import useSanityOptions from "../hooks/use-sanity-options";
+import PreviewImage from '../components/preview-image';
 
 import './project.css'
 
@@ -17,14 +16,6 @@ const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_s
 			block: props => 
 				<p>{props.node.children[0].text}</p>
 		}
-	}
-
-	const mySanityConfig = useSanityOptions();
-
-	const builder = imageUrlBuilder(mySanityConfig);
-
-	function urlFor(source) {
-		return builder.image(source)
 	}
 
 	return (
@@ -42,17 +33,15 @@ const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_s
 				<h2>
 					{proj_summary}
 				</h2>
-				<img src={urlFor(coverImg.image).width(500).height(281).url()} alt={coverImg.alt_text} className={`project-hero`}/>
+				<PreviewImage imageAsset={coverImg} />
 			</header>
 			<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
 			<aside className={`project-aside`}>
 				<div className={`project-gallery`}>
 					{supportingImgs.map((image) =>
-						<img
+						<PreviewImage
 							key={image.image.asset._id}
-							src={urlFor(image.image).width(500).url()}
-							alt={image.alt_text}
-							className={`gallery-image`}
+							imageAsset={image}
 						/>
 					)}		
 				</div>

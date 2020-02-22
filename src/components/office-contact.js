@@ -1,29 +1,16 @@
 import React from 'react';
 
-import useSanityOptions from "../hooks/use-sanity-options";
-
-import imageUrlBuilder from '@sanity/image-url'
 import BlockContent from '@sanity/block-content-to-react';
+
+import PreviewImage from '../components/preview-image';
 
 import './office-contact.css'
 
 const OfficeContact = ({office}) => {
-	const mySanityConfig = useSanityOptions();
-
-	const builder = imageUrlBuilder(mySanityConfig);
-
-	function urlFor(source) {
-		return builder.image(source)
-	}
-
 	return (
 		<article className={`rec-office`}>
 			<header>
-			<img
-				src={urlFor(office.office_image.image).width(500).url()}
-				alt={office.alt_text}
-				className={`header-image`}
-			/>			
+			<PreviewImage imageAsset={office.office_image} />		
 			</header>
 			<section className={`office-contact`}>
 				<h2>
@@ -45,7 +32,6 @@ const OfficeContact = ({office}) => {
 				</h2>					
 			</section>
 		</article>
-
 	)
 }
 
