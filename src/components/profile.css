@@ -1,15 +1,23 @@
 .profile {
 	color: var(--gray1);
 }
+
+.profile-header {
+	margin-bottom: var(--body-size);
+}
+
+.profile-header h1 {
+	font-weight: var(--heading-weight1);
+}
+
+.profile-header span {
+	color: var(--gray3);
+}
+
 .profile-img {
-	margin-bottom: var(--heading-leading);
+	margin-bottom: 0;
 }
-.profile-bio {
-	font-weight: var(--text-weight1);
-}
-.profile-bio p:first-of-type {
-	border-bottom: none;
-}
+
 .profile h6 {
 	border-bottom: 1px solid var(--gray3);
 	color: var(--gray2);
@@ -26,15 +34,6 @@
 .profile a span {
 	border-bottom: 1px solid var(--accent1);
 	font-weight: var(--text-weight2);
-}
-.profile h1 {
-	font-weight: var(--heading-weight1)
-}
-.profile header span {
-	color: var(--gray3);
-	display: inline-block;
-	font-weight: var(--heading-weight1);
-	margin-top: var(--body-leading);
 }
 
 @media screen and (min-width: 601px)  {

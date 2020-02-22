@@ -3,19 +3,10 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import BlockContent from '@sanity/block-content-to-react';
-import urlBuilder from '@sanity/image-url'
 
 import PreviewImage from '../components/preview-image';
 
 import './post.css'
-
-const client = {
-	projectId: '6y7rlog8',
-	dataset: 'production'
-}
-
-const urlFor = source =>
-	urlBuilder({projectId: client.projectId, dataset: client.dataset}).image(source)
 
 const serializers = {
 	container: 'section',
@@ -23,9 +14,6 @@ const serializers = {
 		customImage: props => (
 			<figure className={`post-image`}>
 				<PreviewImage imageAsset={props.node} />
-					src={urlFor(props.node.image.asset).width(500).height(281).url()}
-					alt={props.node.alt_text}
-				/>
 				<figcaption>{props.node.caption}</figcaption>
 			</figure>
 		)
@@ -35,20 +23,18 @@ const serializers = {
 const Post = ({ author, body, keywords, publishedAt, title, subtitle}) => {
 
 	return (
-		<article className={`rec-blog-post`}>
-			<header className={`post-header`}>
+		<article className={`blog-post`}>
+			<header className={`blog-post__header`}>
 				<h1 className={`post-title`}>
 					{title}
 				</h1>
-				<time className={`post-time`} dateTime={publishedAt}>Date Published: {publishedAt}</time>
+				<time className={`post-time`} dateTime={publishedAt}>{publishedAt}</time>
 				<h2 className={`post-subtitle`}>{subtitle}</h2>
 			</header>
 			<BlockContent
 				blocks={body}
 				serializers={serializers}
 				className={`post-body`}
-				projectId={client.projectId}
-				dataset={client.dataset}
 			/>
 			<footer className={`post-footer`}>
 				<Link to="/blog">&larr; back to all posts</Link>

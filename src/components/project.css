@@ -3,12 +3,12 @@
 }
 
 .project-header {
-	margin-bottom: var(--body-leading);
+	margin-bottom: var(--body-size);
 }
 
-.project-header h1 {
-	line-height: calc(var(--heading-leading)* 1.5 );
-	margin-bottom: var(--body-leading);
+.project-header h1, .project-header h2, .project-disciplines {
+	margin-bottom: inherit;
+}
 
 .project-header .preview-image {
 	margin-bottom: 0;
@@ -18,7 +18,6 @@
 	color: var(--gray3);
 	list-style-type: none;
 	margin-left: 0;
-	margin-bottom: var(--body-leading);
 	padding: 0;
 }
 
@@ -31,23 +30,17 @@
 	margin-bottom: 0;
 }
 
-.project-body p {
-	margin-bottom: 1rem;
-}
-.project-body p:first-of-type {
-	/*border-bottom: none;*/
-}
-
 .project-aside {
 	display: grid;
 }
 
 .project-details h6 {
-	margin-bottom: .5rem;
+	margin-bottom: calc(var(--body-size)/4);
 }
 
 .project-details ul{
 	list-style-type: none;
+	margin-bottom: var(--body-size);
 	margin-left: 0;
 }
 
@@ -68,7 +61,7 @@
 }
 
 .project-footer, .post-footer {
-	margin-bottom: 1rem;
+	margin-bottom: var(--body-size);
 }
 
 .project-footer a {

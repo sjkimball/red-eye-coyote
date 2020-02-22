@@ -1,7 +1,7 @@
 .project-preview {
 	display: block;
 	text-decoration: none;
-	margin-bottom: calc(var(--body-leading)*2);
+	margin-bottom: calc(var(--body-size)*2);
 	cursor: pointer;
 }
 
@@ -10,6 +10,7 @@
 }
 .project-title {
 	color: var(--gray5);
+	margin-bottom: 0;
 }
 
 @media screen and (min-width: 601px) {
