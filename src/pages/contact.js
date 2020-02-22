@@ -13,7 +13,9 @@ const ContactPage = ({data}) => {
 	return(
 		<Layout>
 			<SEO title="Contact" />
-			<h1>Contact</h1>
+			<header className={`page-header`}>
+				<h1>Contact</h1>
+			</header>
 			<OfficeContact office={office} />
 		</Layout>
 	)

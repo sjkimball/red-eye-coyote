@@ -12,8 +12,10 @@ export default () => {
   return(
     <Layout>
       <SEO title="Work" />
-      <h1>Work</h1>
-      <p>Take a look.</p>
+      <header className={`page-header`}>
+        <h1>Work</h1>
+        <p>Take a look.</p>        
+      </header>
       {projects.map(({ node: project }) => {
         const projID = project._id;
         const title = project.title;

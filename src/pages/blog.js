@@ -14,29 +14,29 @@ export default () => {
   return(
     <Layout>
       <SEO title={settings.title} />
-      <h1>{settings.title}</h1>
-      <p>{settings.subtitle}</p>
-      <div className={`preview-container`}>
-        {posts.map(({ node: post }) => {
-          const mainImage = post.mainImage;
-          const postID = post._id;
-          const postSlug = post.slug.current;
-          const publishedAt = post.publishedAt;
-          const subtitle = post.subtitle;
-          const title = post.title;
-          
-          return (
-            <PostPreview
-              key={postID}
-              mainImage={mainImage}
-              publishedAt={publishedAt}
-              subtitle={subtitle}
-              slug={postSlug}
-              title={title}
-            />
-          );
-        })}
-      </div>
+      <header className={`page-header`}>
+        <h1>{settings.title}</h1>
+        <p>{settings.subtitle}</p>        
+      </header>
+      {posts.map(({ node: post }) => {
+        const mainImage = post.mainImage;
+        const postID = post._id;
+        const postSlug = post.slug.current;
+        const publishedAt = post.publishedAt;
+        const subtitle = post.subtitle;
+        const title = post.title;
+        
+        return (
+          <PostPreview
+            key={postID}
+            mainImage={mainImage}
+            publishedAt={publishedAt}
+            subtitle={subtitle}
+            slug={postSlug}
+            title={title}
+          />
+        );
+      })}
     </Layout>
   )
 };
