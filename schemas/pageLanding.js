@@ -31,7 +31,13 @@ export default {
 						{
 							type: 'project'
 						}
-					]
+					],
+					options: {
+						filter: 'featured == $featured',
+						filterParams: {
+							featured: true
+						}
+					}
 				}
 			]
 		}
