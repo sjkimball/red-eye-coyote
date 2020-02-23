@@ -3,7 +3,6 @@
 }
 
 .profile-header {
-	margin-bottom: var(--body-size);
 }
 
 .profile-header h1 {
@@ -14,26 +13,23 @@
 	color: var(--gray3);
 }
 
-.profile-img {
+.profile-header img {
 	margin-bottom: 0;
 }
 
 .profile h6 {
 	border-bottom: 1px solid var(--gray3);
-	color: var(--gray2);
+	color: inherit;
 	font-weight: var(--heading-weight2);
-	padding-bottom: .725rem;
-	margin-bottom: .725rem;
+	padding-bottom: calc(var(--body-size)/4);
+	margin-bottom: calc(var(--body-size)/2);
 }
-.profile a {
-	color: var(--gray1);
-	margin-right: 1rem;
-	margin-bottom: 1rem;
-	text-decoration: none;
-}
-.profile a span {
+.profile-info a {
 	border-bottom: 1px solid var(--accent1);
-	font-weight: var(--text-weight2);
+	color: var(--gray1);
+	display: inline-block;
+	margin-right: 1rem;
+	padding-bottom: calc(var(--body-size)/4);
 }
 
 @media screen and (min-width: 601px)  {
