@@ -6,7 +6,7 @@ import PreviewImage from '../components/preview-image';
 
 import './profile.css';
 
-const Profile = ({bio, imageData, name, office, personDoc, socialAccounts }) => {
+const Profile = ({bio, imageData, first_name, last_name, office, personDoc, socialAccounts }) => {
 
 	const serializers = {
 		types: {
@@ -18,7 +18,7 @@ const Profile = ({bio, imageData, name, office, personDoc, socialAccounts }) => 
 	return (
 		<article className={`profile`}>
 			<header className={`page-header profile-header`}>
-				<h1>{name}
+				<h1>{first_name} {last_name}
 					<br/>
 					<span>{office}</span>
 				</h1>

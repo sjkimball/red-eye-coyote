@@ -8,9 +8,6 @@ const useBlogSettings = () => {
 			    subtitle
 			    description
 			    keywords
-			    author {
-			      id
-			    }
 			  }
 			}
 		`);

@@ -23,8 +23,8 @@ const ContactPage = ({data}) => {
 
 export const query = graphql`
 	query primaryContact {
-	  sanityOffice(address: {city: {eq: "Chicago"}}) {
-	    office_image {
+	  sanityOffice(contact_info: {address: {city: {eq: "Chicago"}}}) {
+	    images {
 	      image {
 	        asset {
 	          _id
@@ -43,7 +43,7 @@ export const query = graphql`
 	        }
 	      }
 	    }
-	    contact {
+	    contact_info {
 	      email
 	      phone
 	    }

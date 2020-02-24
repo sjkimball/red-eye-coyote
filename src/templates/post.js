@@ -10,6 +10,7 @@ const PostTemplate = ({ data }) => {
 
 	const author = post.author;
 	const body = post._rawBody;
+	// const coverImage = post.coverImage;
 	const keywords = post.keywords;
 	const publishedAt = post.publishedAt;
 	const title = post.title;
@@ -39,13 +40,14 @@ export const query = graphql`
 	    subtitle
 	    _id
 	    author {
-	      name
+	      first_name
+	      last_name
 	    }
 	    publishedAt
 	    keywords
 			_rawBody
+			}
 	  }
-	}
 `;
 
 export default PostTemplate;

@@ -3,19 +3,13 @@ import { graphql, useStaticQuery } from 'gatsby';
 const usePrimaryOfficeInfo = () => {
 		const data = useStaticQuery(graphql`
 			{
-			  sanityOffice(address: {city: {eq: "Chicago"}}){
-			    address {
-			      city
-			      state_province
-			      country
-			    }
-			    links {
-			    	_key
-			      service {
-			        name
+			  sanityOffice(contact_info: {address: {city: {eq: "Chicago"}}}){
+			    contact_info {
+			    	address {
+				      city
+				      state_province
+				      country
 			      }
-			      username
-			      url
 			    }
 			  }
 			}

@@ -8,7 +8,7 @@ import PreviewImage from '../components/preview-image';
 
 import './project.css'
 
-const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_summary, proj_desc, title, sectors, supportingImgs}) => {
+const Project = ({ client_name, coverImg, contributers, disciplines, offices, proj_summary, proj_desc, title, sectors, productImgs}) => {
 
 	const serializers = {
 		container: 'section',
@@ -17,6 +17,8 @@ const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_s
 				<p>{props.node.children[0].text}</p>
 		}
 	}
+
+	console.log(offices);
 
 	return (
 		<article className={`rec-project`}>
@@ -38,7 +40,7 @@ const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_s
 			<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
 			<aside className={`project-aside`}>
 				<div className={`project-gallery`}>
-					{supportingImgs.map((image) =>
+					{productImgs.map((image) =>
 						<PreviewImage
 							key={image.image.asset._id}
 							imageAsset={image}
@@ -69,12 +71,12 @@ const Project = ({ client_name, coverImg, creators, disciplines, offices, proj_s
 					<h6>Office</h6>
 				{/*Will need to be updated to support multiple offices*/}
 					<ul>
-						<li key={offices._id} value={offices.address.city}>{offices.address.city}</li>
+						<li key={offices._id} value={offices.contact_info.address.city}>{offices.contact_info.address.city}</li>
 					</ul>
 					<h6>Partner</h6>
 					<ul>
-						{creators.map((object) => 
-							<li key={object._id} value={object.name}>{object.name}</li>
+						{contributers.map((object) => 
+							<li key={object._id} value={object.name}>{object.first_name} {object.last_name}</li>
 						)}
 					</ul>
 				</div>

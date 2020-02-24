@@ -10,10 +10,10 @@ const AboutPage = ({data}) => {
 
 	const person = data.sanityPerson;
 	const bio = person._rawBio;
-	const imageData = person.image;
-	const name = person.name;
-	const office = person.office.address.city;
-	const personDoc = person.personDoc;
+	const imageData = person.profile_image;
+	const first_name = person.first_name;
+	const last_name = person.last_name;
+	const office = person.office.contact_info.address.city;
 	const socialAccounts = person.socialAccounts;
 
 	return (
@@ -23,9 +23,9 @@ const AboutPage = ({data}) => {
 			<Profile
 				bio={bio}
 				imageData={imageData}
-				name={name}
+				first_name={first_name}
+				last_name={last_name}
 				office={office} 
-				personDoc={personDoc}
 				socialAccounts={socialAccounts}
 				/>
 		</Layout>
@@ -33,10 +33,10 @@ const AboutPage = ({data}) => {
 }
 
 export const query = graphql`
-	query Person($name: String = "Sam Kimball"){
-		sanityPerson(name: {eq: $name}) {
+	query Person($name: String = "Sam"){
+		sanityPerson(first_name: {eq: $name}) {
 			_rawBio
-			image {
+			profile_image {
 				image {
 					asset {
 						_id
@@ -57,16 +57,13 @@ export const query = graphql`
 				alt_text
 				caption
 			}
-			name
+			first_name
+			last_name
 			office {
-				address {
+				contact_info {
+					address {
 					city
-				}
-			}
-			personDoc {
-				description
-				asset {
-					url
+					}
 				}
 			}
 			socialAccounts {

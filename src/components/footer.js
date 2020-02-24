@@ -1,12 +1,12 @@
 import React from 'react'
 
-import usePrimaryOfficeInfo from '../hooks/use-primary-office-info'
+// import usePrimaryOfficeInfo from '../hooks/use-primary-office-info'
 
 import './footer.css'
 
 const Footer = ({ page }) => {
 
-	const { links } = usePrimaryOfficeInfo();
+	// const { links } = usePrimaryOfficeInfo();
 
 	let footerClass;
 
@@ -18,7 +18,7 @@ const Footer = ({ page }) => {
 
 	return (
 		<footer className={`footer ${footerClass}`}>
-			<ul className={`social-list`}>
+			{/*<ul className={`social-list`}>
 				{links.map((link) => {
 					return (
 						<li key={link._key}>
@@ -26,7 +26,7 @@ const Footer = ({ page }) => {
 						</li>
 					);
 				})}
-			</ul>
+			</ul>*/}
 			<small className={`copyright`}>© Sam Kimball</small>	
 		</footer>
 	)

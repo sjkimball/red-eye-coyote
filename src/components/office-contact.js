@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PreviewImage from '../components/preview-image';
+// import PreviewImage from '../components/preview-image';
 
 import './office-contact.css'
 
@@ -8,18 +8,18 @@ const OfficeContact = ({office}) => {
 	return (
 		<article className={`rec-office`}>
 			<header>
-				<PreviewImage imageAsset={office.office_image} />
+				{/*<PreviewImage imageAsset={office.office_image} />*/}
 				<h2>Lake Geneva</h2>
 				<time>Current time</time>
 			</header>
 			<section className={`office-info`}>
 				<section className={`office-contact`}>
-					<a href={`mailto:${office.contact.email}`} className={`office-email`}>
-						{office.contact.email}
+					<a href={`mailto:${office.contact_info.email}`} className={`office-email`}>
+						{office.contact_info.email}
 					</a>
 
 					<a href={`tel:1-312-879-9813`} className={`office-phone`}>
-						+1 {office.contact.phone}
+						+1 {office.contact_info.phone}
 					</a>					
 				</section>
 				<address>
