@@ -1,6 +1,6 @@
 export default {
   name: 'discipline',
-  title: 'Discipline',
+  title: 'Disciplines',
   type: 'document',
   fields: [
     {

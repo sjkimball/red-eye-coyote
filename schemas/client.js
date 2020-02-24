@@ -2,9 +2,6 @@ export default {
 	name: 'client',
 	title: 'Client',
 	type: 'document',
-	fieldsets: [
-		{name: 'contact', title: 'Contact Info'}
-	],
 	fields: [
 		{
 			name: 'client_name',
@@ -21,27 +18,16 @@ export default {
 			}
 		},
 		{
-			name: 'address',
-			title: 'Address',
-			type: 'address'
-		},
-		{
-			name: 'website',
-			title: 'Website',
-			type: 'url',
-			fieldset: 'contact'
-		},
-		{
-			name: 'phone_number',
-			title: 'Phone',
-			type: 'string',
-			fieldset: 'contact'
-		},
+			name: 'contact_info',
+			title: 'Contact Info',
+			type: 'contact'
+		}
 	],
 
 	preview: {
 		select: {
 			title: 'client_name',
+			subtitle: 'contact_info.address.city'
 		}
 	}
 }

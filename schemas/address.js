@@ -4,9 +4,9 @@ export default {
 	type: 'object',
 	fields: [
 		{
-			name: 'streetNO',
+			name: 'street_number',
 			title: 'Street Number',
-			type: 'string'
+			type: 'number'
 		},
 		{
 			name: 'street',
@@ -14,9 +14,10 @@ export default {
 			type: 'string'
 		},
 		{
-			name: 'aptSuiteUnit',
-			title: 'Apartment or Suite',
-			type: 'string'
+			name: 'street_secondary',
+			title: 'Secondary Street',
+			type: 'string',
+			description: 'Apartment, Unit, Suite number, etc.'
 		},
 		{
 			name: 'city',
@@ -29,14 +30,14 @@ export default {
 			type: 'string',
 		},
 		{
-			name: 'country',
-			title: 'Country',
-			type: 'string',
-		},
-		{
 			name: 'postalCode',
 			title: 'Postal Code',
 			type: 'string'
+		},
+		{
+			name: 'country',
+			title: 'Country',
+			type: 'string',
 		}
 	]
 }

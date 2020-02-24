@@ -4,6 +4,11 @@ export default {
 	type: 'object',
 	fields: [
 		{
+			name: 'website',
+			title: 'Website',
+			type: 'url'
+		},
+		{
 			name: 'email',
 			title: 'Email Address',
 			type: 'string'

@@ -28,12 +28,6 @@ export default {
 			options: {
 				layout: "tags"
 			}
-		},
-		{
-			name: "author",
-			type: "reference",
-			title: "Author",
-			to: [{type: "person"}]
 		}
 	]
 }

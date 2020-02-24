@@ -25,28 +25,8 @@ export default {
     {
       name: 'subtitle',
       title: 'Subtitle',
-      type: 'string'
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 96
-      },
-      validation: Rule => Rule.required()
-    },
-    {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'person'}
-    },
-    {
-      name: 'mainImage',
-      title: 'Main Image',
-      type: 'customImage'
+      type: 'text',
+      rows: 3
     },
     {
       name: 'body',
@@ -67,23 +47,46 @@ export default {
       }
     },
     {
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: {type: 'person'}
+    },
+    {
+      name: 'coverImage',
+      title: 'Cover Image',
+      type: 'customImage'
+    },
+    {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime'
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96
+      },
+      validation: Rule => Rule.required()
     }
   ],
-
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
-      media: 'mainImage.image'
+      author_first: 'author.first_name',
+      author_last: 'author.last_name',
+      media: 'coverImage.image'
     },
     prepare(selection) {
-      const {author} = selection
-      return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`
-      })
+      const {author_first, author_last, media, title} = selection
+      return {
+        title: title,
+        subtitle: `by ${author_first} ${author_last}`,
+        media: media
+      }
     }
   }
 }

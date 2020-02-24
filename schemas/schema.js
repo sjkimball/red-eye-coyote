@@ -10,13 +10,14 @@ import blockContent from './blockContent'
 import category from './category'
 import client from './client'
 import contact from './contact'
+import customImage from './customImage'
 import discipline from './discipline'
+import job_title from './job_title'
 import office from './office'
 import pageLanding from './pageLanding'
 import person from './person'
 import personDoc from './personDoc'
 import post from './post'
-import customImage from './customImage'
 import project from './project'
 import role from './role'
 import sector from './sector'
@@ -46,6 +47,7 @@ export default createSchema({
     customImage,
     project,
     role,
+    job_title,
     sector,
     siteSettings,
     socialAccount,

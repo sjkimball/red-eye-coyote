@@ -1,6 +1,6 @@
 export default {
-  name: 'role',
-  title: 'Project Roles',
+  name: 'job_title',
+  title: 'Job Titles',
   type: 'document',
   fields: [
   	{

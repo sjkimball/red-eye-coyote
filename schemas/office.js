@@ -4,35 +4,27 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'office_image',
-      title: 'Office Image',
-      type: 'customImage'
+      name: 'images',
+      title: 'Office Images',
+      type: 'array',
+      of:[{type: 'customImage'}]
     },
     {
-      name: 'address',
-      title: 'Address',
-      type: 'address'
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      rows: 3
     },
     {
-      name: 'contact',
+      name: 'contact_info',
       title: 'Contact Information',
       type: 'contact'
-    },
-    {
-      name: 'links',
-      title: 'Links',
-      type: 'array',
-      of: [
-        {
-          type: 'socialAccount'
-        }
-      ]
     }
   ],
   preview: {
     select: {
-      title: 'address.city',
-      subtitle: 'address.country'
+      title: 'contact_info.address.city',
+      subtitle: 'contact_info.address.country'
     }
   }
 }

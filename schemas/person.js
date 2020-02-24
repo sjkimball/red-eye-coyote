@@ -10,36 +10,29 @@ export default {
   ],
   fields: [
     {
-      name: 'name',
-      title: 'Name',
-      type: 'string'
+      name: 'first_name',
+      title: 'First Name',
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 96
-      }
+      name: 'last_name',
+      title: 'Last Name',
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'image',
-      title: 'Image',
+      title: 'Profile Image',
       type: 'customImage',
     },
     {
-      name: 'role',
-      title: 'Role',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {type: 'role'}
-          ]
+      name: 'job_title',
+      title: 'Job Title',
+      type: 'reference',
+      to: {
+          type: 'job_title',
         }
-      ]
     },
     {
       name: 'office',
@@ -78,15 +71,29 @@ export default {
       ]
     },
     {
-      name: 'personDoc',
-      title: 'Related Doc',
-      type: 'personDoc'
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 96
+      }
     }
   ],
   preview: {
     select: {
-      title: 'name',
+      first_name: 'first_name',
+      last_name: 'last_name',
+      job_title: 'job_title.name',
       media: 'image.image'
+    },
+    prepare(selection) {
+      const {first_name, last_name, job_title, media} = selection
+      return {
+        title: `${first_name} ${last_name}`,
+        subtitle: job_title,
+        media: media
+      }
     }
   }
 }

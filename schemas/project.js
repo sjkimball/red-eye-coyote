@@ -7,6 +7,15 @@ export default {
 	},
 	fields: [
 		{
+			name: 'client',
+			title: 'Client',
+			type: 'reference',
+			validation: Rule => Rule.required().error('Every project needs a client.'),
+			to: [
+				{type: 'client'}
+			]
+		},
+		{
 			name: 'title',
 			title: 'Title',
 			type: 'string',
@@ -18,44 +27,48 @@ export default {
 			title: 'Featured'
 		},
 		{
-			name: 'client',
-			title: 'Client',
-			type: 'reference',
-			validation: Rule => Rule.required().error('Every project needs a client.'),
-			to: [
-				{type: 'client'}
-			]
-		},
-		{
-			name: 'office',
-			title: 'Office',
-			type: 'reference',
-			validation: Rule => Rule.required().error('Office is required'),
-			to: [
-				{type: 'office'}
-			]
-		},
-		{
-			name: 'creators',
-			title: 'Creators',
-			type: 'array',
-			validation: Rule => Rule.required().error('Add at least one contributer.'),
-			of: [
-				{
-					type: 'reference',
-					to: [
-						{type: 'person'}
-					]
-				}
-			]
-		},
-		{
 			name: 'slug',
 			title: 'Slug',
 			type: 'slug',
 			options: {
 				source: 'title',
 				maxLength: 96
+			}
+		},
+		{
+			name: 'coverImg',
+			title: 'Cover Image',
+			type: 'customImage',
+			validation: Rule => Rule.required()
+		},
+		{
+			name: 'project_summary',
+			title: 'Project Summary',
+			type: 'text',
+			rows: 3,
+			validation: Rule => Rule.required().min(50).max(140).error('Try to keep it simple.')
+		},
+		{
+			name: 'project_desc',
+			title: 'Project Description',
+			type: 'array',
+			of: [
+				{
+					type: 'block'
+				}
+			]
+		},
+		{
+			name: 'productImgs',
+			title: 'Product Images',
+			type: 'array',
+			of: [
+				{
+					type: 'customImage'
+				}
+			],
+			options: {
+				layout: 'grid'
 			}
 		},
 		{
@@ -78,39 +91,27 @@ export default {
 			of: [{type: 'reference', to: {type: 'sector'}}]
 		},
 		{
-			name: 'project_summary',
-			title: 'Project Summary',
-			type: 'text',
-			validation: Rule => Rule.required().min(50).max(140).error('Try to keep it simple.')
-		},
-		{
-			name: 'project_desc',
-			title: 'Project Description',
-			type: 'array',
-			of: [
-				{
-					type: 'block'
-				}
+			name: 'office',
+			title: 'Office',
+			type: 'reference',
+			validation: Rule => Rule.required().error('Office is required'),
+			to: [
+				{type: 'office'}
 			]
 		},
 		{
-			name: 'coverImg',
-			title: 'Cover Image',
-			type: 'customImage',
-			validation: Rule => Rule.required()
-		},
-		{
-			name: 'supportingImgs',
-			title: 'Supporting Images',
+			name: 'contributers',
+			title: 'Contributers',
 			type: 'array',
+			validation: Rule => Rule.required().error('Add at least one contributer.'),
 			of: [
 				{
-					type: 'customImage'
+					type: 'reference',
+					to: [
+						{type: 'person'}
+					]
 				}
-			],
-			options: {
-				layout: 'grid'
-			}
+			]
 		},
 	],
 
