@@ -24,7 +24,16 @@ export default {
   preview: {
     select: {
       title: 'contact_info.address.city',
-      subtitle: 'contact_info.address.country'
+      subtitle: 'contact_info.address.country',
+      media: 'images'
+    },
+    prepare(selection) {
+      const { title, subtitle, media } = selection;
+      return {
+        title: title,
+        subtitle: subtitle,
+        media: media[0].image
+      }
     }
   }
 }
