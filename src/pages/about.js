@@ -25,7 +25,7 @@ const AboutPage = ({data}) => {
 				imageData={imageData}
 				first_name={first_name}
 				last_name={last_name}
-				office={office} 
+				office={office}
 				socialAccounts={socialAccounts}
 				/>
 		</Layout>
@@ -33,8 +33,8 @@ const AboutPage = ({data}) => {
 }
 
 export const query = graphql`
-	query Person($name: String = "Sam"){
-		sanityPerson(first_name: {eq: $name}) {
+	query Person($first_name: String = "Sam"){
+		sanityPerson(first_name: {eq: $first_name}) {
 			_rawBio
 			profile_image {
 				image {
@@ -52,7 +52,7 @@ export const query = graphql`
 						y
 						height
 						width
-					}						
+					}
 				}
 				alt_text
 				caption

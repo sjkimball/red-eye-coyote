@@ -31,7 +31,7 @@ const FrontPage = ({pageContent}) => {
 
 					return (
 						<Link key={key}to={`/work/${clientSlug}/${slug}`}>
-							<PreviewImage imageAsset={coverImg} />					
+							<PreviewImage imageAsset={coverImg} />
 							<h5>
 								{title}
 							</h5>
