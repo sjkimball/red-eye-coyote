@@ -74,21 +74,28 @@ export default {
 		{
 			name: 'disciplines',
 			title: 'Disciplines',
+			description: 'Select all that apply.',
 			type: 'array',
-			of: [
-				{
-					type: 'reference',
-					to: {
-						type: 'discipline'
-					}
-				}
-			]
+			of: [{type: 'string'}],
+			options: {
+				list: [
+					{title: 'Brand Identity', value: 'brandIdentity'},
+					{title: 'Environmental Graphics', value: 'environmentalGraphics'},
+				]
+			}
 		},
 		{
 			name: 'sectors',
 			title: 'Sectors',
+			description: 'Select all that apply.',
 			type: 'array',
-			of: [{type: 'reference', to: {type: 'sector'}}]
+			of: [{type: 'string'}],
+			options: {
+				list: [
+					{title: 'Public', value: 'public'},
+					{title: 'Private', value: 'private'}
+				]
+			}
 		},
 		{
 			name: 'office',
@@ -100,21 +107,17 @@ export default {
 			]
 		},
 		{
-			name: 'contributers',
-			title: 'Contributers',
+			name: 'contributors',
+			title: 'Contributors',
 			type: 'array',
-			validation: Rule => Rule.required().error('Add at least one contributer.'),
 			of: [
 				{
-					type: 'reference',
-					to: [
-						{type: 'person'}
-					]
+					type: 'contributor'
 				}
-			]
+			],
+			validation: Rule => Rule.required().error('Add at least one contributer.'),
 		},
 	],
-
 	preview: {
 		select: {
 			title: 'title',
