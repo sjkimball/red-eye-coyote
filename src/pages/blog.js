@@ -16,20 +16,20 @@ export default () => {
       <SEO title={settings.title} />
       <header className={`page-header`}>
         <h1>{settings.title}</h1>
-        <p>{settings.subtitle}</p>        
+        <p>{settings.subtitle}</p>
       </header>
       {posts.map(({ node: post }) => {
-        const mainImage = post.mainImage;
+        const coverImage = post.coverImage;
         const postID = post._id;
         const postSlug = post.slug.current;
         const publishedAt = post.publishedAt;
         const subtitle = post.subtitle;
         const title = post.title;
-        
+
         return (
           <PostPreview
             key={postID}
-            mainImage={mainImage}
+            coverImage={coverImage}
             publishedAt={publishedAt}
             subtitle={subtitle}
             slug={postSlug}

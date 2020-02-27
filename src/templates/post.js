@@ -10,7 +10,7 @@ const PostTemplate = ({ data }) => {
 
 	const author = post.author;
 	const body = post._rawBody;
-	// const coverImage = post.coverImage;
+	const coverImage = post.coverImage;
 	const keywords = post.keywords;
 	const publishedAt = post.publishedAt;
 	const title = post.title;
@@ -21,6 +21,7 @@ const PostTemplate = ({ data }) => {
 			<Post
 				author={author}
 				body={body}
+				coverImage={coverImage}
 				keywords={keywords}
 				publishedAt={publishedAt}
 				title={title}
@@ -33,6 +34,11 @@ const PostTemplate = ({ data }) => {
 export const query = graphql`
 	query ($slug: String!) {
 	  sanityPost(slug: {current: {eq: $slug}}) {
+	    coverImage {
+	    	image {
+	    		...postImageData
+	    	}
+	    }
 	    slug {
 	      current
 	    }
@@ -46,8 +52,25 @@ export const query = graphql`
 	    publishedAt
 	    keywords
 			_rawBody
-			}
-	  }
+		}
+  }
+	fragment postImageData on SanityImage {
+		asset {
+		  _id
+		}
+		hotspot {
+		  x
+		  y
+		  height
+		  width
+		}
+		crop {
+		  top
+		  bottom
+		  left
+		  right
+		}
+	}
 `;
 
 export default PostTemplate;
