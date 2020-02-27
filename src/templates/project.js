@@ -9,7 +9,7 @@ const ProjectTemplate = ({ data }) => {
 	const project = data.sanityProject;
 
 	const client_name = project.client.client_name;
-	const contributers = project.contributers;
+	const contributors = project.contributors;
 	const disciplines = project.disciplines;
 	const coverImg = project.coverImg;
 	const offices = project.office;
@@ -19,11 +19,12 @@ const ProjectTemplate = ({ data }) => {
 	const sectors = project.sectors;
 	const productImgs = project.productImgs;
 
+
 	return (
 		<Layout>
 			<Project
 				client_name = {client_name}
-				contributers = {contributers}
+				contributors = {contributors}
 				disciplines = {disciplines}
 				coverImg={coverImg}
 				offices={offices}
@@ -41,10 +42,7 @@ export const query = graphql`
 	query ($slug: String!) {
 		sanityProject(slug: {current: {eq: $slug}}) {
 		  title
-		  sectors {
-		    title
-		    _id
-		  }
+		  sectors
 		  project_summary
 		  _rawProjectDesc
 		  coverImg {
@@ -60,7 +58,7 @@ export const query = graphql`
 		  	    }
 		  	alt_text
 		  	caption
-		  }		  
+		  }
 		  client {
 		    client_name
 		  }
@@ -68,17 +66,16 @@ export const query = graphql`
 		  	contact_info {
 			    address {
 			    	city
-			    }		  		
+			    }
 		  	}
 		  }
-		  disciplines {
-		    title
-		    _id
-		  }
-		  contributers {
-		    first_name
-		    last_name
-		    _id
+		  disciplines
+		  contributors {
+		  	name {
+			    first_name
+			    last_name
+		  	}
+		  	_key
 		  }
 		}
 	}

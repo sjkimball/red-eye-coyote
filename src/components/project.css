@@ -14,8 +14,8 @@
 	margin-bottom: 0;
 }
 
-.project-disciplines {
-	color: var(--gray3);
+.project-disciplines, .project-sectors {
+	color: var(--gray5);
 	list-style-type: none;
 	margin-left: 0;
 	padding: 0;

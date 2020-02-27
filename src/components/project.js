@@ -8,17 +8,15 @@ import PreviewImage from '../components/preview-image';
 
 import './project.css'
 
-const Project = ({ client_name, coverImg, contributers, disciplines, offices, proj_summary, proj_desc, title, sectors, productImgs}) => {
+const Project = ({ client_name, coverImg, contributors, disciplines, offices, proj_summary, proj_desc, title, sectors, productImgs}) => {
 
 	const serializers = {
 		container: 'section',
 		types: {
-			block: props => 
+			block: props =>
 				<p>{props.node.children[0].text}</p>
 		}
 	}
-
-	console.log(offices);
 
 	return (
 		<article className={`rec-project`}>
@@ -28,8 +26,8 @@ const Project = ({ client_name, coverImg, contributers, disciplines, offices, pr
 				</h1>
 				<h6 hidden>Disciplines</h6>
 				<ul className={`project-disciplines`}>
-					{disciplines.map((discipline) => 
-						<li key={discipline._id} value={discipline.title}>{discipline.title}</li>
+					{disciplines.map((discipline, index) =>
+						<li key={index} value={discipline}>{discipline}</li>
 					)}
 				</ul>
 				<h2>
@@ -45,7 +43,7 @@ const Project = ({ client_name, coverImg, contributers, disciplines, offices, pr
 							key={image.image.asset._id}
 							imageAsset={image}
 						/>
-					)}		
+					)}
 				</div>
 			</aside>
 			<section className="project-details">
@@ -55,15 +53,15 @@ const Project = ({ client_name, coverImg, contributers, disciplines, offices, pr
 						<li>{client_name}</li>
 					</ul>
 					<h6>Sector</h6>
-					<ul>
-						{sectors.map((object) => 
-							<li key={object._id} value={object.title}>{object.title}</li>
+					<ul className={`project-sectors`}>
+						{sectors.map((sector, index) =>
+							<li key={index} value={sector}>{sector}</li>
 						)}
 					</ul>
 					<h6>Disciplines</h6>
 					<ul>
-						{disciplines.map((object) => 
-							<li key={object._id} value={object.title}>{object.title}</li>
+						{disciplines.map((discipline, index) =>
+							<li key={index} value={discipline}>{discipline}</li>
 						)}
 					</ul>
 				</div>
@@ -75,15 +73,15 @@ const Project = ({ client_name, coverImg, contributers, disciplines, offices, pr
 					</ul>
 					<h6>Partner</h6>
 					<ul>
-						{contributers.map((object) => 
-							<li key={object._id} value={object.name}>{object.first_name} {object.last_name}</li>
+						{contributors.map((contributor) =>
+							<li key={contributor._key} value={`${contributor.name.first_name} ${contributor.name.last_name}`}>{contributor.name.first_name} {contributor.name.last_name}</li>
 						)}
 					</ul>
 				</div>
 			</section>
 			<footer className={`project-footer`}>
 				<Link to="/work">&larr; Work</Link>
-			</footer>		
+			</footer>
 		</article>
 	);
 }
