@@ -29,15 +29,15 @@ export default {
 	],
 	preview: {
 		select: {
-			first_name: 'name.first_name',
-			last_name: 'name.last_name',
+			firstName: 'name.firstName',
+			lastName: 'name.lastName',
 			role: 'role',
 			media: 'name.profileImg.image'
 		},
 		prepare(selection) {
-		  const {first_name, last_name, role, media} = selection
+		  const {firstName, lastName, role, media} = selection
 		  return {
-		    title: `${first_name} ${last_name}`,
+		    title: `${firstName} ${lastName}`,
 		    media: media
 		  }
 		}

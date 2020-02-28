@@ -85,9 +85,9 @@ export default {
   ],
   preview: {
     select: {
-      first_name: 'firstName',
-      last_name: 'lastName',
-      job_title: 'jobTitle.name',
+      firstName: 'firstName',
+      lastName: 'lastName',
+      jobTitle: 'jobTitle.name',
       media: 'profileImg.image'
     },
     prepare(selection) {
