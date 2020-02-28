@@ -4,13 +4,13 @@ import React from 'react'
 
 import './footer.css'
 
-const Footer = ({ page }) => {
+const Footer = ({ darkMode }) => {
 
 	// const { links } = usePrimaryOfficeInfo();
 
 	let footerClass;
 
-	if (page === 'about') {
+	if (darkMode == true) {
 	  footerClass = 'footer--dark';
 	} else {
 	  footerClass = 'footer--light'
@@ -27,7 +27,7 @@ const Footer = ({ page }) => {
 					);
 				})}
 			</ul>*/}
-			<small className={`copyright`}>© Sam Kimball</small>	
+			<small className={`copyright`}>© Sam Kimball</small>
 		</footer>
 	)
 }

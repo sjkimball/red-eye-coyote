@@ -23,14 +23,14 @@ class Header extends React.Component {
 	}
 
 	render() {
-		const { siteTitle } = this.props;
+		const { siteTitle, darkMode } = this.props;
 		let headerClass;
 
-		if (this.props.page === 'about') {
-			headerClass = 'mainHeader--dark';
-		} else {
-			headerClass = 'mainHeader--light'
-		}
+		(darkMode == true) ? (
+				headerClass = 'mainHeader--dark'
+			) : (
+				headerClass = 'mainHeader--light'
+			)
 
 		return (
 			<header className={`mainHeader ${headerClass}`}>
@@ -44,7 +44,7 @@ class Header extends React.Component {
 					<Link to="/contact" className={`nav-item`} activeClassName="active" partiallyActive={true}>Contact</Link>
 					<button onClick={this.menuToggle} className={`menuButton`} aria-label="Menu">
 						<MenuIcon headerClass={headerClass} menuVisible={this.state.menuVisible}/>
-					</button>          
+					</button>
 				</nav>
 				{this.state.menuVisible ? <MainNav/> : ``}
 			</header>
@@ -52,7 +52,7 @@ class Header extends React.Component {
 	}
 }
 Header.propTypes = {
-	siteTitle: PropTypes.string,
+	siteTitle: PropTypes.string
 }
 
 Header.defaultProps = {

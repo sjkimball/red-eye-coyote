@@ -8,20 +8,23 @@ import Footer from './footer'
 
 import "./layout.css"
 
-const Layout = ({children, page}) => {
+const Layout = ({children}) => {
   const site = useSiteMetaData();
 
   let layoutClass = 'layout';
-  if (page === 'about') {
-    layoutClass = 'layout layout--dark'
+  let location = window.location.pathname;
+  let darkMode = false;
+  if (location.includes("/about")) {
+    layoutClass = 'layout layout--dark';
+    darkMode = true;
   }
   return (
     <React.Fragment>
-      <Header siteTitle={site.title} page={page} />
+      <Header siteTitle={site.title} darkMode={darkMode} />
       <div className={layoutClass}>
         <main className={`mainContainer`}>{children}</main>
       </div>
-      <Footer page={page}/>
+      <Footer darkMode={darkMode}/>
     </React.Fragment>
   )
 }
