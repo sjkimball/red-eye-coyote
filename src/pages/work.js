@@ -12,9 +12,9 @@ export default () => {
   return(
     <Layout>
       <SEO title="Work" />
-      <header className={`page-header`}>
+      <header className={`page-header page-header--light`}>
         <h1>Work</h1>
-        <p>Take a look.</p>        
+        <p>Take a look.</p>
       </header>
       {projects.map(({ node: project }) => {
         const projID = project._id;
@@ -23,7 +23,7 @@ export default () => {
         const clientSlug = project.client.slug.current;
         const projectSlug = project.slug.current;
         const coverImg = project.coverImg;
-        
+
         return (
           <ProjectPreview
             key={projID}

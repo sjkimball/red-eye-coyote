@@ -13,7 +13,7 @@ const ContactPage = ({data}) => {
 	return(
 		<Layout>
 			<SEO title="Contact" />
-			<header className={`page-header`}>
+			<header className={`page-header page-header--light`}>
 				<h1>Contact</h1>
 			</header>
 			<OfficeContact office={office} />

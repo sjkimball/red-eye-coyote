@@ -14,7 +14,7 @@ export default () => {
   return(
     <Layout>
       <SEO title={settings.title} />
-      <header className={`page-header`}>
+      <header className={`page-header page-header--light`}>
         <h1>{settings.title}</h1>
         <p>{settings.subtitle}</p>
       </header>
