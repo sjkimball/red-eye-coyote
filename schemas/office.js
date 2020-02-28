@@ -1,6 +1,6 @@
 export default {
   name: 'office',
-  title: 'Office',
+  title: 'Offices',
   type: 'document',
   fields: [
     {

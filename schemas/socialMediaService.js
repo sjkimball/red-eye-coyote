@@ -1,6 +1,6 @@
 export default {
 	name: 'socialMediaService',
-	title: 'Social Media Service',
+	title: 'Social Media Services',
 	type: 'document',
 	hidden: true,
 	fields: [
