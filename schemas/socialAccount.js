@@ -14,8 +14,8 @@ export default {
 			]
 		},
 		{
-		  title: 'Username/Handle',
 		  name: 'username',
+		  title: 'Username/Handle',
 		  type: 'string'
 		},
 		{

@@ -12,7 +12,7 @@ export default {
 			}
 		},
 		{
-			name: 'alt_text',
+			name: 'altText',
 			title: 'Alternative Text',
 			type: 'string',
 			validation: Rule => Rule.required().min(10).max(80)

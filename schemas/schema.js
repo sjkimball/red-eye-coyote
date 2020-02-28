@@ -11,7 +11,7 @@ import client from './client'
 import contact from './contact'
 import contributor from './contributor'
 import customImage from './customImage'
-import job_title from './job_title'
+import jobTitle from './job_title'
 import office from './office'
 import pageLanding from './pageLanding'
 import person from './person'
@@ -37,7 +37,7 @@ export default createSchema({
     contact,
     contributor,
     customImage,
-    job_title,
+    jobTitle,
     office,
     pageLanding,
     person,

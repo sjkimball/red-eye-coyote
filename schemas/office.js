@@ -16,15 +16,15 @@ export default {
       rows: 3
     },
     {
-      name: 'contact_info',
+      name: 'contactInfo',
       title: 'Contact Information',
       type: 'contact'
     }
   ],
   preview: {
     select: {
-      title: 'contact_info.address.city',
-      subtitle: 'contact_info.address.country',
+      title: 'contactInfo.address.city',
+      subtitle: 'contactInfo.address.country',
       media: 'images'
     },
     prepare(selection) {

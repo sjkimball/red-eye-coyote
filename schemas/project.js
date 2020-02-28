@@ -42,14 +42,14 @@ export default {
 			validation: Rule => Rule.required()
 		},
 		{
-			name: 'project_summary',
+			name: 'projectSummary',
 			title: 'Project Summary',
 			type: 'text',
 			rows: 3,
 			validation: Rule => Rule.required().min(50).max(140).error('Try to keep it simple.')
 		},
 		{
-			name: 'project_desc',
+			name: 'projectDesc',
 			title: 'Project Description',
 			type: 'array',
 			of: [
@@ -121,7 +121,7 @@ export default {
 	preview: {
 		select: {
 			title: 'title',
-			subtitle: 'client.client_name',
+			subtitle: 'client.clientName',
 			media: 'coverImg.image'
 		}
 	}

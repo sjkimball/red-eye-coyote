@@ -10,13 +10,13 @@ export default {
   ],
   fields: [
     {
-      name: 'first_name',
+      name: 'firstName',
       title: 'First Name',
       type: 'string',
       validation: Rule => Rule.required()
     },
     {
-      name: 'last_name',
+      name: 'lastName',
       title: 'Last Name',
       type: 'string',
       validation: Rule => Rule.required()
@@ -27,11 +27,11 @@ export default {
       type: 'customImage',
     },
     {
-      name: 'job_title',
+      name: 'jobTitle',
       title: 'Job Title',
       type: 'reference',
       to: {
-          type: 'job_title',
+          type: 'jobTitle',
         }
     },
     {
@@ -59,13 +59,13 @@ export default {
       validation: Rule => Rule.required().error('Bio is a required field')
     },
     {
+      name: 'contactInfo',
       title: 'Contact Info',
-      name: 'contact',
       type: 'contact',
     },
     {
-      title: 'Social Accounts',
       name: 'socialAccounts',
+      title: 'Social Accounts',
       type: 'array',
       of: [
         {type: 'socialAccount'}
@@ -85,16 +85,16 @@ export default {
   ],
   preview: {
     select: {
-      first_name: 'first_name',
-      last_name: 'last_name',
-      job_title: 'job_title.name',
+      first_name: 'firstName',
+      last_name: 'lastName',
+      job_title: 'jobTitle.name',
       media: 'profileImg.image'
     },
     prepare(selection) {
-      const {first_name, last_name, job_title, media} = selection
+      const {firstName, lastName, jobTitle, media} = selection
       return {
-        title: `${first_name} ${last_name}`,
-        subtitle: job_title,
+        title: `${firstName} ${lastName}`,
+        subtitle: jobTitle,
         media: media
       }
     }

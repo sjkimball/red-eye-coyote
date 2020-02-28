@@ -4,7 +4,7 @@ export default {
 	type: 'object',
 	fields: [
 		{
-			name: 'street_number',
+			name: 'streetNumber',
 			title: 'Street Number',
 			type: 'number'
 		},
@@ -14,7 +14,7 @@ export default {
 			type: 'string'
 		},
 		{
-			name: 'street_secondary',
+			name: 'streetSecondary',
 			title: 'Secondary Street',
 			type: 'string',
 			description: 'Apartment, Unit, Suite number, etc.'
@@ -25,7 +25,7 @@ export default {
 			type: 'string',
 		},
 		{
-			name: 'state_province',
+			name: 'stateProvince',
 			title: 'State/Province',
 			type: 'string',
 		},

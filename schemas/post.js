@@ -3,7 +3,7 @@ export default {
   title: 'Posts',
   type: 'document',
   initialValue: {
-    mainImage: {
+    coverImg: {
       _type: 'customImage',
       image: {
         _type: 'image',
@@ -12,7 +12,7 @@ export default {
           _ref: 'image-6dca2dd407dfdd12e9843ee248fb4a7f8e766774-3705x2084-jpg'
         }
       },
-      alt_text: 'Some alt text'
+      altText: 'Some alt text'
     }
   },
   fields: [
@@ -53,7 +53,7 @@ export default {
       to: {type: 'person'}
     },
     {
-      name: 'coverImage',
+      name: 'coverImg',
       title: 'Cover Image',
       type: 'customImage'
     },
@@ -76,15 +76,15 @@ export default {
   preview: {
     select: {
       title: 'title',
-      author_first: 'author.first_name',
-      author_last: 'author.last_name',
-      media: 'coverImage.image'
+      authorFirst: 'author.firstName',
+      authorLast: 'author.lastName',
+      media: 'coverImg.image'
     },
     prepare(selection) {
-      const {author_first, author_last, media, title} = selection
+      const {authorFirst, authorLast, media, title} = selection
       return {
         title: title,
-        subtitle: `by ${author_first} ${author_last}`,
+        subtitle: `by ${authorFirst} ${author_last}`,
         media: media
       }
     }

@@ -4,7 +4,7 @@ export default {
 	type: 'document',
 	fields: [
 		{
-			name: 'client_name',
+			name: 'clientName',
 			title: 'Client Name',
 			type: 'string'
 		},
@@ -18,7 +18,7 @@ export default {
 			}
 		},
 		{
-			name: 'contact_info',
+			name: 'contactInfo',
 			title: 'Contact Info',
 			type: 'contact'
 		}
@@ -26,8 +26,8 @@ export default {
 
 	preview: {
 		select: {
-			title: 'client_name',
-			subtitle: 'contact_info.address.city'
+			title: 'clientName',
+			subtitle: 'contactInfo.address.city'
 		}
 	}
 }
