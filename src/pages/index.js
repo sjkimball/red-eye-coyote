@@ -27,7 +27,7 @@ export const query = graphql`
 					image {
 						...imageData
 					}
-					alt_text
+					altText
 					caption
 				}
 				workSamples {
@@ -45,7 +45,7 @@ export const query = graphql`
 						image {
 							...imageData
 						}
-						alt_text
+						altText
 					}
 				}
 			}

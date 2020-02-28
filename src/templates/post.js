@@ -46,8 +46,8 @@ export const query = graphql`
 	    subtitle
 	    _id
 	    author {
-	      first_name
-	      last_name
+	      firstName
+	      lastName
 	    }
 	    publishedAt
 	    keywords

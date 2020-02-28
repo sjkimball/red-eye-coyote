@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 const useProfileBasics = () => {
 	const data = useStaticQuery(graphql`
 		{
-			allSanityPerson(sort: {fields: last_name, order: ASC}) {
+			allSanityPerson(sort: {fields: lastName, order: ASC}) {
 		    totalCount
 		    edges {
 		      node {
@@ -15,10 +15,10 @@ const useProfileBasics = () => {
 		            }
 		          }
 		        }
-		        first_name
-		        last_name
+		        firstName
+		        lastName
 		        office {
-		          contact_info {
+		          contactInfo {
 		            address {
 		              city
 		            }

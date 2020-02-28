@@ -9,8 +9,8 @@ const ProfileTemplate = ({ data }) => {
 	const profile = data.sanityPerson;
 
 	const profileImg = profile.profileImg;
-	const profileName = `${profile.first_name} ${profile.last_name}`;
-	const office = profile.office.contact_info.address.city
+	const profileName = `${profile.firstName} ${profile.lastName}`;
+	const office = profile.office.contactInfo.address.city
 	const bio = profile._rawBio;
 
 	return (
@@ -33,10 +33,10 @@ export const query = graphql`
 	    		...postImageData
 	    	}
 	    }
-	    first_name
-	    last_name
+	    firstName
+	    lastName
 	    office {
-	    	contact_info {
+	    	contactInfo {
 	    		address {
 	    			city
 	    		}

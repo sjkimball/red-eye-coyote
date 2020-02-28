@@ -8,7 +8,7 @@ import PreviewImage from '../components/preview-image';
 
 import './project.css'
 
-const Project = ({ client_name, coverImg, contributors, disciplines, offices, proj_summary, proj_desc, title, sectors, productImgs}) => {
+const Project = ({ clientName, coverImg, contributors, disciplines, offices, projectSummary, projectDesc, title, sectors, productImgs}) => {
 
 	const serializers = {
 		container: 'section',
@@ -31,11 +31,11 @@ const Project = ({ client_name, coverImg, contributors, disciplines, offices, pr
 					)}
 				</ul>
 				<h2>
-					{proj_summary}
+					{projectSummary}
 				</h2>
 				<PreviewImage imageAsset={coverImg} />
 			</header>
-			<BlockContent blocks={proj_desc} serializers={serializers} className={`project-body`}/>
+			<BlockContent blocks={projectDesc} serializers={serializers} className={`project-body`}/>
 			<aside className={`project-aside`}>
 				<div className={`project-gallery`}>
 					{productImgs.map((image) =>
@@ -50,7 +50,7 @@ const Project = ({ client_name, coverImg, contributors, disciplines, offices, pr
 				<div className={`project-metadata`}>
 					<h6>Client</h6>
 					<ul>
-						<li>{client_name}</li>
+						<li>{clientName}</li>
 					</ul>
 					<h6>Sector</h6>
 					<ul className={`project-sectors`}>
@@ -69,7 +69,7 @@ const Project = ({ client_name, coverImg, contributors, disciplines, offices, pr
 					<h6>Office</h6>
 				{/*Will need to be updated to support multiple offices*/}
 					<ul>
-						<li key={offices._id} value={offices.contact_info.address.city}>{offices.contact_info.address.city}</li>
+						<li key={offices._id} value={offices.contactInfo.address.city}>{offices.contactInfo.address.city}</li>
 					</ul>
 					<h6>Partner</h6>
 					<ul>

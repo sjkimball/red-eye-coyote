@@ -5,8 +5,8 @@ import PreviewImage from '../components/preview-image';
 import './office-contact.css'
 
 const OfficeContact = ({office}) => {
-	const { images, contact_info, description } = office;
-	const address = contact_info.address;
+	const { images, contactInfo, description } = office;
+	const address = contactInfo.address;
 
 	return (
 		<article className={`rec-office`}>
@@ -21,12 +21,12 @@ const OfficeContact = ({office}) => {
 			</header>
 			<section className={`office-info`}>
 				<section className={`office-contact`}>
-					<a href={`mailto:${contact_info.email}`} className={`office-email`}>
-						{contact_info.email}
+					<a href={`mailto:${contactInfo.email}`} className={`office-email`}>
+						{contactInfo.email}
 					</a>
 
 					<a href={`tel:1-312-879-9813`} className={`office-phone`}>
-						+1 {contact_info.phone}
+						+1 {contactInfo.phone}
 					</a>
 				</section>
 				<address>

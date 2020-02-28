@@ -8,13 +8,13 @@ import Project from '../components/project';
 const ProjectTemplate = ({ data }) => {
 	const project = data.sanityProject;
 
-	const client_name = project.client.client_name;
+	const clientName = project.client.clientName;
 	const contributors = project.contributors;
 	const disciplines = project.disciplines;
 	const coverImg = project.coverImg;
 	const offices = project.office;
-	const project_summary = project.project_summary;
-	const project_desc = project._rawProjectDesc;
+	const projectSummary = project.projectSummary;
+	const projectDesc = project._rawProjectDesc;
 	const title = project.title;
 	const sectors = project.sectors;
 	const productImgs = project.productImgs;
@@ -23,13 +23,13 @@ const ProjectTemplate = ({ data }) => {
 	return (
 		<Layout>
 			<Project
-				client_name = {client_name}
+				clientName = {clientName}
 				contributors = {contributors}
 				disciplines = {disciplines}
 				coverImg={coverImg}
 				offices={offices}
-				proj_summary={project_summary}
-				proj_desc={project_desc}
+				projectSummary={projectSummary}
+				projectDesc={projectDesc}
 				title={title}
 				sectors={sectors}
 				productImgs={productImgs}
@@ -43,27 +43,27 @@ export const query = graphql`
 		sanityProject(slug: {current: {eq: $slug}}) {
 		  title
 		  sectors
-		  project_summary
+		  projectSummary
 		  _rawProjectDesc
 		  coverImg {
 		  	image {
 		  		...projectImageData
 		  	}
-		  	alt_text
+		  	altText
 		  	caption
 		  }
 		  productImgs {
 	  		image {
 					...projectImageData
 		  	    }
-		  	alt_text
+		  	altText
 		  	caption
 		  }
 		  client {
-		    client_name
+		    clientName
 		  }
 		  office {
-		  	contact_info {
+		  	contactInfo {
 			    address {
 			    	city
 			    }
@@ -72,8 +72,8 @@ export const query = graphql`
 		  disciplines
 		  contributors {
 		  	name {
-			    first_name
-			    last_name
+			    firstName
+			    lastName
 		  	}
 		  	_key
 		  }

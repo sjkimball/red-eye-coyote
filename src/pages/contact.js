@@ -25,12 +25,12 @@ const ContactPage = ({data}) => {
 
 export const query = graphql`
 	query OfficeContact {
-	  allSanityOffice(sort: {fields: contact_info___address___city}) {
+	  allSanityOffice(sort: {fields: contactInfo___address___city}) {
 	    edges {
 	      node {
 	      	_id
 	        images {
-	          alt_text
+	          altText
 	          caption
 	          image {
 	            asset {
@@ -50,13 +50,13 @@ export const query = graphql`
 	            }
 	          }
 	        }
-	        contact_info {
+	        contactInfo {
 	          address {
 	            city
-		          street_number
+		          streetNumber
 		          street
-		          street_secondary
-		          state_province
+		          streetSecondary
+		          stateProvince
 		          postalCode
 		          country
 	          }

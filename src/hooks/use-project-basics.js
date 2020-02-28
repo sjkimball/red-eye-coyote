@@ -12,7 +12,7 @@ const useProjectBasics = () => {
 		        	current
 		        }
 		        coverImg {
-		          alt_text
+		          altText
 		          caption
 		          image {
 		          	asset {
@@ -33,7 +33,7 @@ const useProjectBasics = () => {
 		          }
 		        }
 		        client {
-		          client_name
+		          clientName
 		          slug {
 		            current
 		          }
