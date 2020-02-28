@@ -32,7 +32,7 @@ export default {
 			first_name: 'name.first_name',
 			last_name: 'name.last_name',
 			role: 'role',
-			media: 'name.profile_image.image'
+			media: 'name.profileImg.image'
 		},
 		prepare(selection) {
 		  const {first_name, last_name, role, media} = selection

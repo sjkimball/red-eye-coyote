@@ -22,7 +22,7 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'profile_image',
+      name: 'profileImg',
       title: 'Profile Image',
       type: 'customImage',
     },
@@ -85,7 +85,7 @@ export default {
       first_name: 'first_name',
       last_name: 'last_name',
       job_title: 'job_title.name',
-      media: 'profile_image.image'
+      media: 'profileImg.image'
     },
     prepare(selection) {
       const {first_name, last_name, job_title, media} = selection
