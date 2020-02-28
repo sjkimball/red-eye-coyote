@@ -1,81 +1,47 @@
 import React from "react"
 
-import { graphql } from 'gatsby';
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Profile from "../components/profile"
+
+import ProfilePreview from '../components/profile-preview'
+
+import useProfileBasics from "../hooks/use-profile-basics"
 
 const AboutPage = ({data}) => {
-
-	const person = data.sanityPerson;
-	const bio = person._rawBio;
-	const imageData = person.profile_image;
-	const first_name = person.first_name;
-	const last_name = person.last_name;
-	const office = person.office.contact_info.address.city;
-	const socialAccounts = person.socialAccounts;
+	const profileData = useProfileBasics();
+	const profiles = profileData.edges;
 
 	return (
 		<Layout page={`about`}>
 			<SEO title="About" />
-		{/*Add heading for about page containing staff previews once it is necessary*/}
-			<Profile
-				bio={bio}
-				imageData={imageData}
-				first_name={first_name}
-				last_name={last_name}
-				office={office}
-				socialAccounts={socialAccounts}
-				/>
+			<header className={`page-header page-header--dark`}>
+			  <h1>About Red Eye Coyote</h1>
+			  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam nulla animi, consectetur cumque quas neque iste. Delectus tempora voluptatem quasi quae, eum sapiente perspiciatis, dolorem inventore et amet laboriosam eveniet!
+			  </p>
+			  <p>Voluptatibus voluptate ad, sit enim quisquam! Odit blanditiis praesentium animi, voluptatum aspernatur repellendus? Vitae animi autem cupiditate mollitia esse praesentium, corporis magni, maiores earum modi iusto excepturi labore! Reprehenderit, aut!
+			  </p>
+			  <p>Omnis consequatur autem nostrum voluptatibus earum aspernatur facere laborum ullam iure alias adipisci eligendi saepe est esse assumenda, et veritatis vero molestias magni ad explicabo mollitia pariatur dolor a quam.
+			  </p>
+			</header>
+			{profiles.map(({ node: profile }) => {
+			  const name = `${profile.first_name} ${profile.last_name}`;
+			  const officeName = profile.office.contact_info.address.city;
+			  const profileID = profile._id;
+			  const profileImg = profile.profileImg;
+			  const profileSlug = profile.slug.current;
+
+			  return (
+					<ProfilePreview
+						key={profileID}
+						name={name}
+						officeName={officeName}
+						profileImg={profileImg}
+						profileSlug={profileSlug}
+					/>
+				);
+			})}
 		</Layout>
 	)
 }
-
-export const query = graphql`
-	query Person($first_name: String = "Sam"){
-		sanityPerson(first_name: {eq: $first_name}) {
-			_rawBio
-			profile_image {
-				image {
-					asset {
-						_id
-					}
-					crop {
-						top
-						bottom
-						left
-						right
-					}
-					hotspot {
-						x
-						y
-						height
-						width
-					}
-				}
-				alt_text
-				caption
-			}
-			first_name
-			last_name
-			office {
-				contact_info {
-					address {
-					city
-					}
-				}
-			}
-			socialAccounts {
-				_key
-				service {
-					name
-				}
-				username
-				url
-			}
-		}
-	}
-`
 
 export default AboutPage;
