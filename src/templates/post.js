@@ -34,7 +34,7 @@ const PostTemplate = ({ data }) => {
 export const query = graphql`
 	query ($slug: String!) {
 	  sanityPost(slug: {current: {eq: $slug}}) {
-	    coverImage {
+	    coverImg {
 	    	image {
 	    		...postImageData
 	    	}

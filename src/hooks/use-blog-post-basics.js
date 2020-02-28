@@ -10,7 +10,7 @@ const useBlogPostBasics = () => {
 		        title
 		        subtitle
 		        publishedAt
-		        coverImage {
+		        coverImg {
 		          image {
 		            asset {
 		              _id

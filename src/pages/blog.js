@@ -19,21 +19,10 @@ export default () => {
         <p>{settings.subtitle}</p>
       </header>
       {posts.map(({ node: post }) => {
-        const coverImage = post.coverImage;
-        const postID = post._id;
-        const postSlug = post.slug.current;
-        const publishedAt = post.publishedAt;
-        const subtitle = post.subtitle;
-        const title = post.title;
-
         return (
           <PostPreview
-            key={postID}
-            coverImage={coverImage}
-            publishedAt={publishedAt}
-            subtitle={subtitle}
-            slug={postSlug}
-            title={title}
+            key={post._id}
+            post={post}
           />
         );
       })}
