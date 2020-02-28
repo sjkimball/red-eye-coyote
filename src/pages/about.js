@@ -24,19 +24,10 @@ const AboutPage = ({data}) => {
 			  </p>
 			</header>
 			{profiles.map(({ node: profile }) => {
-			  const name = `${profile.first_name} ${profile.last_name}`;
-			  const officeName = profile.office.contact_info.address.city;
-			  const profileID = profile._id;
-			  const profileImg = profile.profileImg;
-			  const profileSlug = profile.slug.current;
-
 			  return (
 					<ProfilePreview
-						key={profileID}
-						name={name}
-						officeName={officeName}
-						profileImg={profileImg}
-						profileSlug={profileSlug}
+						key={profile._id}
+						profile={profile}
 					/>
 				);
 			})}
