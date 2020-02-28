@@ -50,9 +50,29 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
 		return;
 	}
 
+	const allPeople = await graphql(`
+		{
+			allSanityPerson {
+			  edges {
+			    node {
+			      slug {
+			        current
+			      }
+			    }
+			  }
+			}
+		}
+	`);
+
+	if (allPeople.error) {
+		reporter.panic('There was a problem loading the person.');
+		return;
+	}
+
 
 	const projects = allProjects.data.allSanityProject.edges;
 	const posts = allPosts.data.allSanityPost.edges;
+	const people = allPeople.data.allSanityPerson.edges;
 
 
 	projects.forEach(({ node: project }) => {
@@ -60,7 +80,7 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
 		createPage({
 			path: `/work/${project.client.slug.current}/${project.slug.current}`,
 			component: require.resolve('./src/templates/project.js'),
-			context: { 
+			context: {
 					slug: project.slug.current,
 					clientSlug: project.client.slug.current
 				}
@@ -72,8 +92,19 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
 		createPage({
 			path: `/blog/${post.slug.current}`,
 			component: require.resolve('./src/templates/post.js'),
-			context: { 
+			context: {
 					slug: post.slug.current
+				}
+		});
+	});
+
+	people.forEach(({ node: person }) => {
+
+		createPage({
+			path: `/about/${person.slug.current}`,
+			component: require.resolve('./src/templates/profile.js'),
+			context: {
+					slug: person.slug.current
 				}
 		});
 	});
