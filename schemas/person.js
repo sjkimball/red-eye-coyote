@@ -55,7 +55,8 @@ export default {
           styles: [{title: 'Normal', value: 'normal'}],
           lists: []
         }
-      ]
+      ],
+      validation: Rule => Rule.required().error('Bio is a required field')
     },
     {
       title: 'Contact Info',
@@ -73,11 +74,13 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
+      description: `Click the 'Generate' button to create a slug based on the person's first and last names.`,
       type: 'slug',
       options: {
-        source: 'name',
+        source: doc => `${doc.first_name}-${doc.last_name}`,
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required().error('Looks like you may have forgotten to generate a slug.:(')
     }
   ],
   preview: {

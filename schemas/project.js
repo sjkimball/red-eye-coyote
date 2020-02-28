@@ -79,8 +79,8 @@ export default {
 			of: [{type: 'string'}],
 			options: {
 				list: [
-					{title: 'Brand Identity', value: 'brandIdentity'},
-					{title: 'Environmental Graphics', value: 'environmentalGraphics'},
+					{title: 'Brand Identity', value: 'Brand Identity'},
+					{title: 'Environmental Graphics', value: 'Environmental Graphics'},
 				]
 			}
 		},
@@ -92,8 +92,8 @@ export default {
 			of: [{type: 'string'}],
 			options: {
 				list: [
-					{title: 'Public', value: 'public'},
-					{title: 'Private', value: 'private'}
+					{title: 'Public', value: 'Public'},
+					{title: 'Private', value: 'Private'}
 				]
 			}
 		},
@@ -115,7 +115,7 @@ export default {
 					type: 'contributor'
 				}
 			],
-			validation: Rule => Rule.required().error('Add at least one contributer.'),
+			validation: Rule => Rule.required().error('Add at least one contributor.'),
 		},
 	],
 	preview: {
