@@ -12,7 +12,8 @@ export default {
 		{
 			name: 'subheading',
 			title: 'Subheading',
-			type: 'text'
+			type: 'text',
+			rows: 3
 		},
 		{
 			name: 'heroImage',
