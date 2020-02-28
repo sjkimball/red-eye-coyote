@@ -1,15 +1,15 @@
 .project-preview {
-	display: block;
-	text-decoration: none;
-	margin-bottom: calc(var(--body-size)*2);
+	color: var(--gray5);
 	cursor: pointer;
+	display: block;
+	margin-bottom: calc(var(--body-size)*2);
+	text-decoration: none;
 }
 
 .project-preview .preview-image {
 	margin-bottom: var(--body-size);
 }
 .project-title {
-	color: var(--gray5);
 	margin-bottom: 0;
 }
 

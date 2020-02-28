@@ -14,6 +14,6 @@ const ProjectPreview = ({ clientName, clientSlug, coverImg, title, slug}) => {
 			<h2 className={`project-title`}>{title}</h2>
 		</Link>
 	);
-}	
+}
 
 export default ProjectPreview;
