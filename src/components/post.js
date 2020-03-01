@@ -12,15 +12,21 @@ const serializers = {
 	container: 'section',
 	types: {
 		customImage: props => (
-			<figure className={`post-image`}>
-				<PreviewImage imageAsset={props.node} />
-				<figcaption>{props.node.caption}</figcaption>
-			</figure>
+				<PreviewImage imageAsset={props.node} showCaption={true} />
 		)
 	}
 }
 
-const Post = ({ author, body, keywords, publishedAt, title, subtitle}) => {
+const Post = ({ post }) => {
+	const {
+		author,
+		_rawBody,
+		coverImg,
+		keywords,
+		publishedAt,
+		title,
+		subtitle
+	} = post;
 
 	return (
 		<article className={`blog-post`}>
@@ -30,15 +36,16 @@ const Post = ({ author, body, keywords, publishedAt, title, subtitle}) => {
 				</h1>
 				<time className={`post-time`} dateTime={publishedAt}>{publishedAt}</time>
 				<h2 className={`post-subtitle`}>{subtitle}</h2>
+				<PreviewImage imageAsset={coverImg} />
 			</header>
 			<BlockContent
-				blocks={body}
+				blocks={_rawBody}
 				serializers={serializers}
 				className={`post-body`}
 			/>
 			<footer className={`post-footer`}>
 				<Link to="/blog">&larr; back to all posts</Link>
-			</footer>		
+			</footer>
 		</article>
 	);
 }

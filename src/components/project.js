@@ -8,15 +8,28 @@ import PreviewImage from '../components/preview-image';
 
 import './project.css'
 
-const Project = ({ clientName, coverImg, contributors, disciplines, offices, projectSummary, projectDesc, title, sectors, productImgs}) => {
-
-	const serializers = {
-		container: 'section',
-		types: {
-			block: props =>
-				<p>{props.node.children[0].text}</p>
-		}
+const serializer = {
+	container: 'section',
+	types: {
+		customImage: props => (
+				<PreviewImage imageAsset={props.node} showCaption={true} />
+		)
 	}
+}
+
+const Project = ({ project }) => {
+	const {
+		client,
+		title,
+		sectors,
+		projectSummary,
+		_rawProjectDesc,
+		coverImg,
+		productImgs,
+		office,
+		disciplines,
+		contributors
+	} = project;
 
 	return (
 		<article className={`rec-project`}>
@@ -35,7 +48,7 @@ const Project = ({ clientName, coverImg, contributors, disciplines, offices, pro
 				</h2>
 				<PreviewImage imageAsset={coverImg} />
 			</header>
-			<BlockContent blocks={projectDesc} serializers={serializers} className={`project-body`}/>
+			<BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`project-body`}/>
 			<aside className={`project-aside`}>
 				<div className={`project-gallery`}>
 					{productImgs.map((image) =>
@@ -50,7 +63,7 @@ const Project = ({ clientName, coverImg, contributors, disciplines, offices, pro
 				<div className={`project-metadata`}>
 					<h6>Client</h6>
 					<ul>
-						<li>{clientName}</li>
+						<li>{client.clientName}</li>
 					</ul>
 					<h6>Sector</h6>
 					<ul className={`project-sectors`}>
@@ -67,9 +80,8 @@ const Project = ({ clientName, coverImg, contributors, disciplines, offices, pro
 				</div>
 				<div className={`project-company-info`}>
 					<h6>Office</h6>
-				{/*Will need to be updated to support multiple offices*/}
 					<ul>
-						<li key={offices._id} value={offices.contactInfo.address.city}>{offices.contactInfo.address.city}</li>
+						<li key={office._id} value={office.contactInfo.address.city}>{office.contactInfo.address.city}</li>
 					</ul>
 					<h6>Partner</h6>
 					<ul>

@@ -4,7 +4,7 @@ import imageUrlBuilder from '@sanity/image-url'
 
 import useSanityOptions from "../hooks/use-sanity-options";
 
-const PreviewImage = ({ imageAsset }) => {
+const PreviewImage = ({ imageAsset, showCaption }) => {
 
 	const mySanityConfig = useSanityOptions();
 
@@ -14,9 +14,18 @@ const PreviewImage = ({ imageAsset }) => {
 		return builder.image(source)
 	}
 
-	return (
-		<img src={urlFor(imageAsset.image).size(576, 324).url()} alt={imageAsset.alt_text} className={`preview-image`}/>
-	);
-}	
+	if (showCaption == true) {
+		return (
+			<figure className={`preview-image`}>
+				<img src={urlFor(imageAsset.image).size(576, 324).url()} alt={imageAsset.altText} className={`preview-image`}/>
+				<figcaption>{imageAsset.caption}</figcaption>
+			</figure>
+			);
+	} else {
+			return (
+				<img src={urlFor(imageAsset.image).size(576, 324).url()} alt={imageAsset.altText} className={`preview-image`}/>
+			);
+	}
+}
 
 export default PreviewImage;

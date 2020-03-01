@@ -8,19 +8,9 @@ import Profile from '../components/profile';
 const ProfileTemplate = ({ data }) => {
 	const profile = data.sanityPerson;
 
-	const profileImg = profile.profileImg;
-	const profileName = `${profile.firstName} ${profile.lastName}`;
-	const office = profile.office.contactInfo.address.city
-	const bio = profile._rawBio;
-
 	return (
 		<Layout>
-			<Profile
-				bio={bio}
-				office={office}
-				profileImg={profileImg}
-				profileName={profileName}
-			/>
+			<Profile profile={profile} />
 		</Layout>
 	);
 };

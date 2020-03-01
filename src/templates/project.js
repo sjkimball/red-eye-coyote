@@ -8,31 +8,10 @@ import Project from '../components/project';
 const ProjectTemplate = ({ data }) => {
 	const project = data.sanityProject;
 
-	const clientName = project.client.clientName;
-	const contributors = project.contributors;
-	const disciplines = project.disciplines;
-	const coverImg = project.coverImg;
-	const offices = project.office;
-	const projectSummary = project.projectSummary;
-	const projectDesc = project._rawProjectDesc;
-	const title = project.title;
-	const sectors = project.sectors;
-	const productImgs = project.productImgs;
-
-
 	return (
 		<Layout>
 			<Project
-				clientName = {clientName}
-				contributors = {contributors}
-				disciplines = {disciplines}
-				coverImg={coverImg}
-				offices={offices}
-				projectSummary={projectSummary}
-				projectDesc={projectDesc}
-				title={title}
-				sectors={sectors}
-				productImgs={productImgs}
+				project={project}
 			/>
 		</Layout>
 	);
