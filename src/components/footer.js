@@ -10,7 +10,7 @@ const Footer = ({ darkMode }) => {
 
 	let footerClass;
 
-	if (darkMode == true) {
+	if (darkMode === true) {
 	  footerClass = 'footer--dark';
 	} else {
 	  footerClass = 'footer--light'

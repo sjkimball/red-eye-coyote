@@ -34,8 +34,16 @@ const Post = ({ post }) => {
 				<h1 className={`post-title`}>
 					{title}
 				</h1>
+				<div className="post-keywords">
+					{keywords.map((keyword, index) => {
+						return (
+								<span key={index}>{keyword}</span>
+							)
+					})}
+				</div>
 				<time className={`post-time`} dateTime={publishedAt}>{publishedAt}</time>
 				<h2 className={`post-subtitle`}>{subtitle}</h2>
+				<p>{`${author.firstName} ${author.lastName}`}</p>
 				<PreviewImage imageAsset={coverImg} />
 			</header>
 			<BlockContent

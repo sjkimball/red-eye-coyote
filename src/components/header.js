@@ -26,7 +26,7 @@ class Header extends React.Component {
 		const { siteTitle, darkMode } = this.props;
 		let headerClass;
 
-		(darkMode == true) ? (
+		(darkMode === true) ? (
 				headerClass = 'mainHeader--dark'
 			) : (
 				headerClass = 'mainHeader--light'

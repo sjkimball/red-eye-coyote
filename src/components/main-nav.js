@@ -26,7 +26,7 @@ const MainNav = () => {
 	return (
 		<nav style={navStyles}>
 			<NavLink to="/work">Work</NavLink>
-			{(staffCount == 1) ? (
+			{(staffCount === 1) ? (
 				<NavLink to={`/about/${staffMemberSlug[0].node.slug.current}`}>About</NavLink>
 			) : (
 				<NavLink to="/about">About</NavLink>
