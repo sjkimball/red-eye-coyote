@@ -13,7 +13,7 @@ import contributor from './contributor'
 import customImage from './customImage'
 import jobTitle from './job_title'
 import office from './office'
-import pageLanding from './pageLanding'
+import page from './page'
 import person from './person'
 import personDoc from './personDoc'
 import post from './post'
@@ -39,7 +39,7 @@ export default createSchema({
     customImage,
     jobTitle,
     office,
-    pageLanding,
+    page,
     person,
     personDoc,
     post,
