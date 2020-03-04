@@ -16,14 +16,16 @@ export default () => {
         <h1>Work</h1>
         <p>Take a look.</p>
       </header>
-      {projects.map(({ node: project }) => {
-        return (
-          <ProjectPreview
-            key={project._id}
-            project={project}
-          />
-        );
-      })}
+      <div className="preview-container">
+        {projects.map(({ node: project }) => {
+          return (
+            <ProjectPreview
+              key={project._id}
+              project={project}
+            />
+          );
+        })}
+      </div>
     </Layout>
   )
 };
