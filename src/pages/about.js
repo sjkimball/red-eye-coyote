@@ -14,23 +14,27 @@ const AboutPage = ({data}) => {
 	return (
 		<Layout page={`about`}>
 			<SEO title="About" />
-			<header className={`page-header page-header--dark`}>
-			  <h1>About Red Eye Coyote</h1>
-			  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam nulla animi, consectetur cumque quas neque iste. Delectus tempora voluptatem quasi quae, eum sapiente perspiciatis, dolorem inventore et amet laboriosam eveniet!
-			  </p>
-			  <p>Voluptatibus voluptate ad, sit enim quisquam! Odit blanditiis praesentium animi, voluptatum aspernatur repellendus? Vitae animi autem cupiditate mollitia esse praesentium, corporis magni, maiores earum modi iusto excepturi labore! Reprehenderit, aut!
-			  </p>
-			  <p>Omnis consequatur autem nostrum voluptatibus earum aspernatur facere laborum ullam iure alias adipisci eligendi saepe est esse assumenda, et veritatis vero molestias magni ad explicabo mollitia pariatur dolor a quam.
-			  </p>
-			</header>
-			{profiles.map(({ node: profile }) => {
-			  return (
-					<ProfilePreview
-						key={profile._id}
-						profile={profile}
-					/>
-				);
-			})}
+			<article className={`about-grid`}>
+				<header className={`page-header page-header--dark`}>
+				  <h1>About Red Eye Coyote</h1>
+				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam nulla animi, consectetur cumque quas neque iste. Delectus tempora voluptatem quasi quae, eum sapiente perspiciatis, dolorem inventore et amet laboriosam eveniet!
+				  </p>
+				  <p>Voluptatibus voluptate ad, sit enim quisquam! Odit blanditiis praesentium animi, voluptatum aspernatur repellendus? Vitae animi autem cupiditate mollitia esse praesentium, corporis magni, maiores earum modi iusto excepturi labore! Reprehenderit, aut!
+				  </p>
+				  <p>Omnis consequatur autem nostrum voluptatibus earum aspernatur facere laborum ullam iure alias adipisci eligendi saepe est esse assumenda, et veritatis vero molestias magni ad explicabo mollitia pariatur dolor a quam.
+				  </p>
+				</header>
+				<section className={`about__gallery`}>
+					{profiles.map(({ node: profile }) => {
+					  return (
+							<ProfilePreview
+								key={profile._id}
+								profile={profile}
+							/>
+						);
+					})}
+				</section>
+			</article>
 		</Layout>
 	)
 }
