@@ -9,12 +9,7 @@ import PreviewImage from '../components/preview-image';
 import './project.css'
 
 const serializer = {
-	container: 'section',
-	types: {
-		customImage: props => (
-				<PreviewImage imageAsset={props.node} showCaption={true} />
-		)
-	}
+	container: 'section'
 }
 
 const Project = ({ project }) => {
@@ -46,19 +41,22 @@ const Project = ({ project }) => {
 				<h2>
 					{projectSummary}
 				</h2>
-				<PreviewImage imageAsset={coverImg} />
 			</header>
-			<BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`project-body`}/>
-			<aside className={`project-aside`}>
-				<div className={`project-gallery`}>
-					{productImgs.map((image) =>
-						<PreviewImage
-							key={image.image.asset._id}
-							imageAsset={image}
-						/>
-					)}
-				</div>
-			</aside>
+			<PreviewImage imageAsset={coverImg}/>
+			<section className={'project-body'}>
+				<BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`project-description`} />
+
+					<section className={`project-gallery`}>
+						{productImgs.map((image) => {
+							return (
+							<PreviewImage
+								key={image.image.asset._id}
+								imageAsset={image}
+							/>
+							);
+						})}
+					</section>
+			</section>
 			<section className="project-details">
 				<div className={`project-metadata`}>
 					<h6>Client</h6>
@@ -86,7 +84,7 @@ const Project = ({ project }) => {
 					<h6>Partner</h6>
 					<ul>
 						{contributors.map((contributor) =>
-							<li key={contributor._key} value={`${contributor.name.first_name} ${contributor.name.last_name}`}>{contributor.name.first_name} {contributor.name.last_name}</li>
+							<li key={contributor._key} value={`${contributor.name.firstName} ${contributor.name.lastName}`}>{contributor.name.firstName} {contributor.name.lastName}</li>
 						)}
 					</ul>
 				</div>
