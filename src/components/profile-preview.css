@@ -17,3 +17,9 @@
 .profile-preview p {
 	color: var(--gray3)
 }
+
+@media and screen(min-width) {
+	.profile-preview {
+		margin-right: 1rem;
+	}
+}
