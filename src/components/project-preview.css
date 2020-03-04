@@ -1,28 +1,15 @@
 .project-preview {
+	display: flex;
+	flex-direction: column;
 	color: var(--gray5);
 	cursor: pointer;
-	display: block;
-	margin-bottom: calc(var(--body-size)*2);
 	text-decoration: none;
 }
 
 .project-preview .preview-image {
+	order: -1;
 	margin-bottom: var(--body-size);
 }
 .project-title {
 	margin-bottom: 0;
-}
-
-@media screen and (min-width: 601px) {
-	.project-preview {
-		display: flex;
-		flex-direction: column;
-	}
-	.project-thumb {
-		width: 100%;
-	}
-	.project-title {
-		font-size: var(--body-size);
-		font-weight: var(--heading-weight2);
-	}
 }
