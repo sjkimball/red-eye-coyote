@@ -6,22 +6,19 @@ import PreviewImage from '../components/preview-image';
 
 import './front-page.css'
 
-const FrontPage = ({pageContent}) => {
-
-	// const heading = pageContent.heading;
-	// const subheading = pageContent.subheading;
-	const heroImage = pageContent.heroImage;
-	const workSamples = pageContent.workSamples;
+const FrontPage = ({ pageContent }) => {
+	// console.log(pageContent);
+	const { heading, subheading, heroImage, workSamples } = pageContent;
 
 	return (
-		<article className="rec-page">
+		<React.Fragment>
 			{/*<h1>{heading}</h1>
 			<h2>{subheading}</h2>*/}
 			<figure className={`hero-image`}>
 				<PreviewImage imageAsset={heroImage} />
-				<figcaption>{pageContent.heroImage.caption}</figcaption>
+				<figcaption>{heroImage.caption}</figcaption>
 			</figure>
-			<section className="work-samples">
+			<section className="work-samples preview-container">
 				{workSamples.map((sample) => {
 					const key = sample._id;
 					const title = sample.title;
@@ -36,10 +33,10 @@ const FrontPage = ({pageContent}) => {
 								{title}
 							</h5>
 						</Link>
-					)
+					);
 				})}
 			</section>
-		</article>
+		</React.Fragment>
 	)
 }
 
