@@ -2,12 +2,6 @@ export default {
   name: 'person',
   title: 'People',
   type: 'document',
-  fieldsets: [
-    {
-      name: 'contact',
-      title: 'Contact Info'
-    }
-  ],
   fields: [
     {
       name: 'firstName',
@@ -47,15 +41,7 @@ export default {
     {
       name: 'bio',
       title: 'Bio',
-      type: 'array',
-      of: [
-        {
-          title: 'Block',
-          type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
-          lists: []
-        }
-      ],
+      type: 'blockContent',
       validation: Rule => Rule.required().error('Bio is a required field')
     },
     {
@@ -77,7 +63,7 @@ export default {
       description: `Click the 'Generate' button to create a slug based on the person's first and last names.`,
       type: 'slug',
       options: {
-        source: doc => `${doc.first_name}-${doc.last_name}`,
+        source: doc => `${doc.firstName}-${doc.lastName}`,
         maxLength: 96
       },
       validation: Rule => Rule.required().error('Looks like you may have forgotten to generate a slug.:(')

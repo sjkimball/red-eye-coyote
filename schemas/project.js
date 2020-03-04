@@ -54,7 +54,10 @@ export default {
 			type: 'array',
 			of: [
 				{
-					type: 'block'
+					type: 'block',
+					styles: [
+						{ title: 'Normal', value: 'normal' }
+					]
 				}
 			]
 		},
