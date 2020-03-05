@@ -12,11 +12,11 @@ export default () => {
   return(
     <Layout>
       <SEO title="Work" />
-      <header className={`page-header page-header--light`}>
+      <header className={`page-header page-header--light work__header`}>
         <h1>Work</h1>
         <p>Take a look.</p>
       </header>
-      <div className="preview-container">
+      <section className="preview-container">
         {projects.map(({ node: project }) => {
           return (
             <ProjectPreview
@@ -25,7 +25,7 @@ export default () => {
             />
           );
         })}
-      </div>
+      </section>
     </Layout>
   )
 };

@@ -15,7 +15,7 @@ const AboutPage = ({data}) => {
 		<Layout page={`about`}>
 			<SEO title="About" />
 			<article className={`about-grid`}>
-				<header className={`page-header page-header--dark`}>
+				<header className={`page-header page-header--dark about__header`}>
 				  <h1>About Red Eye Coyote</h1>
 				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam nulla animi, consectetur cumque quas neque iste. Delectus tempora voluptatem quasi quae, eum sapiente perspiciatis, dolorem inventore et amet laboriosam eveniet!
 				  </p>

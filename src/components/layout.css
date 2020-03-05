@@ -16,7 +16,7 @@
   --gray4: hsl(0, 0%, 25%);
   --gray5: hsl(0, 0%, 5%);
   --gray5transparent: hsla(0, 0%, 5%, .9);
-  --accent1: hsl(350, 75%, 53%);
+  --accent1: hsl(62, 89%, 54%);
 
   /*Typography*/
   --text-font: 'Red Hat Text';
@@ -244,6 +244,7 @@ body {
   font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
 }
 img {
   max-width: 100%;
@@ -653,10 +654,11 @@ pre tt:after {
 
 /*Classes*/
 
+/*General Layout*/
 .layout {
   margin: 0 auto;
   padding-top: 44px;
-  width: 100vw;
+  width: 100%;
 }
 
 .layout--dark {
@@ -695,7 +697,10 @@ pre tt:after {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
   grid-gap: var(--body-size);
+  width: 100%;
 }
+
+/*Media Queries*/
 
 @media screen and (min-width: 600px) {
   .mainContainer {
@@ -705,22 +710,65 @@ pre tt:after {
 }
 
 @media screen and (min-width: 760px) {
+  /*About Page*/
   .about-grid {
     display: grid;
     grid-template-columns: repeat(4, auto);
   }
+
   .about-grid .page-header {
     grid-column: 1 / 5;
   }
+
+  .about-grid .page-header p {
+    width: 90%
+  }
+
   .about__gallery {
     grid-column: 1 / 5;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: var(--body-size);
   }
-  .about__gallery .preview-image {
-    margin-right: 1rem;
-  }
+
   .about-grid p {
     width: 90%
+  }
+
+  /*Contact Page*/
+  .contact__offices {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: var(--body-size);
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .mainContainer {
+    padding-left: calc(var(--body-size) * 3);
+    padding-right: calc(var(--body-size) * 3);
+  }
+
+  .page-header {
+    padding-top: calc(var(--body-size)*3);
+  }
+
+  .work__header p,
+  .blog__header p {
+    width: 45%;
+  }
+  .preview-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about__header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: var(--body-size)
+  }
+  .about__header p {
+    grid-column: 2;
+  }
+  .about-grid .page-header p {
+    width: 100%;
   }
 }

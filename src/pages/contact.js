@@ -11,14 +11,18 @@ const ContactPage = ({data}) => {
 	return(
 		<Layout>
 			<SEO title="Contact" />
-			<header className={`page-header page-header--light`}>
-				<h1>Contact</h1>
-			</header>
-			{offices.map(({node: office}) => {
-				return (
-					<OfficeContact key={office._id} office={office} />
-				);
-			})}
+			<article className={`contact`}>
+				<header className={`contact__header page-header page-header--light`}>
+					<h1>Contact</h1>
+				</header>
+				<section className={`contact__offices`}>
+					{offices.map(({node: office}) => {
+						return (
+							<OfficeContact key={office._id} office={office} />
+						);
+					})}
+				</section>
+			</article>
 		</Layout>
 	)
 }
