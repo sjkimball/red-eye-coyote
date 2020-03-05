@@ -1,52 +1,45 @@
-.rec-office header {
+.rec-office {
+	display: flex;
+	flex-direction: column;
+}
+
+.rec-office__header {
+	display: flex;
+	flex-direction: column;
 	margin-bottom: var(--body-size);
 }
 
-.rec-office header img {
-	margin-bottom: inherit;
+.rec-office__images {
+	order: -1;
 }
 
-.rec-office header h2 {
+.rec-office__city {
 	margin-bottom: calc(var(--body-size)/4);
 }
 
-.office-info {
+.rec-office__info {
 	font-weight: var(--text-weight2);
 }
 
-.office-info a {
+.rec-office__info a {
 	color: inherit;
 	display: block;
-	margin-bottom: calc(var(--body-size)/2);
 }
 
-.office-info address, .office-contact {
+.rec-office__address, .rec-office__contact {
 	margin-bottom: var(--body-size);
 }
 
-.office-info address {
+.rec-office__address {
 	font-style: normal;
 }
 
-.office-email {
-	border-bottom: 1px solid var(--accent1);
-}
-
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 760px) {
 	.rec-office {
-		grid-column: 1 / 3;
-	}
-	.office-info {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-column: span 2;
 	}
 }
 
-@media screen and (min-width: 800px) {
-	.rec-office {
-		grid-column: 1 / 4;
-	}
-}
 @media screen and (min-width: 1399px) {
 	.rec-office {
 		grid-column: 1 / 5;
