@@ -31,32 +31,31 @@ const Post = ({ post }) => {
 	return (
 		<article className={`blog-post`}>
 			<header className={`blog-post__header`}>
-				<h1 className={`post-title`}>
+				<h1 className={`blog-post__title`}>
 					{title}
 				</h1>
-				<div className="post-keywords">
+				<ul className="blog-post__keywords">
 					{keywords.map((keyword, index) => {
 						return (
-								<span key={index}>{keyword}</span>
+								<li key={index}>{keyword}</li>
 							)
 					})}
-				</div>
-				<time className={`post-time`} dateTime={publishedAt}>{publishedAt}</time>
-				<h2 className={`post-subtitle`}>{subtitle}</h2>
+				</ul>
+				<time className={`blog-post__time`} dateTime={publishedAt}>{publishedAt}</time>
+				<h2 className={`blog-post__summary`}>{subtitle}</h2>
 				<p>{`${author.firstName} ${author.lastName}`}</p>
-				<PreviewImage imageAsset={coverImg} />
 			</header>
+			<PreviewImage imageAsset={coverImg} />
 			<BlockContent
 				blocks={_rawBody}
 				serializers={serializers}
-				className={`post-body`}
+				className={`blog-post__body`}
 			/>
-			<footer className={`post-footer`}>
+			<footer className={`blog-post__footer`}>
 				<Link to="/blog">&larr; back to all posts</Link>
 			</footer>
 		</article>
 	);
 }
-
 
 export default Post;
