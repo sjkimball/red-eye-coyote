@@ -33,3 +33,11 @@
 	color: var(--gray5);
 	margin-bottom: 0;
 }
+
+/*Media Queries*/
+@media screen and (min-width: 760px) {
+	.hero-image {
+		margin-left: calc(var(--body-size)*-2);
+		margin-right: calc(var(--body-size)*-2);
+	}
+}

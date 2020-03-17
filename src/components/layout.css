@@ -713,26 +713,16 @@ pre tt:after {
   /*About Page*/
   .about-grid {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(6, 1fr);
   }
-
   .about-grid .page-header {
-    grid-column: 1 / 5;
+    grid-column: 1 / 6;
   }
-
-  .about-grid .page-header p {
-    width: 90%
-  }
-
   .about__gallery {
-    grid-column: 1 / 5;
+    grid-column: 1 / 7;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: var(--body-size);
-  }
-
-  .about-grid p {
-    width: 90%
   }
 
   /*Contact Page*/

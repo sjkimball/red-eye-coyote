@@ -1,4 +1,4 @@
-.rec-project {
+.project {
 	display: grid;
 	grid-template-rows: max-content;
 	line-height: var(--body-leading);
@@ -60,20 +60,27 @@
 }
 
 @media screen and (min-width: 760px) {
-	.rec-project {
-		grid-template-columns: repeat(4, 1fr);
+	.project {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
 	}
-	.project-header, .project-footer, .project-body, .project-gallery, .rec-project>.preview-image {
-		grid-column: 1 / 5;
+	.project > * {
+		grid-column: 1 / 7;
 	}
-	.rec-project>.preview-image {
-		grid-column: 1 / 5;
+	.project-header {
+		grid-column: 1 / 6;
+	}
+	.project-body {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+	}
+	.project-gallery {
+		grid-column: 1 / 7;
 	}
 	.project-description {
-		max-width: 90%;
+		grid-column: 1 / 6;
 	}
 	.project-details {
-		grid-column: 1 / 5;
 		display: grid;
 		grid-template-columns: repeat(2, fr);
 		grid-auto-flow: column;

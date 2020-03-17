@@ -27,7 +27,7 @@ const Project = ({ project }) => {
 	} = project;
 
 	return (
-		<article className={`rec-project`}>
+		<article id={`rec-project`} className={`project`}>
 			<header className={`project-header`}>
 				<h1>
 					{title}
@@ -45,17 +45,16 @@ const Project = ({ project }) => {
 			<PreviewImage imageAsset={coverImg}/>
 			<section className={'project-body'}>
 				<BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`project-description`} />
-
-					<section className={`project-gallery`}>
-						{productImgs.map((image) => {
-							return (
-							<PreviewImage
-								key={image.image.asset._id}
-								imageAsset={image}
-							/>
-							);
-						})}
-					</section>
+				<section className={`project-gallery`}>
+					{productImgs.map((image) => {
+						return (
+						<PreviewImage
+							key={image.image.asset._id}
+							imageAsset={image}
+						/>
+						);
+					})}
+				</section>
 			</section>
 			<section className="project-details">
 				<div className={`project-metadata`}>

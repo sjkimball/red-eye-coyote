@@ -29,7 +29,7 @@ const Post = ({ post }) => {
 	} = post;
 
 	return (
-		<article className={`blog-post`}>
+		<article id={`rec-post`} className={`blog-post`}>
 			<header className={`blog-post__header`}>
 				<h1 className={`blog-post__title`}>
 					{title}
