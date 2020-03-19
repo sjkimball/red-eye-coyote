@@ -17,6 +17,9 @@ const useProjectBasics = () => {
 		          image {
 		          	asset {
 		          		_id
+		          		metadata {
+		          			lqip
+		          		}
 		          	}
 		          	crop {
 		          		top
