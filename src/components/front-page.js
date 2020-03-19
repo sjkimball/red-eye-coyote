@@ -8,7 +8,8 @@ import './front-page.css'
 
 const FrontPage = ({ pageContent }) => {
 	// console.log(pageContent);
-	const { heading, subheading, heroImage, workSamples } = pageContent;
+	// const { heading, subheading, heroImage, workSamples } = pageContent;
+	const { heroImage, workSamples } = pageContent;
 
 	return (
 		<React.Fragment>
