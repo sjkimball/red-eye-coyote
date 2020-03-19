@@ -1,6 +1,9 @@
 .blog-post {
 	display: grid;
 }
+.blog-post .cover-image {
+	grid-column: 1 / -1;
+}
 .blog-post__header  {
 	margin-bottom: var(--body-size);
 }
@@ -67,25 +70,18 @@
 	.blog-post {
 		grid-template-columns: repeat(6, 1fr);
 	}
-
-	.blog-post .preview-image {
-		grid-column : 1 / -1;
-	}
-
 	.blog-post__header, .blog-post__footer {
 		grid-column: 1 / 6;
 	}
+	.blog-post .cover-image {
+		/*height: 100%;*/
+	}
 
 	.blog-post__body {
-		grid-column: 1 / 7;
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
+		grid-column: 1 / 6;
 	}
 	.blog-post__body p {
 		grid-column: 1 / 6;
-	}
-	.blog-post__body .preview-image {
-		grid-column: 1 / -1;
 	}
 }
 

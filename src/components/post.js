@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 
 import BlockContent from '@sanity/block-content-to-react';
 
+import CoverImage from '../components/cover-image';
 import PreviewImage from '../components/preview-image';
 
 import './post.css'
@@ -45,11 +46,10 @@ const Post = ({ post }) => {
 				<h2 className={`blog-post__summary`}>{subtitle}</h2>
 				<p>{`${author.firstName} ${author.lastName}`}</p>
 			</header>
-			<PreviewImage imageAsset={coverImg} />
-			<BlockContent
+			<CoverImage imageAsset={coverImg} />
+			<BlockContent	className={`blog-post__body`}
 				blocks={_rawBody}
 				serializers={serializers}
-				className={`blog-post__body`}
 			/>
 			<footer className={`blog-post__footer`}>
 				<Link to="/blog">&larr; back to all posts</Link>
