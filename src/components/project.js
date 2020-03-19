@@ -4,12 +4,20 @@ import { Link } from 'gatsby';
 
 import BlockContent from '@sanity/block-content-to-react';
 
+import CoverImage from '../components/cover-image';
 import PreviewImage from '../components/preview-image';
 
 import './project.css'
 
 const serializer = {
-	container: 'section'
+	container: 'section',
+	types: {
+		customImage: props => {
+			return(
+				<PreviewImage imageAsset={props.node} showCaption={true}/>
+			);
+		}
+	}
 }
 
 const Project = ({ project }) => {
@@ -42,7 +50,7 @@ const Project = ({ project }) => {
 					{projectSummary}
 				</h2>
 			</header>
-			<PreviewImage imageAsset={coverImg}/>
+			<CoverImage imageAsset={coverImg}/>
 			<section className={'project-body'}>
 				<BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`project-description`} />
 				<section className={`project-gallery`}>
