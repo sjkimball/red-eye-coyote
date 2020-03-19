@@ -51,15 +51,7 @@ export default {
 		{
 			name: 'projectDesc',
 			title: 'Project Description',
-			type: 'array',
-			of: [
-				{
-					type: 'block',
-					styles: [
-						{ title: 'Normal', value: 'normal' }
-					]
-				}
-			]
+			type: 'blockContent'
 		},
 		{
 			name: 'productImgs',
