@@ -11,17 +11,18 @@ import "./layout.css"
 const Layout = ({children}) => {
   const site = useSiteMetaData();
 
-  let layoutClass = 'layout';
   let location = window.location.pathname;
   let darkMode = false;
   if (location.includes("/about")) {
-    layoutClass = 'layout layout--dark';
+    document.body.style.backgroundColor = "var(--gray5)";
     darkMode = true;
+  } else {
+    document.body.style.backgroundColor = "white";
   }
   return (
     <React.Fragment>
       <Header siteTitle={site.title} darkMode={darkMode} />
-      <div className={layoutClass}>
+      <div className={`layout`}>
         <main className={`mainContainer`}>{children}</main>
       </div>
       <Footer darkMode={darkMode}/>
