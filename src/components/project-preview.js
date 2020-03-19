@@ -11,7 +11,7 @@ const ProjectPreview = ({ project }) => {
 	return (
 		<Link to={`/work/${client.slug.current}/${slug.current}`} className={`project-preview`}>
 			<h2 className={`project-title`}>{title}</h2>
-			<PreviewImage imageAsset={coverImg} />
+			{<PreviewImage imageAsset={coverImg} />}
 		</Link>
 	);
 }

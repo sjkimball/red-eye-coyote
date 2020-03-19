@@ -4,12 +4,12 @@
 	color: var(--gray5);
 	cursor: pointer;
 	text-decoration: none;
-	margin-bottom: calc(var(--body-size)*2);
 }
 
 .project-preview .preview-image {
-	order: -1;
+	background: lightgrey;
 	margin-bottom: var(--body-size);
+	order: -1;
 }
 .project-title {
 	margin-bottom: 0;
