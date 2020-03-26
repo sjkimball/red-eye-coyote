@@ -48,13 +48,13 @@ const CoverImage = ({ imageAsset, showCaption }) => {
 				.auto('format')
 				}
 			alt={altText}
-			className={"preview-image"}
+			className={"cover-image"}
 		/>
 	);
 
 	if (showCaption === true) {
 		return (
-			<figure className={`preview-image`}>
+			<figure>
 				{renderedImage}
 				<figcaption>{caption}</figcaption>
 			</figure>

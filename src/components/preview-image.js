@@ -60,7 +60,7 @@ const PreviewImage = ({ imageAsset, showCaption, profilePic }) => {
 
 	if (showCaption === true) {
 		return (
-			<figure className={`preview-image`}>
+			<figure>
 				{renderedImage}
 				<figcaption>{caption}</figcaption>
 			</figure>
