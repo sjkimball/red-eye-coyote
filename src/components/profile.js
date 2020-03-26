@@ -31,7 +31,7 @@ const Profile = ({ profile }) => {
 					<br/>
 					<span>{office.contactInfo.address.city}</span>
 				</h1>
-				<PreviewImage imageAsset={profileImg} />
+				<PreviewImage imageAsset={profileImg} profilePic={true} />
 			</header>
 			<BlockContent blocks={_rawBio} serializers={serializer} renderContainerOnSingleChild={true} className={`profile-bio`}/>
 			<section className={`profile-info`}>

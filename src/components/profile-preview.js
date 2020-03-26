@@ -14,7 +14,7 @@ const ProfilePreview = ({ profile }) => {
 
 	return (
 		<Link to={`/about/${profileSlug}`} className={`profile-preview`}>
-			<PreviewImage imageAsset={profileImg} />
+			<PreviewImage imageAsset={profileImg} profilePic={true}/>
 			<h2 className={`profile-name`}>{name}</h2>
 			<p>{officeName}</p>
 		</Link>
