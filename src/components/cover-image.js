@@ -13,27 +13,55 @@ const CoverImage = ({ imageAsset, showCaption }) => {
 		return builder.image(source)
 	}
 
-	const small = urlFor(imageAsset.image).auto('format').size(348,196).fit('fillmax').dpr(2).url()
-	// const medium = urlFor(imageAsset.image).auto('format').size(620,348).fit(`clip`).url()
-	// const large = urlFor(imageAsset.image).auto('format').size(688,388).fit(`clip`).url()
-	// const xlarge = urlFor(imageAsset.image).auto('format').size(1400,788).fit(`clip`).url()
+	const {
+		altText,
+		caption,
+		image: {
+			asset: {
+				metadata
+			}
+		}
+	} = imageAsset;
 
-	const image = <img
-									src={small}
-									alt={imageAsset.altText}
-									className={'cover-image'}
-								/>
+	const letterboxSrcSet = `
+		${urlFor(imageAsset.image).width(400).height(225)} 400w,
+		${urlFor(imageAsset.image).width(600).height(338)} 600w,
+		${urlFor(imageAsset.image).width(400).height(225).dpr(2)} 800w,
+		${urlFor(imageAsset.image).width(600).height(338).dpr(2)} 1200w
+	`;
+
+	const renderedImage = (
+		<img
+			style={{
+				backgroundImage: `url(${metadata.lqip})`,
+				backgroundRepeat: "no-repeat",
+				backgroundSize: "cover",
+			}}
+			srcSet={letterboxSrcSet}
+      sizes={`
+        (max-width: 320px) 288px,
+        (max-width: 480px) 448px,
+        (max-width: 759px) 700px,
+        475px
+      `}
+			src={urlFor(imageAsset.image)
+				.auto('format')
+				}
+			alt={altText}
+			className={"preview-image"}
+		/>
+	);
 
 	if (showCaption === true) {
 		return (
-			<figure className={`cover-image`}>
-				{image}
-				<figcaption>{imageAsset.caption}</figcaption>
+			<figure className={`preview-image`}>
+				{renderedImage}
+				<figcaption>{caption}</figcaption>
 			</figure>
 			);
 	} else {
 			return (
-				image
+				renderedImage
 			);
 	}
 }

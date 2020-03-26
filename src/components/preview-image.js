@@ -4,7 +4,7 @@ import imageUrlBuilder from '@sanity/image-url'
 
 import useSanityOptions from "../hooks/use-sanity-options";
 
-const PreviewImage = ({ imageAsset, showCaption }) => {
+const PreviewImage = ({ imageAsset, showCaption, profilePic }) => {
 	const mySanityConfig = useSanityOptions();
 
 	const builder = imageUrlBuilder(mySanityConfig);
@@ -18,30 +18,39 @@ const PreviewImage = ({ imageAsset, showCaption }) => {
 		caption,
 		image: {
 			asset: {
-				_id,
 				metadata
 			}
 		}
 	} = imageAsset;
 
-	// Need to implement lqip as backgroundImage
-	// console.log(metadata.lqip);
+	const letterboxSrcSet = `
+		${urlFor(imageAsset.image).width(400).height(225)} 400w,
+		${urlFor(imageAsset.image).width(600).height(338)} 600w,
+		${urlFor(imageAsset.image).width(400).height(225).dpr(2)} 800w,
+		${urlFor(imageAsset.image).width(600).height(338).dpr(2)} 1200w
+	`;
+	const squareSrcSet = `
+		${urlFor(imageAsset.image).width(400).height(400)} 400w,
+		${urlFor(imageAsset.image).width(600).height(600)} 600w,
+		${urlFor(imageAsset.image).width(400).height(400).dpr(2)} 800w,
+		${urlFor(imageAsset.image).width(600).height(600).dpr(2)} 1200w
+	`;
 
-	const image = (
+	const renderedImage = (
 		<img
-			srcSet={`
-        ${urlFor(_id).width(400)} 400w,
-        ${urlFor(_id).width(600)} 600w,
-        ${urlFor(_id).width(400).dpr(2)} 800w,
-        ${urlFor(_id).width(600).dpr(2)} 1200w
-      `}
+			style={{
+				backgroundImage: `url(${metadata.lqip})`,
+				backgroundRepeat: "no-repeat",
+				backgroundSize: "cover",
+			}}
+			srcSet={(profilePic === true) ? squareSrcSet : letterboxSrcSet}
       sizes={`
         (max-width: 320px) 288px,
         (max-width: 480px) 448px,
         (max-width: 759px) 700px,
         475px
       `}
-			src={urlFor(_id)
+			src={urlFor(imageAsset.image)
 				.auto('format')
 				}
 			alt={altText}
@@ -52,13 +61,13 @@ const PreviewImage = ({ imageAsset, showCaption }) => {
 	if (showCaption === true) {
 		return (
 			<figure className={`preview-image`}>
-				{image}
+				{renderedImage}
 				<figcaption>{caption}</figcaption>
 			</figure>
 			);
 	} else {
 			return (
-				image
+				renderedImage
 			);
 	}
 }
