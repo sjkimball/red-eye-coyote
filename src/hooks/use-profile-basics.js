@@ -12,6 +12,9 @@ const useProfileBasics = () => {
 		          image {
 		            asset {
 		              _id
+		              metadata {
+		              	lqip
+		              }
 		            }
 		          }
 		        }

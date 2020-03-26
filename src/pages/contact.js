@@ -39,6 +39,9 @@ export const query = graphql`
 	          image {
 	            asset {
 	              _id
+	              metadata {
+	              	lqip
+	              }
 	            }
 	            crop {
 	              bottom

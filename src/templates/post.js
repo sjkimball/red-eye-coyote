@@ -35,12 +35,15 @@ export const query = graphql`
 	    }
 	    publishedAt
 	    keywords
-			_rawBody
+			_rawBody(resolveReferences: {maxDepth: 10})
 		}
   }
 	fragment postImageData on SanityImage {
 		asset {
 		  _id
+		  metadata {
+		  	lqip
+		  }
 		}
 		hotspot {
 		  x

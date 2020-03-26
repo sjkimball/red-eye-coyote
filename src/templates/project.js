@@ -23,7 +23,7 @@ export const query = graphql`
 		  title
 		  sectors
 		  projectSummary
-		  _rawProjectDesc
+		  _rawProjectDesc(resolveReferences: {maxDepth: 10})
 		  coverImg {
 		  	image {
 		  		...projectImageData
@@ -61,6 +61,9 @@ export const query = graphql`
 	fragment projectImageData on SanityImage {
 		asset {
 		  _id
+		  metadata {
+		  	lqip
+		  }
 		}
 		hotspot {
 		  x

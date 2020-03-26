@@ -50,6 +50,9 @@ fragment imageData on SanityCustomImage {
   image {
     asset {
       _id
+      metadata {
+        lqip
+      }
     }
     crop {
       top
