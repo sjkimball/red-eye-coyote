@@ -8,7 +8,6 @@ import useProjectBasics from "../hooks/use-project-basics"
 
 export default () => {
   const projects = useProjectBasics();
-
   return(
     <Layout>
       <SEO title="Work" />

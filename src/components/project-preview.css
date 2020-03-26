@@ -7,7 +7,6 @@
 }
 
 .project-preview .preview-image {
-	background: lightgrey;
 	margin-bottom: var(--body-size);
 	order: -1;
 }
