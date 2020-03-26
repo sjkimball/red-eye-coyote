@@ -1,22 +1,10 @@
-.hero-image {
-	width: 100vw;
-	margin-bottom: calc(var(--body-size) * 2);
+.landing-header {
 	margin-left: calc(var(--body-size)*-1);
 	margin-right: calc(var(--body-size)*-1);
-	margin-top: calc(var(--body-size)*-1);
-}
-
-.hero-image img {
-	margin-bottom: 0;
-}
-
-.hero-image figcaption {
-	margin-left: var(--body-leading);
-	margin-right: var(--body-leading);
 }
 
 .work-samples {
-	width: 100%;
+	/*width: 100%;*/
 }
 
 .work-samples a {
