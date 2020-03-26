@@ -6,18 +6,16 @@ import './footer.css'
 
 const Footer = ({ darkMode }) => {
 
-	// const { links } = usePrimaryOfficeInfo();
-
 	let footerClass;
 
 	if (darkMode === true) {
-	  footerClass = 'footer--dark';
+	  footerClass = 'mainFooter--dark';
 	} else {
-	  footerClass = 'footer--light'
+	  footerClass = 'mainFooter--light'
 	}
 
 	return (
-		<footer className={`footer ${footerClass}`}>
+		<footer className={`mainFooter ${footerClass}`}>
 			{/*<ul className={`social-list`}>
 				{links.map((link) => {
 					return (

@@ -1,8 +1,8 @@
-.footer {
+.mainFooter {
 	padding: var(--body-leading);
 }
 
-.footer--dark {
+.mainFooter--dark {
 	background-color: var(--gray5);
 	color: var(--gray1);
 }
