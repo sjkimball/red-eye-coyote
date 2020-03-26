@@ -654,16 +654,10 @@ pre tt:after {
 /*Classes*/
 
 /*General Layout*/
-.layout {
-  margin-top: 44px;
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .mainContainer {
-  padding: var(--body-size);
-  width: 100%;
+  margin-top: 44px;
+  padding-left: var(--body-size);
+  padding-right: var(--body-size);
 }
 
 .mainContainer > p {
