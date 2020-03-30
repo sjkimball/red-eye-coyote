@@ -655,9 +655,12 @@ pre tt:after {
 
 /*General Layout*/
 .mainContainer {
+  display: grid;
+  grid-row-gap: var(--body-size);
   margin-top: 44px;
   padding-left: var(--body-size);
   padding-right: var(--body-size);
+  padding-top: calc(var(--body-size)*2);
 }
 
 .mainContainer > p {
@@ -703,11 +706,11 @@ pre tt:after {
     grid-column-gap: var(--body-size);
   }
   /*About Page*/
-  .about-grid {
+  .about {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
   }
-  .about-grid .page-header {
+  .about .page-header {
     grid-column: 1 / 6;
   }
   .about__gallery {
