@@ -14,20 +14,22 @@ export default () => {
   return(
     <Layout>
       <SEO title={settings.title} />
-      <header className={`page-header page-header--light blog__header`}>
-        <h1>{settings.title}</h1>
-        <p>{settings.subtitle}</p>
-      </header>
-      <section className={`preview-container`}>
-        {posts.map(({ node: post }) => {
-          return (
-            <PostPreview
-              key={post._id}
-              post={post}
-            />
-          );
-        })}
-      </section>
+      <article className="blog">
+        <header className={`page-header page-header--light blog__header`}>
+          <h1>{settings.title}</h1>
+          <p>{settings.subtitle}</p>
+        </header>
+        <section className={`preview-container`}>
+          {posts.map(({ node: post }) => {
+            return (
+              <PostPreview
+                key={post._id}
+                post={post}
+              />
+            );
+          })}
+        </section>
+      </article>
     </Layout>
   )
 };

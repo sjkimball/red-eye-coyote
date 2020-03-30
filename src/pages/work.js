@@ -11,20 +11,22 @@ export default () => {
   return(
     <Layout>
       <SEO title="Work" />
-      <header className={`page-header page-header--light work__header`}>
-        <h1>Work</h1>
-        <p>Take a look.</p>
-      </header>
-      <section className="preview-container">
-        {projects.map(({ node: project }) => {
-          return (
-            <ProjectPreview
-              key={project._id}
-              project={project}
-            />
-          );
-        })}
-      </section>
+      <article className="work">
+        <header className={`page-header page-header--light work__header`}>
+          <h1>Work</h1>
+          <p>Take a look.</p>
+        </header>
+        <section className="preview-container">
+          {projects.map(({ node: project }) => {
+            return (
+              <ProjectPreview
+                key={project._id}
+                project={project}
+              />
+            );
+          })}
+        </section>
+      </article>
     </Layout>
   )
 };
