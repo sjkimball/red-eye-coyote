@@ -44,9 +44,11 @@ const Post = ({ post }) => {
 				</ul>
 				<time className={`blog-post__time`} dateTime={publishedAt}>{publishedAt}</time>
 				<h2 className={`blog-post__summary`}>{subtitle}</h2>
-				<p>{`${author.firstName} ${author.lastName}`}</p>
+				<p className={`blog-post__author`}>{`${author.firstName} ${author.lastName}`}</p>
 			</header>
-			<CoverImage imageAsset={coverImg} />
+			<section className={`blog-post__cover`}>
+				<CoverImage imageAsset={coverImg} />
+			</section>
 			<BlockContent	className={`blog-post__body`}
 				blocks={_rawBody}
 				serializers={serializers}
