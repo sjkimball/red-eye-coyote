@@ -50,7 +50,9 @@ const Project = ({ project }) => {
 					{projectSummary}
 				</h2>
 			</header>
-			<CoverImage imageAsset={coverImg}/>
+			<section className={`project-cover`}>
+				<CoverImage imageAsset={coverImg}/>
+			</section>
 			<section className={'project-body'}>
 				<BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`project-description`} />
 				<section className={`project-gallery`}>
@@ -65,7 +67,7 @@ const Project = ({ project }) => {
 				</section>
 			</section>
 			<section className="project-details">
-				<div className={`project-metadata`}>
+				<section className={`project-metadata`}>
 					<h6>Client</h6>
 					<ul>
 						<li>{client.clientName}</li>
@@ -82,8 +84,8 @@ const Project = ({ project }) => {
 							<li key={index} value={discipline}>{discipline}</li>
 						)}
 					</ul>
-				</div>
-				<div className={`project-company-info`}>
+				</section>
+				<section className={`project-company-info`}>
 					<h6>Office</h6>
 					<ul>
 						<li key={office._id} value={office.contactInfo.address.city}>{office.contactInfo.address.city}</li>
@@ -94,7 +96,7 @@ const Project = ({ project }) => {
 							<li key={contributor._key} value={`${contributor.name.firstName} ${contributor.name.lastName}`}>{contributor.name.firstName} {contributor.name.lastName}</li>
 						)}
 					</ul>
-				</div>
+				</section>
 			</section>
 			<footer className={`project-footer`}>
 				<Link to="/work">&larr; Work</Link>

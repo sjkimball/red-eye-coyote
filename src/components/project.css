@@ -1,19 +1,22 @@
 .project {
 	display: grid;
-	grid-template-rows: max-content;
-	line-height: var(--body-leading);
+	grid-row-gap: var(--body-size);
 }
 
-.project-header {
+.project-header > * {
 	margin-bottom: var(--body-size);
 }
 
-.project-header h1, .project-header h2, .project-disciplines {
-	margin-bottom: inherit;
+.project-header h1 {
+	line-height: 1.2;
 }
 
-.project .cover-image {
-	grid-column: 1 / -1;
+.project-cover .cover-image {
+	margin-bottom: 0;
+}
+
+.project-description .preview-image {
+	margin-bottom: 0;
 }
 
 .project-gallery {
