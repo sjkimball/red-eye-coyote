@@ -1,15 +1,22 @@
+.featured {
+	margin-top: calc(var(--body-size)* -2);
+}
 .landing-header {
 	margin-left: calc(var(--body-size)*-1);
 	margin-right: calc(var(--body-size)*-1);
 }
 
-.work-samples {
-	/*width: 100%;*/
+.landing-header .cover-image {
+	margin-bottom: 0;
+}
+
+.landing-header figcaption {
+	margin-left: var(--body-size);
+	margin-right: var(--body-size);
 }
 
 .work-samples a {
 	display: block;
-	margin-bottom: calc(var(--body-size) * 2);
 	width: 100%;
 }
 

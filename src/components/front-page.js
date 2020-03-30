@@ -12,9 +12,11 @@ const FrontPage = ({ pageContent }) => {
 
 	return (
 		<React.Fragment>
-			<header id={`landingHeader`} className={`landing-header`}>
-				<CoverImage id={`hero`} imageAsset={heroImage} showCaption={true}/>
-			</header>
+			<article className="featured">
+				<header id={`landingHeader`} className={`landing-header`}>
+					<CoverImage id={`hero`} imageAsset={heroImage} showCaption={true}/>
+				</header>
+			</article>
 			<article>
 				<section className="work-samples preview-container">
 					{workSamples.map((sample) => {
