@@ -13,13 +13,6 @@ const OfficeContact = ({office}) => {
 			<header className={`rec-office__header`}>
 				<h2 className={`rec-office__city`}>{address.city}</h2>
 				<time className={`rec-office__time`}>Current time</time>
-				<section className={`rec-office__images`}>
-					{images.map((image) => {
-						return (
-							<PreviewImage key={image.image.asset._id} imageAsset={image} />
-						)
-					})}
-				</section>
 			</header>
 			<section className={`rec-office__info`}>
 				<section className={`rec-office__contact`}>
@@ -27,7 +20,7 @@ const OfficeContact = ({office}) => {
 						{contactInfo.email}
 					</a>
 
-					<a href={`tel:1-312-879-9813`} className={`rec-office__phone`}>
+					<a href={`tel:1-${contactInfo.phone}`} className={`rec-office__phone`}>
 						+1 {contactInfo.phone}
 					</a>
 				</section>
@@ -40,6 +33,13 @@ const OfficeContact = ({office}) => {
 				<p className={`rec-office__description`}>
 					{description}
 				</p>
+			</section>
+			<section className={`rec-office__images`}>
+				{images.map((image) => {
+					return (
+						<PreviewImage key={image.image.asset._id} imageAsset={image} />
+					)
+				})}
 			</section>
 		</article>
 	)
