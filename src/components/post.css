@@ -3,10 +3,6 @@
 	grid-row-gap: var(--body-size);
 }
 
-.blog-post .cover-image {
-	grid-column: 1 / -1;
-}
-
 .blog-post__header h1 {
 	margin-bottom: var(--body-size);
 }
@@ -84,8 +80,10 @@
 	.blog-post__header, .blog-post__footer {
 		grid-column: 1 / 6;
 	}
-	.blog-post .cover-image {
-		/*height: 100%;*/
+
+	.blog-post__cover {
+		grid-row: 2;
+		grid-column: 1/-1;
 	}
 
 	.blog-post__body {
