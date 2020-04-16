@@ -42,7 +42,7 @@ const CoverImage = ({ imageAsset, showCaption }) => {
         (max-width: 320px) 320px,
         (max-width: 480px) 448px,
         (max-width: 759px) 700px,
-        475px
+        800px
       `}
 			src={urlFor(imageAsset.image)
 				.auto('format')
