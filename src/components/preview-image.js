@@ -41,7 +41,8 @@ const PreviewImage = ({ imageAsset, showCaption, profilePic }) => {
 			style={{
 				backgroundImage: `url(${metadata.lqip})`,
 				backgroundRepeat: "no-repeat",
-				backgroundSize: "cover"
+				backgroundSize: "cover",
+				marginBottom: "calc(var(--body-size)/2)"
 			}}
 			srcSet={(profilePic === true) ? squareSrcSet : letterboxSrcSet}
       sizes={`

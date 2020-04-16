@@ -7,7 +7,6 @@
 }
 
 .project-preview .preview-image {
-	margin-bottom: var(--body-size);
 	order: -1;
 }
 .project-title {
