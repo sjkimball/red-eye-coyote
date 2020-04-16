@@ -23,7 +23,7 @@ class Header extends React.Component {
 	}
 
 	render() {
-		const { siteTitle, darkMode } = this.props;
+		const { siteTitle, darkMode, staffInfo } = this.props;
 		let headerClass;
 
 		(darkMode === true) ? (
@@ -39,14 +39,18 @@ class Header extends React.Component {
 				</Link>
 				<nav className={`mainNav`}>
 					<Link to="/work" className={`nav-item`} activeClassName="active" partiallyActive={true}>Work</Link>
-					<Link to="/about" className={`nav-item`} activeClassName="active" partiallyActive={true}>About</Link>
+					{(staffInfo.totalCount === 1) ?
+						(<Link to={`/about/${staffInfo.edges[0].node.slug.current}`} className={`nav-item`} activeClassName="active" partiallyActive={true}>About</Link>)
+						:
+						(<Link to="/about" className={`nav-item`} activeClassName="active" partiallyActive={true}>About</Link>)
+					}
 					<Link to="/blog" className={`nav-item`} activeClassName="active" partiallyActive={true}>Blog</Link>
 					<Link to="/contact" className={`nav-item`} activeClassName="active" partiallyActive={true}>Contact</Link>
 					<button onClick={this.menuToggle} className={`menuButton`} aria-label="Menu">
 						<MenuIcon headerClass={headerClass} menuVisible={this.state.menuVisible}/>
 					</button>
 				</nav>
-				{this.state.menuVisible ? <MainNav/> : ``}
+				{this.state.menuVisible ? <MainNav staffInfo={staffInfo} /> : ``}
 			</header>
 		);
 	}

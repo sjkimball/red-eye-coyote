@@ -1,7 +1,5 @@
 import React from 'react';
 
-import useStaffCount from '../hooks/use-staff-count';
-
 import NavLink from './nav-link'
 
 const navStyles = {
@@ -17,11 +15,9 @@ const navStyles = {
 	zIndex: `100`,
 }
 
-const MainNav = () => {
-	const data = useStaffCount();
-
-	let staffCount = data.totalCount;
-	let staffMemberSlug = data.edges;
+const MainNav = ({ staffInfo }) => {
+	let staffCount = staffInfo.totalCount;
+	let staffMemberSlug = staffInfo.edges;
 
 	return (
 		<nav style={navStyles}>
