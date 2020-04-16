@@ -693,14 +693,11 @@ pre tt:after {
 
 /*Media Queries*/
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 760px) {
   .mainContainer {
     padding-left: calc(var(--body-size) * 2);
     padding-right: calc(var(--body-size) * 2);
   }
-}
-
-@media screen and (min-width: 760px) {
   .preview-container {
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: var(--body-size);
