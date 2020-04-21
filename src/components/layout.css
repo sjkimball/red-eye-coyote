@@ -651,107 +651,19 @@ pre tt:after {
   }
 }
 
-/*Classes*/
-
-/*General Layout*/
-.mainContainer {
-  display: grid;
-  grid-row-gap: var(--body-size);
-  margin-top: 44px;
-  padding-left: var(--body-size);
-  padding-right: var(--body-size);
-  padding-top: calc(var(--body-size)*2);
-}
-
-.mainContainer > p {
-  border-bottom: 1px solid var(--gray1);
-  padding-bottom: .5rem;
-}
-
-.page-header {
-  margin-bottom: var(--body-size);
-}
-
-.page-header h1 {
-  margin-bottom: inherit;
-}
-
-.page-header--light p {
-  color: var(--gray3);
-  padding-bottom: calc(var(--body-size)/4);
-  border-bottom: 1px solid var(--gray1);
-}
-
-.page-header--dark {
-  color: var(--gray1);
-}
-
-.preview-container {
-  display: grid;
-  grid-row-gap: calc(var(--body-size)*2);
-}
-
-/*Media Queries*/
-
-@media screen and (min-width: 760px) {
+/*Mobile styles*/
   .mainContainer {
-    padding-left: calc(var(--body-size) * 2);
-    padding-right: calc(var(--body-size) * 2);
-  }
-  .preview-container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: var(--body-size);
-  }
-  /*About Page*/
-  .about {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-  }
-  .about .page-header {
-    grid-column: 1 / 6;
-  }
-  .about__gallery {
-    grid-column: 1 / 7;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: var(--body-size);
+    margin-top: 44px;
+    padding-left: var(--body-size);
+    padding-right: var(--body-size);
+    padding-top: calc(var(--body-size)*2);
   }
 
-  /*Contact Page*/
-  .contact__offices {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: calc(var(--body-size));
-    grid-row-gap: calc(var(--body-size)*2);
+/*Small tablet styles*/
+  @media screen and (min-width: 768px) {
+    .mainContainer {
+      padding-left: calc(var(--body-size) * 2);
+      padding-right: calc(var(--body-size) * 2);
+      padding-top: calc(var(--body-size) * 4)
+    }
   }
-}
-
-@media screen and (min-width: 1024px) {
-  .mainContainer {
-    padding-left: calc(var(--body-size) * 3);
-    padding-right: calc(var(--body-size) * 3);
-  }
-
-  .page-header {
-    padding-top: calc(var(--body-size)*3);
-  }
-
-  .work__header p,
-  .blog__header p {
-    width: 45%;
-  }
-  .preview-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .about__header {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: var(--body-size)
-  }
-  .about__header p {
-    grid-column: 2;
-  }
-  .about-grid .page-header p {
-    width: 100%;
-  }
-}

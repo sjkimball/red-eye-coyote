@@ -6,6 +6,8 @@ import SEO from "../components/seo"
 
 import useProjectBasics from "../hooks/use-project-basics"
 
+import './pages.css'
+
 export default () => {
   const projects = useProjectBasics();
   return(

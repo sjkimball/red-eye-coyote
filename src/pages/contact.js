@@ -6,13 +6,15 @@ import SEO from '../components/seo'
 import Layout from '../components/layout'
 import OfficeContact from '../components/office-contact'
 
+import './pages.css'
+
 const ContactPage = ({data}) => {
 	const offices = data.allSanityOffice.edges;
 	return(
 		<Layout>
 			<SEO title="Contact" />
 			<article className={`contact`}>
-				<header className={`contact__header page-header page-header--light`}>
+				<header className={`page-header page-header--light contact__header`}>
 					<h1>Contact</h1>
 				</header>
 				<section className={`contact__offices`}>

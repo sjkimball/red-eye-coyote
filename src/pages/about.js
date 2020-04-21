@@ -7,6 +7,8 @@ import ProfilePreview from '../components/profile-preview'
 
 import useProfileBasics from "../hooks/use-profile-basics"
 
+import './pages.css'
+
 const AboutPage = ({data}) => {
 	const profileData = useProfileBasics();
 	const profiles = profileData.edges;

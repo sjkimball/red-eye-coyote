@@ -4,7 +4,9 @@ import { graphql } from 'gatsby';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import FrontPage from '../components/front-page'
+import LandingPage from '../components/landing-page'
+
+import './pages.css'
 
 const IndexPage = ({data}) => {
 
@@ -13,7 +15,7 @@ const IndexPage = ({data}) => {
 	return(
 		<Layout>
 			<SEO title="Home" />
-			<FrontPage pageContent={pageContent}/>
+			<LandingPage pageContent={pageContent}/>
 		</Layout>
 	);
 }

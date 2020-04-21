@@ -7,6 +7,8 @@ import PostPreview from "../components/post-preview"
 import useBlogSettings from '../hooks/use-blog-settings'
 import useBlogPostBasics from "../hooks/use-blog-post-basics"
 
+import './pages.css'
+
 export default () => {
   const settings = useBlogSettings();
   const posts = useBlogPostBasics();
