@@ -1,51 +1,72 @@
-.profile {
-	color: var(--gray1);
-	display: grid;
-}
-.profile-header h1 {
-	font-weight: var(--heading-weight1);
-}
-.profile-header span {
-	color: var(--gray3);
-}
-.profile-header img {
-	margin-bottom: 0;
-}
-.profile h6 {
-	border-bottom: 1px solid var(--gray3);
-	color: inherit;
-	font-weight: var(--heading-weight2);
-	padding-bottom: calc(var(--body-size)/4);
-	margin-bottom: calc(var(--body-size)/2);
-}
-.profile-info a {
-	border-bottom: 1px solid var(--accent1);
-	color: var(--gray1);
-	display: inline-block;
-	margin-right: 1rem;
-	padding-bottom: calc(var(--body-size)/4);
-}
-
-/*Media Queries*/
-@media screen and (min-width: 760px) {
+/*Mobile styles*/
 	.profile {
-		grid-template-columns: repeat(6, 1fr);
-	}
-
-	.profile-header {
-		grid-column: 1 / 7;
+		color: var(--gray1);
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-column-gap: var(--body-size);
+	}
+	.profile-header h1 {
+		font-weight: var(--heading-weight1);
+	}
+	.profile-header span {
+		color: var(--gray3);
+	}
+	.profile-header img {
+		margin-bottom: 0;
+	}
+	.profile h6 {
+		border-bottom: 1px solid var(--gray3);
+		color: inherit;
+		font-weight: var(--heading-weight2);
+		padding-bottom: calc(var(--body-size)/4);
+		margin-bottom: calc(var(--body-size)/2);
+	}
+	.profile-info a {
+		border-bottom: 1px solid var(--accent1);
+		color: var(--gray1);
+		display: inline-block;
+		margin-right: 1rem;
+		padding-bottom: calc(var(--body-size)/4);
 	}
 
-	.profile-bio {
-		grid-column: 1 / 6;
+/*Small tablet styles*/
+	@media screen and (min-width: 760px) {
+		.profile {
+			grid-template-columns: repeat(6, 1fr);
+		}
+
+		.profile-header {
+			grid-column: 1 / 7;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: var(--body-size);
+		}
+
+		.profile-bio {
+			grid-column: 1 / 6;
+		}
+		.profile-info {
+			grid-column: 1 / 7;
+		}
 	}
-	.profile-info {
-		grid-column: 1 / 7;
+
+/*Large tablet styles*/
+	@media screen and (min-width: 1020px) {
+		.profile {
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: var(--body-size);
+		}
+		.profile-header {
+			display: contents;
+		}
+		.profile-header .preview-image {
+			grid-row-end: span 2;
+		}
+		.profile-bio {
+			grid-column: 1;
+		}
+		.profile-info {
+			grid-column: 1/-1;
+		}
 	}
-}
 
 @media screen and (min-width: 1240px) {
 	.profile-bio {
@@ -60,5 +81,4 @@
 	.profile header span {
 	  margin-top: calc(var(--body-leading) * 1.5);
 	}
-
 }
