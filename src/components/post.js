@@ -46,9 +46,6 @@ const Post = ({ post }) => {
 				<h2 className={`blog-post__summary`}>{subtitle}</h2>
 				<p className={`blog-post__author`}>{`${author.firstName} ${author.lastName}`}</p>
 			</header>
-			<section className={`blog-post__cover`}>
-				<CoverImage imageAsset={coverImg} />
-			</section>
 			<BlockContent	className={`blog-post__body`}
 				blocks={_rawBody}
 				serializers={serializers}
