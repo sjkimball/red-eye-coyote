@@ -40,12 +40,14 @@ const Project = ({ project }) => {
 				<h1>
 					{title}
 				</h1>
-				<h6 hidden>Disciplines</h6>
-				<ul className={`project-disciplines`}>
-					{disciplines.map((discipline, index) =>
-						<li key={index} value={discipline}>{discipline}</li>
-					)}
-				</ul>
+				<section className="project-disciplines">
+					<h6 hidden>Disciplines</h6>
+					<ul>
+						{disciplines.map((discipline, index) =>
+							<li key={index} value={discipline}>{discipline}</li>
+						)}
+					</ul>
+				</section>
 				<h2>
 					{projectSummary}
 				</h2>

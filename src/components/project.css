@@ -1,92 +1,175 @@
-.project {
-	display: grid;
-	grid-row-gap: var(--body-size);
-}
-
-.project-header > * {
-	margin-bottom: var(--body-size);
-}
-
-.project-header h1 {
-	line-height: 1.2;
-}
-
-.project-cover .cover-image {
-	margin-bottom: 0;
-}
-
-.project-gallery {
-	margin-bottom: 1rem;
-}
-
-.project-gallery .preview-image {
-	object-fit: cover;
-}
-
-.project-details h6 {
-	margin-bottom: calc(var(--body-size)/4);
-}
-
-.project-details ul{
-	list-style-type: none;
-	margin-bottom: var(--body-size);
-	margin-left: 0;
-}
-
-.project-details li {
-	margin-bottom: 0;
-}
-
-.project-disciplines, .project-sectors {
-	color: var(--gray5);
-	list-style-type: none;
-	margin-left: 0;
-	padding: 0;
-}
-
-.project-disciplines li {
-	display: inline;
-	margin-right: 8px;
-}
-
-.project-footer, .post-footer {
-	margin-bottom: var(--body-size);
-}
-
-.project-footer a {
-	text-decoration: none;
-	color: var(--accent1);
-}
-
-@media screen and (min-width: 760px) {
+/*Mobile Styles*/
 	.project {
 		display: grid;
-		grid-template-columns: repeat(6, 1fr);
+		grid-row-gap: var(--body-size);
 	}
-	.project-header {
-		grid-column: 1 / 6;
+
+	.project-header > * {
+		margin-bottom: var(--body-size);
 	}
-	.project-cover {
-		grid-row: 2;
-		grid-column: 1/-1;
+
+	.project-header h1 {
+		line-height: 1.1;
 	}
-	.project-body {
-		display: contents;
+
+	.project-header > *:last-child {
+		margin-bottom: 0;
 	}
+
+	.project-disciplines ul {
+		margin-bottom: 0;
+	}
+
+	.project-cover .cover-image {
+		margin-bottom: 0;
+	}
+
 	.project-description {
-		grid-column: 1 / 6;
+		padding-bottom: var(--body-size);
 	}
-	.project-gallery, .project-details {
-		grid-column: 1 / -1;
+
+	.project-description figure {
+		margin-top: var(--body-size);
+		margin-bottom: 0;
+		padding-bottom: var(--body-size);
 	}
+
+	.project-description p:last-child {
+		margin-bottom: 0;
+	}
+
 	.project-gallery {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-gap: var(--body-size);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
-	.project-details {
-		display: grid;
-		grid-template-columns: repeat(2, fr);
-		grid-auto-flow: column;
+
+	.project-gallery .preview-image {
+		object-fit: cover;
 	}
-}
+
+	.project-gallery .preview-image:last-of-type {
+		margin-bottom: 0 !important;
+	}
+
+	.project-details h6 {
+		margin-bottom: calc(var(--body-size)/4);
+	}
+
+	.project-details ul{
+		list-style-type: none;
+		margin-bottom: var(--body-size);
+		margin-left: 0;
+	}
+
+	.project-details li {
+		margin-bottom: 0;
+	}
+
+	.project-metadata {
+		padding-bottom: var(--body-size);
+	}
+
+	.project-metadata ul:last-of-type, .project-company-info ul:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.project-sectors {
+		color: var(--gray5);
+		list-style-type: none;
+		margin-left: 0;
+		padding: 0;
+	}
+
+	.project-disciplines ul {
+		margin-left: 0;
+	}
+
+	.project-disciplines li {
+		display: inline;
+		margin-right: 8px;
+	}
+
+	.project-footer a {
+		text-decoration: none;
+		color: var(--accent1);
+	}
+
+/*Small Tablet Styles*/
+	@media screen and (min-width: 760px) {
+		.project {
+			grid-template-columns: repeat(6, 1fr);
+		}
+		.project-header {
+			grid-column: 1 / 6;
+		}
+		.project-cover {
+			grid-row: 2;
+			grid-column: 1/-1;
+		}
+		.project-body {
+			display: contents;
+		}
+		.project-description {
+			grid-column: 1 / 6;
+		}
+		.project-gallery, .project-details {
+			grid-column: 1 / -1;
+		}
+		.project-gallery {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: var(--body-size);
+		}
+		.project-gallery .preview-image {
+			margin-bottom: 0 !important;
+		}
+		.project-details {
+			display: grid;
+			grid-template-columns: repeat(2, fr);
+			grid-auto-flow: column;
+		}
+	}
+
+/*Large Tablet Styles*/
+	@media screen and (min-width: 1020px) {
+		.project {
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: var(--body-size);
+		}
+		.project-header, .project-body {
+			grid-column: 1/-1;
+		}
+		.project-header {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: 1fr min-content;
+			grid-auto-flow: column;
+		}
+		.project-header h2 {
+			grid-row-end: span 2;
+			padding-top: calc(var(--body-size)/4);
+		}
+
+		.project-description {
+			grid-column: 1;
+			grid-row-end: span 2;
+			padding-right: var(--body-size);
+		}
+		.project-description figure {
+			padding-left: var(--body-size);
+			padding-right: var(--body-size);
+		}
+		.project-gallery {
+			grid-column: 2;
+			grid-row-end: span 4;
+			display: block;
+		}
+		.project-details {
+			grid-column: 1;
+			display: block;
+		}
+		.project-footer {
+			grid-column: 1/-1;
+		}
+	}
