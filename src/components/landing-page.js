@@ -5,19 +5,19 @@ import { Link } from 'gatsby';
 import CoverImage from '../components/cover-image';
 import PreviewImage from '../components/preview-image';
 
-import './front-page.css'
+import './landing-page.css'
 
-const FrontPage = ({ pageContent }) => {
+const LandingPage = ({ pageContent }) => {
 	const { heroImage, workSamples } = pageContent;
 
 	return (
-		<React.Fragment>
-			<article className="featured">
+		<article className={`landing`}>
+			<section className="featured">
 				<header id={`landingHeader`} className={`landing-header`}>
 					<CoverImage id={`hero`} imageAsset={heroImage} showCaption={true}/>
 				</header>
-			</article>
-			<article>
+			</section>
+			<section>
 				<section className="work-samples preview-container">
 					{workSamples.map((sample) => {
 						const key = sample._id;
@@ -36,9 +36,9 @@ const FrontPage = ({ pageContent }) => {
 						);
 					})}
 				</section>
-			</article>
-		</React.Fragment>
+			</section>
+		</article>
 	)
 }
 
-export default FrontPage;
+export default LandingPage;
