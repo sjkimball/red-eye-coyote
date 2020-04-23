@@ -49,7 +49,7 @@ const PreviewImage = ({ imageAsset, showCaption, profilePic }) => {
         (max-width: 320px) 288px,
         (max-width: 480px) 448px,
         (max-width: 767px) 700px,
-        475px
+        800px
       `}
 			src={urlFor(imageAsset.image)
 				.auto('format')
