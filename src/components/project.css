@@ -22,6 +22,7 @@
 
 	.project-cover .cover-image {
 		margin-bottom: 0;
+		display: flex;
 	}
 
 	.project-description {
@@ -39,9 +40,8 @@
 	}
 
 	.project-gallery {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		display: grid;
+		grid-row-gap: calc(var(--body-size)/4);
 	}
 
 	.project-gallery .preview-image {
@@ -96,7 +96,7 @@
 	}
 
 /*Small Tablet Styles*/
-	@media screen and (min-width: 760px) {
+	@media screen and (min-width: 768px) {
 		.project {
 			grid-template-columns: repeat(6, 1fr);
 		}
@@ -117,7 +117,6 @@
 			grid-column: 1 / -1;
 		}
 		.project-gallery {
-			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			grid-gap: var(--body-size);
 		}
@@ -132,7 +131,7 @@
 	}
 
 /*Large Tablet Styles*/
-	@media screen and (min-width: 1020px) {
+	@media screen and (min-width: 1024px) {
 		.project {
 			grid-template-columns: repeat(2, 1fr);
 			grid-column-gap: var(--body-size);
@@ -163,7 +162,7 @@
 		.project-gallery {
 			grid-column: 2;
 			grid-row-end: span 4;
-			display: block;
+			grid-template-columns: 1fr;
 		}
 		.project-details {
 			grid-column: 1;
