@@ -35,27 +35,8 @@
 		.rec-office {
 			margin-bottom: 0;
 		}
-		.rec-office:nth-of-type(odd) {
-			/*margin-right: calc(var(--body-size)/2);*/
-		}
-		.rec-office:nth-of-type(even) {
-			/*margin-left: calc(var(--body-size)/2);*/
-		}
 		.rec-office__images {
 			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 			grid-column-gap: var(--body-size);
 		}
 	}
-
-@media screen and (min-width: 1399px) {
-	.rec-office {
-		grid-column: 1 / 5;
-	}
-	.rec-office h2 {
-		font-size: calc(var(--heading-size1) * 1.5);
-	}
-	.header-image {
-		margin-top: 2rem;
-		margin-bottom: 2rem;
-	}
-}
