@@ -1,5 +1,6 @@
 .mainFooter {
 	padding: var(--body-leading);
+	max-width: 1250px;
 }
 
 .mainFooter--dark {
@@ -35,6 +36,11 @@
 
 }
 
-@media screen and (min-width: 1240px) {
-
+@media screen and (min-width: 1236px) {
+	.mainFooter {
+		margin-left: auto;
+		margin-right: auto;
+		padding-right: 0;
+		padding-left: 0;
+	}
 }

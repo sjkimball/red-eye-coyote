@@ -645,15 +645,10 @@ pre tt:after {
   content: "";
 }
 
-@media only screen and (max-width: 480px) {
-  html {
-    font-size: 100%;
-  }
-}
-
 /*Mobile styles*/
   .mainContainer {
-    margin-top: 44px;
+    /*margin-top: 44px;*/
+    max-width: 1200px;
     padding-left: var(--body-size);
     padding-right: var(--body-size);
     padding-top: calc(var(--body-size)*2);
@@ -665,5 +660,13 @@ pre tt:after {
       padding-left: calc(var(--body-size) * 2);
       padding-right: calc(var(--body-size) * 2);
       padding-top: calc(var(--body-size) * 4)
+    }
+  }
+
+/*Desktop styles*/
+  @media screen and (min-width: 1236px) {
+    .mainContainer {
+      margin-right: auto;
+      margin-left: auto;
     }
   }
