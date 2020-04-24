@@ -16,7 +16,7 @@ module.exports = {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_DATASET,
         watchMode: true,
-        overlayDrafts: true,
+        // overlayDrafts: true,
         token: process.env.SANITY_TOKEN
       }
     },
@@ -24,16 +24,16 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `sjkimball-portfolio`,
-        short_name: `portfolio`,
+        short_name: `Sam Kimball`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        display: `standalone`,
+        icon: `src/images/red_eye_coyote_icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+    }
   ],
 }
