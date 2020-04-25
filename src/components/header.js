@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-import MainNav from './main-nav'
 import MenuIcon from './icons/menu-icon'
 
 import './header.css'
@@ -20,37 +19,55 @@ class Header extends React.Component {
 		this.setState({
 			menuVisible: !this.state.menuVisible
 		});
+		const nav = document.getElementById('nav-links');
+		nav.classList.toggle('nav-active');
 	}
 
 	render() {
 		const { siteTitle, darkMode, staffInfo } = this.props;
 		let headerClass;
 
-		(darkMode === true) ? (
+		(this.state.menuVisible === true) || (darkMode === true) ? (
 				headerClass = 'mainHeader--dark'
 			) : (
-				headerClass = 'mainHeader--light'
+				headerClass = ''
 			)
 
 		return (
-			<header className={`mainHeader ${headerClass}`}>
-				<Link to="/" className={this.state.menuVisible ? 'header-logo header-logo--light' : 'header-logo header-logo--dark'}>
-					<h3>{siteTitle}</h3>
-				</Link>
+			<header id={`mainHeader`} className={`mainHeader ${headerClass}`}>
+
 				<nav className={`mainNav`}>
-					<Link to="/work" className={`nav-item`} activeClassName="active" partiallyActive={true}>Work</Link>
-					{(staffInfo.totalCount === 1) ?
-						(<Link to={`/about/${staffInfo.edges[0].node.slug.current}`} className={`nav-item`} activeClassName="active" partiallyActive={true}>About</Link>)
-						:
-						(<Link to="/about" className={`nav-item`} activeClassName="active" partiallyActive={true}>About</Link>)
-					}
-					<Link to="/blog" className={`nav-item`} activeClassName="active" partiallyActive={true}>Blog</Link>
-					<Link to="/contact" className={`nav-item`} activeClassName="active" partiallyActive={true}>Contact</Link>
+					{/*Brankmark or Home link*/}
+					<div>
+						<Link to="/" className={`header-logo`}>
+							<h3>{siteTitle}</h3>
+						</Link>
+					</div>
+
+					{/*Primary links*/}
+					<ul id={`nav-links`} className={`nav-links`}>
+						<li>
+							<Link to="/work" className={`nav-link`} activeClassName="active" partiallyActive={true}>Work</Link>
+						</li>
+						{(staffInfo.totalCount === 1) ?
+							(<li><Link to={`/about/${staffInfo.edges[0].node.slug.current}`} className={`nav-link`} activeClassName="active" partiallyActive={true}>About</Link></li>)
+							:
+							(<li><Link to="/about" className={`nav-link`} activeClassName="active" partiallyActive={true}>About</Link></li>)
+						}
+						<li>
+							<Link to="/blog" className={`nav-link`} activeClassName="active" partiallyActive={true}>Blog</Link>
+						</li>
+						<li>
+							<Link to="/contact" className={`nav-link`} activeClassName="active" partiallyActive={true}>Contact</Link>
+						</li>
+					</ul>
+
+					{/*Button for toggling mobile nav*/}
 					<button onClick={this.menuToggle} className={`menuButton`} aria-label="Menu">
 						<MenuIcon headerClass={headerClass} menuVisible={this.state.menuVisible}/>
 					</button>
 				</nav>
-				{this.state.menuVisible ? <MainNav staffInfo={staffInfo} /> : ``}
+
 			</header>
 		);
 	}
