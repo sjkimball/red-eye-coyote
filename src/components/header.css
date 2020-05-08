@@ -7,13 +7,15 @@
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
+		/*transition: background-color 0.5s ease-in;*/
 		z-index: 99;
 	}
 	.mainHeader--dark {
-		background-color: var(--gray5);
+		/*background-color: var(--gray5);*/
+		/*transition: background-color 0.5s ease-in;*/
 	}
 	.mainHeader--dark .header-logo {
-		color: var(--gray1);
+		/*color: var(--gray1);*/
 	}
 	.mainHeader .active {
 		color: var(--gray5);
@@ -25,6 +27,7 @@
 	.mainNav {
 		align-items: center;
 		display: flex;
+		height: 100%;
 		justify-content: space-between;
 	}
 	.nav-links {
@@ -40,11 +43,7 @@
 		position: absolute;
 		right: 0;
 		top: 8vh;
-		transform: translateX(100%);
-		width: 75vw;
-	}
-	.nav-active {
-		transform: translateX(0%);
+		width: 100vw;
 	}
 	.nav-links li {
 		margin-bottom: var(--body-size);
@@ -65,14 +64,14 @@
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
-		display: block;
+		height: inherit;
 		margin: 0;
 		padding-left: calc(var(--body-size)/2);
 		position: relative;
+		width: calc(var(--body-size)*2);
 		z-index: 101;
 	}
 	.menuButton svg {
-		display: inline-block;
 		vertical-align: middle;
 	}
 	.header-logo {
@@ -107,6 +106,9 @@
 			top: 0;
 			transform: none;
 			width: initial;
+		}
+		.nav-link {
+			color: var(--gray3);
 		}
 	}
 
