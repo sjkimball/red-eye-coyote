@@ -77,6 +77,7 @@ export default () =>
 						.items([
 								S.listItem()
 									.title('Staff Members')
+									.icon(FaUserFriends)
 									.schemaType('person')
 									.child(S.documentTypeList('person').title('Staff Members')),
 								S.listItem()
