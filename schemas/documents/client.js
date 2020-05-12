@@ -18,6 +18,12 @@ export default {
 			}
 		},
 		{
+			name: 'about',
+			title: 'About',
+			type: 'text',
+			rows: 5
+		},
+		{
 			name: 'contactInfo',
 			title: 'Contact Info',
 			type: 'contact'

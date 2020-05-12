@@ -5,24 +5,27 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object and document schemas
-import address from './address'
-import blogSettings from './blogSettings'
-import blockContent from './blockContent'
-import client from './client'
-import companyInfo from './companyInfo'
-import contact from './contact'
-import contributor from './contributor'
-import customImage from './customImage'
-import jobTitle from './job_title'
-import office from './office'
-import page from './page'
-import person from './person'
-import personDoc from './personDoc'
-import post from './post'
-import project from './project'
-import siteSettings from './siteSettings'
-import socialAccount from './socialAccount'
-import socialMediaService from './socialMediaService'
+   //Objects
+import address from './objects/address'
+import blockContent from './objects/blockContent'
+import contact from './objects/contact'
+import contributor from './objects/contributor'
+import customImage from './objects/customImage'
+import hero from './objects/hero'
+import personDoc from './objects/personDoc'
+import socialAccount from './objects/socialAccount'
+   //Documents
+import blogSettings from './documents/blogSettings'
+import client from './documents/client'
+import companyInfo from './documents/companyInfo'
+import jobTitle from './documents/jobTitle'
+import office from './documents/office'
+import page from './documents/page'
+import person from './documents/person'
+import post from './documents/post'
+import project from './documents/project'
+import siteSettings from './documents/siteSettings'
+import socialMediaService from './documents/socialMediaService'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -41,6 +44,7 @@ export default createSchema({
     contact,
     contributor,
     customImage,
+    hero,
     jobTitle,
     office,
     page,
