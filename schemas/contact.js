@@ -16,6 +16,7 @@ export default {
 		{
 			name: 'phone',
 			title: 'Phone Number',
+			description: 'e.g. 123 456 7890',
 			type: 'string'
 		},
 		{

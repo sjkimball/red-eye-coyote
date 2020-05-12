@@ -7,11 +7,19 @@
     "projectId": "6y7rlog8",
     "dataset": "production"
   },
+  "env": {
+    "development": {
+      "api": {
+        "dataset": "staging"
+      }
+    }
+  },
   "plugins": [
     "@sanity/base",
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
+    "@sanity/dashboard",
     "@sanity/desk-tool",
     "@sanity/vision",
     "asset-source-unsplash"
@@ -20,6 +28,10 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema.js"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskStructure.js"
     }
   ]
 }

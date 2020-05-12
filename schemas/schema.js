@@ -6,8 +6,10 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object and document schemas
 import address from './address'
+import blogSettings from './blogSettings'
 import blockContent from './blockContent'
 import client from './client'
+import companyInfo from './companyInfo'
 import contact from './contact'
 import contributor from './contributor'
 import customImage from './customImage'
@@ -32,8 +34,10 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     address,
+    blogSettings,
     blockContent,
     client,
+    companyInfo,
     contact,
     contributor,
     customImage,

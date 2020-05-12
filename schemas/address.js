@@ -1,43 +1,39 @@
 export default {
-	name: 'address',
-	title: 'Address',
-	type: 'object',
+	name: "address",
+	title: "Address",
+	type: "object",
 	fields: [
 		{
-			name: 'streetNumber',
-			title: 'Street Number',
-			type: 'number'
+			name: "street",
+			title: "Street Address",
+			description: "e.g. '1 Shady Lane'",
+			type: "string"
 		},
 		{
-			name: 'street',
-			title: 'Street',
-			type: 'string'
+			name: "streetSecondary",
+			title: "Secondary Street Address",
+			description: "e.g. 'Apartment, Unit, Suite number, etc.'",
+			type: "string"
 		},
 		{
-			name: 'streetSecondary',
-			title: 'Secondary Street',
-			type: 'string',
-			description: 'Apartment, Unit, Suite number, etc.'
+			name: "city",
+			title: "City",
+			type: "string",
 		},
 		{
-			name: 'city',
-			title: 'City',
-			type: 'string',
+			name: "stateProvince",
+			title: "State/Province",
+			type: "string",
 		},
 		{
-			name: 'stateProvince',
-			title: 'State/Province',
-			type: 'string',
+			name: "postalCode",
+			title: "Postal Code",
+			type: "string"
 		},
 		{
-			name: 'postalCode',
-			title: 'Postal Code',
-			type: 'string'
-		},
-		{
-			name: 'country',
-			title: 'Country',
-			type: 'string',
+			name: "country",
+			title: "Country",
+			type: "string",
 		}
 	]
 }
