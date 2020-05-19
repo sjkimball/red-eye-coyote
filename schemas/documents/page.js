@@ -4,27 +4,43 @@ export default {
 	description: 'Pages to be primary used as content for landing page.',
 	type: 'document',
 	fieldsets: [
-		{name: 'pageContent', title: 'Page Content'}
+		{
+			name: 'pageInfo',
+			title: 'Page Information',
+			options: {
+				collapsible: true,
+				collapsed: false,
+			}
+		},
+		{
+			name: 'pageContent',
+			title: 'Page Content',
+			options: {
+				collapsible: true,
+				collapsed: false
+			}
+		}
 	],
 	fields: [
 		{
 			name: 'title',
-			title: 'Page Title',
-			type: 'string'
+			title: 'Title',
+			type: 'string',
+			fieldset: 'pageInfo'
 		},
 		{
 			name: 'description',
-			title: 'Page Description',
+			title: 'Description',
 			description: 'This should describe why the page was created.',
 			type: 'text',
-			rows: 3
+			rows: 3,
+			fieldset: 'pageInfo'
 		},
 		{
-			name: "heading",
+			name: 'heading',
 			title: 'Heading',
 			type: 'string',
 			fieldset: 'pageContent'
-			// validation: Rule => Rule.required()
 		},
 		{
 			name: 'subheading',
@@ -34,50 +50,40 @@ export default {
 			fieldset: 'pageContent'
 		},
 		{
-			name: 'heroImage',
-			title: 'Hero Image',
-			type: 'customImage',
+			name: 'hero',
+			title: 'Hero',
+			type: 'hero',
 			fieldset: 'pageContent'
-			// validation: Rule => Rule.required()
 		},
 		{
-			name: 'workSamples',
-			title: 'Work Samples',
+			name: 'featuredContent',
+			title: 'Featured Content',
 			type: 'array',
 			of: [
-				{
-					type: 'reference',
-					to: [
-						{
-							type: 'project'
-						}
-					],
-					options: {
-						filter: 'featured == $featured',
-						filterParams: {
-							featured: true
-						}
-					}
-				}
+				{type: 'featuredWork'},
+				{type: 'featuredPosts'}
 			],
-			fieldset: 'pageContent'
+			fieldset: 'pageContent',
+			options: {
+				editModal: 'fullscreen',
+			}
 		},
 		{
 			name: 'slug',
 			title: 'Slug',
 			type: 'slug',
+			fieldset: 'pageInfo',
 			options: {
 				source: 'title',
 				maxLength: 96
 			},
-			fieldset: 'pageContent'
 		}
 	],
 	preview: {
 		select: {
-			title: 'title',
+			title: 'heading',
 			subtitle: 'description',
-			media: 'heroImage.image'
+			media: 'hero.heroImage.image'
 		}
 	}
 }
