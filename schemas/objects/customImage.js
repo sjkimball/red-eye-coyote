@@ -5,22 +5,29 @@ export default {
 	fields: [
 		{
 			name: 'image',
-			title: 'Image',
 			type: 'image',
 			options: {
-				hotspot: true
+				hotspot: true,
+				collapsible: true,
+				collapsed: false
 			}
 		},
 		{
 			name: 'altText',
 			title: 'Alternative Text',
 			type: 'string',
+			options: {
+				isHighlighted: true
+			},
 			validation: Rule => Rule.required().min(10).max(80)
 		},
 		{
 			name: 'caption',
 			title: 'Caption',
-			type: 'string'
+			type: 'string',
+			options: {
+				isHighlighted: true,
+			}
 		}
 	]
 }
