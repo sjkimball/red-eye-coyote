@@ -1,5 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { FaBlog, FaCog, FaPencilRuler, FaRegFileAlt, FaRegBuilding, FaRegIdCard, FaUserFriends } from "react-icons/fa";
+import { FaBullhorn, FaCog, FaHome, FaPencilRuler, FaRegFileAlt, FaRegBuilding, FaRegIdCard, FaUserFriends } from "react-icons/fa";
 
 export default () =>
 	S.list()
@@ -22,7 +22,7 @@ export default () =>
 					),
 			S.listItem()
 				.title('Blog')
-				.icon(FaBlog)
+				.icon(FaBullhorn)
 				.child(
 					S.list()
 						.title('Blog')
