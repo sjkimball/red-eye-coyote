@@ -56,19 +56,6 @@ export default {
 			fieldset: 'pageContent'
 		},
 		{
-			name: 'featuredContent',
-			title: 'Featured Content',
-			type: 'array',
-			of: [
-				{type: 'featuredWork'},
-				{type: 'featuredPosts'}
-			],
-			fieldset: 'pageContent',
-			options: {
-				editModal: 'fullscreen',
-			}
-		},
-		{
 			name: 'slug',
 			title: 'Slug',
 			type: 'slug',
