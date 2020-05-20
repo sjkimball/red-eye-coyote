@@ -16,7 +16,6 @@ module.exports = {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_DATASET,
         watchMode: true,
-        // overlayDrafts: true,
         token: process.env.SANITY_TOKEN
       }
     },
