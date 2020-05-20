@@ -1,7 +1,7 @@
 export default {
-  name: 'siteSettings',
+  name: 'blogSettings',
   type: 'document',
-  title: 'Site Settings',
+  title: 'Blog Settings',
   __experimental_actions: [/* 'create', */ 'update', /* 'delete', */ 'publish'],
   fields: [
     {
@@ -10,29 +10,25 @@ export default {
       title: 'Title'
     },
     {
+      name: 'subtitle',
+      type: 'string',
+      title: 'Subtitle'
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description',
-      description: 'Describe your site for search engines and social media'
+      description: 'Describe the blog for search engines and social media'
     },
     {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',
-      description: 'Add keywords that describe your site',
+      description: 'Add keywords that describe your blog',
       of: [{type: 'string'}],
       options: {
         layout: 'tags'
       }
-    },
-    {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {
-        type: 'person'
-      },
-      weak: true
     }
   ]
 }

@@ -1,8 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder'
-import MdSettings from 'react-icons/lib/md/settings'
-
-const hiddenDocTypes = listItem =>
-  !['category', 'person', 'sampleProject', 'siteSettings'].includes(listItem.getId())
+import {FaBullhorn, FaCog, FaPencilRuler, FaRegFileAlt, FaRegBuilding, FaRegIdCard, FaUserFriends} from 'react-icons/fa'
 
 export default () =>
   S.list()
@@ -10,27 +7,105 @@ export default () =>
     .items([
       S.listItem()
         .title('Settings')
+        .icon(FaCog)
         .child(
           S.editor()
-            .id('siteSettings')
             .schemaType('siteSettings')
             .documentId('siteSettings')
-        )
-        .icon(MdSettings),
+        ),
+      S.divider(),
       S.listItem()
-        .title('Sample projects')
-        .schemaType('sampleProject')
-        .child(S.documentTypeList('sampleProject').title('Sample projects')),
+        .title('Pages')
+        .icon(FaRegFileAlt)
+        .child(
+          S.documentTypeList('page').title('Pages')
+        ),
       S.listItem()
-        .title('People')
-        .schemaType('person')
-        .child(S.documentTypeList('person').title('People')),
+        .title('Blog')
+        .icon(FaBullhorn)
+        .child(
+          S.list()
+            .title('Blog')
+            .items([
+              S.listItem()
+                .title('Blog Settings')
+                .icon(FaCog)
+                .child(
+                  S.editor()
+                    .schemaType('blogSettings')
+                    .documentId('blogSettings')
+                ),
+              S.listItem()
+                .title('Posts')
+                .schemaType('post')
+                .child(S.documentTypeList('post').title('Posts'))
+            ])
+        ),
+      S.divider(),
       S.listItem()
-        .title('Categories')
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
-      // This returns an array of all the document types
-      // defined in schema.js. We filter out those that we have
-      // defined the structure above
-      ...S.documentTypeListItems().filter(hiddenDocTypes)
-    ])
+        .title('Portfolio')
+        .icon(FaPencilRuler)
+        .child(
+          S.list()
+            .title('Portfolio')
+            .items([
+              S.listItem()
+                .title('Projects')
+                .schemaType('project')
+                .child(S.documentTypeList('project').title('Projects')),
+              S.listItem()
+                .title('Clients')
+                .schemaType('client')
+                .child(S.documentTypeList('client').title('Clients'))
+            ])
+        ),
+      S.divider(),
+      S.listItem()
+        .title('Company Information')
+        .icon(FaRegIdCard)
+        .child(
+          S.editor()
+            .schemaType('companyInfo')
+            .documentId('companyInfo')
+        ),
+      S.listItem()
+        .title('Staff')
+        .icon(FaUserFriends)
+        .child(
+          S.list()
+            .title('Staff')
+            .items([
+              S.listItem()
+                .title('Staff Members')
+              // .icon(FaUserFriends)
+                .schemaType('person')
+                .child(S.documentTypeList('person').title('Staff Members')),
+              S.listItem()
+                .title('Roles')
+                .schemaType('jobTitle')
+                .child(S.documentTypeList('jobTitle').title('Roles'))
+            ])
+        ),
+      S.listItem()
+        .title('Offices')
+        .icon(FaRegBuilding)
+        .schemaType('office')
+        .child(
+          S.documentTypeList('office').title('Offices')
+        ),
+      ...S.documentTypeListItems().filter(listItem =>
+        ![
+          'blogSettings',
+          'client',
+          'companyInfo',
+          'jobTitle',
+          'office',
+          'page',
+          'person',
+          'post',
+          'project',
+          'siteSettings',
+          'socialMediaService'
+        ].includes(listItem.getId()))
+    ]
+    )

@@ -1,41 +1,88 @@
-import MdPerson from 'react-icons/lib/md/person'
-
 export default {
   name: 'person',
+  title: 'People',
   type: 'document',
-  title: 'Person',
-  icon: MdPerson,
   fields: [
     {
-      name: 'name',
+      name: 'firstName',
+      title: 'First Name',
       type: 'string',
-      title: 'Name'
+      validation: Rule => Rule.required()
     },
     {
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
-      description: 'Some frontend will require a slug to be set to be able to show the person',
-      options: {
-        source: 'name',
-        maxLength: 96
+      name: 'lastName',
+      title: 'Last Name',
+      type: 'string',
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'profileImg',
+      title: 'Profile Image',
+      type: 'customImage'
+    },
+    {
+      name: 'jobTitle',
+      title: 'Job Title',
+      type: 'reference',
+      to: {
+        type: 'jobTitle'
       }
     },
     {
-      name: 'image',
-      title: 'Image',
-      type: 'figure'
+      name: 'office',
+      title: 'Office',
+      type: 'reference',
+      to: [
+        {
+          type: 'office'
+        }
+      ]
     },
     {
       name: 'bio',
       title: 'Bio',
-      type: 'bioPortableText'
+      type: 'blockContent',
+      validation: Rule => Rule.required().error('Bio is a required field')
+    },
+    {
+      name: 'contactInfo',
+      title: 'Contact Info',
+      type: 'contact'
+    },
+    {
+      name: 'socialAccounts',
+      title: 'Social Accounts',
+      type: 'array',
+      of: [
+        {type: 'socialAccount'}
+      ]
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      description: `Click the 'Generate' button to create a slug based on the person's first and last names.`,
+      type: 'slug',
+      options: {
+        source: doc => `${doc.firstName}-${doc.lastName}`,
+        maxLength: 96
+      },
+      validation: Rule => Rule.required().error('Looks like you may have forgotten to generate a slug.:(')
     }
   ],
   preview: {
     select: {
-      title: 'name',
-      media: 'image'
+      firstName: 'firstName',
+      lastName: 'lastName',
+      jobTitle: 'jobTitle.name',
+      media: 'profileImg.image'
+    },
+    prepare (selection) {
+      const {firstName, lastName, jobTitle, media} = selection
+      return {
+        title: `${firstName} ${lastName}`,
+        subtitle: jobTitle,
+        media: media
+      }
     }
   }
 }
