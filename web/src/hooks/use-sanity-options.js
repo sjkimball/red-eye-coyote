@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
 const useSanityOptions = () => {
-	const { sitePlugin } = useStaticQuery(graphql`
+	const {sitePlugin} = useStaticQuery(graphql`
 			query SanityOptions{
 				sitePlugin(name: {eq: "gatsby-source-sanity"}) {
 			    pluginOptions {
@@ -13,7 +13,7 @@ const useSanityOptions = () => {
 			}
 		`
 	);
-	return sitePlugin.pluginOptions;
-};
+	return sitePlugin.pluginOptions
+}
 
-export default useSanityOptions;
+export default useSanityOptions
