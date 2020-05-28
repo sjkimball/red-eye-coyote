@@ -12,7 +12,10 @@ import contact from './objects/contact'
 import contributor from './objects/contributor'
 import customImage from './objects/customImage'
 import hero from './objects/hero'
+import peoplePreviewGrid from './objects/peoplePreviewGrid'
 import personDoc from './objects/personDoc'
+import postPreviewGrid from './objects/postPreviewGrid'
+import projectPreviewGrid from './objects/projectPreviewGrid'
 import socialAccount from './objects/socialAccount'
 // Documents
 import blogSettings from './documents/blogSettings'
@@ -48,10 +51,13 @@ export default createSchema({
     jobTitle,
     office,
     page,
+    peoplePreviewGrid,
     person,
     personDoc,
     post,
+    postPreviewGrid,
     project,
+    projectPreviewGrid,
     siteSettings,
     socialAccount,
     socialMediaService

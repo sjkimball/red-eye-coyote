@@ -1,5 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder'
-import {FaBullhorn, FaCog, FaPencilRuler, FaRegFileAlt, FaRegBuilding, FaRegIdCard, FaUserFriends} from 'react-icons/fa'
+import {FaBullhorn, FaCog, FaHome, FaPencilRuler, FaRegFileAlt, FaRegBuilding, FaRegIdCard, FaUserFriends} from 'react-icons/fa'
 
 export default () =>
   S.list()
@@ -12,6 +12,15 @@ export default () =>
           S.editor()
             .schemaType('siteSettings')
             .documentId('siteSettings')
+        ),
+      S.documentListItem()
+        .title('Frontpage')
+        .schemaType('page')
+        .icon(FaHome)
+        .child(
+          S.document()
+            .schemaType('page')
+            .documentId('frontpage')
         ),
       S.divider(),
       S.listItem()
