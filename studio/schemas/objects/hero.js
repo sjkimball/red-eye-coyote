@@ -4,7 +4,7 @@ export default {
   type: 'object',
   options: {
     collapsible: true,
-    collapsed: false
+    collapsed: true
   },
   fields: [
     {
@@ -15,7 +15,11 @@ export default {
     },
     {
       name: 'heroImage',
-      type: 'customImage'
+      type: 'customImage',
+      options: {
+        collapsible: true,
+        collapsed: false
+      }
     },
     {
       name: 'label',
@@ -35,13 +39,16 @@ export default {
   ],
   preview: {
     select: {
-      title: 'heading',
-      subtitle: 'label',
-      disabled: 'disabled'
+      headline: 'headline',
+      tagline: 'tagline',
+      media: 'heroImage.image'
     },
-    prepare ({title, disabled}) {
+    prepare (selection) {
+      const {headline, tagline, media} = selection
       return {
-        title: `Hero: ${disabled ? 'DISABLED' : title}`
+        title: `Hero - ${headline}`,
+        subtitle: tagline,
+        media: media
       }
     }
   }
