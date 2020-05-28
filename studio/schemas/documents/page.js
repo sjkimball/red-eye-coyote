@@ -13,8 +13,8 @@ export default {
       }
     },
     {
-      name: 'pageContent',
-      title: 'Page Content',
+      name: 'featuredContent',
+      title: 'Featured Content',
       options: {
         collapsible: true,
         collapsed: false
@@ -39,38 +39,41 @@ export default {
     {
       name: 'heading',
       title: 'Heading',
-      type: 'string',
-      fieldset: 'pageContent'
+      type: 'string'
     },
     {
       name: 'subheading',
       title: 'Subheading',
       type: 'text',
-      rows: 3,
-      fieldset: 'pageContent'
+      rows: 3
     },
     {
       name: 'hero',
-      title: 'Hero',
-      type: 'hero',
-      fieldset: 'pageContent'
+      type: 'hero'
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      fieldset: 'pageInfo',
-      options: {
-        source: 'title',
-        maxLength: 96
-      }
+      name: 'projects',
+      title: 'Featured Projects',
+      type: 'projectPreviewGrid',
+      fieldset: 'featuredContent'
+    },
+    {
+      name: 'people',
+      title: 'Featured People',
+      type: 'peoplePreviewGrid',
+      fieldset: 'featuredContent'
+    },
+    {
+      name: 'posts',
+      title: 'Featured Posts',
+      type: 'postPreviewGrid',
+      fieldset: 'featuredContent'
     }
   ],
   preview: {
     select: {
-      title: 'heading',
-      subtitle: 'description',
-      media: 'hero.heroImage.image'
+      title: 'title',
+      subtitle: 'description'
     }
   }
 }
