@@ -2,6 +2,7 @@
 	.profile {
 		color: var(--gray1);
 		display: grid;
+		padding: var(--size-body) 0;
 	}
 	.profile-header h1 {
 		font-weight: var(--heading-weight1);

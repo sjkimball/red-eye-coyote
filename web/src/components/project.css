@@ -1,15 +1,17 @@
 /*Mobile Styles*/
 	.project {
 		display: grid;
-		grid-row-gap: var(--body-size);
+		grid-row-gap: var(--size-body);
+		padding: var(--size-body) 0;
 	}
 
-	.project-header > * {
-		margin-bottom: var(--body-size);
+	.project-header {
+		display: grid;
+		row-gap: calc(var(--size-body)/4);
 	}
 
-	.project-header h1 {
-		line-height: 1.1;
+	.project-header h2 {
+		margin-bottom: 0;
 	}
 
 	.project-header > *:last-child {
@@ -26,13 +28,13 @@
 	}
 
 	.project-description {
-		padding-bottom: var(--body-size);
+		padding-bottom: var(--size-body);
 	}
 
 	.project-description figure {
-		margin-top: var(--body-size);
+		margin-top: var(--size-body);
 		margin-bottom: 0;
-		padding-bottom: var(--body-size);
+		padding-bottom: var(--size-body);
 	}
 
 	.project-description p:last-child {
@@ -41,7 +43,7 @@
 
 	.project-gallery {
 		display: grid;
-		grid-row-gap: calc(var(--body-size)/4);
+		grid-row-gap: calc(var(--size-body)/4);
 	}
 
 	.project-gallery .preview-image {
@@ -53,12 +55,12 @@
 	}
 
 	.project-details h6 {
-		margin-bottom: calc(var(--body-size)/4);
+		margin-bottom: calc(var(--size-body)/4);
 	}
 
 	.project-details ul{
 		list-style-type: none;
-		margin-bottom: var(--body-size);
+		margin-bottom: var(--size-body);
 		margin-left: 0;
 	}
 
@@ -67,7 +69,7 @@
 	}
 
 	.project-metadata {
-		padding-bottom: var(--body-size);
+		padding-bottom: var(--size-body);
 	}
 
 	.project-metadata ul:last-of-type, .project-company-info ul:last-of-type {
@@ -118,7 +120,7 @@
 		}
 		.project-gallery {
 			grid-template-columns: repeat(2, 1fr);
-			grid-gap: var(--body-size);
+			grid-gap: var(--size-body);
 		}
 		.project-gallery .preview-image {
 			margin-bottom: 0 !important;
@@ -134,7 +136,7 @@
 	@media screen and (min-width: 1024px) {
 		.project {
 			grid-template-columns: repeat(2, 1fr);
-			grid-column-gap: var(--body-size);
+			grid-column-gap: var(--size-body);
 		}
 		.project-header, .project-body {
 			grid-column: 1/-1;
@@ -147,17 +149,17 @@
 		}
 		.project-header h2 {
 			grid-row-end: span 2;
-			padding-top: calc(var(--body-size)/4);
+			padding-top: calc(var(--size-body)/4);
 		}
 
 		.project-description {
 			grid-column: 1;
 			grid-row-end: span 2;
-			padding-right: var(--body-size);
+			padding-right: var(--size-body);
 		}
 		.project-description figure {
-			padding-left: var(--body-size);
-			padding-right: var(--body-size);
+			padding-left: var(--size-body);
+			padding-right: var(--size-body);
 		}
 		.project-gallery {
 			grid-column: 2;
