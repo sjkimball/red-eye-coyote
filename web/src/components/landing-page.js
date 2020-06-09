@@ -1,24 +1,26 @@
 import React from 'react'
 
-import {Link} from 'gatsby'
+// import {Link} from 'gatsby'
 
 import CoverImage from '../components/cover-image'
-import PreviewImage from '../components/preview-image'
+// import PreviewImage from '../components/preview-image'
 
 import './landing-page.css'
 
 const LandingPage = ({pageContent}) => {
-  const {heroImage, workSamples} = pageContent
+  const {heading, subheading} = pageContent
 
   return (
     <article className={`landing`}>
       <section className='featured'>
         <header id={`landingHeader`} className={`landing-header`}>
-          <CoverImage id={`hero`} imageAsset={heroImage} showCaption />
+          {/* <CoverImage id={`hero`} imageAsset={heroImage} showCaption /> */}
+          <h2>{heading}</h2>
+          <h4>{subheading}</h4>
         </header>
       </section>
       <section>
-        <section className='work-samples preview-container'>
+        {/* <section className='work-samples preview-container'>
           {workSamples.map((sample) => {
             const key = sample._id
             const title = sample.title
@@ -35,7 +37,7 @@ const LandingPage = ({pageContent}) => {
               </Link>
             )
           })}
-        </section>
+        </section> */}
       </section>
     </article>
   )

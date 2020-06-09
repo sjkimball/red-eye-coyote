@@ -27,10 +27,10 @@ const Profile = ({ profile }) => {
 	return (
 		<article id={`rec-profile`} className={`profile`}>
 			<header className={`profile-header`}>
-				<h1>{`${firstName} ${lastName}`}
+				<h2>{`${firstName} ${lastName}`}
 					<br/>
 					<span>{office.contactInfo.address.city}</span>
-				</h1>
+				</h2>
 				<PreviewImage imageAsset={profileImg} profilePic={true} />
 			</header>
 			<BlockContent blocks={_rawBio} serializers={serializer} renderContainerOnSingleChild={true} className={`profile-bio`}/>

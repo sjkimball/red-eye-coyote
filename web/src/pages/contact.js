@@ -15,7 +15,7 @@ const ContactPage = ({data}) => {
       <SEO title='Contact' />
       <article className={`contact`}>
         <header className={`page-header page-header--light contact__header`}>
-          <h1>Contact</h1>
+          <h2>Contact</h2>
         </header>
         <section className={`contact__offices`}>
           {offices.map(({node: office}) => {
@@ -62,7 +62,6 @@ export const query = graphql`
 	        contactInfo {
 	          address {
 	            city
-		          streetNumber
 		          street
 		          streetSecondary
 		          stateProvince

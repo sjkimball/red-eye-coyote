@@ -37,9 +37,9 @@ const Project = ({project}) => {
   return (
     <article id={`rec-project`} className={`project`}>
       <header className={`project-header`}>
-        <h1>
+        <h2>
           {title}
-        </h1>
+        </h2>
         <section className='project-disciplines'>
           <h6 hidden>Disciplines</h6>
           <ul>
@@ -48,9 +48,9 @@ const Project = ({project}) => {
             )}
           </ul>
         </section>
-        <h2>
+        <h4>
           {projectSummary}
-        </h2>
+        </h4>
       </header>
       <section className={`project-cover`}>
         <CoverImage imageAsset={coverImg} />
