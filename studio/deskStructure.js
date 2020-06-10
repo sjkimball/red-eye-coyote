@@ -1,5 +1,9 @@
 import S from '@sanity/desk-tool/structure-builder'
-import {FaBullhorn, FaCog, FaHome, FaPencilRuler, FaRegFileAlt, FaRegBuilding, FaRegIdCard, FaUserFriends} from 'react-icons/fa'
+
+import {FaBullhorn, FaCog, FaHome, FaRegFileAlt, FaRegBuilding, FaRegIdCard} from 'react-icons/fa'
+
+import portfolio from './src/structure/portfolio'
+import staff from './src/structure/staff'
 
 export default () =>
   S.list()
@@ -51,23 +55,7 @@ export default () =>
             ])
         ),
       S.divider(),
-      S.listItem()
-        .title('Portfolio')
-        .icon(FaPencilRuler)
-        .child(
-          S.list()
-            .title('Portfolio')
-            .items([
-              S.listItem()
-                .title('Projects')
-                .schemaType('project')
-                .child(S.documentTypeList('project').title('Projects')),
-              S.listItem()
-                .title('Clients')
-                .schemaType('client')
-                .child(S.documentTypeList('client').title('Clients'))
-            ])
-        ),
+      portfolio,
       S.divider(),
       S.listItem()
         .title('Company Information')
@@ -77,24 +65,7 @@ export default () =>
             .schemaType('companyInfo')
             .documentId('companyInfo')
         ),
-      S.listItem()
-        .title('Staff')
-        .icon(FaUserFriends)
-        .child(
-          S.list()
-            .title('Staff')
-            .items([
-              S.listItem()
-                .title('Staff Members')
-              // .icon(FaUserFriends)
-                .schemaType('person')
-                .child(S.documentTypeList('person').title('Staff Members')),
-              S.listItem()
-                .title('Roles')
-                .schemaType('jobTitle')
-                .child(S.documentTypeList('jobTitle').title('Roles'))
-            ])
-        ),
+      staff,
       S.listItem()
         .title('Offices')
         .icon(FaRegBuilding)
