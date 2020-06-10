@@ -1,42 +1,50 @@
 export default {
-  type: 'object',
   name: 'projectMember',
   title: 'Project Member',
+  type: 'object',
   fields: [
     {
-      title: 'Person',
       name: 'person',
+      title: 'Person',
       type: 'reference',
-      to: {type: 'person'}
+      to: [
+        {type: 'person'}
+      ]
     },
     {
-      title: 'Roles',
-      name: 'roles',
+      name: 'role',
+      title: 'Role',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [
+        {
+          type: 'string'
+        }
+      ],
       options: {
-        layout: 'radio',
         list: [
-          {title: 'Designer', value: 'designer'},
           {title: 'Developer', value: 'developer'},
-          {title: 'Editor', value: 'editor'},
-          {title: 'Manager', value: 'manager'}
+          {title: 'Designer', value: 'designer'},
+          {title: 'Product Manager', value: 'productManager'}
         ]
       }
     }
   ],
   preview: {
     select: {
-      personName: 'person.name',
-      roles: 'roles',
-      media: 'person.image'
+      person: 'person.name',
+      role0: 'role.0',
+      role1: 'role.1',
+      role2: 'role.2',
+      media: 'person.profileImg.image'
     },
-    prepare (data) {
-      return {
-        ...data,
-        title: data.personName,
-        subtitle: data.roles && data.roles.join('/')
-      }
+    prepare: (selection) => {
+      const {person, media} = selection
+      return (
+        {
+          title: person,
+          media: media
+        }
+      )
     }
   }
 }

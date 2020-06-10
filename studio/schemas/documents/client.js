@@ -4,7 +4,7 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'clientName',
+      name: 'name',
       title: 'Client Name',
       type: 'string'
     },
@@ -13,7 +13,7 @@ export default {
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'client_name',
+        source: 'name',
         maxLength: 96
       }
     },
@@ -25,14 +25,14 @@ export default {
     },
     {
       name: 'contactInfo',
-      title: 'Contact Info',
+      title: 'Contact Information',
       type: 'contact'
     }
   ],
 
   preview: {
     select: {
-      title: 'clientName',
+      title: 'name',
       subtitle: 'contactInfo.address.city'
     }
   }

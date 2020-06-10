@@ -48,26 +48,15 @@ export default {
       rows: 3
     },
     {
-      name: 'hero',
-      type: 'hero'
-    },
-    {
-      name: 'projects',
-      title: 'Featured Projects',
-      type: 'projectPreviewGrid',
-      fieldset: 'featuredContent'
-    },
-    {
-      name: 'people',
-      title: 'Featured People',
-      type: 'peoplePreviewGrid',
-      fieldset: 'featuredContent'
-    },
-    {
-      name: 'posts',
-      title: 'Featured Posts',
-      type: 'postPreviewGrid',
-      fieldset: 'featuredContent'
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        {type: 'hero'},
+        {type: 'featuredProjects'},
+        {type: 'featuredPosts'},
+        {type: 'featuredPeople'}
+      ]
     }
   ],
   preview: {

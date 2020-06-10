@@ -2,16 +2,18 @@ export default {
   name: 'person',
   title: 'People',
   type: 'document',
+  initialValue: {
+    featured: false
+  },
   fields: [
     {
-      name: 'firstName',
-      title: 'First Name',
-      type: 'string',
-      validation: Rule => Rule.required()
+      name: 'featured',
+      type: 'boolean',
+      title: 'Featured'
     },
     {
-      name: 'lastName',
-      title: 'Last Name',
+      name: 'name',
+      title: 'Name',
       type: 'string',
       validation: Rule => Rule.required()
     },
@@ -60,10 +62,10 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
-      description: `Click the 'Generate' button to create a slug based on the person's first and last names.`,
+      description: `Click the 'Generate' button to create a slug based on the person's name.`,
       type: 'slug',
       options: {
-        source: doc => `${doc.firstName}-${doc.lastName}`,
+        source: 'name',
         maxLength: 96
       },
       validation: Rule => Rule.required().error('Looks like you may have forgotten to generate a slug.:(')
@@ -71,18 +73,9 @@ export default {
   ],
   preview: {
     select: {
-      firstName: 'firstName',
-      lastName: 'lastName',
-      jobTitle: 'jobTitle.name',
+      title: 'name',
+      subtitle: 'jobTitle.name',
       media: 'profileImg.image'
-    },
-    prepare (selection) {
-      const {firstName, lastName, jobTitle, media} = selection
-      return {
-        title: `${firstName} ${lastName}`,
-        subtitle: jobTitle,
-        media: media
-      }
     }
   }
 }
