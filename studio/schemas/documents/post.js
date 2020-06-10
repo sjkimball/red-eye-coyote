@@ -3,6 +3,7 @@ export default {
   title: 'Posts',
   type: 'document',
   initialValue: {
+    featured: false,
     coverImg: {
       _type: 'customImage',
       image: {
@@ -16,6 +17,11 @@ export default {
     }
   },
   fields: [
+    {
+      name: 'featured',
+      type: 'boolean',
+      title: 'Featured'
+    },
     {
       name: 'title',
       title: 'Title',
@@ -47,10 +53,18 @@ export default {
       }
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'person'}
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'person'}
+          ]
+        }
+      ],
+      validation: Rule => Rule.required()
     },
     {
       name: 'coverImg',
@@ -76,15 +90,26 @@ export default {
   preview: {
     select: {
       title: 'title',
-      authorFirst: 'author.firstName',
-      authorLast: 'author.lastName',
+      author0: 'authors.0.name',
+      author1: 'authors.1.name',
+      author2: 'authors.2.name',
+      author3: 'authors.3.name',
       media: 'coverImg.image'
     },
-    prepare (selection) {
-      const {authorFirst, authorLast, media, title} = selection
+    prepare ({
+      title,
+      author0,
+      author1,
+      author2,
+      author3,
+      media
+    }) {
+      const authors = [author0, author1, author2].filter(Boolean)
+      const subtitle = authors.length > 0 ? `by ${authors.join(', ')}` : ''
+      const hasMoreAuthors = Boolean(author3)
       return {
         title: title,
-        subtitle: `by ${authorFirst} ${authorLast}`,
+        subtitle: hasMoreAuthors ? `${subtitle}…` : subtitle,
         media: media
       }
     }

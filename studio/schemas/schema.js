@@ -9,13 +9,13 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import address from './objects/address'
 import blockContent from './objects/blockContent'
 import contact from './objects/contact'
-import contributor from './objects/contributor'
 import customImage from './objects/customImage'
+import featuredPeople from './objects/featuredPeople'
+import featuredPosts from './objects/featuredPosts'
+import featuredProjects from './objects/featuredProjects'
 import hero from './objects/hero'
-import peoplePreviewGrid from './objects/peoplePreviewGrid'
 import personDoc from './objects/personDoc'
-import postPreviewGrid from './objects/postPreviewGrid'
-import projectPreviewGrid from './objects/projectPreviewGrid'
+import projectMember from './objects/projectMember'
 import socialAccount from './objects/socialAccount'
 // Documents
 import blogSettings from './documents/blogSettings'
@@ -45,19 +45,19 @@ export default createSchema({
     client,
     companyInfo,
     contact,
-    contributor,
     customImage,
+    featuredPeople,
+    featuredPosts,
+    featuredProjects,
     hero,
     jobTitle,
     office,
     page,
-    peoplePreviewGrid,
     person,
     personDoc,
     post,
-    postPreviewGrid,
     project,
-    projectPreviewGrid,
+    projectMember,
     siteSettings,
     socialAccount,
     socialMediaService

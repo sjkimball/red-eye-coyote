@@ -8,12 +8,6 @@ export default {
   },
   fields: [
     {
-      name: 'enabled',
-      title: 'Enable?',
-      description: 'If disabled, the page heading will default to the heading and subheading.',
-      type: 'boolean'
-    },
-    {
       name: 'heroImage',
       type: 'customImage',
       options: {
