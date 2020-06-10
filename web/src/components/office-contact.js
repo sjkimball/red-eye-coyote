@@ -11,7 +11,7 @@ const OfficeContact = ({office}) => {
   return (
     <article className={`rec-office`}>
       <header className={`rec-office__header`}>
-        <h2 className={`rec-office__city`}>{address.city}</h2>
+        <h4 className={`rec-office__city`}>{address.city}</h4>
         <time className={`rec-office__time`}>Current time</time>
       </header>
       <section className={`rec-office__info`}>
@@ -23,7 +23,7 @@ const OfficeContact = ({office}) => {
           <a href={`tel:1-${contactInfo.phone}`} className={`rec-office__phone`}>+1 {contactInfo.phone}</a>
         </section>
         <address className={`rec-office__address`}>
-          {address.streetNumber} {address.street}<br />
+          {address.street}<br />
           {address.streetSecondary}<br />
           {address.city}, {address.state} {address.postalCode}<br />
           {address.country}

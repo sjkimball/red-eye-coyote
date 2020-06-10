@@ -18,7 +18,7 @@ export default () => {
       <SEO title={settings.title} />
       <article className='blog'>
         <header className={`page-header page-header--light blog__header`}>
-          <h1>{settings.title}</h1>
+          <h2>{settings.title}</h2>
           <p>{settings.subtitle}</p>
         </header>
         <section className={`preview-container`}>

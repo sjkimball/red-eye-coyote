@@ -18,7 +18,7 @@ const AboutPage = ({data}) => {
       <SEO title='About' />
       <article className={`about`}>
         <header className={`page-header page-header--dark about__header`}>
-          <h1>About Red Eye Coyote</h1>
+          <h2>About Red Eye Coyote</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam nulla animi, consectetur cumque quas neque iste. Delectus tempora voluptatem quasi quae, eum sapiente perspiciatis, dolorem inventore et amet laboriosam eveniet!
           </p>
           <p>Voluptatibus voluptate ad, sit enim quisquam! Odit blanditiis praesentium animi, voluptatum aspernatur repellendus? Vitae animi autem cupiditate mollitia esse praesentium, corporis magni, maiores earum modi iusto excepturi labore! Reprehenderit, aut!

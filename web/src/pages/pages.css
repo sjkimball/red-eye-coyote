@@ -1,23 +1,18 @@
 /*Mobile styles*/
 	.landing, .work, .about, .blog, .contact {
 		display: grid;
-		grid-row-gap: var(--body-size);
-	}
-	.landing {
-		margin-top: calc(var(--body-size)*-2);
-	}
-	.page-header {
-		margin-bottom: var(--body-size);
+		grid-row-gap: var(--size-body);
+		padding: var(--size-body) 0;
 	}
 	.page-header h1{
-		margin-bottom: var(--body-size);
+		margin-bottom: var(--size-body);
 	}
 	.page-header > *:last-child {
 		margin-bottom: 0;
 	}
 	.page-header--light p {
 		color: var(--gray3);
-		padding-bottom: calc(var(--body-size)/4);
+		padding-bottom: calc(var(--size-body)/4);
 		border-bottom: 1px solid var(--gray1);
 	}
 	.page-header--dark {
@@ -25,8 +20,8 @@
 	}
 	.preview-container, .about__gallery {
 		display: grid;
-		grid-row-gap: calc(var(--body-size)*2);
-		grid-column-gap: var(--body-size);
+		grid-row-gap: calc(var(--size-body)*2);
+		grid-column-gap: var(--size-body);
 		grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
 	}
 	.contact__offices {
@@ -37,7 +32,7 @@
 /*Small tablet styles*/
 	@media screen and (min-width: 768px) {
 		.landing {
-			margin-top: calc(var(--body-size)*-4);
+			margin-top: calc(var(--size-body)*-4);
 		}
 		.about {
 			grid-template-columns: repeat(6, 1fr);
@@ -47,14 +42,14 @@
 		}
 		.about__gallery {
 			grid-column: 1 / -1;
-			grid-gap: var(--body-size);
+			grid-gap: var(--size-body);
 		}
 		.contact__offices {
 			grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
-			grid-column-gap: var(--body-size);
+			grid-column-gap: var(--size-body);
 		}
 		.preview-container {
-			grid-column-gap: var(--body-size);
+			grid-column-gap: var(--size-body);
 		}
 	}
 
@@ -68,13 +63,13 @@
 		/*About Page*/
 		.about {
 			grid-template-columns: repeat(2, 1fr);
-			grid-column-gap: var(--body-size);
+			grid-column-gap: var(--size-body);
 		}
 		.about__header {
 			grid-column: 1/-1;
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
-			grid-column-gap: var(--body-size)
+			grid-column-gap: var(--size-body)
 		}
 		.about__header p {
 			grid-column: 2;

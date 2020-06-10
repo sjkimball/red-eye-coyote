@@ -1,5 +1,8 @@
 .mainFooter {
-	padding: var(--body-leading);
+	padding-top: var(--size-body);
+	padding-right: var(--size-body);
+	padding-bottom: 44px;
+	padding-left: var(--size-body);
 	max-width: 1250px;
 }
 

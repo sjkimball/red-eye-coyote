@@ -32,9 +32,9 @@ const Post = ({post}) => {
   return (
     <article id={`rec-post`} className={`blog-post`}>
       <header className={`blog-post__header`}>
-        <h1 className={`blog-post__title`}>
+        <h2 className={`blog-post__title`}>
           {title}
-        </h1>
+        </h2>
         <ul className='blog-post__keywords'>
           {keywords.map((keyword, index) => {
             return (
@@ -43,7 +43,7 @@ const Post = ({post}) => {
           })}
         </ul>
         <time className={`blog-post__time`} dateTime={publishedAt}>{publishedAt}</time>
-        <h2 className={`blog-post__summary`}>{subtitle}</h2>
+        <h4 className={`blog-post__summary`}>{subtitle}</h4>
         <p className={`blog-post__author`}>{`${author.firstName} ${author.lastName}`}</p>
       </header>
       <section className='blog-post__cover'>
