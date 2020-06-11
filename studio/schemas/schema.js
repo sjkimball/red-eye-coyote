@@ -9,7 +9,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import address from './objects/address'
 import blockContent from './objects/blockContent'
 import contact from './objects/contact'
-import customImage from './objects/customImage'
+import figure from './objects/figure'
 import featuredPeople from './objects/featuredPeople'
 import featuredPosts from './objects/featuredPosts'
 import featuredProjects from './objects/featuredProjects'
@@ -45,10 +45,10 @@ export default createSchema({
     client,
     companyInfo,
     contact,
-    customImage,
     featuredPeople,
     featuredPosts,
     featuredProjects,
+    figure,
     hero,
     jobTitle,
     office,

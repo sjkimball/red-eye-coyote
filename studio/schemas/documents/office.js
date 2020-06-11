@@ -7,7 +7,12 @@ export default {
       name: 'images',
       title: 'Office Images',
       type: 'array',
-      of: [{type: 'customImage'}]
+      of: [
+        {type: 'figure'}
+      ],
+      options: {
+        layout: 'grid'
+      }
     },
     {
       name: 'description',
@@ -25,14 +30,14 @@ export default {
     select: {
       title: 'contactInfo.address.city',
       subtitle: 'contactInfo.address.country',
-      media: 'images'
+      media: 'images.0.asset'
     },
     prepare (selection) {
       const {title, subtitle, media} = selection
       return {
         title: title,
         subtitle: subtitle,
-        media: media[0].image
+        media: media
       }
     }
   }

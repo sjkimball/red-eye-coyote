@@ -59,7 +59,7 @@ export default {
     {
       name: 'coverImg',
       title: 'Cover Image',
-      type: 'customImage',
+      type: 'figure',
       validation: Rule => Rule.required()
     },
     {
@@ -82,11 +82,11 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'customImage'
+          type: 'figure'
         }
       ],
       options: {
-        layout: 'grid'
+        // layout: 'grid'
       }
     },
     {
@@ -103,8 +103,8 @@ export default {
       }
     },
     {
-      name: 'sectors',
-      title: 'Sectors',
+      name: 'sector',
+      title: 'Sector',
       type: 'string',
       options: {
         list: [
@@ -129,7 +129,7 @@ export default {
     select: {
       title: 'title',
       subtitle: 'client.name',
-      media: 'coverImg.image'
+      media: 'coverImg.asset'
     }
   }
 }

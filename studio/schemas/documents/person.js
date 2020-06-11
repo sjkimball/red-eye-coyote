@@ -20,7 +20,7 @@ export default {
     {
       name: 'profileImg',
       title: 'Profile Image',
-      type: 'customImage'
+      type: 'figure'
     },
     {
       name: 'jobTitle',
@@ -75,7 +75,7 @@ export default {
     select: {
       title: 'name',
       subtitle: 'jobTitle.name',
-      media: 'profileImg.image'
+      media: 'profileImg.asset'
     }
   }
 }

@@ -5,7 +5,7 @@ export default {
   initialValue: {
     featured: false,
     coverImg: {
-      _type: 'customImage',
+      _type: 'figure',
       image: {
         _type: 'image',
         asset: {
@@ -33,6 +33,11 @@ export default {
       title: 'Subtitle',
       type: 'text',
       rows: 3
+    },
+    {
+      name: 'coverImg',
+      title: 'Cover Image',
+      type: 'figure'
     },
     {
       name: 'body',
@@ -67,11 +72,6 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'coverImg',
-      title: 'Cover Image',
-      type: 'customImage'
-    },
-    {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime'
@@ -94,7 +94,7 @@ export default {
       author1: 'authors.1.name',
       author2: 'authors.2.name',
       author3: 'authors.3.name',
-      media: 'coverImg.image'
+      media: 'coverImg.asset'
     },
     prepare ({
       title,

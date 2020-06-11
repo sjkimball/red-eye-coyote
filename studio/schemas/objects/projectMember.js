@@ -35,7 +35,7 @@ export default {
       role0: 'role.0',
       role1: 'role.1',
       role2: 'role.2',
-      media: 'person.profileImg.image'
+      media: 'person.profileImg.asset'
     },
     prepare: (selection) => {
       const {person, media} = selection

@@ -9,7 +9,7 @@ export default {
   fields: [
     {
       name: 'heroImage',
-      type: 'customImage',
+      type: 'figure',
       options: {
         collapsible: true,
         collapsed: false
