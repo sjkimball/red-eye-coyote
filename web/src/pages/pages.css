@@ -1,33 +1,46 @@
 /*Mobile styles*/
-	.landing, .work, .about, .blog, .contact {
+	.about,
+	.blog,
+	.contact,
+	.contact__offices,
+	.landing,
+	.page-header,
+	.preview-container,
+	.work {
 		display: grid;
-		grid-row-gap: var(--size-body);
+	}
+	.about,
+	.blog,
+	.contact,
+	.landing,
+	.page-header,
+	.preview-container,
+	.work {
+		row-gap: calc(var(--size-body)*2);
+	}
+	.about,
+	.blog,
+	.contact,
+	.landing,
+	.work {
 		padding: var(--size-body) 0;
 	}
-	.page-header h1{
-		margin-bottom: var(--size-body);
+	.page-header {
+		row-gap: var(--size-body);
 	}
-	.page-header > *:last-child {
+	.page-header > * {
 		margin-bottom: 0;
 	}
 	.page-header--light p {
 		color: var(--gray3);
-		padding-bottom: calc(var(--size-body)/4);
 		border-bottom: 1px solid var(--gray1);
 	}
 	.page-header--dark {
 		color: var(--gray1);
 	}
-	.preview-container, .about__gallery {
-		display: grid;
-		grid-row-gap: calc(var(--size-body)*2);
-		grid-column-gap: var(--size-body);
+	.preview-container {
 		grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
 	}
-	.contact__offices {
-		display: grid;
-	}
-
 
 /*Small tablet styles*/
 	@media screen and (min-width: 768px) {

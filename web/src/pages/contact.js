@@ -14,10 +14,10 @@ const ContactPage = ({data}) => {
     <Layout>
       <SEO title='Contact' />
       <article className={`contact`}>
-        <header className={`page-header page-header--light contact__header`}>
+        <header className={`page-header page-header--light`}>
           <h2>Contact</h2>
         </header>
-        <section className={`contact__offices`}>
+        <section className={`preview-container`}>
           {offices.map(({node: office}) => {
             return (
               <OfficeContact key={office._id} office={office} />
@@ -36,9 +36,6 @@ export const query = graphql`
 	      node {
 	      	_id
 	        images {
-	          altText
-	          caption
-	          image {
 						asset {
 							_id
 							metadata {
