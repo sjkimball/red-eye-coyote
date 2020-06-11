@@ -13,27 +13,17 @@ const CoverImage = ({imageAsset, showCaption}) => {
     return builder.image(source)
   }
 
-  const {
-    altText,
-    caption,
-    image: {
-      asset: {
-        metadata
-      }
-    }
-  } = imageAsset
-
   const letterboxSrcSet = `
-	${urlFor(imageAsset.image).width(400).height(225)} 400w,
-	${urlFor(imageAsset.image).width(600).height(338)} 600w,
-	${urlFor(imageAsset.image).width(400).height(225).dpr(2)} 800w,
-	${urlFor(imageAsset.image).width(600).height(338).dpr(2)} 1200w
+	${urlFor(imageAsset).width(400).height(225)} 400w,
+	${urlFor(imageAsset).width(600).height(338)} 600w,
+	${urlFor(imageAsset).width(400).height(225).dpr(2)} 800w,
+	${urlFor(imageAsset).width(600).height(338).dpr(2)} 1200w
 	`
 
   const renderedImage = (
     <img
       style={{
-        backgroundImage: `url(${metadata.lqip})`,
+        backgroundImage: `url(${imageAsset.asset.metadata.lqip})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover'
       }}
@@ -44,10 +34,10 @@ const CoverImage = ({imageAsset, showCaption}) => {
         (max-width: 767px) 800px,
         1200px
       `}
-      src={urlFor(imageAsset.image)
+      src={urlFor(imageAsset)
         .auto('format')
       }
-      alt={altText}
+      alt={imageAsset.altText}
       className={'cover-image'}
     />
   )
@@ -56,7 +46,7 @@ const CoverImage = ({imageAsset, showCaption}) => {
     return (
       <figure>
         {renderedImage}
-        <figcaption>{caption}</figcaption>
+        <figcaption>{imageAsset.caption}</figcaption>
       </figure>
     )
   } else {

@@ -35,7 +35,7 @@ const OfficeContact = ({office}) => {
       <section className={`rec-office__images`}>
         {images.map((image) => {
           return (
-            <PreviewImage key={image.image.asset._id} imageAsset={image} />
+            <PreviewImage key={image.asset._id} imageAsset={image} />
           )
         })}
       </section>

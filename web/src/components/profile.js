@@ -9,7 +9,7 @@ import './profile.css';
 const serializer = {
 	container: 'section',
 	types: {
-		customImage: props => (
+		figure: props => (
 				<PreviewImage imageAsset={props.node} showCaption={true} />
 		)
 	}

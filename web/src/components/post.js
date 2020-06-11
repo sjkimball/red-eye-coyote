@@ -12,7 +12,7 @@ import './post.css'
 const serializers = {
   container: 'section',
   types: {
-    customImage: props => (
+    figure: props => (
       <PreviewImage imageAsset={props.node} showCaption />
     )
   }

@@ -12,7 +12,7 @@ import './project.css'
 const serializer = {
   container: 'section',
   types: {
-    customImage: props => {
+    figure: props => {
       return (
         <PreviewImage imageAsset={props.node} showCaption />
       )
@@ -61,7 +61,7 @@ const Project = ({project}) => {
           {productImgs.map((image) => {
             return (
               <PreviewImage
-                key={image.image.asset._id}
+                key={image.asset._id}
                 imageAsset={image}
               />
             )
