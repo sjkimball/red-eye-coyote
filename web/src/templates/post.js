@@ -19,9 +19,7 @@ export const query = graphql`
 	query ($slug: String!) {
 	  sanityPost(slug: {current: {eq: $slug}}) {
 	    coverImg {
-	    	image {
-	    		...postImageData
-	    	}
+				...postImageData
 	    }
 	    slug {
 	      current
@@ -29,22 +27,23 @@ export const query = graphql`
 	    title
 	    subtitle
 	    _id
-	    author {
-	      firstName
-	      lastName
+	    authors {
+	      name
 	    }
 	    publishedAt
 	    keywords
 			_rawBody(resolveReferences: {maxDepth: 10})
 		}
   }
-	fragment postImageData on SanityImage {
+	fragment postImageData on SanityFigure {
 		asset {
 		  _id
 		  metadata {
 		  	lqip
 		  }
 		}
+		altText
+		caption
 		hotspot {
 		  x
 		  y

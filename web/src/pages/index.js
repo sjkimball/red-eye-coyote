@@ -8,40 +8,11 @@ import LandingPage from '../components/landing-page'
 
 import './pages.css'
 
-const IndexPage = ({data}) => {
-  const pageContent = data.sanityPage
-
-  return (
-    <Layout>
-      <SEO title='Home' />
-      <LandingPage pageContent={pageContent} />
-    </Layout>
-  )
-}
-
 export const query = graphql`
 query LandingPage {
-  sanityPage(title: {eq: "First landing page"}) {
+  page: sanityPage(_id: {regex: "/(drafts.|)frontpage/"}) {
     heading
     subheading
-    heroImage {
-      ...imageData
-    }
-    workSamples {
-      _id
-      title
-      client {
-        slug {
-          current
-        }
-      }
-      slug {
-        current
-      }
-      coverImg {
-        ...imageData
-      }
-    }
   }
 }
 
@@ -69,5 +40,16 @@ fragment imageData on SanityCustomImage {
     }
   }
 }`
+
+const IndexPage = ({data}) => {
+  const pageContent = data.page
+
+  return (
+    <Layout>
+      <SEO title='Home' />
+      <LandingPage pageContent={pageContent} />
+    </Layout>
+  )
+}
 
 export default IndexPage

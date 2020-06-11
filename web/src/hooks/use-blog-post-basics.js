@@ -11,27 +11,27 @@ const useBlogPostBasics = () => {
 		        subtitle
 		        publishedAt
 		        coverImg {
-		          image {
-		            asset {
-		              _id
-		              metadata {
-		              	lqip
-		              }
-		            }
-		            crop {
-		            	top
-		            	bottom
-		            	left
-		            	right
-		            }
-		            hotspot {
-		            	x
-		            	y
-		            	height
-		            	width
-		            }
-		          }
-		        }
+							asset {
+								_id
+								metadata {
+									lqip
+								}
+							}
+							crop {
+								top
+								bottom
+								left
+								right
+							}
+							hotspot {
+								x
+								y
+								height
+								width
+							}
+							altText
+							caption
+						}
 		        slug {
 		          current
 		        }

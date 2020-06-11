@@ -39,26 +39,27 @@ export const query = graphql`
 	          altText
 	          caption
 	          image {
-	            asset {
-	              _id
-	              metadata {
-	              	lqip
-	              }
-	            }
-	            crop {
-	              bottom
-	              left
-	              right
-	              top
-	            }
-	            hotspot {
-	              height
-	              width
-	              x
-	              y
-	            }
-	          }
-	        }
+						asset {
+							_id
+							metadata {
+								lqip
+							}
+						}
+						altText
+						caption
+						crop {
+							top
+							bottom
+							left
+							right
+						}
+						hotspot {
+							x
+							y
+							height
+							width
+						}
+					}
 	        contactInfo {
 	          address {
 	            city

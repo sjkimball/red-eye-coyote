@@ -21,25 +21,17 @@ export const query = graphql`
 	query ($slug: String!) {
 		sanityProject(slug: {current: {eq: $slug}}) {
 		  title
-		  sectors
+		  sector
 		  projectSummary
 		  _rawProjectDesc(resolveReferences: {maxDepth: 10})
 		  coverImg {
-		  	image {
-		  		...projectImageData
-		  	}
-		  	altText
-		  	caption
+				...projectImageData
 		  }
 		  productImgs {
-	  		image {
-					...projectImageData
-		  	    }
-		  	altText
-		  	caption
+				...projectImageData
 		  }
 		  client {
-		    clientName
+		    name
 		  }
 		  office {
 		  	contactInfo {
@@ -49,22 +41,23 @@ export const query = graphql`
 		  	}
 		  }
 		  disciplines
-		  contributors {
-		  	name {
-			    firstName
-			    lastName
-		  	}
+		  projectMembers {
+		  	person {
+					name
+				}
 		  	_key
 		  }
 		}
 	}
-	fragment projectImageData on SanityImage {
+	fragment projectImageData on SanityFigure {
 		asset {
 		  _id
 		  metadata {
 		  	lqip
 		  }
 		}
+		altText
+		caption
 		hotspot {
 		  x
 		  y

@@ -12,31 +12,29 @@ const useProjectBasics = () => {
 		        	current
 		        }
 		        coverImg {
-		          altText
-		          caption
-		          image {
-		          	asset {
-		          		_id
-		          		metadata {
-		          			lqip
-		          		}
-		          	}
-		          	crop {
-		          		top
-		          		bottom
-		          		left
-		          		right
-		          	}
-		          	hotspot {
-		          		x
-		          		y
-		          		height
-		          		width
-		          	}
-		          }
-		        }
+							asset {
+								_id
+								metadata {
+									lqip
+								}
+							}
+							crop {
+								top
+								bottom
+								left
+								right
+							}
+							hotspot {
+								x
+								y
+								height
+								width
+							}
+							altText
+							caption
+						}
 		        client {
-		          clientName
+		          name
 		          slug {
 		            current
 		          }

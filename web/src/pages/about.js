@@ -26,7 +26,7 @@ const AboutPage = ({data}) => {
           <p>Omnis consequatur autem nostrum voluptatibus earum aspernatur facere laborum ullam iure alias adipisci eligendi saepe est esse assumenda, et veritatis vero molestias magni ad explicabo mollitia pariatur dolor a quam.
           </p>
         </header>
-        <section className={`about__gallery`}>
+        <section className={`preview-container`}>
           {profiles.map(({node: profile}) => {
             return (
               <ProfilePreview
