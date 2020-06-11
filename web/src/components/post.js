@@ -20,7 +20,7 @@ const serializers = {
 
 const Post = ({post}) => {
   const {
-    author,
+    authors,
     _rawBody,
     coverImg,
     keywords,
@@ -44,11 +44,9 @@ const Post = ({post}) => {
         </ul>
         <time className={`blog-post__time`} dateTime={publishedAt}>{publishedAt}</time>
         <h4 className={`blog-post__summary`}>{subtitle}</h4>
-        <p className={`blog-post__author`}>{`${author.firstName} ${author.lastName}`}</p>
-      </header>
-      <section className='blog-post__cover'>
+        <p className={`blog-post__author`}>{authors[0].name}</p>
         <CoverImage imageAsset={coverImg} />
-      </section>
+      </header>
       <BlockContent	className={`blog-post__body`}
         blocks={_rawBody}
         serializers={serializers}

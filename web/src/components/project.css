@@ -1,100 +1,62 @@
 /*Mobile Styles*/
-	.project {
+	.project,
+	.project-header,
+	.project-body,
+	.project-description,
+	.project-metadata {
 		display: grid;
-		grid-row-gap: var(--size-body);
+	}
+	.project,
+	.project-body {
+		row-gap: calc(var(--size-body)*2);
+	}
+	.project {
 		padding: var(--size-body) 0;
 	}
-
-	.project-header {
-		display: grid;
-		row-gap: calc(var(--size-body)/4);
-	}
-
-	.project-header h2 {
+	.project-body .preview-image {
 		margin-bottom: 0;
 	}
-
-	.project-header > *:last-child {
-		margin-bottom: 0;
-	}
-
-	.project-disciplines ul {
-		margin-bottom: 0;
-	}
-
-	.project-cover .cover-image {
-		margin-bottom: 0;
-		display: flex;
-	}
-
+	.project-header,
 	.project-description {
-		padding-bottom: var(--size-body);
+		row-gap: var(--size-body);
 	}
-
-	.project-description figure {
-		margin-top: var(--size-body);
-		margin-bottom: 0;
-		padding-bottom: var(--size-body);
-	}
-
-	.project-description p:last-child {
+	.project-header h2,
+	.project-header h4,
+	.project-header > *:last-child,
+	.project-description > *,
+	.project-gallery > * {
 		margin-bottom: 0;
 	}
-
 	.project-gallery {
-		display: grid;
-		grid-row-gap: calc(var(--size-body)/4);
+		display: flex;
+		flex-direction: column;
 	}
-
-	.project-gallery .preview-image {
-		object-fit: cover;
-	}
-
-	.project-gallery .preview-image:last-of-type {
-		margin-bottom: 0 !important;
-	}
-
-	.project-details h6 {
-		margin-bottom: calc(var(--size-body)/4);
-	}
-
-	.project-details ul{
-		list-style-type: none;
-		margin-bottom: var(--size-body);
-		margin-left: 0;
-	}
-
-	.project-details li {
-		margin-bottom: 0;
-	}
-
 	.project-metadata {
-		padding-bottom: var(--size-body);
+		row-gap: calc(var(--size-body)/2);
 	}
-
-	.project-metadata ul:last-of-type, .project-company-info ul:last-of-type {
+	.project-metadata h6,
+	.project-metadata p,
+	.project-disciplines ul,
+	.project-metadata ul,
+	.project-disciplines li,
+	.project-metadata li {
 		margin-bottom: 0;
 	}
-
-	.project-sectors {
-		color: var(--gray5);
+	.project-metadata h6,
+	.project-metadata p {
+		line-height: var(--lh-body);
+	}
+	.project-metadata p {
+		text-transform: capitalize;
+	}
+	.project-disciplines ul,
+	.project-metadata ul {
 		list-style-type: none;
 		margin-left: 0;
-		padding: 0;
 	}
-
-	.project-disciplines ul {
-		margin-left: 0;
-	}
-
-	.project-disciplines li {
-		display: inline;
-		margin-right: 8px;
-	}
-
-	.project-footer a {
-		text-decoration: none;
-		color: var(--accent1);
+	.project-metadata p,
+	.project-metadata li {
+		font-weight: var(--medium);
 	}
 
 /*Small Tablet Styles*/

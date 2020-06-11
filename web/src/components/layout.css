@@ -21,6 +21,7 @@
   --secondary-darker: #450006;
 
   /*Typography*/
+  font-size: 16px;
   --text-font: 'Red Hat Text';
   --heading-font: 'Red Hat Display';
   --brand-font: 'Merriweather';
@@ -113,6 +114,10 @@ mark {
 }
 small {
   font-size: 80%;
+}
+figcaption {
+  font-size: var(--size-caption);
+  line-height: var(--lh-xsmall);
 }
 sub,
 sup {
@@ -296,7 +301,7 @@ h2 {
   color: inherit;
   font-size: var(--size-h2);
   line-height: var(--lh-h2);
-  /* margin-bottom: 1.45rem; */
+  margin-bottom: 1.45rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -659,11 +664,10 @@ pre tt:after {
 
 /*Mobile styles*/
   .mainContainer {
-    /*margin-top: 44px;*/
+    margin-top: 44px;
     max-width: 1200px;
     padding-left: var(--size-body);
     padding-right: var(--size-body);
-    padding-top: calc(var(--size-body)*2);
   }
 
 /*Small tablet styles*/

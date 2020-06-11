@@ -25,7 +25,7 @@ const OfficeContact = ({office}) => {
         <address className={`rec-office__address`}>
           {address.street}<br />
           {address.streetSecondary}<br />
-          {address.city}, {address.state} {address.postalCode}<br />
+          {address.city}, {address.stateProvince} {address.postalCode}<br />
           {address.country}
         </address>
         <p className={`rec-office__description`}>

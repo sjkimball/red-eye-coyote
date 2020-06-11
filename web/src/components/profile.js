@@ -10,7 +10,7 @@ const serializer = {
 	container: 'section',
 	types: {
 		figure: props => (
-				<PreviewImage imageAsset={props.node} showCaption={true} />
+			<PreviewImage imageAsset={props.node} showCaption={true} />
 		)
 	}
 }
@@ -18,8 +18,7 @@ const serializer = {
 const Profile = ({ profile }) => {
 	const {
 		profileImg,
-		firstName,
-		lastName,
+		name,
 		office,
 		_rawBio
 	} = profile;
@@ -27,7 +26,7 @@ const Profile = ({ profile }) => {
 	return (
 		<article id={`rec-profile`} className={`profile`}>
 			<header className={`profile-header`}>
-				<h2>{`${firstName} ${lastName}`}
+				<h2>{name}
 					<br/>
 					<span>{office.contactInfo.address.city}</span>
 				</h2>

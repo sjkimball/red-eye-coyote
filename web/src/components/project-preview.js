@@ -4,13 +4,13 @@ import {Link} from 'gatsby'
 
 import PreviewImage from '../components/preview-image'
 
-import './project-preview.css'
+import './preview.css'
 
 const ProjectPreview = ({project}) => {
   const {client, coverImg, slug, title} = project
   return (
-    <Link to={`/work/${client.slug.current}/${slug.current}`} className={`project-preview`}>
-      <h4 className={`project-title`}>{title}</h4>
+    <Link to={`/work/${client.slug.current}/${slug.current}`} className={`preview preview--light`}>
+      <h4>{title}</h4>
       {<PreviewImage imageAsset={coverImg} />}
     </Link>
   )
