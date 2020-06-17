@@ -663,26 +663,51 @@ pre tt:after {
 }
 
 /*Mobile styles*/
+.mainHeader,
+.mainContainer,
+.mainFooter {
+  padding-right: calc(var(--size-body)*1);
+  padding-left: calc(var(--size-body)*1);	
+}
+.mainHeader {
+  align-items: center;
+	background-color: white;
+  color: var(--gray5);
+  display: flex;
+	height: 48px;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+}
+.mainContainer {
+  margin-top: 48px;
+}
+.mainFooter {
+	padding-bottom: 48px;
+  padding-top: calc(var(--size-body)*1.5);
+}
+@media screen and (min-width: 601px) {
+  .mainHeader,
+  .mainContainer,
+  .mainFooter {
+    padding-left: calc(var(--size-body) * 2);
+		padding-right: calc(var(--size-body) * 2);
+  }
+  .mainHeader {
+		height: 64px;
+	}
   .mainContainer {
-    margin-top: 44px;
-    max-width: 1200px;
-    padding-left: var(--size-body);
-    padding-right: var(--size-body);
+    margin-top: 64px;
   }
-
-/*Small tablet styles*/
-  @media screen and (min-width: 768px) {
-    .mainContainer {
-      padding-left: calc(var(--size-body) * 2);
-      padding-right: calc(var(--size-body) * 2);
-      padding-top: calc(var(--size-body) * 4)
-    }
-  }
-
+}
 /*Desktop styles*/
-  @media screen and (min-width: 1236px) {
-    .mainContainer {
-      margin-right: auto;
-      margin-left: auto;
-    }
+@media screen and (min-width: 1240px) {
+  .mainContainer,
+  .mainFooter {
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0;
+		padding-left: 0;
   }
+}
