@@ -7,7 +7,7 @@ import BlockContent from '@sanity/block-content-to-react'
 import CoverImage from '../components/cover-image'
 import PreviewImage from '../components/preview-image'
 
-import './post.css'
+import './contentLayout.css'
 
 const serializers = {
   container: 'section',
@@ -30,28 +30,30 @@ const Post = ({post}) => {
   } = post
 
   return (
-    <article id={`rec-post`} className={`blog-post`}>
-      <header className={`blog-post__header`}>
-        <h2 className={`blog-post__title`}>
+    <article id={`rec-post`} className={`rec-article`}>
+      <header id={`rec-post__header`} className={`rec-article__header`}>
+        <h2>
           {title}
         </h2>
-        <ul className='blog-post__keywords'>
+        <ul className={`rec-tags`}>
           {keywords.map((keyword, index) => {
             return (
-              <li key={index}>{keyword}</li>
+              <li key={index} value={keyword} className={`rec-tag--primary`}>{keyword}</li>
             )
           })}
         </ul>
-        <time className={`blog-post__time`} dateTime={publishedAt}>{publishedAt}</time>
-        <h4 className={`blog-post__summary`}>{subtitle}</h4>
+        <time dateTime={publishedAt}>{publishedAt}</time>
+        <h4>{subtitle}</h4>
         <p className={`blog-post__author`}>{authors[0].name}</p>
         <CoverImage imageAsset={coverImg} />
       </header>
-      <BlockContent	className={`blog-post__body`}
-        blocks={_rawBody}
-        serializers={serializers}
-      />
-      <footer className={`blog-post__footer`}>
+      <section id={`rec-post__body`} className="rec-article__body">
+        <BlockContent	className={`rec-body__description`}
+          blocks={_rawBody}
+          serializers={serializers}
+        />
+      </section>
+      <footer id={`rec-post__footer`} className={`rec-article__footer`}>
         <Link to='/blog'>&larr; back to all posts</Link>
       </footer>
     </article>

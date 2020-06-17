@@ -7,7 +7,7 @@ import BlockContent from '@sanity/block-content-to-react'
 import CoverImage from '../components/cover-image'
 import PreviewImage from '../components/preview-image'
 
-import './project.css'
+import './contentLayout.css'
 
 const serializer = {
   container: 'section',
@@ -35,16 +35,16 @@ const Project = ({project}) => {
   } = project
   
   return (
-    <article id={`rec-project`} className={`project`}>
-      <header className={`project-header`}>
+    <article id={`rec-project`} className={`rec-article`}>
+      <header id={`rec-project__header`} className={`rec-article__header`}>
         <h2>
           {title}
         </h2>
-        <section className='project-disciplines'>
+        <section id={`rec-project__disciplines`}>
           <h6 hidden>Disciplines</h6>
-          <ul>
+          <ul className={`rec-tags`}>
             {disciplines.map((discipline, index) =>
-              <li key={index} value={discipline}>{discipline}</li>
+              <li key={index} value={discipline} className={`rec-tag--primary`}>{discipline}</li>
             )}
           </ul>
         </section>
@@ -53,9 +53,9 @@ const Project = ({project}) => {
         </h4>
         <CoverImage imageAsset={coverImg} />
       </header>
-      <section className={'project-body'}>
-        <BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`project-description`} />
-        <section className={`project-gallery`}>
+      <section id={`rec-project__body`} className={'rec-article__body'}>
+        <BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`rec-body__description`} />
+        <section className={`rec-body__gallery`}>
           {productImgs.map((image) => {
             return (
               <PreviewImage
@@ -65,18 +65,18 @@ const Project = ({project}) => {
             )
           })}
         </section>
-        <section className={`project-metadata`}>
-          <section className="metadata-client">
+        <section className={`rec-body__metadata`}>
+          <section>
             <h6>Client</h6>
             <ul>
               <li>{client.name}</li>
             </ul>
           </section>
-          <section className="metadata-sector">
+          <section>
             <h6>Sector</h6>
             <p>{sector}</p>
           </section>
-          <section className="metadata-disciplines">
+          <section>
             <h6>Disciplines</h6>
             <ul>
               {disciplines.map((discipline, index) =>
@@ -84,13 +84,13 @@ const Project = ({project}) => {
               )}
             </ul>
           </section>
-          <section className="metadata-office">
+          <section>
             <h6>Office</h6>
             <ul>
               <li key={office._id} value={office.contactInfo.address.city}>{office.contactInfo.address.city}</li>
             </ul>
           </section>
-          <section className="metadata-partners">
+          <section>
             <h6>Partner</h6>
             <ul>
               {projectMembers.map((member) =>
@@ -100,7 +100,7 @@ const Project = ({project}) => {
           </section>
         </section>
       </section>
-      <footer className={`project-footer`}>
+      <footer id={`rec-project__footer`} className={`rec-article__footer`}>
         <Link to='/work'>&larr; Work</Link>
       </footer>
     </article>
