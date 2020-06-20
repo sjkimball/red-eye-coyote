@@ -16,8 +16,8 @@ const AboutPage = ({data}) => {
   return (
     <Layout>
       <SEO title='About' />
-      <article className={`about`}>
-        <header className={`page-header page-header--dark about__header`}>
+      <article id={`rec-about`} className={`rec-article`}>
+        <header id={`rec-about__header`} className={`rec-article__header`}>
           <h2>About Red Eye Coyote</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam nulla animi, consectetur cumque quas neque iste. Delectus tempora voluptatem quasi quae, eum sapiente perspiciatis, dolorem inventore et amet laboriosam eveniet!
           </p>
@@ -26,7 +26,7 @@ const AboutPage = ({data}) => {
           <p>Omnis consequatur autem nostrum voluptatibus earum aspernatur facere laborum ullam iure alias adipisci eligendi saepe est esse assumenda, et veritatis vero molestias magni ad explicabo mollitia pariatur dolor a quam.
           </p>
         </header>
-        <section className={`preview-container`}>
+        <section id={`rec-about__body`} className={`rec-preview-container`}>
           {profiles.map(({node: profile}) => {
             return (
               <ProfilePreview

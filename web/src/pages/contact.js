@@ -13,11 +13,11 @@ const ContactPage = ({data}) => {
   return (
     <Layout>
       <SEO title='Contact' />
-      <article className={`contact`}>
-        <header className={`page-header page-header--light`}>
+      <article id={`rec-contact`} className={`rec-article`}>
+        <header id={`rec-contact__header`} className={`rec-article__header`}>
           <h2>Contact</h2>
         </header>
-        <section className={`preview-container`}>
+        <section id={`rec-contact__body`} className={`rec-preview-container`}>
           {offices.map(({node: office}) => {
             return (
               <OfficeContact key={office._id} office={office} />
