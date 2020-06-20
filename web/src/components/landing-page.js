@@ -11,9 +11,9 @@ const LandingPage = ({pageContent}) => {
   const {heading, subheading} = pageContent
 
   return (
-    <article className={`landing`}>
+    <article id={`rec-landing`} className={`rec-article`}>
       <section className='featured'>
-        <header id={`landingHeader`} className={`landing-header`}>
+        <header id={`rec-landing__header`} className={`rec-article__header`}>
           {/* <CoverImage id={`hero`} imageAsset={heroImage} showCaption /> */}
           <h2>{heading}</h2>
           <h4>{subheading}</h4>
