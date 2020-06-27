@@ -16,7 +16,7 @@ export default () => {
   return (
     <Layout>
       <SEO title={settings.title} />
-      <article id={`rec-blog`} className={`rec-article`}>
+      <article id={`rec-blog`} className={`rec-article rec-blog`}>
         <header id={`rec-blog__header`} className={`rec-article__header`}>
           <h2>{settings.title}</h2>
           <p>{settings.subtitle}</p>

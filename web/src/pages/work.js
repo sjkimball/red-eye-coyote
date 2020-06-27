@@ -13,7 +13,7 @@ export default () => {
   return (
     <Layout>
       <SEO title='Work' />
-      <article id={`rec-work`} className={`rec-article`}>
+      <article id={`rec-work`} className={`rec-article rec-work`}>
         <header id={`rec-work__header`} className={`rec-article__header`}>
           <h2>Work</h2>
           <p>Take a look.</p>

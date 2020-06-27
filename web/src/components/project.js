@@ -23,7 +23,6 @@ const serializer = {
 const Project = ({project}) => {
   const {
     client,
-    title,
     sector,
     projectSummary,
     _rawProjectDesc,
@@ -35,12 +34,12 @@ const Project = ({project}) => {
   } = project
   
   return (
-    <article id={`rec-project`} className={`rec-article`}>
+    <article id={`rec-project`} className={`rec-article rec-project`}>
       <header id={`rec-project__header`} className={`rec-article__header`}>
         <h2>
-          {title}
+          {client.name}
         </h2>
-        <section id={`rec-project__disciplines`}>
+        <section class={`rec-project__disciplines`}>
           <h6 hidden>Disciplines</h6>
           <ul className={`rec-tags`}>
             {disciplines.map((discipline, index) =>

@@ -689,7 +689,7 @@ pre tt:after {
   color: var(--gray2);
 	padding-bottom: 48px;
 }
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 600px) {
   .mainHeader,
   .mainContainer,
   .mainFooter {

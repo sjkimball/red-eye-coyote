@@ -24,7 +24,7 @@ const Profile = ({ profile }) => {
 	} = profile;
 
 	return (
-		<article id={`rec-profile`} className={`rec-article rec-article--dark`}>
+		<article id={`rec-profile`} className={`rec-article rec-article--dark rec-profile`}>
 			<header id={`rec-profile__header`} className={`rec-article__header rec-article__header--dark`}>
 				<h2>{name}
 					<br/>

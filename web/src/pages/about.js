@@ -3,28 +3,27 @@ import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
+import BlockContent from '@sanity/block-content-to-react'
+
 import ProfilePreview from '../components/profile-preview'
 
 import useProfileBasics from '../hooks/use-profile-basics'
+import useCompanyInfo from '../hooks/use-company-info'
 
 import './pages.css'
 
 const AboutPage = ({data}) => {
+  const companyInfo = useCompanyInfo().companyInfo
   const profileData = useProfileBasics()
   const profiles = profileData.edges
 
   return (
     <Layout>
       <SEO title='About' />
-      <article id={`rec-about`} className={`rec-article`}>
+      <article id={`rec-about`} className={`rec-article rec-about`}>
         <header id={`rec-about__header`} className={`rec-article__header`}>
-          <h2>About Red Eye Coyote</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam nulla animi, consectetur cumque quas neque iste. Delectus tempora voluptatem quasi quae, eum sapiente perspiciatis, dolorem inventore et amet laboriosam eveniet!
-          </p>
-          <p>Voluptatibus voluptate ad, sit enim quisquam! Odit blanditiis praesentium animi, voluptatum aspernatur repellendus? Vitae animi autem cupiditate mollitia esse praesentium, corporis magni, maiores earum modi iusto excepturi labore! Reprehenderit, aut!
-          </p>
-          <p>Omnis consequatur autem nostrum voluptatibus earum aspernatur facere laborum ullam iure alias adipisci eligendi saepe est esse assumenda, et veritatis vero molestias magni ad explicabo mollitia pariatur dolor a quam.
-          </p>
+          <h2>About {companyInfo.companyName}</h2>
+          <BlockContent blocks={companyInfo._rawAbout}/>
         </header>
         <section id={`rec-about__body`} className={`rec-preview-container`}>
           {profiles.map(({node: profile}) => {
