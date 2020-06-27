@@ -1,12 +1,9 @@
 import React from 'react'
 
-// import usePrimaryOfficeInfo from '../hooks/use-primary-office-info'
-
 import './footer.css'
 
-const Footer = ({darkMode}) => {
+const Footer = ({darkMode, companyInfo}) => {
   let footerClass
-
   
   // use class toggle instead
   if (darkMode === true) {
@@ -14,24 +11,21 @@ const Footer = ({darkMode}) => {
   } else {
     footerClass = 'mainFooter--light'
   }
+  const companyName = companyInfo.companyName
+  const links = companyInfo.socialAccounts
 
   return (
     <footer className={`mainFooter ${footerClass}`}>
       <ul className={`mainFooter__list`}>
-       <li><a href=""><small>GitHub</small></a></li>
-       <li><a href=""><small>Behance</small></a></li>
-       <li><a href=""><small>Twitter</small></a></li>
-       <li><a href=""><small>GitLab</small></a></li>
-				{/* {links.map((link) => {
+				{links.map((link) => {
 					return (
 						<li key={link._key}>
-							<a href={link.url} target="_blank" rel="noopener noreferrer">{link.service.name}</a>
+							<a href={link.url} target="_blank" rel="noopener noreferrer"><small>{link.service.name}</small></a>
 						</li>
 					);
-				})} */}
+				})}
 			</ul>
-      {/* copyright could come from company name */}
-      <small className={`copyright`}>© Sam Kimball</small>
+      <small className={`copyright`}>© {companyName}</small>
     </footer>
   )
 }

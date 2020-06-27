@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import useSiteMetaData from '../hooks/use-site-metadata'
-import useStaffCount from '../hooks/use-staff-count'
+import useCompanyInfo from '../hooks/use-company-info'
 
 import Header from './header'
 import Footer from './footer'
@@ -10,8 +9,7 @@ import Footer from './footer'
 import './layout.css'
 
 const Layout = ({children}) => {
-  const site = useSiteMetaData()
-  const staff = useStaffCount()
+  const { companyInfo, staffCount } = useCompanyInfo()
 
   let location = window.location.pathname
   let darkMode = false
@@ -23,9 +21,9 @@ const Layout = ({children}) => {
   }
   return (
     <React.Fragment>
-      <Header siteTitle={site.title} darkMode={darkMode} staffInfo={staff} />
+      <Header siteTitle={companyInfo.companyName} darkMode={darkMode} staffInfo={staffCount} />
       <main className={`mainContainer`}>{children}</main>
-      <Footer darkMode={darkMode} />
+      <Footer darkMode={darkMode} companyInfo={companyInfo}/>
     </React.Fragment>
   )
 }

@@ -99,7 +99,11 @@ class Header extends React.Component {
 	}
 
 	openMenu = () => {
+		const mainHeader = document.getElementById('mainHeader');
 		const navLinks = document.getElementById('nav-links');
+		if (mainHeader.classList.contains('mainHeader--light')){
+			mainHeader.classList.toggle('mainHeader--dark')
+		}
 		navLinks.classList.toggle('is-active');
 	}
 	menuToggle = () => {
