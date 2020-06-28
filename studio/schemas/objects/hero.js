@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default {
   name: 'hero',
   title: 'Hero',
@@ -7,6 +9,11 @@ export default {
     collapsed: true
   },
   fields: [
+    {
+      name: 'disabled',
+      type: 'boolean',
+      validation: Rule => Rule.required()
+    },
     {
       name: 'heroImage',
       type: 'figure',
@@ -33,16 +40,17 @@ export default {
   ],
   preview: {
     select: {
+      disabled: 'disabled',
       headline: 'headline',
       tagline: 'tagline',
       media: 'heroImage.image'
     },
     prepare (selection) {
-      const {headline, tagline, media} = selection
+      const {disabled, headline, tagline, media} = selection
       return {
         title: `Hero - ${headline}`,
         subtitle: tagline,
-        media: media
+        media: <span style={{fontSize: '1.5rem'}}>{(disabled || disabled == null) ? '🚫' : '✅'}</span>
       }
     }
   }

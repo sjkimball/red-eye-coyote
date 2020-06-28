@@ -16,6 +16,7 @@ import featuredProjects from './objects/featuredProjects'
 import hero from './objects/hero'
 import personDoc from './objects/personDoc'
 import projectMember from './objects/projectMember'
+import simplePortableText from './objects/simplePortableText'
 import socialAccount from './objects/socialAccount'
 // Documents
 import blogSettings from './documents/blogSettings'
@@ -58,6 +59,7 @@ export default createSchema({
     post,
     project,
     projectMember,
+    simplePortableText,
     siteSettings,
     socialAccount,
     socialMediaService

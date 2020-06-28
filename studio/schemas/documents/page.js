@@ -50,6 +50,7 @@ export default {
     {
       name: 'content',
       title: 'Content',
+      description: 'Add content sections to page. 💀 is a zombie, ✅ is alive.',
       type: 'array',
       of: [
         {type: 'hero'},

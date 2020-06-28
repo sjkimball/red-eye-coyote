@@ -68,7 +68,7 @@ export default {
       description: 'Overview of the project.',
       type: 'text',
       rows: 3,
-      validation: Rule => Rule.required().min(50).max(140).error('Try to keep it simple.')
+      validation: Rule => Rule.required().min(80).max(140).error('Summary need to be between 80 and 140 characters long.')
     },
     {
       name: 'projectDesc',
@@ -86,7 +86,7 @@ export default {
         }
       ],
       options: {
-        // layout: 'grid'
+        layout: 'grid'
       }
     },
     {
@@ -98,7 +98,12 @@ export default {
       options: {
         list: [
           {title: 'Brand Identity', value: 'Brand Identity'},
-          {title: 'Environmental Graphics', value: 'Environmental Graphics'}
+          {title: 'User Interface', value: 'User Interface'},
+          {title: 'User Experience', value: 'User Experience'},
+          {title: 'Responsive Web App', value: 'Responsive Web App'},
+          {title: 'Apparel', value: 'Apparel'},
+          {title: 'Illustration', value: 'Illustration'},
+          {title: 'UI Refresh', value: 'UI Refresh'}
         ]
       }
     },
