@@ -1,43 +1,49 @@
 import React from 'react'
 
-// import {Link} from 'gatsby'
-
 import CoverImage from '../components/cover-image'
-// import PreviewImage from '../components/preview-image'
+import PreviewContainer from '../components/preview-container'
 
 import './landing-page.css'
 
+function isDisabled (item) {
+  return !item.disabled;
+}
+function isHero (item) {
+  return item._type == 'hero'
+}
+function isFeaturedSection (item) {
+  return (item._type == 'featuredProjects' || item._type == 'featuredPosts')
+}
+
 const LandingPage = ({pageContent}) => {
-  const {heading, subheading} = pageContent
+  const {heading, subheading, content} = pageContent
+  const heroes = content.filter(isDisabled).filter(isHero)
+  const previewContainers = content.filter(isDisabled).filter(isFeaturedSection)
 
   return (
-    <article id={`rec-landing`} className={`rec-article`}>
-      <section className='featured'>
-        <header id={`rec-landing__header`} className={`rec-article__header`}>
-          {/* <CoverImage id={`hero`} imageAsset={heroImage} showCaption /> */}
-          <h2>{heading}</h2>
-          <h4>{subheading}</h4>
-        </header>
-      </section>
-      <section>
-        {/* <section className='work-samples preview-container'>
-          {workSamples.map((sample) => {
-            const key = sample._id
-            const title = sample.title
-            const coverImg = sample.coverImg
-            const clientSlug = sample.client.slug.current
-            const slug = sample.slug.current
-
+    <article id={`rec-landing`} className={`rec-article rec-landing`}>
+      <header id={`rec-landing__header`} className={`rec-article__header`}>
+        {
+          (heroes.length > 0) ? heroes.map((hero) => {
             return (
-              <Link key={key}to={`/work/${clientSlug}/${slug}`}>
-                <PreviewImage imageAsset={coverImg} />
-                <h5>
-                  {title}
-                </h5>
-              </Link>
+              // need to create HeroImage component
+              <CoverImage key={hero.key} {...hero} imageAsset={hero.heroImage}/>
             )
-          })}
-        </section> */}
+          }) :
+          <>
+            <h2>{heading}</h2>
+            <h4>{subheading}</h4>
+          </>
+        }
+      </header>
+      <section>        
+        {
+          previewContainers.map((item) => {
+            return (
+              <PreviewContainer content={item} />
+            )
+          })
+        }
       </section>
     </article>
   )
