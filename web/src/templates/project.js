@@ -25,10 +25,10 @@ export const query = graphql`
 		  projectSummary
 		  _rawProjectDesc(resolveReferences: {maxDepth: 10})
 		  coverImg {
-				...projectImageData
+				...imageData
 		  }
 		  productImgs {
-				...projectImageData
+				...imageData
 		  }
 		  client {
 		    name
@@ -47,28 +47,6 @@ export const query = graphql`
 				}
 		  	_key
 		  }
-		}
-	}
-	fragment projectImageData on SanityFigure {
-		asset {
-		  _id
-		  metadata {
-		  	lqip
-		  }
-		}
-		altText
-		caption
-		hotspot {
-		  x
-		  y
-		  height
-		  width
-		}
-		crop {
-		  top
-		  bottom
-		  left
-		  right
 		}
 	}
 `;

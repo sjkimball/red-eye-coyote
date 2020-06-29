@@ -39,7 +39,7 @@ const Project = ({project}) => {
         <h2>
           {client.name}
         </h2>
-        <section class={`rec-project__disciplines`}>
+        <section className={`rec-project__disciplines`}>
           <h6 hidden>Disciplines</h6>
           <ul className={`rec-tags`}>
             {disciplines.map((discipline, index) =>

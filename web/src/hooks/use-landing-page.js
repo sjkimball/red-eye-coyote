@@ -50,30 +50,28 @@ const useLandingPage = () => {
             }
             disabled
           }
+          ... on SanityFeaturedPeople {
+            _key
+            _type
+            people {
+              name
+              profileImg {
+                ...imageData
+              }
+              slug {
+                current
+              }
+              office{
+                contactInfo {
+                  address {
+                    city
+                  }
+                }
+              }
+            }
+            disabled
+          }
         }
-      }
-    }
-    
-    fragment imageData on SanityFigure {
-      altText
-      caption
-      asset {
-        _id
-        metadata {
-          lqip
-        }
-      }
-      crop {
-        top
-        bottom
-        left
-        right
-      }
-      hotspot {
-        x
-        y
-        height
-        width
       }
     }
 	`);

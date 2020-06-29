@@ -19,7 +19,7 @@ export const query = graphql`
 	query ($slug: String!) {
 	  sanityPerson(slug: {current: {eq: $slug}}) {
 	    profileImg {
-				...profileImageData
+				...imageData
 	    }
 	    name
 	    office {
@@ -33,28 +33,6 @@ export const query = graphql`
 	    _id
 		}
   }
-	fragment profileImageData on SanityFigure {
-		asset {
-		  _id
-		  metadata {
-		  	lqip
-		  }
-		}
-		altText
-		caption
-		hotspot {
-		  x
-		  y
-		  height
-		  width
-		}
-		crop {
-		  top
-		  bottom
-		  left
-		  right
-		}
-	}
 `;
 
 export default ProfileTemplate;

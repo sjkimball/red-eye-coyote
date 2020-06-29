@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 import Post from '../components/post';
 
 const PostTemplate = ({ data }) => {
-	const post = data.sanityPost;
+	const post = data.post;
 
 	return (
 		<Layout>
@@ -17,46 +17,23 @@ const PostTemplate = ({ data }) => {
 
 export const query = graphql`
 	query ($slug: String!) {
-	  sanityPost(slug: {current: {eq: $slug}}) {
+	  post: sanityPost(slug: {current: {eq: $slug}}) {
+			slug {
+				current
+			}
+			authors {
+				name
+			}
+			title
+			subtitle
+			publishedAt
+			keywords
 	    coverImg {
-				...postImageData
+				...imageData
 	    }
-	    slug {
-	      current
-	    }
-	    title
-	    subtitle
-	    _id
-	    authors {
-	      name
-	    }
-	    publishedAt
-	    keywords
 			_rawBody(resolveReferences: {maxDepth: 10})
 		}
   }
-	fragment postImageData on SanityFigure {
-		asset {
-		  _id
-		  metadata {
-		  	lqip
-		  }
-		}
-		altText
-		caption
-		hotspot {
-		  x
-		  y
-		  height
-		  width
-		}
-		crop {
-		  top
-		  bottom
-		  left
-		  right
-		}
-	}
 `;
 
 export default PostTemplate;

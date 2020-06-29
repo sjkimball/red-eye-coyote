@@ -2,8 +2,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const useProjectBasics = () => {
 	const data = useStaticQuery(graphql`
-		{
-			allSanityProject {
+		query allProjects {
+			projects: allSanityProject {
 		    edges {
 		      node {
 		        _id
@@ -12,26 +12,7 @@ const useProjectBasics = () => {
 		        	current
 		        }
 		        coverImg {
-							asset {
-								_id
-								metadata {
-									lqip
-								}
-							}
-							crop {
-								top
-								bottom
-								left
-								right
-							}
-							hotspot {
-								x
-								y
-								height
-								width
-							}
-							altText
-							caption
+							...imageData
 						}
 		        client {
 		          name
@@ -45,7 +26,7 @@ const useProjectBasics = () => {
 		}
 	`);
 
-	return data.allSanityProject.edges;
+	return data.projects.edges;
 };
 
 export default useProjectBasics;

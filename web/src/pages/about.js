@@ -14,8 +14,7 @@ import './pages.css'
 
 const AboutPage = ({data}) => {
   const companyInfo = useCompanyInfo().companyInfo
-  const profileData = useProfileBasics()
-  const profiles = profileData.edges
+  const profiles = useProfileBasics()
 
   return (
     <Layout>

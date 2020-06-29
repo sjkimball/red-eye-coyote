@@ -2,33 +2,13 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const useProfileBasics = () => {
 	const data = useStaticQuery(graphql`
-		{
-			allSanityPerson(sort: {fields: name, order: ASC}) {
-		    totalCount
+		query allProfiles {
+			people: allSanityPerson(sort: {fields: name, order: ASC}) {
 		    edges {
 		      node {
 		      	_id
 						profileImg {
-							asset {
-								_id
-								metadata {
-									lqip
-								}
-							}
-							crop {
-								top
-								bottom
-								left
-								right
-							}
-							hotspot {
-								x
-								y
-								height
-								width
-							}
-							altText
-							caption
+							...imageData
 						}
 		        name
 		        office {
@@ -47,7 +27,7 @@ const useProfileBasics = () => {
 		}
 	`);
 
-	return data.allSanityPerson;
+	return data.people.edges;
 };
 
 export default useProfileBasics;

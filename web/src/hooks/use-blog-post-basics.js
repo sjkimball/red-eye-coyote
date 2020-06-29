@@ -2,45 +2,26 @@ import {graphql, useStaticQuery} from 'gatsby'
 
 const useBlogPostBasics = () => {
   const data = useStaticQuery(graphql`
-		{
-			allSanityPost(sort: {fields: publishedAt, order: DESC}) {
+		query allBlogPosts {
+			posts: allSanityPost(sort: {fields: publishedAt, order: DESC}) {
 		    edges {
 		      node {
 		      	_id
+						slug {
+							current
+						}
 		        title
 		        subtitle
 		        publishedAt
 		        coverImg {
-							asset {
-								_id
-								metadata {
-									lqip
-								}
-							}
-							crop {
-								top
-								bottom
-								left
-								right
-							}
-							hotspot {
-								x
-								y
-								height
-								width
-							}
-							altText
-							caption
+							...imageData
 						}
-		        slug {
-		          current
-		        }
 		      }
 		    }
 		  }
 		}
 	`)
-  return data.allSanityPost.edges
+  return data.posts.edges
 }
 
 export default useBlogPostBasics
