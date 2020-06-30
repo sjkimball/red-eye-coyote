@@ -1,7 +1,7 @@
 import React from 'react'
 
 import CoverImage from '../components/cover-image'
-import PreviewContainer from '../components/preview-container'
+import FeaturedContainer from './featured-container'
 
 import './landing-page.css'
 
@@ -12,7 +12,7 @@ function isHero (item) {
   return item._type == 'hero'
 }
 function isFeaturedSection (item) {
-  return (item._type == 'featuredProjects' || item._type == 'featuredPosts')
+  return (item._type == 'featuredProjects' || item._type == 'featuredPosts' || item._type == 'featuredPeople')
 }
 
 const LandingPage = ({pageContent}) => {
@@ -27,7 +27,7 @@ const LandingPage = ({pageContent}) => {
           (heroes.length > 0) ? heroes.map((hero) => {
             return (
               // need to create HeroImage component
-              <CoverImage key={hero.key} {...hero} imageAsset={hero.heroImage}/>
+              <CoverImage key={hero._key} {...hero} imageAsset={hero.heroImage}/>
             )
           }) :
           <>
@@ -36,11 +36,12 @@ const LandingPage = ({pageContent}) => {
           </>
         }
       </header>
-      <section>        
+      <section>
+        <h3>Featured Content</h3>     
         {
           previewContainers.map((item) => {
             return (
-              <PreviewContainer content={item} />
+              <FeaturedContainer key={item._key} content={item} />
             )
           })
         }
