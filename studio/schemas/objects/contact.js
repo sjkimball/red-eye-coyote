@@ -11,18 +11,21 @@ export default {
     {
       name: 'email',
       title: 'Email Address',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'phone',
       title: 'Phone Number',
       description: 'e.g. 123 456 7890',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'address',
       title: 'Address',
-      type: 'address'
+      type: 'address',
+      validation: Rule => Rule.required().error('Office must have an address.')
     }
   ]
 }

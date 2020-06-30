@@ -9,21 +9,25 @@ import OfficeContact from '../components/office-contact'
 import './pages.css'
 
 const ContactPage = ({data}) => {
-  const offices = data.allSanityOffice.edges
+	const offices = data.offices.edges
   return (
     <Layout>
       <SEO title='Contact' />
-      <article id={`rec-contact`} className={`rec-article`}>
+      <article id={`rec-contact`} className={`rec-article rec-contact`}>
         <header id={`rec-contact__header`} className={`rec-article__header`}>
           <h2>Contact</h2>
         </header>
-        <section id={`rec-contact__body`} className={`rec-preview-container`}>
-          {offices.map(({node: office}) => {
-            return (
-              <OfficeContact key={office._id} office={office} />
-            )
-          })}
+				{
+					offices.length > 1 ?
+						<section id={`rec-contact__body`} className={`rec-preview-container`}>
+							{offices.map(({node: office}, index) => {
+								return (
+									<OfficeContact key={index} office={office} />
+								)
+							})}
         </section>
+				: <OfficeContact office={offices[0].node} />
+				}
       </article>
     </Layout>
   )
@@ -31,31 +35,12 @@ const ContactPage = ({data}) => {
 
 export const query = graphql`
 	query OfficeContact {
-	  allSanityOffice(sort: {fields: contactInfo___address___city}) {
+	  offices: allSanityOffice(sort: {fields: contactInfo___address___city}) {
 	    edges {
 	      node {
 	      	_id
 	        images {
-						asset {
-							_id
-							metadata {
-								lqip
-							}
-						}
-						altText
-						caption
-						crop {
-							top
-							bottom
-							left
-							right
-						}
-						hotspot {
-							x
-							y
-							height
-							width
-						}
+						...imageData
 					}
 	        contactInfo {
 	          address {

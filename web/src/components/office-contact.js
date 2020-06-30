@@ -4,6 +4,17 @@ import PreviewImage from '../components/preview-image'
 
 import './office-contact.css'
 
+function SecondaryAddress(props) {
+  if (!props.address.streetSecondary) {
+    return null;
+  }
+  return (
+    <>
+      {props.address.streetSecondary}<br />
+    </>
+  )
+}
+
 const OfficeContact = ({office}) => {
   const {images, contactInfo, description} = office
   const address = contactInfo.address
@@ -24,7 +35,7 @@ const OfficeContact = ({office}) => {
         </section>
         <address className={`rec-office__address`}>
           {address.street}<br />
-          {address.streetSecondary}<br />
+          <SecondaryAddress address={address} />
           {address.city}, {address.stateProvince} {address.postalCode}<br />
           {address.country}
         </address>
@@ -33,11 +44,13 @@ const OfficeContact = ({office}) => {
         </p>
       </section>
       <section className={`rec-office__images`}>
-        {images.map((image) => {
-          return (
-            <PreviewImage key={image.asset._id} imageAsset={image} />
-          )
-        })}
+        {
+          images.map((image) => {
+            return (
+              <PreviewImage key={image.asset._id} imageAsset={image} />
+            )
+          })
+        }
       </section>
     </article>
   )
