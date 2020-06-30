@@ -17,9 +17,9 @@ const Footer = ({darkMode, companyInfo}) => {
   return (
     <footer className={`mainFooter ${footerClass}`}>
       <ul className={`mainFooter__list`}>
-				{links.map((link) => {
+				{links.map((link, index) => {
 					return (
-						<li key={link._key}>
+						<li key={index}>
 							<a href={link.url} target="_blank" rel="noopener noreferrer"><small>{link.service.name}</small></a>
 						</li>
 					);
