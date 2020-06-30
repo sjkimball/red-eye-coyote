@@ -6,9 +6,6 @@
 .rec-office {
 	align-self: start;
 }
-.rec-office__images {
-	grid-row: 1;
-}
 .rec-office__header {
 	grid-row: 2;
 }
@@ -41,12 +38,17 @@
 		grid-template-columns: 1fr 1fr;
 		column-gap: var(--size-body);
 	}
-	.rec-office__info,
-	.rec-office__images {
+	.rec-office__info {
 		grid-column: 1/-1;
 	}
 	.rec-office__images {
 		display: contents;
+	}
+	.rec-preview-container .rec-office {
+		grid-template-columns: unset;
+	}
+	.rec-preview-container .rec-office__images {
+		display: grid;
 	}
 }
 
