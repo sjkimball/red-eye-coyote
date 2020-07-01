@@ -1,41 +1,81 @@
-import MdPerson from 'react-icons/lib/md/person'
-
 export default {
   name: 'person',
+  title: 'People',
   type: 'document',
-  title: 'Person',
-  icon: MdPerson,
+  initialValue: {
+    featured: false
+  },
   fields: [
     {
-      name: 'name',
-      type: 'string',
-      title: 'Name'
+      name: 'featured',
+      type: 'boolean',
+      title: 'Featured'
     },
     {
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
-      description: 'Some frontend will require a slug to be set to be able to show the person',
-      options: {
-        source: 'name',
-        maxLength: 96
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'profileImg',
+      title: 'Profile Image',
+      type: 'figure'
+    },
+    {
+      name: 'jobTitle',
+      title: 'Job Title',
+      type: 'reference',
+      to: {
+        type: 'jobTitle'
       }
     },
     {
-      name: 'image',
-      title: 'Image',
-      type: 'figure'
+      name: 'office',
+      title: 'Office',
+      type: 'reference',
+      to: [
+        {
+          type: 'office'
+        }
+      ]
     },
     {
       name: 'bio',
       title: 'Bio',
-      type: 'bioPortableText'
+      type: 'blockContent',
+      validation: Rule => Rule.required().error('Bio is a required field')
+    },
+    {
+      name: 'contactInfo',
+      title: 'Contact Info',
+      type: 'contact'
+    },
+    {
+      name: 'socialAccounts',
+      title: 'Social Accounts',
+      type: 'array',
+      of: [
+        {type: 'socialAccount'}
+      ]
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      description: `Click the 'Generate' button to create a slug based on the person's name.`,
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 96
+      },
+      validation: Rule => Rule.required().error('Looks like you may have forgotten to generate a slug.:(')
     }
   ],
   preview: {
     select: {
       title: 'name',
-      media: 'image'
+      subtitle: 'jobTitle.name',
+      media: 'profileImg.asset'
     }
   }
 }

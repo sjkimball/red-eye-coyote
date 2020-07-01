@@ -1,74 +1,107 @@
-import {format, distanceInWords, differenceInDays} from 'date-fns'
 import React from 'react'
+
 import {Link} from 'gatsby'
-import {buildImageObj} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
-import BlockContent from './block-content'
-import Container from './container'
-import RoleList from './role-list'
 
-import styles from './project.module.css'
+import BlockContent from '@sanity/block-content-to-react'
 
-function Project (props) {
-  const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props
+import CoverImage from '../components/cover-image'
+import PreviewImage from '../components/preview-image'
+
+import './contentLayout.css'
+
+const serializer = {
+  container: 'section',
+  types: {
+    figure: props => {
+      return (
+        <PreviewImage imageAsset={props.node} showCaption />
+      )
+    }
+  }
+}
+
+const Project = ({project}) => {
+  const {
+    client,
+    sector,
+    projectSummary,
+    _rawProjectDesc,
+    coverImg,
+    productImgs,
+    office,
+    disciplines,
+    projectMembers
+  } = project
+  
   return (
-    <article className={styles.root}>
-      {props.mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
-          <img
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
-              .fit('crop')
-              .url()}
-            alt={mainImage.alt}
-          />
-        </div>
-      )}
-      <Container>
-        <div className={styles.grid}>
-          <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
-            {_rawBody && <BlockContent blocks={_rawBody || []} />}
-          </div>
-          <aside className={styles.metaContent}>
-            {publishedAt && (
-              <div className={styles.publishedAt}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do YYYY')}
-              </div>
+    <article id={`rec-project`} className={`rec-article rec-project`}>
+      <header id={`rec-project__header`} className={`rec-article__header`}>
+        <h2>
+          {client.name}
+        </h2>
+        <section className={`rec-project__disciplines`}>
+          <h6 hidden>Disciplines</h6>
+          <ul className={`rec-tags`}>
+            {disciplines.map((discipline, index) =>
+              <li key={index} value={discipline} className={`rec-tag--primary`}>{discipline}</li>
             )}
-            {members && members.length > 0 && <RoleList items={members} title='Project members' />}
-            {categories && categories.length > 0 && (
-              <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Categories</h3>
-                <ul>
-                  {categories.map(category => (
-                    <li key={category._id}>{category.title}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {relatedProjects && relatedProjects.length > 0 && (
-              <div className={styles.relatedProjects}>
-                <h3 className={styles.relatedProjectsHeadline}>Related projects</h3>
-                <ul>
-                  {relatedProjects.map(project => (
-                    <li key={`related_${project._id}`}>
-                      {project.slug ? (
-                        <Link to={`/project/${project.slug.current}`}>{project.title}</Link>
-                      ) : (
-                        <span>{project.title}</span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </aside>
-        </div>
-      </Container>
+          </ul>
+        </section>
+        <h4>
+          {projectSummary}
+        </h4>
+        <CoverImage imageAsset={coverImg} />
+      </header>
+      <section id={`rec-project__body`} className={'rec-article__body'}>
+        <BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`rec-body__description`} />
+        <section className={`rec-body__gallery`}>
+          {productImgs.map((image) => {
+            return (
+              <PreviewImage
+                key={image.asset._id}
+                imageAsset={image}
+              />
+            )
+          })}
+        </section>
+        <section className={`rec-body__metadata`}>
+          <section>
+            <h6>Client</h6>
+            <ul>
+              <li>{client.name}</li>
+            </ul>
+          </section>
+          <section>
+            <h6>Sector</h6>
+            <p>{sector}</p>
+          </section>
+          <section>
+            <h6>Disciplines</h6>
+            <ul>
+              {disciplines.map((discipline, index) =>
+                <li key={index} value={discipline}>{discipline}</li>
+              )}
+            </ul>
+          </section>
+          <section>
+            <h6>Office</h6>
+            <ul>
+              <li key={office._id} value={office.contactInfo.address.city}>{office.contactInfo.address.city}</li>
+            </ul>
+          </section>
+          <section>
+            <h6>Partner</h6>
+            <ul>
+              {projectMembers.map((member) =>
+                <li key={member._key} value={member.person.name}>{member.person.name}</li>
+              )}
+            </ul>
+          </section>
+        </section>
+      </section>
+      <footer id={`rec-project__footer`} className={`rec-article__footer`}>
+        <Link to='/work'>&larr; Work</Link>
+      </footer>
     </article>
   )
 }

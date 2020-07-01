@@ -1,0 +1,30 @@
+.preview {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.preview .preview-image {
+  order: -1;
+  margin-bottom: calc(var(--size-body)/2);
+}
+.preview h4,
+.preview p {
+  margin-bottom: 0;
+}
+.preview p {
+  color: var(--gray3);
+  font-weight: var(--medium);
+}
+.preview time {
+  color: var(--gray3);
+  display: block;
+  font-weight: var(--text-weight1);
+  margin-bottom: calc(var(--body-leading) / 3);
+}
+.preview--light {
+  color: var(--gray5)
+}
+.preview--dark {
+  color: var(--gray1)
+}

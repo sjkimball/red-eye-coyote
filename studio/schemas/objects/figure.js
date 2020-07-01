@@ -3,23 +3,24 @@ export default {
   title: 'Image',
   type: 'image',
   options: {
-    hotspot: true
+    hotspot: true,
+    collapsible: true,
+    collapsed: false
   },
   fields: [
     {
-      title: 'Caption',
-      name: 'caption',
+      name: 'altText',
+      title: 'Alternative Text',
       type: 'string',
       options: {
         isHighlighted: true
-      }
+      },
+      validation: Rule => Rule.required().min(10).max(80)
     },
     {
-      name: 'alt',
+      name: 'caption',
+      title: 'Caption',
       type: 'string',
-      title: 'Alternative text',
-      validation: Rule => Rule.error('You have to fill out the alternative text.').required(),
-      description: 'Important for SEO and accessiblity.',
       options: {
         isHighlighted: true
       }

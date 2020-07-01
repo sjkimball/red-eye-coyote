@@ -1,49 +1,109 @@
-const {isFuture} = require('date-fns')
 /**
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-async function createProjectPages (graphql, actions, reporter) {
-  const {createPage} = actions
-  const result = await graphql(`
-    {
-      allSanitySampleProject(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}) {
-        edges {
-          node {
-            id
-            publishedAt
-            slug {
-              current
-            }
-          }
-        }
-      }
-    }
-  `)
+exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => {
+	const allProjects = await graphql(`
+		{
+			allSanityProject {
+				edges {
+					node {
+						slug {
+							current
+						}
+						client {
+							slug{
+								current
+							}
+						}
+					}
+				}
+			}
+		}
+	`);
 
-  if (result.errors) throw result.errors
+	if (allProjects.error) {
+		reporter.panic('There was a problem loading the project.');
+		return;
+	}
 
-  const projectEdges = (result.data.allSanitySampleProject || {}).edges || []
+	const allPosts = await graphql(`
+		{
+			allSanityPost {
+			  edges {
+			    node {
+			      slug {
+			        current
+			      }
+			    }
+			  }
+			}
+		}
+	`);
 
-  projectEdges
-    .filter(edge => !isFuture(edge.node.publishedAt))
-    .forEach(edge => {
-      const id = edge.node.id
-      const slug = edge.node.slug.current
-      const path = `/project/${slug}/`
+	if (allPosts.error) {
+		reporter.panic('There was a problem loading the post.');
+		return;
+	}
 
-      reporter.info(`Creating project page: ${path}`)
+	const allPeople = await graphql(`
+		{
+			allSanityPerson {
+			  edges {
+			    node {
+			      slug {
+			        current
+			      }
+			    }
+			  }
+			}
+		}
+	`);
 
-      createPage({
-        path,
-        component: require.resolve('./src/templates/project.js'),
-        context: {id}
-      })
-    })
-}
+	if (allPeople.error) {
+		reporter.panic('There was a problem loading the person.');
+		return;
+	}
 
-exports.createPages = async ({graphql, actions, reporter}) => {
-  await createProjectPages(graphql, actions, reporter)
-}
+
+	const projects = allProjects.data.allSanityProject.edges;
+	const posts = allPosts.data.allSanityPost.edges;
+	const people = allPeople.data.allSanityPerson.edges;
+
+
+	projects.forEach(({ node: project }) => {
+
+		createPage({
+			path: `/work/${project.client.slug.current}/${project.slug.current}`,
+			component: require.resolve('./src/templates/project.js'),
+			context: {
+					slug: project.slug.current,
+					clientSlug: project.client.slug.current
+				}
+		});
+	});
+
+	posts.forEach(({ node: post }) => {
+
+		createPage({
+			path: `/blog/${post.slug.current}`,
+			component: require.resolve('./src/templates/post.js'),
+			context: {
+					slug: post.slug.current
+				}
+		});
+	});
+
+	people.forEach(({ node: person }) => {
+
+		createPage({
+			path: `/about/${person.slug.current}`,
+			component: require.resolve('./src/templates/profile.js'),
+			context: {
+					slug: person.slug.current
+				}
+		});
+	});
+};

@@ -1,8 +1,9 @@
 import S from '@sanity/desk-tool/structure-builder'
-import MdSettings from 'react-icons/lib/md/settings'
 
-const hiddenDocTypes = listItem =>
-  !['category', 'person', 'sampleProject', 'siteSettings'].includes(listItem.getId())
+import {FaBullhorn, FaCog, FaHome, FaRegFileAlt, FaRegBuilding, FaRegIdCard} from 'react-icons/fa'
+
+import portfolio from './src/structure/portfolio'
+import staff from './src/structure/staff'
 
 export default () =>
   S.list()
@@ -10,27 +11,81 @@ export default () =>
     .items([
       S.listItem()
         .title('Settings')
+        .icon(FaCog)
         .child(
           S.editor()
-            .id('siteSettings')
             .schemaType('siteSettings')
             .documentId('siteSettings')
-        )
-        .icon(MdSettings),
+        ),
+      S.documentListItem()
+        .title('Frontpage')
+        .schemaType('page')
+        .icon(FaHome)
+        .child(
+          S.document()
+            .schemaType('page')
+            .documentId('frontpage')
+        ),
+      S.divider(),
       S.listItem()
-        .title('Sample projects')
-        .schemaType('sampleProject')
-        .child(S.documentTypeList('sampleProject').title('Sample projects')),
+        .title('Pages')
+        .icon(FaRegFileAlt)
+        .child(
+          S.documentTypeList('page').title('Pages')
+        ),
       S.listItem()
-        .title('People')
-        .schemaType('person')
-        .child(S.documentTypeList('person').title('People')),
+        .title('Blog')
+        .icon(FaBullhorn)
+        .child(
+          S.list()
+            .title('Blog')
+            .items([
+              S.listItem()
+                .title('Blog Settings')
+                .icon(FaCog)
+                .child(
+                  S.editor()
+                    .schemaType('blogSettings')
+                    .documentId('blogSettings')
+                ),
+              S.listItem()
+                .title('Posts')
+                .schemaType('post')
+                .child(S.documentTypeList('post').title('Posts'))
+            ])
+        ),
+      S.divider(),
+      portfolio,
+      S.divider(),
       S.listItem()
-        .title('Categories')
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
-      // This returns an array of all the document types
-      // defined in schema.js. We filter out those that we have
-      // defined the structure above
-      ...S.documentTypeListItems().filter(hiddenDocTypes)
-    ])
+        .title('Company Information')
+        .icon(FaRegIdCard)
+        .child(
+          S.editor()
+            .schemaType('companyInfo')
+            .documentId('companyInfo')
+        ),
+      staff,
+      S.listItem()
+        .title('Offices')
+        .icon(FaRegBuilding)
+        .schemaType('office')
+        .child(
+          S.documentTypeList('office').title('Offices')
+        ),
+      ...S.documentTypeListItems().filter(listItem =>
+        ![
+          'blogSettings',
+          'client',
+          'companyInfo',
+          'jobTitle',
+          'office',
+          'page',
+          'person',
+          'post',
+          'project',
+          'siteSettings',
+          'socialMediaService'
+        ].includes(listItem.getId()))
+    ]
+    )

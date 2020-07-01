@@ -1,0 +1,21 @@
+/* Mobile styles */
+.mainFooter--dark {
+	background-color: var(--gray5);
+	color: var(--gray1);
+}
+.mainFooter__list,
+.mainFooter__list li {
+	margin-bottom: 0;
+}
+.mainFooter__list {
+	column-count: 2;
+	list-style-type: none;
+	margin-left: 0;
+}
+.mainFooter__list a,
+.copyright {
+	color: inherit;
+}
+.mainFooter__list a {
+	text-decoration: none;
+}
