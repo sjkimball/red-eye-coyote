@@ -78,7 +78,7 @@ ul.nav-links.is-active {
 }
 
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 600px) {
 	.header-logo h1 {
 		font-size: 24px;
 	}

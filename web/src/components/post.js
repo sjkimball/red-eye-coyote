@@ -7,6 +7,8 @@ import BlockContent from '@sanity/block-content-to-react'
 import CoverImage from '../components/cover-image'
 import PreviewImage from '../components/preview-image'
 
+import { format } from 'date-fns'
+
 import './contentLayout.css'
 
 const serializers = {
@@ -28,13 +30,24 @@ const Post = ({post}) => {
     title,
     subtitle
   } = post
-
+  const formattedDate = format(publishedAt, 'MMMM d, YYYY')
   return (
     <article id={`rec-post`} className={`rec-article rec-post`}>
-      <header id={`rec-post__header`} className={`rec-article__header`}>
+      <header className={`rec-article__header`}>
         <h2>
           {title}
         </h2>
+        <h4>{subtitle}</h4>
+        <ul className={`rec-post__authors`}>
+          {
+            authors.map((author)=> {
+              return (
+                <li>{author.name}</li>
+              )
+            })
+          }
+        </ul>
+        <time dateTime={publishedAt}>{formattedDate}</time>
         <ul className={`rec-tags`}>
           {keywords.map((keyword, index) => {
             return (
@@ -42,9 +55,6 @@ const Post = ({post}) => {
             )
           })}
         </ul>
-        <time dateTime={publishedAt}>{publishedAt}</time>
-        <h4>{subtitle}</h4>
-        <p className={`blog-post__author`}>{authors[0].name}</p>
         <CoverImage imageAsset={coverImg} />
       </header>
       <section id={`rec-post__body`} className="rec-article__body">

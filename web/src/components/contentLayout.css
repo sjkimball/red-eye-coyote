@@ -26,16 +26,20 @@
   color: var(--gray1);
 }
 .rec-tags,
+.rec-post__authors,
 .rec-body__metadata ul {
   list-style-type: none;
   margin-left: 0;
 }
 .rec-tags,
+.rec-post__authors,
 .rec-body__gallery {
   display: flex;
 }
 .rec-tags,
 .rec-tags li,
+.rec-post__authors,
+.rec-post__authors li,
 .rec-article__header > *,
 .rec-article__body > *,
 .rec-body__description > *,
@@ -50,7 +54,8 @@
 .rec-tags {
 	flex-wrap: wrap;
 }
-.rec-tags li {
+.rec-tags li,
+.rec-post__authors li {
 	color: var(--gray3);
 	margin-right: calc(var(--size-body)/2);
 	font-weight: var(--regular);

@@ -37,7 +37,6 @@ const LandingPage = ({pageContent}) => {
         }
       </header>
       <section>
-        <h3>Featured Content</h3>     
         {
           previewContainers.map((item) => {
             return (
