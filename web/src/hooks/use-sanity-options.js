@@ -7,7 +7,6 @@ const useSanityOptions = () => {
 			    pluginOptions {
 			      projectId
 			      dataset
-			      token
 			    }
 			  }
 			}

@@ -15,7 +15,6 @@ module.exports = {
     author: `@sjkimball`
   },
   plugins: [
-    'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-sanity',
