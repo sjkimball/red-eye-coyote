@@ -96,6 +96,24 @@
 	color: var(--gray1);
 	text-decoration: none;
 }
+.avatar-image {
+	height: 50px;
+	border-radius: 50%;
+	margin-right: calc(var(--size-body)/2);
+	margin-bottom: 0;
+	order: -1;
+}
+.rec-post__avatars {
+	display: flex;
+	text-decoration: none;
+	cursor: pointer;
+	align-items: center;
+}
+.rec-post__avatars p {
+	margin-bottom: 0;
+	color: var(--gray5);
+	font-weight: var(--medium);
+}
 @media screen and (min-width: 600px) {
 	.rec-article {
 		padding: calc(var(--size-body) * 3) 0;

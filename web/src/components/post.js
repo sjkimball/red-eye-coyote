@@ -6,6 +6,7 @@ import BlockContent from '@sanity/block-content-to-react'
 
 import CoverImage from '../components/cover-image'
 import PreviewImage from '../components/preview-image'
+import AvatarImage from '../components/avatar-image'
 
 import { format } from 'date-fns'
 
@@ -19,8 +20,41 @@ const serializers = {
     )
   }
 }
+function getAvatar(author, prefix, index) {
+  return (
+    <a key={index} href={`${prefix}${author.slug.current}`}><AvatarImage key={index} imageAsset={author.profileImg} /></a>
+  )
+}
+function getName(author, prefix, index) {
+  return (
+    <a key={index} href={`${prefix}${author.slug.current}`}><span>{author.name}</span></a>
+  )
+}
+
+function showAuthors(authorArray, prefix) {
+  if (authorArray.length == 1) {
+    return (
+      <>
+      {getAvatar(authorArray[0], prefix)}
+      <p>By {getName(authorArray[0], prefix)}</p>
+      </>
+    )
+  } else {
+    return (
+      <>
+        <div>{authorArray.map((author)=> {
+          return getAvatar(author, prefix)
+        })}</div>
+        <p>By&nbsp;
+          {authorArray.map(author => getName(author, prefix))}
+        </p>
+      </>
+    )
+  }
+}
 
 const Post = ({post}) => {
+  const prefix = '/about/'
   const {
     authors,
     _rawBody,
@@ -31,6 +65,7 @@ const Post = ({post}) => {
     subtitle
   } = post
   const formattedDate = format(publishedAt, 'MMMM d, YYYY')
+  const preppedAuthors = showAuthors(authors, prefix)
   return (
     <article id={`rec-post`} className={`rec-article rec-post`}>
       <header className={`rec-article__header`}>
@@ -38,23 +73,9 @@ const Post = ({post}) => {
           {title}
         </h2>
         <h4>{subtitle}</h4>
-        <ul className={`rec-post__authors`}>
-          {
-            authors.map((author)=> {
-              return (
-                <li>{author.name}</li>
-              )
-            })
-          }
-        </ul>
-        <time dateTime={publishedAt}>{formattedDate}</time>
-        <ul className={`rec-tags`}>
-          {keywords.map((keyword, index) => {
-            return (
-              <li key={index} value={keyword} className={`rec-tag--primary`}>{keyword}</li>
-            )
-          })}
-        </ul>
+        <div>
+          {preppedAuthors}
+        </div>
         <CoverImage imageAsset={coverImg} />
       </header>
       <section id={`rec-post__body`} className="rec-article__body">

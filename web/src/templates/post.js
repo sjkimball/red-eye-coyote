@@ -21,8 +21,17 @@ export const query = graphql`
 			slug {
 				current
 			}
-			authors {
+			authors {				
 				name
+				jobTitle {
+					name
+				}
+				profileImg {
+					...imageData
+				}
+				slug {
+					current
+				}
 			}
 			title
 			subtitle
