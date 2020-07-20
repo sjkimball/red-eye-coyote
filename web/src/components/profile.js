@@ -3,6 +3,7 @@ import React from 'react';
 import BlockContent from '@sanity/block-content-to-react';
 
 import PreviewImage from '../components/preview-image';
+import ProjectPreview from '../components/project-preview'
 
 import './contentLayout.css'
 
@@ -15,7 +16,7 @@ const serializer = {
 	}
 }
 
-const Profile = ({ profile }) => {
+const Profile = ({ profile, relatedProjects }) => {
 	const {
 		profileImg,
 		name,
@@ -25,7 +26,7 @@ const Profile = ({ profile }) => {
 
 	return (
 		<article id={`rec-profile`} className={`rec-article rec-article--dark rec-profile`}>
-			<header id={`rec-profile__header`} className={`rec-article__header rec-article__header--dark`}>
+			<header className={`rec-article__header rec-article__header--dark`}>
 				<h2>{name}
 					<br/>
 					<span>{office.contactInfo.address.city}</span>
@@ -35,11 +36,11 @@ const Profile = ({ profile }) => {
 			<section id={`rec-profile__body`} className="rec-article__body">
 				<BlockContent blocks={_rawBio} serializers={serializer} renderContainerOnSingleChild={true} className={`rec-body__bio`}/>
 			</section>
-			<footer id={`rec-profile__footer`} className={`rec-article__footer`}>
-				<h6>Additional Information</h6>
-				<a href={`https://indd.adobe.com/view/2b8d0c68-0fd6-48a6-8e68-14709b35471e`} target="_blank" rel="noopener noreferrer">Resume</a>
-				<a href={`https://www.linkedin.com/in/sjkimball/`} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-			</footer>
+			<section className={`rec-preview-container`}>
+				{
+					relatedProjects.map(({node: project}) => <ProjectPreview project={project} />)
+				}
+			</section>
 		</article>
 	);
 };

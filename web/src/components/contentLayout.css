@@ -189,8 +189,13 @@
 	.rec-post.rec-article {
 		grid-template-rows: min-content;
 	}
+	.rec-profile.rec-article {
+		grid-template-rows: 168px auto;
+	}
 	.rec-profile.rec-article .rec-article__header {
-		display: contents;
+		grid-column: 1/-1;
+		grid-row: 1/span 4;
+		grid-auto-flow: column;
 	}
 	.rec-profile.rec-article .rec-article__header .preview-image {
 		grid-row: 1 / span 2;
@@ -203,15 +208,21 @@
 		grid-auto-rows: min-content;
 	}
 	.rec-project.rec-article .rec-body__metadata,
+	.rec-profile.rec-article .rec-article__header .preview-image,
 	.rec-post.rec-article .rec-article__header {
 		position: -webkit-sticky;
 		position: sticky;
 	}
 	.rec-project.rec-article .rec-body__metadata {
+	.rec-post.rec-article .rec-article__header,
+	.rec-profile.rec-article .rec-article__header .preview-image {
+		top: 112px;
+	}
 		grid-row: 2;
 		top: 64px;
 	}
-	.rec-post.rec-article .rec-article__header {
-		top: calc(64px + calc(var(--size-body)*2))
+	.rec-profile.rec-article .rec-preview-container {
+		grid-column: 1/-1;
+		grid-template-columns: 1fr 1fr;
 	}
 }
