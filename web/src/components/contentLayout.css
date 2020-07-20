@@ -214,12 +214,14 @@
 		position: sticky;
 	}
 	.rec-project.rec-article .rec-body__metadata {
+		top: 64px;
+	}
 	.rec-post.rec-article .rec-article__header,
 	.rec-profile.rec-article .rec-article__header .preview-image {
 		top: 112px;
 	}
+	.rec-project.rec-article .rec-body__metadata {
 		grid-row: 2;
-		top: 64px;
 	}
 	.rec-profile.rec-article .rec-preview-container {
 		grid-column: 1/-1;
