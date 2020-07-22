@@ -674,15 +674,12 @@ pre tt:after {
   row-gap: var(--size-body);
 }
 .mainHeader {
-  align-items: center;
-  display: flex;
 	height: 48px;
-	position: fixed;
-	top: 0;
-	width: 100vw;
+  position: sticky;
+  top: 0;
 }
 .mainContainer {
-  margin-top: 48px;
+  /* overflow-y: hidden; */
 }
 .mainFooter {
   color: var(--gray2);
