@@ -51,18 +51,18 @@ class Header extends React.Component {
 					</Link>
 					<ul id={`nav-links`} className={`rec-nav-links`}>
 						<li>
-							<Link to="/work" className={`nav-link`} activeClassName="active" partiallyActive={true}>Work</Link>
+							<Link to="/work" className={`nav-link`} activeClassName={`nav-link--active`} partiallyActive={true}>Work</Link>
 						</li>
 						{(staffInfo.totalCount === 1) ?
-							(<li><Link to={`/about/${staffInfo.edges[0].node.slug.current}`} className={`nav-link`} activeClassName="active" partiallyActive={true}>About</Link></li>)
+							(<li><Link to={`/about/${staffInfo.edges[0].node.slug.current}`} className={`nav-link`} activeClassName={`nav-link--active`} partiallyActive={true}>About</Link></li>)
 							:
-							(<li><Link to="/about" className={`nav-link`} activeClassName="active" partiallyActive={true}>About</Link></li>)
+							(<li><Link to="/about" className={`nav-link`} activeClassName={`nav-link--active`} partiallyActive={true}>About</Link></li>)
 						}
 						<li>
-							<Link to="/blog" className={`nav-link`} activeClassName="active" partiallyActive={true}>Blog</Link>
+							<Link to="/blog" className={`nav-link`} activeClassName={`nav-link--active`} partiallyActive={true}>Blog</Link>
 						</li>
 						<li>
-							<Link to="/contact" className={`nav-link`} activeClassName="active" partiallyActive={true}>Contact</Link>
+							<Link to="/contact" className={`nav-link`} activeClassName={`nav-link--active`} partiallyActive={true}>Contact</Link>
 						</li>
 					</ul>
 					<button id="rec-menuButton" className={`rec-button`} onClick={this.showMenu}>
@@ -73,7 +73,7 @@ class Header extends React.Component {
 						</svg>
 					</button>
 				</nav>
-				<HeaderMask siteTitle={siteTitle} />
+				<HeaderMask siteTitle={siteTitle} darkMode={darkMode} />
 			</header>
 		);
 	}

@@ -1,6 +1,14 @@
 import React from 'react'
 
-const HeaderMask = ({siteTitle}) => (
+const HeaderMask = ({siteTitle, darkMode}) => {
+	// const light = document.getElementById("light");
+	// const dark = document.getElementById("dark");
+	// if (darkMode) {
+	// 	light.setAttribute("mask", "url(#theMask)");
+	// } else {
+	// 	dark.setAttribute("mask", "url(#theMask)");		
+	// }
+	return(
     <svg xmlns="http://www.w3.org/2000/svg" className={`headerMask`}>
 			<defs>
 				<text id="name" className={`h1__mask`} transform="translate(16 32)">{siteTitle}</text>
@@ -9,15 +17,15 @@ const HeaderMask = ({siteTitle}) => (
 					<rect id="black" width="100%" height="48" fill="#000"/>
 				</mask>			
 			</defs>
-			<g>
+			<g id="light">
 				<use href="#bkgd" fill="#fff"/>
 				<use href="#name" />
 			</g>			
-			<g mask="url(#theMask)">
-				<use href="#bkgd" fill="#0C0C0C"/>
+			<g id="dark" mask="url(#theMask)">
+				<use href="#bkgd" fill="var(--gray5)"/>
 				<use href="#name" fill="#fff"/>
 			</g>
 		</svg>
   );
-
+}
 export default HeaderMask;

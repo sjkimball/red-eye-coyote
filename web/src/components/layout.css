@@ -677,9 +677,7 @@ pre tt:after {
 	height: 48px;
   position: sticky;
   top: 0;
-}
-.mainContainer {
-  /* overflow-y: hidden; */
+  z-index: 10;
 }
 .mainFooter {
   color: var(--gray2);
@@ -695,9 +693,6 @@ pre tt:after {
   .mainHeader {
 		height: 64px;
 	}
-  .mainContainer {
-    margin-top: 64px;
-  }
 }
 /*Desktop styles*/
 @media screen and (min-width: 1240px) {

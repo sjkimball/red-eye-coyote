@@ -35,13 +35,14 @@ const maskTl = () => {
 
 const linksTl = () => {
   const tl = gsap.timeline({duration: 0.5});
-  tl.from("#nav-links", {
-    height: "0",
-    paddingTop: "0",
-    clearProps: "height,paddingTop"
+  tl.set("#nav-links", {clearProps: true});
+  tl.set(".nav-link", {clearProps: true});
+  tl.to("#nav-links", {
+    height: "calc(100vh - 48px)",
+    paddingTop: "2rem"
   });
-  tl.from(".nav-link", {
-    opacity: 0,
+  tl.to(".nav-link", {
+    opacity: 1,
     stagger: 0.2
   });
   return tl;
