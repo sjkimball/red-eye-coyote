@@ -79,10 +79,10 @@
 	color: var(--gray1);
 	font-weight: var(--regular);
 	letter-spacing: 0.5px;
-	margin-bottom: var(--size-body);
+	margin-bottom: var(--spacer);
 	opacity: 0;
-	padding-left: calc(var(--size-body) / 4);
-	padding-right: calc(var(--size-body) / 4);
+	padding-left: calc(var(--spacer) / 4);
+	padding-right: calc(var(--spacer) / 4);
 	text-align: center;
 	text-transform: uppercase;
 }

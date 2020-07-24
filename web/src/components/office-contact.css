@@ -15,7 +15,7 @@
 .rec-office,
 .rec-office__info,
 .rec-office__images {
-	row-gap: var(--size-body);
+	row-gap: var(--spacer);
 }
 .rec-office__header > *,
 .rec-office__info > *,
@@ -36,7 +36,7 @@
 @media screen and (min-width: 600px) {
 	.rec-office {
 		grid-template-columns: 1fr 1fr;
-		column-gap: var(--size-body);
+		column-gap: var(--spacer);
 	}
 	.rec-office__info {
 		grid-column: 1/-1;

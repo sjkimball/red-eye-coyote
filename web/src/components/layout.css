@@ -48,6 +48,9 @@
   --lh-small: 1.5rem;
   --lh-xsmall: 1rem;
   --lh-caption: 1rem;
+
+  /* Spacing */
+  --spacer: 16px;
 }
 
 html {
@@ -421,7 +424,7 @@ dd {
 }
 p {
   line-height: var(--lh-body);
-  margin-bottom: var(--size-body);
+  margin-bottom: var(--spacer);
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -665,13 +668,13 @@ pre tt:after {
 .mainHeader,
 .mainContainer,
 .mainFooter {
-  padding-right: calc(var(--size-body)*1);
-  padding-left: calc(var(--size-body)*1);	
+  padding-right: var(--spacer);
+  padding-left: var(--spacer);	
 }
 .mainContainer,
 .mainFooter {
   display: grid;
-  row-gap: var(--size-body);
+  row-gap: var(--spacer);
 }
 .mainHeader {
 	height: 48px;
@@ -683,12 +686,17 @@ pre tt:after {
   color: var(--gray2);
 	padding-bottom: 48px;
 }
+/* @media screen and (min-width: 320px) {
+  :root {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+} */
 @media screen and (min-width: 600px) {
   .mainHeader,
   .mainContainer,
   .mainFooter {
-    padding-left: calc(var(--size-body) * 2);
-		padding-right: calc(var(--size-body) * 2);
+    padding-left: calc(var(--spacer) * 2);
+		padding-right: calc(var(--spacer) * 2);
   }
   .mainHeader {
     height: 64px;
@@ -696,7 +704,11 @@ pre tt:after {
     align-items: center;
 	}
 }
-/*Desktop styles*/
+/* @media screen and (min-width: 1000px) {
+  :root {
+    font-size: 22px;
+  }
+} */
 @media screen and (min-width: 1240px) {
   .mainContainer,
   .mainFooter {

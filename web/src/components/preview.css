@@ -7,7 +7,7 @@
 }
 .preview .preview-image {
   order: -1;
-  margin-bottom: calc(var(--size-body)/2);
+  margin-bottom: calc(var(--spacer)/2);
 }
 .preview h4,
 .preview p {
