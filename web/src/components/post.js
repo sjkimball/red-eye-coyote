@@ -46,7 +46,11 @@ function showAuthors(authorArray, prefix) {
           return getAvatar(author, prefix)
         })}</div>
         <p>By&nbsp;
-          {authorArray.map(author => getName(author, prefix))}
+          {authorArray.map((author, i) => [
+            (i > 0 && i !== authorArray.length - 1) && ", ",
+            (i > 0 && ", ") && (i == authorArray.length -1 && " and "),
+            getName(author, prefix)
+            ])}
         </p>
       </>
     )
@@ -73,7 +77,7 @@ const Post = ({post}) => {
           {title}
         </h2>
         <h4>{subtitle}</h4>
-        <div>
+        <div className={`rec-article__authors`}>
           {preppedAuthors}
         </div>
         <CoverImage imageAsset={coverImg} />
