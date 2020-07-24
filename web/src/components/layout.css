@@ -691,7 +691,9 @@ pre tt:after {
 		padding-right: calc(var(--size-body) * 2);
   }
   .mainHeader {
-		height: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
 	}
 }
 /*Desktop styles*/

@@ -1,5 +1,5 @@
 /*Mobile styles*/
-.mainHeader {
+.mainHeader--light {
 	background-color: white;
 	color: var(--gray5);
 }
@@ -12,7 +12,7 @@
 	color: inherit;
 	display: flex;
 	justify-content: space-between;
-	/* max-width: 1200px; */
+	max-width: 1400px;
 	position: relative;
 	width: 100%;
 	z-index: 10;
@@ -51,9 +51,14 @@
 }
 .rec-button-icon {
 	height: 22px;
-	stroke: var(--gray5);
 	stroke-linecap: round;
 	stroke-width: 3;
+}
+.rec-button-icon--white {
+	stroke: var(--gray1)
+}
+.rec-button-icon--black {
+	stroke: var(--gray5)
 }
 .rec-nav-links {
 	align-items: center;
@@ -86,18 +91,8 @@
 	font-weight: var(--medium);
 }
 
-
 @media screen and (min-width: 600px) {
-	.mainHeader {
-		display: flex;
-		align-items: center;
-	}
 	.mainNav {
-		align-items: center;
-		color: inherit;
-		display: flex;
-		justify-content: space-between;
-		/* max-width: 1200px; */
 		position: static;
 		z-index: unset;
 	}
@@ -114,15 +109,12 @@
 		display: none;
 	}
 	.rec-nav-links {
-		align-items: center;
 		background-color: unset;
 		color: inherit;
 		flex-direction: row;
 		height: initial;
-		list-style-type: none;
-		margin-bottom: 0;
-		margin-left: -1rem;
-		opacity: .95;
+		margin-left: 0;
+		opacity: 1;
 		padding-top: unset;
 		position: static;
 		width: initial;
@@ -131,11 +123,14 @@
 		margin-bottom: 0;
 	}
 	.nav-link {
-		color: var(--gray2);
+		color: inherit;
 		opacity: 1;
 	}
-	.nav-link--active {
-		color: var(--gray5);
+	.mainHeader--light .nav-link {
+		color: var(--gray2);
+	}
+	.mainHeader--light .nav-link--active {
+		color: inherit;
 	}
 }
 

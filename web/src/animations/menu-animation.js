@@ -6,7 +6,7 @@ const iconTl = () => {
     attr: {
       y1: "22",
     },
-    stroke: "#fff"
+    stroke: "#F2F2F2"
   });
   tl.to("#middle", {
     x: "24",
@@ -16,7 +16,7 @@ const iconTl = () => {
     attr: {
       y1: "2"
     },
-    stroke: "#fff"
+    stroke: "#F2F2F2"
   }, "<");
   return tl;
 }
