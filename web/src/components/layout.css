@@ -709,7 +709,7 @@ pre tt:after {
 }
 @media screen and (min-width: 1000px) {
   :root {
-    font-size: 20px;
+    font-size: 19px;
   }
 }
 @media screen and (min-width: 1240px) {

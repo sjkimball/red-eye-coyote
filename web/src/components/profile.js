@@ -36,11 +36,11 @@ const Profile = ({ profile, relatedProjects }) => {
 			<section id={`rec-profile__body`} className="rec-article__body">
 				<BlockContent blocks={_rawBio} serializers={serializer} renderContainerOnSingleChild={true} className={`rec-body__bio`}/>
 			</section>
-			<section className={`rec-preview-container`}>
+			{/* <section className={`rec-preview-container`}>
 				{
 					relatedProjects.map(({node: project}) => <ProjectPreview project={project} />)
 				}
-			</section>
+			</section> */}
 		</article>
 	);
 };

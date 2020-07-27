@@ -7,21 +7,21 @@
 }
 .preview .preview-image {
   order: -1;
-  margin-bottom: calc(var(--spacer)/2);
 }
 .preview h4,
 .preview p {
   margin-bottom: 0;
 }
+.preview-image {
+  margin-bottom: calc(var(--spacer)/2);
+}
 .preview p {
-  color: var(--gray3);
   font-weight: var(--medium);
 }
 .preview time {
   color: var(--gray3);
   display: block;
-  font-weight: var(--text-weight1);
-  margin-bottom: calc(var(--body-leading) / 3);
+  font-size: var(--size-small);
 }
 .preview:hover h4 {
   text-decoration: underline;
