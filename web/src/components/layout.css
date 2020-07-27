@@ -33,19 +33,19 @@
 
   --size-body: 1rem;
   --size-h1: 4.25rem;
-  --size-h2: 2.625rem;
-  --size-h3: 1.625rem;
-  --size-h4: 1rem;
+  --size-h2: 2.25rem;
+  --size-h3: 1.75rem;
+  --size-h4: 1.25rem;
   --size-small: .875rem;
   --size-xsmall: .75rem;
   --size-caption: .75rem;
 
-  --lh-body: 1.5rem;
+  --lh-body: 1.25rem;
   --lh-h1: 4.5rem;
-  --lh-h2: 3rem;
-  --lh-h3: 2.5rem;
+  --lh-h2: 2.5rem;
+  --lh-h3: 2rem;
   --lh-h4: 1.5rem;
-  --lh-small: 1.5rem;
+  --lh-small: 1.25rem;
   --lh-xsmall: 1rem;
   --lh-caption: 1rem;
 
@@ -337,6 +337,7 @@ h4 {
   margin-bottom: 1.45rem;
   color: inherit;
   font-weight: var(--bold);
+  letter-spacing: .25px;
   font-size: var(--size-h4);
   line-height: var(--lh-h4);
 }
@@ -688,11 +689,11 @@ pre tt:after {
   grid-template-columns: 1fr 1fr;
   column-gap: var(--spacer);
 }
-/* @media screen and (min-width: 320px) {
+@media screen and (min-width: 320px) {
   :root {
-    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(16px + 4 * ((100vw - 320px) / 680));
   }
-} */
+}
 @media screen and (min-width: 600px) {
   .mainHeader,
   .mainContainer,
@@ -706,11 +707,11 @@ pre tt:after {
     align-items: center;
   }
 }
-/* @media screen and (min-width: 1000px) {
+@media screen and (min-width: 1000px) {
   :root {
-    font-size: 22px;
+    font-size: 20px;
   }
-} */
+}
 @media screen and (min-width: 1240px) {
   .mainContainer,
   .mainFooter {
