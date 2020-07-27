@@ -77,6 +77,7 @@ const Post = ({post}) => {
           {title}
         </h2>
         <h4>{subtitle}</h4>
+        <time dateTime={publishedAt}>{formattedDate}</time>
         <div className={`rec-article__authors`}>
           {preppedAuthors}
         </div>

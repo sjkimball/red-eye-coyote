@@ -18,6 +18,7 @@
 .rec-article__body {
 	row-gap: calc(var(--spacer)*2);	
 }
+.rec-article__header,
 .rec-article__footer,
 .rec-body__metadata {
   row-gap: calc(var(--spacer)/2);
@@ -35,6 +36,12 @@
 .rec-post__authors,
 .rec-body__gallery {
   display: flex;
+}
+.rec-article__header .cover-image {
+	margin-top: var(--spacer);
+}
+.rec-article.rec-landing .cover-image {
+	margin-top: 0;
 }
 .rec-tags,
 .rec-tags li,
@@ -60,7 +67,6 @@
 	margin-right: calc(var(--spacer)/2);
 	font-weight: var(--regular);
 }
-.rec-article__header time,
 .rec-body__metadata p,
 .rec-body__metadata li,
 .rec-article__footer h6 {
@@ -71,7 +77,8 @@
   color: var(--gray3);
 }
 .rec-article__header time {
-  display: block;
+	display: block;
+	margin-bottom: calc(var(--spacer)/2);
 }
 .rec-article__header--dark h2{
   font-weight: var(--regular);
