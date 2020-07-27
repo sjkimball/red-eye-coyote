@@ -6,18 +6,19 @@ import Layout from '../components/layout';
 import Profile from '../components/profile';
 
 const ProfileTemplate = ({ data }) => {
-	const profile = data.sanityPerson;
+	const profile = data.profile;
+	const relatedProjects = data.relatedProjects.edges
 
 	return (
 		<Layout>
-			<Profile profile={profile} />
+			<Profile profile={profile} relatedProjects={relatedProjects} />
 		</Layout>
 	);
 };
 
 export const query = graphql`
 	query ($slug: String!) {
-	  sanityPerson(slug: {current: {eq: $slug}}) {
+	  profile: sanityPerson(slug: {current: {eq: $slug}}) {
 	    profileImg {
 				...imageData
 	    }
@@ -31,6 +32,25 @@ export const query = graphql`
 	    }
 	    _rawBio
 	    _id
+		}
+		relatedProjects: allSanityProject(filter: {projectMembers: {elemMatch: {person: {slug: {current: {eq: $slug}}}}}}) {
+			edges {
+				node {
+					id
+					client {
+						name
+						slug {
+							current
+						}
+					}
+					coverImg {
+						...imageData
+					}
+					slug {
+						current
+					}
+				}
+			}
 		}
   }
 `;

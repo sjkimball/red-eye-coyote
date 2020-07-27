@@ -69,7 +69,7 @@ export default {
           ]
         }
       ],
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.min(1).error('Post must have at least one author.')
     },
     {
       name: 'publishedAt',

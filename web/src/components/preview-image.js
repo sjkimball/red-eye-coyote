@@ -44,7 +44,7 @@ const PreviewImage = ({imageAsset, showCaption, profilePic}) => {
         .auto('format')
       }
       alt={imageAsset.altText}
-      className={'preview-image'}
+      className={`preview-image`}
     />
   )
 

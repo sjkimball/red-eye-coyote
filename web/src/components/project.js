@@ -43,7 +43,11 @@ const Project = ({project}) => {
           <h6 hidden>Disciplines</h6>
           <ul className={`rec-tags`}>
             {disciplines.map((discipline, index) =>
+              (index == disciplines.length - 1)
+              ?
               <li key={index} value={discipline} className={`rec-tag--primary`}>{discipline}</li>
+              :
+              <li key={index} value={discipline} className={`rec-tag--primary`}>{`${discipline}, `}</li>
             )}
           </ul>
         </section>
