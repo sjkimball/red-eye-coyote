@@ -684,7 +684,9 @@ pre tt:after {
 }
 .mainFooter {
   color: var(--gray2);
-	padding-bottom: 48px;
+  padding-bottom: 48px;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--spacer);
 }
 /* @media screen and (min-width: 320px) {
   :root {
@@ -702,7 +704,7 @@ pre tt:after {
     height: 64px;
     display: flex;
     align-items: center;
-	}
+  }
 }
 /* @media screen and (min-width: 1000px) {
   :root {
