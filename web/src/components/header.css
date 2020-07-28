@@ -68,12 +68,13 @@
 	height: 0;
 	list-style-type: none;
 	margin-bottom: 0;
-	margin-left: -1rem;
+	margin-left: calc(var(--spacer) * -1);
+	margin-right: calc(var(--spacer) * -1);
 	opacity: .95;
 	padding-top: 0;
 	position: absolute;
 	top: 48px;
-	width: 101vw;
+	width: 100vw;
 }
 .nav-link {
 	color: var(--gray1);
