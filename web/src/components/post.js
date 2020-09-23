@@ -4,9 +4,7 @@ import {Link} from 'gatsby'
 
 import BlockContent from '@sanity/block-content-to-react'
 
-import CoverImage from '../components/cover-image'
 import PreviewImage from '../components/preview-image'
-import AvatarImage from '../components/avatar-image'
 
 import { format } from 'date-fns'
 
@@ -22,7 +20,7 @@ const serializers = {
 }
 function getAvatar(author, prefix, index) {
   return (
-    <a key={index} href={`${prefix}${author.slug.current}`}><AvatarImage key={index} imageAsset={author.profileImg} /></a>
+    <a key={index} href={`${prefix}${author.slug.current}`}><PreviewImage key={index} imageAsset={author.profileImg} imageType={`avatar`}/></a>
   )
 }
 function getName(author, prefix, index) {
@@ -81,7 +79,7 @@ const Post = ({post}) => {
         <div className={`rec-article__authors`}>
           {preppedAuthors}
         </div>
-        <CoverImage imageAsset={coverImg} />
+        <PreviewImage imageAsset={coverImg} imageType={`cover`}/>
       </header>
       <section id={`rec-post__body`} className="rec-article__body">
         <BlockContent	className={`rec-body__description`}

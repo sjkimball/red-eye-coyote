@@ -31,7 +31,7 @@ const Profile = ({ profile, relatedProjects }) => {
 					<br/>
 					<span>{office.contactInfo.address.city}</span>
 				</h2>
-				<PreviewImage imageAsset={profileImg} profilePic={true} />
+				<PreviewImage imageAsset={profileImg} imageType={`square`} />
 			</header>
 			<section id={`rec-profile__body`} className="rec-article__body">
 				<BlockContent blocks={_rawBio} serializers={serializer} renderContainerOnSingleChild={true} className={`rec-body__bio`}/>
