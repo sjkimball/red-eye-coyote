@@ -4,7 +4,6 @@ import {Link} from 'gatsby'
 
 import BlockContent from '@sanity/block-content-to-react'
 
-import CoverImage from '../components/cover-image'
 import PreviewImage from '../components/preview-image'
 
 import './contentLayout.css'
@@ -54,7 +53,7 @@ const Project = ({project}) => {
         <h4>
           {projectSummary}
         </h4>
-        <CoverImage imageAsset={coverImg} />
+        <PreviewImage imageAsset={coverImg} imageType={`cover`}/>
       </header>
       <section id={`rec-project__body`} className={'rec-article__body'}>
         <BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`rec-body__description`} />

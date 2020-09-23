@@ -11,14 +11,6 @@ export default {
         collapsible: true,
         collapsed: false
       }
-    },
-    {
-      name: 'featuredContent',
-      title: 'Featured Content',
-      options: {
-        collapsible: true,
-        collapsed: false
-      }
     }
   ],
   fields: [
@@ -53,6 +45,7 @@ export default {
       description: 'Add content sections to page. 💀 is a zombie, ✅ is alive.',
       type: 'array',
       of: [
+        {type: 'figure'},
         {type: 'hero'},
         {type: 'featuredProjects'},
         {type: 'featuredPosts'},

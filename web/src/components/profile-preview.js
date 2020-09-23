@@ -14,7 +14,7 @@ const ProfilePreview = ({profile}) => {
     <Link to={`/about/${profileSlug}`} className={`preview preview--dark`}>
       <h4>{name}</h4>
       <p>{officeName}</p>
-      <PreviewImage imageAsset={profileImg} profilePic />
+      <PreviewImage imageAsset={profileImg} imageType={`square`} />
     </Link>
   )
 }
