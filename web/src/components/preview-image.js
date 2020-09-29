@@ -25,7 +25,7 @@ const PreviewImage = ({imageAsset, showCaption, imageType}) => {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
-      srcSet={imageSrcSet(imageType, imageAsset)}
+      srcSet={imageSrcSet(imageAsset, imageType)}
       sizes={imageSizes(imageType)}
       src={imageUrlFor(imageAsset)
         .auto('format')
