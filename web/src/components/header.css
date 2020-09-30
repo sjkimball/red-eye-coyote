@@ -32,9 +32,9 @@
 .header-logo h1,
 .h1__mask {
 	color: inherit;
-	font-family: var(--brand-font);
+	font-family: var(--heading-font);
 	font-size: 22px;
-	font-weight: var(--light);
+	font-weight: var(--bold);
 	line-height: 24px;
 	margin: 0;
 }
