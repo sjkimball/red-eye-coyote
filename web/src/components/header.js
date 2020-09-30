@@ -49,7 +49,7 @@ class Header extends React.Component {
 			<header id={`mainHeader`} className={`mainHeader ${headerClass}`}>
 				<nav className={`mainNav`} role="navigation">
 					<Link to="/" id={`header-logo`} className={`header-logo`}>
-						<h1>{siteTitle}</h1>
+						<h1>SK</h1>
 					</Link>
 					<ul id={`nav-links`} className={`rec-nav-links`}>
 						<li>
@@ -75,7 +75,7 @@ class Header extends React.Component {
 						</svg>
 					</button>
 				</nav>
-				<HeaderMask siteTitle={siteTitle} darkMode={darkMode} />
+				<HeaderMask siteTitle="SK" darkMode={darkMode} />
 			</header>
 		);
 	}
