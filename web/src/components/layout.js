@@ -24,7 +24,7 @@ const Layout = ({children}) => {
   return (
     <React.Fragment>
       <Header siteTitle={companyInfo.companyName} darkMode={darkMode} staffInfo={staffCount} />
-      <main className={`mainContainer`}>{children}</main>
+      <main id={`mainContainer`} className={`mainContainer`}>{children}</main>
       <Footer darkMode={darkMode} companyInfo={companyInfo}/>
     </React.Fragment>
   )

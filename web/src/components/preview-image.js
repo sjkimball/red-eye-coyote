@@ -4,7 +4,6 @@ import { imageUrlFor } from '../lib/image-url'
 import { imageSrcSet, imageSizes } from '../lib/image-sizing'
 
 const PreviewImage = ({imageAsset, showCaption, imageType}) => {
-
    function assignClass (imageType) {
     switch (imageType) {
       case 'avatar':
@@ -25,7 +24,7 @@ const PreviewImage = ({imageAsset, showCaption, imageType}) => {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
-      srcSet={imageSrcSet(imageType, imageAsset)}
+      srcSet={imageSrcSet(imageAsset, imageType)}
       sizes={imageSizes(imageType)}
       src={imageUrlFor(imageAsset)
         .auto('format')
