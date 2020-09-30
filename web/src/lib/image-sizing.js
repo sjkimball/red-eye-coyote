@@ -37,7 +37,7 @@ const avatarSizes = `
   (max-width: 767px) 700px,
   800px
 `
-export function imageSrcSet (imageType, imageAsset) {
+export function imageSrcSet (imageAsset, imageType) {
   switch (imageType) {
     case 'square':
       return squareSrcSet(imageAsset);
