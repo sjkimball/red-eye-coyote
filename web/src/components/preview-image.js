@@ -1,30 +1,21 @@
 import React from 'react'
 
-import imageUrlBuilder from '@sanity/image-url'
+import { imageUrlFor } from '../lib/image-url'
+import { imageSrcSet, imageSizes } from '../lib/image-sizing'
 
-import useSanityOptions from '../hooks/use-sanity-options'
-
-const PreviewImage = ({imageAsset, showCaption, profilePic}) => {
-  const mySanityConfig = useSanityOptions()
-
-  const builder = imageUrlBuilder(mySanityConfig)
-
-  function urlFor (source) {
-    return builder.image(source)
-  }
-
-  const letterboxSrcSet = `
-		${urlFor(imageAsset).width(400).height(225)} 400w,
-		${urlFor(imageAsset).width(600).height(338)} 600w,
-		${urlFor(imageAsset).width(400).height(225).dpr(2)} 800w,
-		${urlFor(imageAsset).width(600).height(338).dpr(2)} 1200w
-	`
-  const squareSrcSet = `
-		${urlFor(imageAsset).width(400).height(400)} 400w,
-		${urlFor(imageAsset).width(600).height(600)} 600w,
-		${urlFor(imageAsset).width(400).height(400).dpr(2)} 800w,
-		${urlFor(imageAsset).width(600).height(600).dpr(2)} 1200w
-	`
+const PreviewImage = ({imageAsset, showCaption, imageType}) => {
+   function assignClass (imageType) {
+    switch (imageType) {
+      case 'avatar':
+        return 'avatar-image';
+        break;
+      case 'cover':
+        return 'cover-image';
+        break;
+      default:
+        return 'preview-image'
+    }
+  }  
 
   const renderedImage = (
     <img
@@ -33,18 +24,13 @@ const PreviewImage = ({imageAsset, showCaption, profilePic}) => {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
-      srcSet={(profilePic === true) ? squareSrcSet : letterboxSrcSet}
-      sizes={`
-        (max-width: 320px) 288px,
-        (max-width: 480px) 448px,
-        (max-width: 767px) 700px,
-        800px
-      `}
-      src={urlFor(imageAsset)
+      srcSet={imageSrcSet(imageAsset, imageType)}
+      sizes={imageSizes(imageType)}
+      src={imageUrlFor(imageAsset)
         .auto('format')
       }
       alt={imageAsset.altText}
-      className={`preview-image`}
+      className={assignClass(imageType)}
     />
   )
 

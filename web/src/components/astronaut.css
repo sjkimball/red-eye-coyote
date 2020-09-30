@@ -1,0 +1,34 @@
+#colorImage {
+  filter: url(#colorFilter);
+  mask: url(#messageMask);
+}
+
+.headline {
+	color: white;
+	font-family: "Helvetica", sans-serif;
+}
+
+.headline h2 {
+	font-size: 32px;
+	filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 1));
+}
+
+.headline__heading--yellow {
+	color: #EBF222;
+}
+
+.headline__titles {
+	text-transform: uppercase;
+}
+
+.headline__titles li {
+	filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 1));
+}
+
+.maskLetter {
+	text-anchor: middle;
+	dominant-baseline: middle;
+	font-family: Helvetica;
+	font-weight: bold;
+	font-size: 15em;
+}
