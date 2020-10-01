@@ -12,6 +12,10 @@ import useCompanyInfo from '../hooks/use-company-info'
 
 import './pages.css'
 
+const serializers = {
+  container: 'section'
+}
+
 const AboutPage = ({data}) => {
   const companyInfo = useCompanyInfo().companyInfo
   const profiles = useProfileBasics()
@@ -19,12 +23,12 @@ const AboutPage = ({data}) => {
   return (
     <Layout>
       <SEO title='About' />
-      <article id={`rec-about`} className={`rec-article rec-about`}>
-        <header id={`rec-about__header`} className={`rec-article__header`}>
+      <article className={`rec-article rec-about`}>
+        <header className={`rec-article__header rec-about__header`}>
           <h2>About {companyInfo.companyName}</h2>
-          <BlockContent blocks={companyInfo._rawAbout}/>
+          <BlockContent blocks={companyInfo._rawAbout} serializers={serializers} />
         </header>
-        <section id={`rec-about__body`} className={`rec-preview-container`}>
+        <section className={`rec-preview-container`}>
           {profiles.map(({node: profile}) => {
             return (
               <ProfilePreview

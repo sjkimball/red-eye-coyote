@@ -16,12 +16,12 @@ export default () => {
   return (
     <Layout>
       <SEO title={settings.title} />
-      <article id={`rec-blog`} className={`rec-article rec-blog`}>
-        <header id={`rec-blog__header`} className={`rec-article__header`}>
+      <article className={`rec-article rec-blog`}>
+        <header className={`rec-article__header rec-blog__header`}>
           <h2>{settings.title}</h2>
           <p>{settings.subtitle}</p>
         </header>
-        <section id={`rec-blog__body`} className={`rec-preview-container`}>
+        <section className={`rec-preview-container`}>
           {posts.map(({node: post}) => {
             return (
               <PostPreview

@@ -5,15 +5,19 @@
   text-decoration: none;
   color: inherit;
 }
+.preview--dark h4,
+.preview--dark h5 {
+  font-weight: var(--medium);
+}
+.preview--dark h5 {
+  margin-top: 0;
+  color: var(--gray3);
+}
 .preview .preview-image {
   order: -1;
 }
-.preview h4,
-.preview p {
+.preview-image, .preview p {
   margin-bottom: 0;
-}
-.preview-image {
-  margin-bottom: calc(var(--spacer)/2);
 }
 .preview p {
   font-weight: var(--medium);

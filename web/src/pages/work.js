@@ -13,12 +13,12 @@ export default () => {
   return (
     <Layout>
       <SEO title='Work' />
-      <article id={`rec-work`} className={`rec-article rec-work`}>
-        <header id={`rec-work__header`} className={`rec-article__header`}>
+      <article className={`rec-article rec-work`}>
+        <header className={`rec-article__header .rec-work__header`}>
           <h2>Work</h2>
           <p>Take a look.</p>
         </header>
-        <section id={`rec-work__body`} className={`rec-preview-container`}>
+        <section className={`rec-preview-container`}>
           {projects.map(({node: project}) => {
             return (
               <ProjectPreview
