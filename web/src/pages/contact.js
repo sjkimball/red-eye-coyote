@@ -13,21 +13,17 @@ const ContactPage = ({data}) => {
   return (
     <Layout>
       <SEO title='Contact' />
-      <article id={`rec-contact`} className={`rec-article rec-contact`}>
-        <header id={`rec-contact__header`} className={`rec-article__header`}>
+      <article className={`rec-article rec-contact`}>
+        <header className={`rec-article__header rec-contact__header`}>
           <h2>Contact</h2>
-        </header>
-				{
-					offices.length > 1 ?
-						<section id={`rec-contact__body`} className={`rec-preview-container`}>
-							{offices.map(({node: office}, index) => {
-								return (
-									<OfficeContact key={index} office={office} />
-								)
-							})}
+        </header>				
+				<section className={`rec-preview-container`}>
+					{offices.map(({node: office}, index) => {
+						return (
+							<OfficeContact key={index} office={office} />
+						)
+					})}
         </section>
-				: <OfficeContact office={offices[0].node} />
-				}
       </article>
     </Layout>
   )
