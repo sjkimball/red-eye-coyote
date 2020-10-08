@@ -46,14 +46,15 @@
   --lh-h3: 1.5rem;
   --lh-h4: 1.25rem;
   --lh-h5: 1.25rem;
+  --lh-h6: 1.25rem;
   --lh-small: 0;
   --lh-xsmall: 1rem;
   --lh-caption: 1rem;
 
   /* Spacing */
-  --spacer-sm: 8px;
-  --spacer: 16px;
-  --spacer-lg: 32px;
+  --spacer-sm: .5rem;
+  --spacer: 1rem;
+  --spacer-lg: 2rem;
 }
 
 html {
@@ -689,7 +690,7 @@ pre tt:after {
 }
 .mainFooter {
   color: var(--gray2);
-  padding-top: var(--spacer);
+  padding-top: var(--spacer-lg);
   padding-bottom: 48px;
   grid-template-columns: 1fr 1fr;
   column-gap: var(--spacer);
