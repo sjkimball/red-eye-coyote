@@ -38,6 +38,7 @@ const linksTl = () => {
   tl.set("#nav-links", {clearProps: true});
   tl.set(".nav-link", {clearProps: true});
   tl.to("#nav-links", {
+    display: "flex",
     height: "calc(100vh - 48px)",
     paddingTop: "2rem"
   });

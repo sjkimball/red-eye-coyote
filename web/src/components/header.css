@@ -27,16 +27,20 @@
 }
 .header-logo {
 	color: inherit;
+}
+.header-logo h1 {
 	opacity: 0;
 }
 .header-logo h1,
 .h1__mask {
 	color: inherit;
 	font-family: var(--heading-font);
-	font-size: 22px;
-	font-weight: var(--bold);
-	line-height: 24px;
+	font-size: 32px;
+	line-height: 48px;
 	margin: 0;
+}
+.h1__mask {
+	font-weight: var(--black);
 }
 .rec-button {
 	align-items: center;
@@ -47,10 +51,10 @@
 	height: 48px;
 	justify-content: center;
 	margin-right: -1rem;
-	width: 56px;
+	padding: 0 var(--spacer);
 }
 .rec-button-icon {
-	height: 22px;
+	width: 24px;
 	stroke-linecap: round;
 	stroke-width: 3;
 }
@@ -63,7 +67,7 @@
 .rec-nav-links {
 	align-items: center;
 	background-color: var(--gray5);
-	display: flex;
+	display: none;
 	flex-direction: column;
 	height: 0;
 	list-style-type: none;
@@ -97,24 +101,24 @@
 		position: static;
 		z-index: unset;
 	}
-	.header-logo {
-		opacity: 1;
-	}
 	.headerMask {
 		display: none;
 	}
 	.header-logo h1 {
-		font-size: 24px;
+		font-size: 42px;
+		opacity: 1;
 	}
 	.rec-button {
 		display: none;
 	}
 	.rec-nav-links {
+		display: flex;
 		background-color: unset;
 		color: inherit;
 		flex-direction: row;
 		height: initial;
-		margin-left: 0;
+		margin-left: unset;
+		margin-right: unset;
 		opacity: 1;
 		padding-top: unset;
 		position: static;
