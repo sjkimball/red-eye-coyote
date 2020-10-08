@@ -103,7 +103,7 @@ const Project = ({project}) => {
         </section>
       </section>
       <footer className={`rec-article__footer rec-project__footer`}>
-        <Link to='/work'>&larr; Work</Link>
+        {/* <Link to='/work'>&larr; Work</Link> */}
       </footer>
     </article>
   )
