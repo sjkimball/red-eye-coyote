@@ -1,9 +1,32 @@
 /*Mobile styles*/
+.rec-article.rec-landing {
+	height: calc(100vh - 48px);
+	position: relative;
+}
+.rec-hero,
+.rec-landing__headline {
+	grid-row: 1;
+}
+.rec-landing__headline {
+	bottom: 10%;
+	color: white;
+	font-family: var(--heading-font);
+	position: absolute;
+}
+.rec-landing__headline h2 {
+	filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 1));
+}
+.headline__heading--yellow {
+	color: #EBF222;
+}
+.headline__titles {
+	text-transform: uppercase;
+}
+.headline__titles li {
+	filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 1));
+}
 .rec-about {
 	color: var(--gray1);
-}
-.rec-landing.rec-article {
-	padding-top: 0;
 }
 .rec-preview-container {
 	display: grid;
