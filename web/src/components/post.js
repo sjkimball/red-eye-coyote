@@ -69,20 +69,21 @@ const Post = ({post}) => {
   const formattedDate = format(publishedAt, 'MMMM d, YYYY')
   const preppedAuthors = showAuthors(authors, prefix)
   return (
-    <article id={`rec-post`} className={`rec-article rec-post`}>
-      <header className={`rec-article__header`}>
+    <article className={`rec-article rec-post`}>
+      <header className={`rec-article__header rec-post__header`}>
         <h2>
           {title}
         </h2>
-        <h4>{subtitle}</h4>
         <time dateTime={publishedAt}>{formattedDate}</time>
+        <h3>{subtitle}</h3>
         <div className={`rec-article__authors`}>
           {preppedAuthors}
         </div>
         <PreviewImage imageAsset={coverImg} imageType={`cover`}/>
       </header>
-      <section id={`rec-post__body`} className="rec-article__body">
-        <BlockContent	className={`rec-body__description`}
+      <section className={`rec-article__body rec-post__body`}>
+        <BlockContent
+          className={`rec-post__description`}
           blocks={_rawBody}
           serializers={serializers}
         />

@@ -22,24 +22,24 @@ const OfficeContact = ({office}) => {
   return (
     <article className={`rec-office`}>
       <header className={`rec-office__header`}>
-        <h4 className={`rec-office__city`}>{address.city}</h4>
-        <time className={`rec-office__time`}>Current time</time>
+        <h4>{address.city}</h4>
+        <time>Current time</time>
       </header>
       <section className={`rec-office__info`}>
-        <section className={`rec-office__contact`}>
+        <section>
           <a href={`mailto:${contactInfo.email}`} className={`rec-office__email`}>
             {contactInfo.email}
           </a>
 
           <a href={`tel:1-${contactInfo.phone}`} className={`rec-office__phone`}>+1 {contactInfo.phone}</a>
         </section>
-        <address className={`rec-office__address`}>
+        <address>
           {address.street}<br />
           <SecondaryAddress address={address} />
           {address.city}, {address.stateProvince} {address.postalCode}<br />
           {address.country}
         </address>
-        <p className={`rec-office__description`}>
+        <p>
           {description}
         </p>
       </section>

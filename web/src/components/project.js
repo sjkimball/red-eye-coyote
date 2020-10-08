@@ -33,31 +33,31 @@ const Project = ({project}) => {
   } = project
   
   return (
-    <article id={`rec-project`} className={`rec-article rec-project`}>
-      <header id={`rec-project__header`} className={`rec-article__header`}>
+    <article className={`rec-article rec-project`}>
+      <header className={`rec-article__header rec-project__header`}>
         <h2>
           {client.name}
         </h2>
         <section className={`rec-project__disciplines`}>
           <h6 hidden>Disciplines</h6>
-          <ul className={`rec-tags`}>
+          <ul className={`rec-tags rec-project__tags`}>
             {disciplines.map((discipline, index) =>
               (index == disciplines.length - 1)
               ?
-              <li key={index} value={discipline} className={`rec-tag--primary`}>{discipline}</li>
+              <li key={index} value={discipline}>{discipline}</li>
               :
-              <li key={index} value={discipline} className={`rec-tag--primary`}>{`${discipline}, `}</li>
+              <li key={index} value={discipline}>{`${discipline}, `}</li>
             )}
           </ul>
         </section>
-        <h4>
+        <h3>
           {projectSummary}
-        </h4>
+        </h3>
         <PreviewImage imageAsset={coverImg} imageType={`cover`}/>
       </header>
-      <section id={`rec-project__body`} className={'rec-article__body'}>
-        <BlockContent blocks={_rawProjectDesc} serializers={serializer} className={`rec-body__description`} />
-        <section className={`rec-body__gallery`}>
+      <section className={'rec-article__body rec-project__body'}>
+        <BlockContent  className={`rec-project__description`} blocks={_rawProjectDesc} serializers={serializer} />
+        <section className={`rec-project__gallery`}>
           {productImgs.map((image) => {
             return (
               <PreviewImage
@@ -67,7 +67,7 @@ const Project = ({project}) => {
             )
           })}
         </section>
-        <section className={`rec-body__metadata`}>
+        <section className={`rec-project__metadata`}>
           <section>
             <h6>Client</h6>
             <ul>
@@ -102,8 +102,8 @@ const Project = ({project}) => {
           </section>
         </section>
       </section>
-      <footer id={`rec-project__footer`} className={`rec-article__footer`}>
-        <Link to='/work'>&larr; Work</Link>
+      <footer className={`rec-article__footer rec-project__footer`}>
+        {/* <Link to='/work'>&larr; Work</Link> */}
       </footer>
     </article>
   )

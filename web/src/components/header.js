@@ -11,7 +11,7 @@ import "./header.css"
 
 class Header extends React.Component {
 	constructor(props){
-		super(props);
+		super();
 		this.state = {
 			menuVisible: false
 		}
@@ -48,8 +48,8 @@ class Header extends React.Component {
 		return (
 			<header id={`mainHeader`} className={`mainHeader ${headerClass}`}>
 				<nav className={`mainNav`} role="navigation">
-					<Link to="/" id={`header-logo`} className={`header-logo`}>
-						<h1>{siteTitle}</h1>
+					<Link to="/" className={`header-logo`}>
+						<h1>SK</h1>
 					</Link>
 					<ul id={`nav-links`} className={`rec-nav-links`}>
 						<li>
@@ -67,15 +67,15 @@ class Header extends React.Component {
 							<Link to="/contact" className={`nav-link`} activeClassName={`nav-link--active`} partiallyActive={true}>Contact</Link>
 						</li>
 					</ul>
-					<button id="rec-menuButton" className={`rec-button`} onClick={this.showMenu}>
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" className={`rec-button-icon ${iconClass}`}>
+					<button className={`rec-button`} onClick={this.showMenu}>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={`rec-button-icon ${iconClass}`}>
 							<line id={`top`} x1="1.5" y1="2" x2="22.5" y2="2"/>
 							<line id={`middle`} x1="1.5" y1="12" x2="22.5" y2="12"/>
 							<line id={`bottom`} x1="1.5" y1="22" x2="22.5" y2="22"/>
 						</svg>
 					</button>
 				</nav>
-				<HeaderMask siteTitle={siteTitle} darkMode={darkMode} />
+				<HeaderMask siteTitle="SK" darkMode={darkMode} />
 			</header>
 		);
 	}

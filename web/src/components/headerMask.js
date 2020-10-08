@@ -4,7 +4,7 @@ const HeaderMask = ({siteTitle, darkMode}) => {
 	return(
 		<svg xmlns="http://www.w3.org/2000/svg" className={`headerMask`}>
 			<defs>
-				<text id="name" className={`h1__mask`} transform="translate(16 32)">{siteTitle}</text>
+				<text id="name" className={`h1__mask`} transform="translate(16 35)">{siteTitle}</text>
 				<rect id="bkgd" width="100%" height="48" />
 				<mask id="theMask">
 					<rect id="black" width="100%" height="48" fill="#000"/>
