@@ -14,7 +14,8 @@
 	font-family: var(--heading-font);
 	font-weight: var(--black);
 	font-size: 4em;
-	fill: black;
+	fill: white;
+	opacity: 0;
 }
 .svgImages {
 	height: 100%;

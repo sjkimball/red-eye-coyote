@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { gsap } from "gsap"
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -7,6 +8,8 @@ import HeroSvg from '../components/astronaut'
 import useLandingPage from '../hooks/use-landing-page'
 
 import './pages.css'
+
+import {messageTl} from "../animations/hero-animation"
 
 const isDisabled = (item) => {
   return !item.disabled;
@@ -18,6 +21,11 @@ const isFigure = (item) => {
 const IndexPage = () => {
   const {heading, subheading, content} = useLandingPage();
   const figures = content.filter(isDisabled).filter(isFigure)
+
+  useEffect(() => {
+    messageTl();
+  });
+
   return (
     <Layout>
       <SEO title='Home' />
