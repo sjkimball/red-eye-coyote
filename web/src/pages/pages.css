@@ -8,21 +8,37 @@
 	grid-row: 1;
 }
 .rec-landing__headline {
-	bottom: 10%;
+	bottom: 5%;
 	color: white;
 	font-family: var(--heading-font);
 	position: absolute;
+	background-color: rgba(12, 12, 12, .6);
+	padding-left: var(--spacer-sm);
+	padding-right: var(--spacer-sm);
+	margin-left: calc(var(--spacer-sm) * -1);
+	max-width: 75%;
 }
 .rec-landing__headline h2 {
 	filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 1));
+	font-weight: var(--black);
+	margin-bottom: .75rem;
+	font-size: 3rem;
 }
-.headline__heading--yellow {
-	color: #EBF222;
+.rec-headline__line {
+	display: inline-block;
 }
-.headline__titles {
+.rec-headline__punc {
+	color: var(--primary);
+}
+.rec-landing__headline ul {
+	list-style-type: none;
+	margin-left: 0;
+}
+.rec-landing__headline li {
+	font-size: 1.25rem;
+	/* font-weight: var(--medium); */
 	text-transform: uppercase;
-}
-.headline__titles li {
+	letter-spacing: .2px;
 	filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 1));
 }
 .rec-about {
@@ -33,6 +49,10 @@
 	row-gap: var(--spacer-lg);
 }
 @media screen and (min-width: 600px) {
+	.rec-article.rec-landing {
+		height: calc(100vh - 64px);
+		padding-top: 0;
+	}
 	.rec-preview-container {
 		column-gap: var(--spacer-lg);		
 		grid-template-columns: repeat(2, 1fr);
@@ -65,6 +85,57 @@
 	}
 	.rec-about__header p:first-of-type {
 		padding-top: calc(var(--spacer)/2);
+	}
+}
+@media screen and (min-width: 1000px) {
+	.rec-article.rec-landing {
+		height: 100%;
+		padding-left: var(--spacer-lg);
+		padding-right: var(--spacer-lg);
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: var(--spacer-lg);
+	}
+	.rec-landing__headline {
+		/* align-self: center; */
+		color: var(--gray5);
+		grid-column: 2;
+		background-color: transparent;
+		padding-left: 0;
+		padding-right: 0;
+		position: relative;
+		bottom: unset;
+		margin-left: 0;
+		max-width: unset;
+	}
+	.rec-landing__headline h2 {
+		filter: unset;
+		font-weight: var(--black);
+		margin-bottom: .75rem;
+		font-size: 6.5rem;
+	}
+	.rec-headline__line {
+		display: block;
+		margin-bottom: 3rem;
+	}
+	.rec-headline__punc {
+		color: var(--primary);
+	}
+	.rec-landing__headline ul {
+		list-style-type: none;
+		margin-left: 0;
+		display: inline-block;
+		position: absolute;
+		right: 0;
+	}
+	.rec-landing__headline li {
+		color: var(--gray2);
+		font-size: 2rem;
+		/* font-weight: var(--medium); */
+		text-transform: uppercase;
+		letter-spacing: .2px;
+		filter: unset;
 	}
 }
 @media screen and (min-width: 1040px) {

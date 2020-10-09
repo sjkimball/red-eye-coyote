@@ -23,8 +23,15 @@ const IndexPage = () => {
       <SEO title='Home' />
       <article className={`rec-article rec-landing`}>
         <div className={'rec-landing__headline'}>
-          <h2>{heading}</h2>
-          <h3>{subheading}</h3>
+          <h2>
+            <span className={`rec-headline__line`}>Hey<span className={`rec-headline__punc`}>.&nbsp;</span></span>
+             <span className={`rec-headline__line`}>I'm Sam<span className={`rec-headline__punc`}>.</span></span>
+          </h2>
+          <ul>
+            <li>UX/UI Designer</li>
+            <li>Front End Dev</li>
+            <li>Graphic Artist</li>
+          </ul>
         </div>
         <HeroSvg className={`rec-hero`} imageAsset={figures[0]} imageType={`hero`} />          
       </article>
