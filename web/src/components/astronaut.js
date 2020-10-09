@@ -16,9 +16,9 @@ const Astronaut = () => {
 					<rect
 						className={`maskBackground`}
 						/>
-					{/* <text className="maskLetter" x="50%" y="55%">B</text>
-					<text className="maskLetter" x="50%" y="55%">L</text> */}
-					<text className="maskLetter" x="50%" y="55%">M</text>
+					<text id={`letterB`} className={`maskLetter`} x="50%" y="55%">B</text>
+					<text id={`letterL`} className={`maskLetter`} x="50%" y="55%">L</text>
+					<text id={`letterM`} className={`maskLetter`} x="50%" y="55%">M</text>
 				</mask>
 				<filter
 					id="colorFilter"
