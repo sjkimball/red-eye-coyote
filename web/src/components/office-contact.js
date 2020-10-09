@@ -1,5 +1,7 @@
 import React from 'react'
 
+// import { format, utcToZonedTime } from 'date-fns-tz'
+
 import PreviewImage from '../components/preview-image'
 
 import './office-contact.css'
@@ -15,6 +17,7 @@ function SecondaryAddress(props) {
   )
 }
 
+
 const OfficeContact = ({office}) => {
   const {images, contactInfo, description} = office
   const address = contactInfo.address
@@ -23,7 +26,7 @@ const OfficeContact = ({office}) => {
     <article className={`rec-office`}>
       <header className={`rec-office__header`}>
         <h4>{address.city}</h4>
-        <time>Current time</time>
+        {/* <time>Current time</time> */}
       </header>
       <section className={`rec-office__info`}>
         <section>
