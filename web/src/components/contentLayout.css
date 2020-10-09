@@ -68,10 +68,6 @@
 	color: var(--gray1);
 	text-decoration: none;
 }
-/* Landing Page */
-.rec-article.rec-landing .cover-image {
-	margin-top: 0;
-}
 /* Projects */
 .rec-project__description p:last-of-type {
 	margin-bottom: 0;

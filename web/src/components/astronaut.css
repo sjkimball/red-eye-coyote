@@ -1,34 +1,44 @@
-#colorImage {
-  filter: url(#colorFilter);
-  mask: url(#messageMask);
+#astronaut {
+	height: 100%;
+	width: 100vw;
+	margin-left: calc(var(--spacer) * -1);
 }
-
-.headline {
-	color: white;
-	font-family: "Helvetica", sans-serif;
+.maskBackground {
+	height: 100%;
+	width: 100%;
+	fill: white;
 }
-
-.headline h2 {
-	font-size: 32px;
-	filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 1));
-}
-
-.headline__heading--yellow {
-	color: #EBF222;
-}
-
-.headline__titles {
-	text-transform: uppercase;
-}
-
-.headline__titles li {
-	filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 1));
-}
-
 .maskLetter {
 	text-anchor: middle;
 	dominant-baseline: middle;
-	font-family: Helvetica;
-	font-weight: bold;
-	font-size: 15em;
+	font-family: var(--heading-font);
+	font-weight: var(--black);
+	font-size: 4em;
+	fill: black;
+}
+.svgImages {
+	height: 100%;
+	width: 100%;
+}
+#colorImage {
+  filter: url(#colorFilter);
+	mask: url(#messageMask);
+	height: 100%;
+	width: 100%
+}
+
+@media screen and (min-width: 600px) {
+	#astronaut {
+		margin-left: calc(var(--spacer) * -2);
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	#astronaut {
+		/* align-self: center; */
+		grid-column: 1;
+		height: auto;
+		margin-left: 0;
+		width: 100%;
+	}
 }
