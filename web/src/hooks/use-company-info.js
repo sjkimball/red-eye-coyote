@@ -14,8 +14,7 @@ const useCompanyInfo = () => {
         companyName
         _rawAbout
       }
-      staffCount: allSanityPerson {
-        totalCount
+      featuredStaff: allSanityPerson(filter: {featured: {eq: true}}) {
         edges {
           node {
             slug {

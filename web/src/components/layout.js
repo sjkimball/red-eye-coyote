@@ -9,7 +9,7 @@ import Footer from './footer'
 import './layout.css'
 
 const Layout = ({children}) => {
-  const { companyInfo, staffCount } = useCompanyInfo()
+  const { companyInfo, featuredStaff } = useCompanyInfo()
   const [darkMode, setDarkMode] = useState(false)
   useEffect(() => {
     const location = window.location.pathname
@@ -23,7 +23,7 @@ const Layout = ({children}) => {
 
   return (
     <React.Fragment>
-      <Header siteTitle={companyInfo.companyName} darkMode={darkMode} staffInfo={staffCount} />
+      <Header siteTitle={companyInfo.companyName} darkMode={darkMode} featuredStaff={featuredStaff} />
       <main id={`mainContainer`} className={`mainContainer`}>{children}</main>
       <Footer darkMode={darkMode} companyInfo={companyInfo}/>
     </React.Fragment>

@@ -42,9 +42,9 @@ class Header extends React.Component {
 	}
 
 	render() {
-		const {siteTitle, darkMode, staffInfo} = this.props;
-		const iconClass = darkMode ? 'rec-button-icon--white' : 'rec-button-icon--black'; 
-		const headerClass = darkMode ? 'mainHeader--dark' : 'mainHeader--light'; 
+		const {siteTitle, darkMode, featuredStaff} = this.props
+		const iconClass = darkMode ? 'rec-button-icon--white' : 'rec-button-icon--black'
+		const headerClass = darkMode ? 'mainHeader--dark' : 'mainHeader--light'
 		return (
 			<header id={`mainHeader`} className={`mainHeader ${headerClass}`}>
 				<nav className={`mainNav`} role="navigation">
@@ -55,8 +55,8 @@ class Header extends React.Component {
 						<li>
 							<Link to="/work" className={`nav-link`} activeClassName={`nav-link--active`} partiallyActive={true}>Work</Link>
 						</li>
-						{(staffInfo.totalCount === 1) ?
-							(<li><Link to={`/about/${staffInfo.edges[0].node.slug.current}`} className={`nav-link`} activeClassName={`nav-link--active`} partiallyActive={true}>About</Link></li>)
+						{(featuredStaff.edges.length === 1) ?
+							(<li><Link to={`/about/${featuredStaff.edges[0].node.slug.current}`} className={`nav-link`} activeClassName={`nav-link--active`} partiallyActive={true}>About</Link></li>)
 							:
 							(<li><Link to="/about" className={`nav-link`} activeClassName={`nav-link--active`} partiallyActive={true}>About</Link></li>)
 						}
