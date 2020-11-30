@@ -6,7 +6,7 @@ export default {
   type: 'document',
   initialValue: async () => ({
     featured: false,
-    sectors: 'private',
+    sector: 'private',
     projectMembers: await client.fetch(`//groq
       *[_type == "person" && name match "Sam"]{
         "_type": "projectMember",
@@ -15,13 +15,22 @@ export default {
           "_type": "reference"
         }
       }
-    `)
+    `),
+    coverImg: {
+      _type: 'figure',
+      asset: {
+        _type: 'reference',
+        _ref: 'image-316e2b9591cd93c7c36db93a570410bdd5ba7ad9-2400x1344-jpg'
+      },
+      altText: 'This is placeholder alt text',
+      caption: 'This is a placeholer caption'
+    }
   }),
   fields: [
     {
       name: 'featured',
-      type: 'boolean',
-      title: 'Featured'
+      title: 'Featured',
+      type: 'boolean'
     },
     {
       name: 'client',
@@ -68,7 +77,7 @@ export default {
       description: 'Overview of the project.',
       type: 'text',
       rows: 3,
-      validation: Rule => Rule.required().min(80).max(140).error('Summary need to be between 80 and 140 characters long.')
+      validation: Rule => Rule.required().min(80).max(140).error('Summaries need to be between 80 and 140 characters long.')
     },
     {
       name: 'projectDesc',
