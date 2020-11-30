@@ -77,7 +77,7 @@ export default {
       description: 'Overview of the project.',
       type: 'text',
       rows: 3,
-      validation: Rule => Rule.required().min(80).max(140).error('Summaries need to be between 80 and 140 characters long.')
+      validation: Rule => Rule.required().min(40).max(140).error('Summaries need to be between 40 and 140 characters long.')
     },
     {
       name: 'projectDesc',
