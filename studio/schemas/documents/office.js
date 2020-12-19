@@ -30,7 +30,7 @@ export default {
   preview: {
     select: {
       title: 'contactInfo.address.city',
-      subtitle: 'contactInfo.address.country',
+      subtitle: 'contactInfo.address.stateProvince',
       media: 'images.0.asset'
     },
     prepare (selection) {

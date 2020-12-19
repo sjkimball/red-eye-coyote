@@ -1,6 +1,9 @@
+import {FaUserTie} from 'react-icons/fa'
+
 export default {
   name: 'client',
-  title: 'Clients',
+  title: 'Client',
+  icon: FaUserTie,
   type: 'document',
   fields: [
     {

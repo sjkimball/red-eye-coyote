@@ -1,6 +1,6 @@
 export default {
   name: 'person',
-  title: 'People',
+  title: 'Person',
   type: 'document',
   initialValue: {
     featured: false
