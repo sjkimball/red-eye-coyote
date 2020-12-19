@@ -2,17 +2,17 @@
 
 :root {
   /*Colors*/
-  --gray1: #F2F2F2;
-  --gray2: #bfbfbf;
-  --gray3: #727272;
-  --gray4: #3F3F3F;
-  --gray5: #0C0C0C;
+  --gray1: #DBDCDC;
+  --gray2: #B7B8BA;
+  --gray3: #939597;
+  --gray4: #616365;
+  --gray5: #313233;
 
-  --primary-lighter: #F3F77A;
-  --primary-light: #EFF54E;
-  --primary: #ebf222;
-  --primary-dark: #CAD10C;
-  --primary-darker: #979C09;
+  --primary-lighter: #FCF4C4;
+  --primary-light: #F8EA88;
+  --primary: #F5DF4D;
+  --primary-dark: #CBB20B;
+  --primary-darker: #665906;
 
   --secondary-lighter: #FF1227;
   --secondary-light: #C20011;

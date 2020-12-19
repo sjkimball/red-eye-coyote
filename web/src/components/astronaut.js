@@ -25,7 +25,7 @@ const Astronaut = () => {
 					>
 					<feFlood
 						result="floodFill"
-						floodColor="#EBF222"
+						floodColor="#F5DF4D"
 						floodOpacity="1"
 						/>
 					<feBlend
