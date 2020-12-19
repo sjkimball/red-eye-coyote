@@ -1,19 +1,17 @@
 export default {
   name: 'post',
-  title: 'Posts',
+  title: 'Post',
   type: 'document',
   initialValue: {
     featured: false,
     coverImg: {
       _type: 'figure',
-      image: {
-        _type: 'image',
-        asset: {
-          _type: 'reference',
-          _ref: 'image-6dca2dd407dfdd12e9843ee248fb4a7f8e766774-3705x2084-jpg'
-        }
+      asset: {
+        _type: 'reference',
+        _ref: 'image-316e2b9591cd93c7c36db93a570410bdd5ba7ad9-2400x1344-jpg'
       },
-      altText: 'Some alt text'
+      altText: 'This is placeholder alt text',
+      caption: 'This is a placeholer caption'
     }
   },
   fields: [
