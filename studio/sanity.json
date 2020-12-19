@@ -36,6 +36,10 @@
     {
       "implements": "part:@sanity/form-builder/input/image/asset-sources",
       "path": "./parts/assetSources.js"
+    },
+    {
+      "name": "part:@sanity/base/new-document-structure",
+      "path": "./newDocumentStructure.js"
     }
   ]
 }

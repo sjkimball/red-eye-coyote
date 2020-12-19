@@ -9,15 +9,10 @@ const staff = S.listItem()
     S.list()
       .title('Staff')
       .items([
-        S.listItem()
-          .title('Staff Members')
-        // .icon(FaUserFriends)
-          .schemaType('person')
-          .child(S.documentTypeList('person').title('Staff Members')),
-        S.listItem()
+        S.documentTypeListItem('person')
+          .title('Staff Members'),
+        S.documentTypeListItem('jobTitle')
           .title('Job Titles')
-          .schemaType('jobTitle')
-          .child(S.documentTypeList('jobTitle').title('Job Titles'))
       ])
   )
 

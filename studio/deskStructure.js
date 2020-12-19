@@ -1,9 +1,25 @@
 import S from '@sanity/desk-tool/structure-builder'
 
-import {FaBullhorn, FaCog, FaHome, FaRegFileAlt, FaRegBuilding, FaRegIdCard} from 'react-icons/fa'
+import {FaCog, FaHome, FaRegFileAlt, FaRegBuilding, FaRegIdCard} from 'react-icons/fa'
 
 import portfolio from './src/structure/portfolio'
+import blog from './src/structure/blog'
 import staff from './src/structure/staff'
+
+const hiddenDocTypes = listItem =>
+  ![
+    'blogSettings',
+    'client',
+    'companyInfo',
+    'jobTitle',
+    'office',
+    'page',
+    'person',
+    'post',
+    'project',
+    'siteSettings',
+    'socialMediaService'
+  ].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -33,27 +49,7 @@ export default () =>
         .child(
           S.documentTypeList('page').title('Pages')
         ),
-      S.listItem()
-        .title('Blog')
-        .icon(FaBullhorn)
-        .child(
-          S.list()
-            .title('Blog')
-            .items([
-              S.listItem()
-                .title('Blog Settings')
-                .icon(FaCog)
-                .child(
-                  S.editor()
-                    .schemaType('blogSettings')
-                    .documentId('blogSettings')
-                ),
-              S.listItem()
-                .title('Posts')
-                .schemaType('post')
-                .child(S.documentTypeList('post').title('Posts'))
-            ])
-        ),
+      blog,
       S.divider(),
       portfolio,
       S.divider(),
@@ -66,26 +62,8 @@ export default () =>
             .documentId('companyInfo')
         ),
       staff,
-      S.listItem()
+      S.documentTypeListItem('office')
         .title('Offices')
-        .icon(FaRegBuilding)
-        .schemaType('office')
-        .child(
-          S.documentTypeList('office').title('Offices')
-        ),
-      ...S.documentTypeListItems().filter(listItem =>
-        ![
-          'blogSettings',
-          'client',
-          'companyInfo',
-          'jobTitle',
-          'office',
-          'page',
-          'person',
-          'post',
-          'project',
-          'siteSettings',
-          'socialMediaService'
-        ].includes(listItem.getId()))
-    ]
-    )
+        .icon(FaRegBuilding),
+      ...S.documentTypeListItems().filter(hiddenDocTypes)
+    ])
