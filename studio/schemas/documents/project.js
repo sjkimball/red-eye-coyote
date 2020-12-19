@@ -1,21 +1,25 @@
 import client from 'part:@sanity/base/client'
 
+import {FaProjectDiagram} from 'react-icons/fa'
+
+function createSlug (doc) {
+  const query = `*[_type == "project" && references($_id) && !(_id in path("drafts.**"))]{'clientName': client->name}`
+  const params = {_id: doc.client._ref}
+  return client.fetch(query, params).then(res => {
+    console.log('This is the result', res)
+    return `${res[0].clientName}-${res.length++}`
+  })
+}
+
 export default {
   name: 'project',
-  title: 'Projects',
+  title: 'Project',
+  icon: FaProjectDiagram,
   type: 'document',
   initialValue: async () => ({
+    visibility: false,
     featured: false,
     sector: 'private',
-    projectMembers: await client.fetch(`//groq
-      *[_type == "person" && name match "Sam"]{
-        "_type": "projectMember",
-        "person": {
-          "_ref": _id,
-          "_type": "reference"
-        }
-      }
-    `),
     coverImg: {
       _type: 'figure',
       asset: {
@@ -24,12 +28,28 @@ export default {
       },
       altText: 'This is placeholder alt text',
       caption: 'This is a placeholer caption'
-    }
+    },
+    projectMembers: await client.fetch(`//groq
+      *[_type == "person" && name match "Sam"]{
+        "_type": "projectMember",
+        "person": {
+          "_ref": _id,
+          "_type": "reference"
+        }
+      }
+    `)
   }),
   fields: [
     {
+      name: 'visibility',
+      title: 'Visibility',
+      description: 'Determines whether the project is visible to the public.',
+      type: 'boolean'
+    },
+    {
       name: 'featured',
       title: 'Featured',
+      description: 'Determines whether the project should be near top of publicly visible projects.',
       type: 'boolean'
     },
     {
@@ -44,6 +64,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
+      description: 'For internal use only. This is not public facing.',
       type: 'string',
       validation: Rule => Rule.required().min(10).max(30).error('Say more with less.')
     },
@@ -52,8 +73,7 @@ export default {
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title',
-        maxLength: 96
+        source: (doc) => createSlug(doc)
       }
     },
     {
