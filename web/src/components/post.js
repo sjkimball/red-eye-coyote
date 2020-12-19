@@ -6,7 +6,7 @@ import BlockContent from '@sanity/block-content-to-react'
 
 import PreviewImage from '../components/preview-image'
 
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 
 import './contentLayout.css'
 
@@ -66,7 +66,7 @@ const Post = ({post}) => {
     title,
     subtitle
   } = post
-  const formattedDate = format(publishedAt, 'MMMM d, YYYY')
+  const formattedDate = format(parseISO(publishedAt), 'MMMM d, yyyy')
   const preppedAuthors = showAuthors(authors, prefix)
   return (
     <article className={`rec-article rec-post`}>
