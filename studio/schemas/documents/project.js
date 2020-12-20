@@ -74,7 +74,8 @@ export default {
       type: 'slug',
       options: {
         source: (doc) => createSlug(doc)
-      }
+      },
+      validation: Rule => Rule.required().error('A slug must be generated prior to publishing.')
     },
     {
       name: 'office',
