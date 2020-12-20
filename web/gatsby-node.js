@@ -7,16 +7,11 @@
 exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => {
 	const allProjects = await graphql(`
 		{
-			allSanityProject {
+			allSanityProject(filter: { visibility: { eq:true }}) {
 				edges {
 					node {
 						slug {
 							current
-						}
-						client {
-							slug{
-								current
-							}
 						}
 					}
 				}
@@ -50,7 +45,7 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
 
 	const allPeople = await graphql(`
 		{
-			allSanityPerson {
+			allSanityPerson(filter: { featured: { eq:true }}) {
 			  edges {
 			    node {
 			      slug {
@@ -76,11 +71,10 @@ exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => 
 	projects.forEach(({ node: project }) => {
 
 		createPage({
-			path: `/work/${project.client.slug.current}/${project.slug.current}`,
+			path: `/work/${project.slug.current}`,
 			component: require.resolve('./src/templates/project.js'),
 			context: {
-					slug: project.slug.current,
-					clientSlug: project.client.slug.current
+					slug: project.slug.current
 				}
 		});
 	});
