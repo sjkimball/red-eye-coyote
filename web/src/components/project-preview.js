@@ -9,7 +9,7 @@ import './preview.css'
 const ProjectPreview = ({project}) => {
   const {client, coverImg, slug, title} = project
   return (
-    <Link to={`/work/${client.slug.current}/${slug.current}`} className={`preview`}>
+    <Link to={`/work/${slug.current}`} className={`preview`}>
       <h4>{client.name}</h4>
       {<PreviewImage imageAsset={coverImg} />}
     </Link>

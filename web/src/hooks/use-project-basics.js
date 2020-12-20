@@ -2,8 +2,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const useProjectBasics = () => {
 	const data = useStaticQuery(graphql`
-		query featuredProjects {
-			projects: allSanityProject(sort: {fields: featured, order: DESC}) {
+		query visibleProjects {
+			projects: allSanityProject(filter: {visibility: {eq: true}}, sort: {fields: featured, order: DESC}) {
 		    edges {
 		      node {
 		        _id
@@ -16,9 +16,6 @@ const useProjectBasics = () => {
 						}
 		        client {
 		          name
-		          slug {
-		            current
-		          }
 		        }
 		      }
 		    }
