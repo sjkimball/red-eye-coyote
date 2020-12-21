@@ -162,8 +162,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
-      subtitle: 'client.name',
+      title: 'client.name',
+      subtitle: 'title',
       media: 'coverImg.asset'
     }
   }
